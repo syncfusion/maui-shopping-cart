@@ -5,7 +5,7 @@
              xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
              x:Class="ShoppingCart.MainPage"
-             Shell.NavBarIsVisible="False">
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Resources>
         <Style TargetType="syncfusion:SfTabItem">
             <Setter Property="VisualStateManager.VisualStateGroups">
@@ -31,10 +31,10 @@
         <syncfusion:SfTabItem Header="&#xe738;" FontFamily="MauiSampleFontIcon" FontSize="32" >
             <Grid RowDefinitions="Auto,*" >
                 <StackLayout Padding="16" Spacing="15">
-                    <Label Text="Discover" HorizontalOptions="Center" FontSize="16"/>
+                    <Label Text="Discover" HorizontalOptions="Center" FontAttributes="Bold" FontSize="16"/>
                     <HorizontalStackLayout Spacing="10" Padding="10,0">
                         <input:SfTextInputLayout Margin="0,20,0,0" InputViewPadding="10,0,0,5"  ContainerType="Outlined" WidthRequest="308" HeightRequest="62" ContainerBackground="#F3EDF7" IsHintAlwaysFloated="True" Stroke="#F3EDF7" >
-                            <Editor Placeholder="Search product" FontSize="14" HeightRequest="45" VerticalTextAlignment="Center"
+                            <Editor Placeholder="Search product" PlaceholderColor="#49454F" TextColor="#49454F" FontSize="14" HeightRequest="45" VerticalTextAlignment="Center"
                         HorizontalOptions="FillAndExpand"  />
                         </input:SfTextInputLayout>
                         <Border StrokeShape="RoundRectangle 8" Background="#F3EDF7" Stroke="#F3EDF7" WidthRequest="42" HeightRequest="42">
