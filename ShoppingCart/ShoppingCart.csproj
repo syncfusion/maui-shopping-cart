@@ -62,8 +62,8 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
-		<PackageReference Include="Syncfusion.Maui.Carousel" Version="*" />
 		<PackageReference Include="Syncfusion.Maui.Core" Version="*" />
+		<PackageReference Include="Syncfusion.Maui.Rotator" Version="*" />
 		<PackageReference Include="Syncfusion.Maui.Toolkit" Version="*" />
 	</ItemGroup>
 
@@ -75,9 +75,6 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="SignUpMobilePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="SignUpPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

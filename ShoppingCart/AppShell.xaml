@@ -8,7 +8,7 @@
     Title="ShoppingCart">
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:SignUpPage}"
+        ContentTemplate="{DataTemplate local:SignUpMobilePage}"
         Route="MainPage" />
 
 </Shell>

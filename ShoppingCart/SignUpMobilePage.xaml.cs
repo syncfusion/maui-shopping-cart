@@ -2,10 +2,13 @@ namespace ShoppingCart;
 
 public partial class SignUpMobilePage : ContentPage
 {
-	public SignUpMobilePage()
+    ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel();
+    public SignUpMobilePage()
 	{
 		InitializeComponent();
-	}
+        signinEmail.Text = shoppingCartViewModel.Email;
+        signinPassword.Text = shoppingCartViewModel.Password;
+    }
 
     private void SignIn_Tapped(object sender, TappedEventArgs e)
     {
