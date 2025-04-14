@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Toolkit.TabView;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
+             x:Class="ShoppingCart.MainPageMobile"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <Style TargetType="syncfusion:SfTabItem">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup>
+                        <VisualState x:Name="Normal" >
+                            <VisualState.Setters>
+                                <Setter Property="TextColor">
+                                    <Setter.Value>
+                                        <AppThemeBinding Light="{StaticResource placeholdercolor-Light}" Dark="{StaticResource placeholderColor-Dark}" />
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor">
+                                    <Setter.Value>
+                                        <AppThemeBinding Light="{StaticResource PrimaryBackgroundSelected-Light}" Dark="{StaticResource PrimaryBackgroundSelected-Dark}" />
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <syncfusion:SfTabView TabBarPlacement="Bottom" TabBarBackground="#F7F2FB" TabHeaderPadding="20,0" TabBarHeight="56" IndicatorBackground="#F7F2FB">
+
+        <syncfusion:SfTabItem Header="&#xe738;" FontFamily="MauiSampleFontIcon" FontSize="32" >
+            <Grid RowDefinitions="Auto,*" >
+                <StackLayout Padding="16" Spacing="15">
+                    <Label Text="Discover" HorizontalOptions="Center" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                    <HorizontalStackLayout Spacing="10" Padding="10,0">
+                        <input:SfTextInputLayout Margin="0,20,0,0" InputViewPadding="10,0,0,5"  ContainerType="Outlined" WidthRequest="308" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  IsHintAlwaysFloated="True" Stroke="#F3EDF7" >
+                            <Editor Placeholder="Search product" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" HeightRequest="45" VerticalTextAlignment="Center"
+                        HorizontalOptions="FillAndExpand"  />
+                        </input:SfTextInputLayout>
+                        <Border StrokeShape="RoundRectangle 8" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  Stroke="#F3EDF7" WidthRequest="42" HeightRequest="42">
+                            <Image Source="menu.png" WidthRequest="16" HeightRequest="16"/>
+                        </Border>
+                    </HorizontalStackLayout>
+                    <rotator:SfRotator x:Name="rotatorView" NavigationDirection="Horizontal"  WidthRequest="368" HeightRequest="120" DotPlacement="OutSide" NavigationStripMode="Dots" DotsStroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}">
+                        <rotator:SfRotator.ItemTemplate>
+                            <DataTemplate>
+                                <Border BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}" StrokeShape="RoundRectangle 8" Padding="10">
+                                    <HorizontalStackLayout Spacing="25">
+                                        <StackLayout Spacing="5">
+                                            <Label Text="{Binding Title}" FontSize="16" WidthRequest="210" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                            <Label Text="{Binding Subtitle}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" FontSize="11"/>
+                                        </StackLayout>
+                                        <Image Source="{Binding ImageSource}" WidthRequest="80" HeightRequest="80"/>
+                                    </HorizontalStackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </rotator:SfRotator.ItemTemplate>
+                    </rotator:SfRotator>
+                    <Grid Padding="16,0">
+                        <Label Text="New Trend" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                        <Label Text="View All" HorizontalTextAlignment="End" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"/>
+                    </Grid>
+                </StackLayout>
+                <ScrollView Orientation="Vertical" Grid.Row="1" Padding="16" >
+                    <!-- Product Grid -->
+                    <StackLayout >
+                        <Grid ColumnDefinitions="*,*"
+                      RowDefinitions="*,*,*">
+                            <Border Grid.Row="0" Grid.Column="0" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+                                <StackLayout Padding="5" Spacing="10">
+                                    <Grid ColumnDefinitions="*,Auto" Padding="5">
+                                        <Image Source="shirt1.png" HeightRequest="116" Margin="0,10,0,0" HorizontalOptions="Start" WidthRequest="124" Grid.Row="0" Grid.Column="0" />
+                                        <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2" HorizontalOptions="Start">
+                                            <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                                            <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                    <Label Text="Men's Shirt" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                    <Grid ColumnDefinitions="*,auto">
+                                        <Label Text="$24.00" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                        <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" WidthRequest="16" HorizontalOptions="End" HeightRequest="16"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Border>
+
+                            <Border Grid.Row="0" Grid.Column="1" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"   StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+                                <StackLayout Padding="5" Spacing="10">
+                                    <Grid ColumnDefinitions="*,auto" Padding="5">
+                                        <Image Source="shirt2.png" HeightRequest="116"  HorizontalOptions="Start" Margin="0,10,0,0" WidthRequest="124" Grid.Row="0" Grid.Column="0" />
+                                        <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2" HorizontalOptions="End">
+                                            <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                                            <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                    <Label Text="Men's T-Shirt" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                    <Grid ColumnDefinitions="*,10">
+                                        <Label Text="$24.00" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                        <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" WidthRequest="16" HorizontalOptions="End" HeightRequest="16"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Border>
+
+                            <Border Grid.Row="1" Grid.Column="0" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+                                <StackLayout Padding="5" Spacing="10">
+                                    <Grid ColumnDefinitions="*,auto" Padding="5">
+                                        <Image Source="bag.png" HeightRequest="116" HorizontalOptions="Start" Margin="0,10,0,0" WidthRequest="124" Grid.Row="0" Grid.Column="0" />
+                                        <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2" HorizontalOptions="End">
+                                            <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                                            <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                    <Label Text="Women's Bag" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                    <Grid ColumnDefinitions="*,10">
+                                        <Label Text="$24.00" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                        <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" WidthRequest="16" HorizontalOptions="End" HeightRequest="16"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Border>
+
+                            <Border Grid.Row="1" Grid.Column="1" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+                                <StackLayout Padding="5" Spacing="10">
+                                    <Grid ColumnDefinitions="*,auto" Padding="5">
+                                        <Image Source="gown.png" HeightRequest="116" HorizontalOptions="Start" Margin="0,10,0,0" WidthRequest="124" Grid.Row="0" Grid.Column="0" />
+                                        <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2" HorizontalOptions="End">
+                                            <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                                            <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                    <Label Text="Women's Dress" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                    <Grid ColumnDefinitions="*,10">
+                                        <Label Text="$24.00" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                        <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" WidthRequest="16" HorizontalOptions="End" HeightRequest="16"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Border>
+
+                            <Border Grid.Row="2" Grid.Column="0" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+                                <StackLayout Padding="5" Spacing="10">
+                                    <Grid ColumnDefinitions="*,auto" Padding="5">
+                                        <Image Source="bag.png" HeightRequest="116" HorizontalOptions="Start" Margin="0,10,0,0" WidthRequest="124" Grid.Row="0" Grid.Column="0" />
+                                        <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2" HorizontalOptions="End">
+                                            <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                                            <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                    <Label Text="Women's Bag" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                    <Grid ColumnDefinitions="*,10">
+                                        <Label Text="$24.00" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                        <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" WidthRequest="16" HorizontalOptions="End" HeightRequest="16"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Border>
+
+                            <Border Grid.Row="2" Grid.Column="1" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+                                <StackLayout Padding="5" Spacing="10">
+                                    <Grid ColumnDefinitions="*,auto" Padding="5">
+                                        <Image Source="gown.png" HeightRequest="116" HorizontalOptions="Start" Margin="0,10,0,0" WidthRequest="124" Grid.Row="0" Grid.Column="0" />
+                                        <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2" HorizontalOptions="End">
+                                            <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                                            <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                    <Label Text="Women's Dress" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                    <Grid ColumnDefinitions="*,10">
+                                        <Label Text="$24.00" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                                        <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" WidthRequest="16" HorizontalOptions="End" HeightRequest="16"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Border>
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </syncfusion:SfTabItem>
+
+        <syncfusion:SfTabItem Header="&#xe728;" FontFamily="MauiSampleFontIcon" FontSize="32"/>
+        <syncfusion:SfTabItem Header="&#xe739;" FontFamily="MauiSampleFontIcon" FontSize="32"/>
+        <syncfusion:SfTabItem Header="&#xe760;" FontFamily="MauiSampleFontIcon" FontSize="32"/>
+
+        <syncfusion:SfTabItem Header="&#xe73e;" FontFamily="MauiSampleFontIcon" FontSize="32"/>
+
+    </syncfusion:SfTabView>
+</ContentPage>

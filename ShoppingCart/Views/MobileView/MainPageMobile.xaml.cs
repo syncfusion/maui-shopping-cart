@@ -3,10 +3,10 @@ using System.Collections.ObjectModel;
 
 namespace ShoppingCart
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPageMobile : ContentPage
     {
 
-        public MainPage()
+        public MainPageMobile()
         {
             InitializeComponent();
             ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel();

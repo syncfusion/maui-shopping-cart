@@ -22,5 +22,15 @@
     <Color x:Key="Secondary-text-colorDark">#FFFFFF</Color>
     <Color x:Key="Secondary-bg-colorDark">#3C3B3D</Color>
     <Color x:Key="placeholder-text-colorDark">#878386</Color>
+    <Color x:Key="focused-stroke-Dark">#D0BCFF</Color>
+    <Color x:Key="border-Dark">#49454F</Color>
+    <Color x:Key="content-bg-Dark">#1C1B1F</Color>
+    <Color x:Key="textColor-Dark">#381E72</Color>
+    <Color x:Key="placeholderColor-Dark">#CAC4D0</Color>
+    <Color x:Key="ContentForeground-Dark">#E6E1E5</Color>
+    <Color x:Key="ContentBackgroundAlt2-Dark">#2A2831</Color>
+    <Color x:Key="SeriesColor6-Dark">#AA6ADD</Color>
+    <Color x:Key="PrimaryBackgroundSelected-Dark">#C4AFF4</Color>
+    <Color x:Key="ContentBackgroundAlt1-Dark">#25232A</Color>
 
 </ResourceDictionary>
