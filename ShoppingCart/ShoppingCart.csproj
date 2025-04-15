@@ -68,7 +68,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="SignUpMobilePage.xaml.cs">
+	  <Compile Update="Views\DesktopView\SignUpPageDesktop.xaml.cs">
+	    <DependentUpon>SignUpPageDesktop.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\MobileView\MainPageMobile.xaml.cs">
+	    <DependentUpon>MainPageMobile.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\MobileView\SignUpMobilePage.xaml.cs">
 	    <DependentUpon>SignUpMobilePage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
@@ -80,7 +86,10 @@
 	  <MauiXaml Update="Themes\LightTheme.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="SignUpMobilePage.xaml">
+	  <MauiXaml Update="Views\DesktopView\SignUpPageDesktop.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MobileView\SignUpMobilePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

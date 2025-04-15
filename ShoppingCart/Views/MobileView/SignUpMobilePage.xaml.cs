@@ -24,11 +24,11 @@ public partial class SignUpMobilePage : ContentPage
 
     private void SignUpButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MainPage());
+        Navigation.PushAsync(new MainPageMobile());
     }
 
     private void SignInButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MainPage());
+        Navigation.PushAsync(new MainPageMobile());
     }
 }
