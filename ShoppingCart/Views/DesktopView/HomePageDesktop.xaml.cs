@@ -9,6 +9,9 @@ namespace ShoppingCart
         public HomePageDesktop()
         {
             InitializeComponent();
+            ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel();
+            rotatorView.ItemsSource = shoppingCartViewModel.DesktopRotatorItems;
+            catagoriesChip.ItemsSource = shoppingCartViewModel.Catagories;
         }
     }
 }
