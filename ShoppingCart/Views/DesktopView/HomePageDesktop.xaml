@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Toolkit.TabView;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
+             xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="ShoppingCart.HomePageDesktop"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <Style TargetType="syncfusion:SfTabItem">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup>
+                        <VisualState x:Name="Normal" >
+                            <VisualState.Setters>
+                                <Setter Property="TextColor">
+                                    <Setter.Value>
+                                        <AppThemeBinding Light="{StaticResource placeholdercolor-Light}" Dark="{StaticResource placeholderColor-Dark}" />
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor">
+                                    <Setter.Value>
+                                        <AppThemeBinding Light="{StaticResource PrimaryBackgroundSelected-Light}" Dark="{StaticResource PrimaryBackgroundSelected-Dark}" />
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="48,*">
+        <Grid ColumnDefinitions="Auto, *,Auto">
+            <HorizontalStackLayout Spacing="10" Padding="16, 8, 16, 0">
+                <Image Source="shoppingcarticon.png" Aspect="Fill" HeightRequest="24" WidthRequest="24" />
+                <Label Text="Shopping cart" TextColor="#7633DA" FontAttributes="Bold" FontSize="24" FontFamily="Roboto" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <input:SfTextInputLayout Grid.Column="1" Margin="0,20,0,0" OutlineCornerRadius="16" InputViewPadding="10,0,0,5"  ContainerType="Outlined" WidthRequest="464" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" >
+                <Editor Placeholder="Search product" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" HeightRequest="45" VerticalTextAlignment="Center"
+ HorizontalOptions="FillAndExpand"  />
+            </input:SfTextInputLayout>
+            
+        </Grid>
+        <Grid x:Name="grid" Grid.Row="1" ColumnDefinitions=".25*, .75*">
+            <!--Drawer-->
+            <Grid Grid.Column="0">
+                <Border Padding="16">
+                    <Grid RowSpacing="40">
+
+                        <VerticalStackLayout Grid.Row="1" Spacing="10">
+                            <!-- Home Item -->
+                            <Border x:Name="HomeBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="&#xe738;  " FontFamily="MauiSampleFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
+                                    <Label Text="Home" FontSize="16" Margin="0,2" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
+                                </HorizontalStackLayout>
+                            </Border>
+
+                            <Border x:Name="SavedProductsBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="&#xe728;  " FontFamily="MauiSampleFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
+                                    <Label Text="Saved Products" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
+                                </HorizontalStackLayout>
+                            </Border>
+
+                            <Border x:Name="CartBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="&#xe739;  " FontFamily="MauiSampleFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
+                                    <Label Text="My Cart" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
+                                </HorizontalStackLayout>
+                            </Border>
+
+                            <Border x:Name="AccountBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="&#xe760;  " FontFamily="MauiSampleFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
+                                    <Label Text="My Account" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
+                                </HorizontalStackLayout>
+                            </Border>
+                        </VerticalStackLayout>
+
+                    </Grid>
+                </Border>
+            </Grid> 
+            <!--Content-->
+            <Grid Grid.Column="1" >
+                <!--Header-->
+                <Border >
+                    <Grid RowDefinitions="Auto,*" >
+                        
+                    </Grid>
+                </Border>
+
+            </Grid>
+        </Grid>
+       
+    </Grid>
+</ContentPage>
