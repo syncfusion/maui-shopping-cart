@@ -63,11 +63,15 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 		<PackageReference Include="Syncfusion.Maui.Core" Version="*" />
+		<PackageReference Include="Syncfusion.Maui.ListView" Version="*" />
 		<PackageReference Include="Syncfusion.Maui.Rotator" Version="*" />
 		<PackageReference Include="Syncfusion.Maui.Toolkit" Version="*" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\DesktopView\HomePageDesktop.xaml.cs">
+	    <DependentUpon>HomePageDesktop.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\DesktopView\SignUpPageDesktop.xaml.cs">
 	    <DependentUpon>SignUpPageDesktop.xaml</DependentUpon>
 	  </Compile>
@@ -84,6 +88,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Themes\LightTheme.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\DesktopView\HomePageDesktop.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\DesktopView\SignUpPageDesktop.xaml">
