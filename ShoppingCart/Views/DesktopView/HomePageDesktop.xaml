@@ -102,7 +102,7 @@
                 </Border>
             </Grid> 
             <!--Content-->
-            <Grid Grid.Column="1" >
+            <Grid Grid.Column="1" x:Name="selectedtab">
                 <!--Header-->
                 <Border >
                     <Grid RowDefinitions="Auto,*" >

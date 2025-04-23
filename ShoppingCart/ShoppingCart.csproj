@@ -93,6 +93,9 @@
 	  <MauiXaml Update="Views\DesktopView\HomePageDesktop.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\DesktopView\SavedItemsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\DesktopView\SignUpPageDesktop.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
