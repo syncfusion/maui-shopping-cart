@@ -35,6 +35,7 @@ namespace ShoppingCart
         public HomePageDesktop()
         {
             InitializeComponent();
+            this.MinimumWidthRequest = 500;
             var selectedCategory = "Men";
             if (selectedCategory != null)
             {
