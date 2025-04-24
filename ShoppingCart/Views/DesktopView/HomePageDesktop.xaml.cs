@@ -183,6 +183,7 @@ namespace ShoppingCart
                     ColumnFiveCollection.Add(shoppingCartViewModel.FilteredProducts[i]);
                 }
             }
+            ColumnThreeBorder.IsVisible = true;
             ColumnFourBorder.IsVisible = true;
             ColumnFiveBorder.IsVisible = true;
             BindableLayout.SetItemsSource(this.ColumnOneBorder, null);
