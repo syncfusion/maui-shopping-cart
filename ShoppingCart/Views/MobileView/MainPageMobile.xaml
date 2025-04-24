@@ -5,6 +5,8 @@
              xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
              xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
              x:Class="ShoppingCart.MainPageMobile"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}">
@@ -35,6 +37,53 @@
                 </VisualStateGroupList>
             </Setter>
         </Style>
+
+        <Style TargetType="sf:ListViewItem">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup>
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <AppThemeBinding Light="{StaticResource content-bg-Light}" Dark="{StaticResource content-bg-Dark}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" >
+                                    <Setter.Value>
+                                        <AppThemeBinding Light="{StaticResource content-bg-Light}" Dark="{StaticResource content-bg-Dark}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="PointerOver">
+                            <VisualState.Setters>
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <AppThemeBinding Light="{StaticResource content-bg-Light}" Dark="{StaticResource content-bg-Dark}"/>
+                                    </Setter.Value>
+                                </Setter>
+
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <AppThemeBinding Light="{StaticResource content-bg-Light}" Dark="{StaticResource content-bg-Dark}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+
     </ContentPage.Resources>
     <syncfusion:SfTabView TabBarPlacement="Bottom" TabBarBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" TabHeaderPadding="20,0" TabBarHeight="56" IndicatorBackground="#F7F2FB">
 
@@ -86,80 +135,47 @@
                         </chip:SfChipGroup>
                     </ScrollView>
                 </StackLayout>
-                <ScrollView x:Name="ProductScrollView" Orientation="Vertical" Grid.Row="1"  Padding="0,10,0,0">
+                <ScrollView x:Name="ProductScrollView" Orientation="Vertical" Grid.Row="1"  Padding="0,10,0,0" VerticalScrollBarVisibility="Never">
                     <!-- Product Grid -->
                     <StackLayout >
-                        <Grid x:Name="ProductScrollviewGrid" ColumnDefinitions="*,*" ColumnSpacing="10" >
-                            
-                            <VerticalStackLayout x:Name="ColumnOneBorder" Padding="5" Spacing="10">
-                                <BindableLayout.ItemTemplate>
+                        <Grid x:Name="ProductScrollviewGrid" >
+
+                            <sf:SfListView ItemsSource="{Binding FilteredProducts}" ItemSize="250" SelectionMode="None" ScrollBarVisibility="Never">
+                                <sf:SfListView.ItemsLayout>
+                                    <sf:GridLayout x:Name="listView" SpanCount="2" />
+                                </sf:SfListView.ItemsLayout>
+                                <sf:SfListView.ItemTemplate>
                                     <DataTemplate>
-                                        <VerticalStackLayout>
-                                            <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
-                                                <StackLayout Padding="5" Spacing="10">
-                                                    <Grid ColumnDefinitions="*,auto" Padding="5">
-                                                        <Image Source="{Binding ImageUrl}" HeightRequest="116" Grid.ColumnSpan="2" HorizontalOptions="Start" Margin="0,10,0,0" WidthRequest="124" Grid.Row="0" Grid.Column="0" />
-                                                        <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2" HorizontalOptions="End">
-                                                            <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
-                                                            <Label Text="{Binding Rating}" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                                                        </HorizontalStackLayout>
-                                                    </Grid>
-                                                    <Label Text="{Binding Name}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                                                    <Grid ColumnDefinitions="*,10">
-                                                        <Label Text="{Binding Price}" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                                                        <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" WidthRequest="16" HorizontalOptions="End" HeightRequest="16">
-                                                            <Label.Triggers>
-                                                                <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
-                                                                    <Setter Property="Text" Value="&#xe7cc;" />
-                                                                </DataTrigger>
-                                                                <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
-                                                                    <Setter Property="Text" Value="&#xe739;" />
-                                                                </DataTrigger>
-                                                            </Label.Triggers>
-                                                        </Label>
-                                                    </Grid>
-                                                </StackLayout>
-                                            </Border>
-                                        </VerticalStackLayout>
+                                        <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8" Margin="5" >
+                                            <effects:SfEffectsView>
+                                                <StackLayout Padding="10" Spacing="10">
+                                                <Grid ColumnDefinitions="*,auto" Padding="5">
+                                                    <Image Source="{Binding ImageUrl}" HeightRequest="116" Grid.ColumnSpan="2" HorizontalOptions="Center" Margin="0,10,0,0" WidthRequest="124" Grid.Row="0" Grid.Column="0" />
+                                                    <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2" HorizontalOptions="End">
+                                                        <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                                                        <Label Text="{Binding Rating}" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                                    </HorizontalStackLayout>
+                                                </Grid>
+                                                <Label Text="{Binding Name}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                                <Grid ColumnDefinitions="*,10">
+                                                    <Label Text="{Binding Price}" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                                    <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" WidthRequest="16" HorizontalOptions="End" HeightRequest="16">
+                                                        <Label.Triggers>
+                                                            <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
+                                                                <Setter Property="Text" Value="&#xe7cc;" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
+                                                                <Setter Property="Text" Value="&#xe739;" />
+                                                            </DataTrigger>
+                                                        </Label.Triggers>
+                                                    </Label>
+                                                </Grid>
+                                            </StackLayout>
+                                            </effects:SfEffectsView>
+                                        </Border>
                                     </DataTemplate>
-                                </BindableLayout.ItemTemplate>
-                            </VerticalStackLayout>
-
-                            <VerticalStackLayout x:Name="ColumnTwoBorder" Grid.Column="1" Padding="5" Spacing="10">
-                                <BindableLayout.ItemTemplate>
-                                    <DataTemplate>
-                                        <VerticalStackLayout>
-                                            <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
-                                                <StackLayout Padding="5" Spacing="10">
-                                                    <Grid ColumnDefinitions="*,auto" Padding="5">
-                                                        <Image Source="{Binding ImageUrl}" HeightRequest="116" Grid.ColumnSpan="2" HorizontalOptions="Start" Margin="0,10,0,0" WidthRequest="124" Grid.Row="0" Grid.Column="0" />
-                                                        <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2" HorizontalOptions="End">
-                                                            <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
-                                                            <Label Text="{Binding Rating}" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                                                        </HorizontalStackLayout>
-                                                    </Grid>
-                                                    <Label Text="{Binding Name}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                                                    <Grid ColumnDefinitions="*,10">
-                                                        <Label Text="{Binding Price}" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                                                        <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" WidthRequest="16" HorizontalOptions="End" HeightRequest="16">
-                                                            <Label.Triggers>
-                                                                <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
-                                                                    <Setter Property="Text" Value="&#xe7cc;" />
-                                                                </DataTrigger>
-                                                                <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
-                                                                    <Setter Property="Text" Value="&#xe739;" />
-                                                                </DataTrigger>
-                                                            </Label.Triggers>
-                                                        </Label>
-                                                    </Grid>
-                                                </StackLayout>
-                                            </Border>
-
-                                        </VerticalStackLayout>
-                                    </DataTemplate>
-                                </BindableLayout.ItemTemplate>
-                            </VerticalStackLayout>
-
+                                </sf:SfListView.ItemTemplate>
+                            </sf:SfListView>
                         </Grid>
                     </StackLayout>
                 </ScrollView>

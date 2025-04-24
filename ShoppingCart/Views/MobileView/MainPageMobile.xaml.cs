@@ -5,17 +5,6 @@ namespace ShoppingCart
 {
     public partial class MainPageMobile : ContentPage
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public List<Product>? ColumnOneCollection { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public List<Product>? ColumnTwoCollection { get; set; }
-
-        public List<Product>? HomePageCollection { get; set; }
 
         ShoppingCartViewModel shoppingCartViewModel;
 
@@ -23,8 +12,12 @@ namespace ShoppingCart
         {
             InitializeComponent();
             shoppingCartViewModel = new ShoppingCartViewModel();
+            shoppingCartViewModel.FilteredProducts = new ObservableCollection<Product>();
+            for (int i = 0; i < 4; i++)
+            {
+                shoppingCartViewModel.FilteredProducts.Add(shoppingCartViewModel.Products[i]);
+            }
             BindingContext = shoppingCartViewModel;
-            ArrangeControlInColumn();
         }
 
         private void ViewAll_Tapped(object sender, TappedEventArgs e)
@@ -32,50 +25,14 @@ namespace ShoppingCart
             TitleLabel.IsVisible = false;
             rotatorView.IsVisible = false;
             ViewAllLabel.IsVisible = false;
-            ColumnOneCollection = new List<Product>();
-            ColumnTwoCollection = new List<Product>();
+            shoppingCartViewModel.FilteredProducts?.Clear();
             for (int i = 0; i < shoppingCartViewModel.Products.Count; i++)
             {
-                if (i % 2 == 0)
-                {
-                    ColumnOneCollection.Add(shoppingCartViewModel.Products[i]);
-                }
-                else
-                {
-                    ColumnTwoCollection.Add(shoppingCartViewModel.Products[i]);
-                }
+                shoppingCartViewModel.FilteredProducts?.Add(shoppingCartViewModel.Products[i]);
             }
 
-            BindableLayout.SetItemsSource(this.ColumnOneBorder, ColumnOneCollection);
-            BindableLayout.SetItemsSource(this.ColumnTwoBorder, ColumnTwoCollection);
         }
 
-
-        private void ArrangeControlInColumn()
-        {
-            ColumnOneCollection = new List<Product>();
-            ColumnTwoCollection = new List<Product>();
-            HomePageCollection = new List<Product>();
-            for (int i=0;i<4;i++)
-            {
-                HomePageCollection.Add(shoppingCartViewModel.Products[i]);
-            }
-
-            for (int i = 0; i < HomePageCollection.Count; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    ColumnOneCollection.Add(HomePageCollection[i]);
-                }
-                else
-                {
-                    ColumnTwoCollection.Add(HomePageCollection[i]);
-                }
-            }
-
-            BindableLayout.SetItemsSource(this.ColumnOneBorder, ColumnOneCollection);
-            BindableLayout.SetItemsSource(this.ColumnTwoBorder, ColumnTwoCollection);
-        }
 
         private void Menu_Tapped(object sender, TappedEventArgs e)
         {
@@ -100,33 +57,17 @@ namespace ShoppingCart
 
                 if (shoppingCartViewModel != null)
                 {
-                    shoppingCartViewModel.FilteredProducts = new ObservableCollection<Product>();
+                    shoppingCartViewModel.FilteredProducts?.Clear();
+
                     var filteredProducts = shoppingCartViewModel.Products
                         .Where(product => product.Category == selectedCategory);
 
                     foreach (var product in filteredProducts)
                     {
-                        shoppingCartViewModel.FilteredProducts.Add(product);
+                        shoppingCartViewModel.FilteredProducts?.Add(product);
                     }
                 }
             }
-
-            ColumnOneCollection = new List<Product>();
-            ColumnTwoCollection = new List<Product>();
-            for (int i = 0; i < shoppingCartViewModel.FilteredProducts?.Count; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    ColumnOneCollection.Add(shoppingCartViewModel.FilteredProducts[i]);
-                }
-                else
-                {
-                    ColumnTwoCollection.Add(shoppingCartViewModel.FilteredProducts[i]);
-                }
-            }
-
-            BindableLayout.SetItemsSource(this.ColumnOneBorder, ColumnOneCollection);
-            BindableLayout.SetItemsSource(this.ColumnTwoBorder, ColumnTwoCollection);
         }
 
         private void catagoriesChip_SelectionChanged(object sender, Syncfusion.Maui.Core.Chips.SelectionChangedEventArgs e)
@@ -143,27 +84,11 @@ namespace ShoppingCart
 
                     foreach (var product in filteredProducts)
                     {
-                        shoppingCartViewModel.FilteredProducts.Add(product);
+                        shoppingCartViewModel.FilteredProducts?.Add(product);
                     }
                 }
             }
 
-            ColumnOneCollection = new List<Product>();
-            ColumnTwoCollection = new List<Product>();
-            for (int i = 0; i < shoppingCartViewModel.FilteredProducts.Count; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    ColumnOneCollection.Add(shoppingCartViewModel.FilteredProducts[i]);
-                }
-                else
-                {
-                    ColumnTwoCollection.Add(shoppingCartViewModel.FilteredProducts[i]);
-                }
-            }
-
-            BindableLayout.SetItemsSource(this.ColumnOneBorder, ColumnOneCollection);
-            BindableLayout.SetItemsSource(this.ColumnTwoBorder, ColumnTwoCollection);
         }
     }
 }
