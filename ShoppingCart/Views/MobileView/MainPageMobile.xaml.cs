@@ -7,6 +7,7 @@ namespace ShoppingCart
     {
 
         ShoppingCartViewModel shoppingCartViewModel;
+        bool isMenuSelected = false;
 
         public MainPageMobile()
         {
@@ -25,6 +26,7 @@ namespace ShoppingCart
             TitleLabel.IsVisible = false;
             rotatorView.IsVisible = false;
             ViewAllLabel.IsVisible = false;
+            BackArrow.IsVisible = true;
             shoppingCartViewModel.FilteredProducts?.Clear();
             for (int i = 0; i < shoppingCartViewModel.Products.Count; i++)
             {
@@ -36,36 +38,64 @@ namespace ShoppingCart
 
         private void Menu_Tapped(object sender, TappedEventArgs e)
         {
-            rotatorView.IsVisible = false;
-            TrendLabel.IsVisible=false;
-            ViewAllLabel.IsVisible=false;
-            if (Application.Current!.RequestedTheme == AppTheme.Dark)
+            isMenuSelected = !isMenuSelected;
+            if (isMenuSelected)
             {
-                MenuBorder.BackgroundColor = Color.FromArgb("#D0BCFF");
-                MenuLabel.TextColor = Color.FromArgb("#381E72");
+                rotatorView.IsVisible = false;
+                TrendLabel.IsVisible = false;
+                ViewAllLabel.IsVisible = false;
+                BackArrow.IsVisible = false;
+                if (Application.Current!.RequestedTheme == AppTheme.Dark)
+                {
+                    MenuBorder.BackgroundColor = Color.FromArgb("#D0BCFF");
+                    MenuLabel.TextColor = Color.FromArgb("#381E72");
+                }
+                else
+                {
+                    MenuBorder.BackgroundColor = Color.FromArgb("#6750A4");
+                    MenuLabel.TextColor = Color.FromArgb("#FFFFFF");
+                }
+
+                CatagoryScrollView.IsVisible = true;
+                catagoriesChip.SelectedItem = "Men";
+                var selectedCategory = "Men";
+                if (selectedCategory != null)
+                {
+
+                    if (shoppingCartViewModel != null)
+                    {
+                        shoppingCartViewModel.FilteredProducts?.Clear();
+
+                        var filteredProducts = shoppingCartViewModel.Products
+                            .Where(product => product.Category == selectedCategory);
+
+                        foreach (var product in filteredProducts)
+                        {
+                            shoppingCartViewModel.FilteredProducts?.Add(product);
+                        }
+                    }
+                }
             }
             else
             {
-                MenuBorder.BackgroundColor = Color.FromArgb("#6750A4");
-                MenuLabel.TextColor = Color.FromArgb("#FFFFFF");
-            }
-
-            CatagoryScrollView.IsVisible = true;
-            var selectedCategory = "Men";
-            if (selectedCategory != null)
-            {
-
-                if (shoppingCartViewModel != null)
+                if (Application.Current!.RequestedTheme == AppTheme.Dark)
                 {
-                    shoppingCartViewModel.FilteredProducts?.Clear();
-
-                    var filteredProducts = shoppingCartViewModel.Products
-                        .Where(product => product.Category == selectedCategory);
-
-                    foreach (var product in filteredProducts)
-                    {
-                        shoppingCartViewModel.FilteredProducts?.Add(product);
-                    }
+                    MenuBorder.BackgroundColor = Color.FromArgb("#2A2831");
+                    MenuLabel.TextColor = Color.FromArgb("#CAC4D0");
+                }
+                else
+                {
+                    MenuBorder.BackgroundColor = Color.FromArgb("#F3EDF7");
+                    MenuLabel.TextColor = Color.FromArgb("#49454F");
+                }
+                CatagoryScrollView.IsVisible = false;
+                rotatorView.IsVisible = true;
+                TrendLabel.IsVisible = true;
+                ViewAllLabel.IsVisible = true;
+                shoppingCartViewModel.FilteredProducts?.Clear();
+                for (int i = 0; i < 4; i++)
+                {
+                    shoppingCartViewModel.FilteredProducts?.Add(shoppingCartViewModel.Products[i]);
                 }
             }
         }
@@ -89,6 +119,19 @@ namespace ShoppingCart
                 }
             }
 
+        }
+
+        private void BackArrow_Tapped(object sender, TappedEventArgs e)
+        {
+            BackArrow.IsVisible = false;
+            rotatorView.IsVisible = true;
+            TrendLabel.IsVisible = true;
+            ViewAllLabel.IsVisible = true;
+            shoppingCartViewModel.FilteredProducts?.Clear();
+            for (int i = 0; i < 4; i++)
+            {
+                shoppingCartViewModel.FilteredProducts?.Add(shoppingCartViewModel.Products[i]);
+            }
         }
     }
 }

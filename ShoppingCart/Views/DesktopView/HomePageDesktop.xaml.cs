@@ -43,14 +43,16 @@ namespace ShoppingCart
 
         internal void UpdateColumn(double width)
         {
-            if (width > 900)
+            if(width>0)
             {
-                listView.SpanCount = 5;
-            }
-            if (width > 700 && width <= 900)
-            {
-
-                listView.SpanCount = 3;
+                if (width > 1200)
+                {
+                    listView.SpanCount = 5;
+                }
+                else
+                {
+                    listView.SpanCount = 3;
+                }
             }
         }
 
