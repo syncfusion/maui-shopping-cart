@@ -24,11 +24,11 @@ public partial class SignUpPageDesktop : ContentPage
 
     private void SignUpButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new HomePageDesktop());
+        Navigation.PushAsync(new MainPageDesktop());
     }
 
     private void SignInButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new HomePageDesktop());
+        Navigation.PushAsync(new MainPageDesktop());
     }
 }

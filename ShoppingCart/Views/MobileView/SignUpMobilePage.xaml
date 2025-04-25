@@ -4,6 +4,7 @@
              xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              x:Class="ShoppingCart.SignUpMobilePage"
              Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
              BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}">
 
     <ContentPage.Resources>
@@ -36,9 +37,9 @@
     </ContentPage.Resources>
     
     <Grid RowDefinitions="250,*" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}">
-       
-        <StackLayout  Grid.Row="1">
-            <Border  x:Name="signUPLayout" IsVisible="False" HeightRequest="648" BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}"  StrokeShape="RoundRectangle 24" Padding="30" >
+
+        <StackLayout  Grid.Row="1" VerticalOptions="End">
+            <Border  x:Name="signUPLayout" IsVisible="False" HeightRequest="648" BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}"  StrokeShape="RoundRectangle 24,24,0,0" Padding="30" VerticalOptions="End">
                 <StackLayout Spacing="25">
                     <!-- Title -->
                     <Label Text="Sign up" FontSize="24" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" HorizontalOptions="Center" />
@@ -70,7 +71,7 @@
                 </StackLayout>
             </Border>
 
-            <Border x:Name="signInLayout" BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}"  HeightRequest="648" VerticalOptions="End"  StrokeShape="RoundRectangle 24" Padding="30" >
+            <Border x:Name="signInLayout" BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}"  HeightRequest="648" VerticalOptions="End"  StrokeShape="RoundRectangle 24,24,0,0" Padding="30" >
                 <StackLayout Padding="20" Spacing="20">
                     <!-- Title -->
                     <Label Text="Sign in" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
