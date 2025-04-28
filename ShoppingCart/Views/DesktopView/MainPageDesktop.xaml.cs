@@ -76,7 +76,8 @@
                     case "Home":
                         selectedContent = new HomePageDesktop();
                         break;
-                    case "SavedProducts":
+                    case "Saved Products":
+                        selectedContent=new SavedItemsPageDesktop();
                         break;
                     case "Cart":
                         break;

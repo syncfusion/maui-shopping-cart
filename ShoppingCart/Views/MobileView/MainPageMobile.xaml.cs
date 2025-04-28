@@ -1,4 +1,5 @@
 ﻿using Syncfusion.Maui.Rotator;
+using Syncfusion.Maui.Toolkit.TabView;
 using System.Collections.ObjectModel;
 
 namespace ShoppingCart
@@ -7,17 +8,38 @@ namespace ShoppingCart
     {
 
         ShoppingCartViewModel shoppingCartViewModel;
-
         public MainPageMobile()
         {
             InitializeComponent();
             shoppingCartViewModel = new ShoppingCartViewModel();
             shoppingCartViewModel.FilteredProducts = new ObservableCollection<Product>();
+            shoppingCartViewModel.SavedProducts = new ObservableCollection<Product>();
             for (int i = 0; i < 4; i++)
             {
                 shoppingCartViewModel.FilteredProducts.Add(shoppingCartViewModel.Products[i]);
             }
+            tabView.SelectionChanged += TabView_SelectionChanged;
             BindingContext = shoppingCartViewModel;
+        }
+
+        private void TabView_SelectionChanged(object? sender, TabSelectionChangedEventArgs e)
+        {
+            
+            if (shoppingCartViewModel != null && e.NewIndex==2)
+            {
+                if (shoppingCartViewModel.SavedProducts != null)
+                {
+                    shoppingCartViewModel.SavedProducts.Clear();
+
+                    foreach (var product in shoppingCartViewModel.Products.Where(product => product.IsSaved))
+                    {
+                        shoppingCartViewModel.SavedProducts.Add(product);
+                    }
+
+                }
+
+            }
+  
         }
 
         private void ViewAll_Tapped(object sender, TappedEventArgs e)
@@ -66,6 +88,8 @@ namespace ShoppingCart
                     {
                         shoppingCartViewModel.FilteredProducts?.Add(product);
                     }
+
+                   
                 }
             }
         }

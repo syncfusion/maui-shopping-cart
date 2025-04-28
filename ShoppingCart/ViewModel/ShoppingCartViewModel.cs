@@ -14,6 +14,7 @@ public class ShoppingCartViewModel : ContentPage
     public ObservableCollection<String> Catagories { get; set; }
     public ObservableCollection<Product> Products { get; set; }
     public ObservableCollection<Product>? FilteredProducts { get; set; }
+    public ObservableCollection<Product>? SavedProducts { get; set; }
 
     public class SfRotatorItem
     {
