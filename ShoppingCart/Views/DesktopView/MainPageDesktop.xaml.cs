@@ -3,6 +3,7 @@
     public partial class MainPageDesktop : ContentPage
     {
         List<Border> _tabBorders = new List<Border>();
+        ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel();
         Border _selectedBorder;
         public MainPageDesktop()
         {
@@ -74,10 +75,10 @@
                 switch (text)
                 {
                     case "Home":
-                        selectedContent = new HomePageDesktop();
+                        selectedContent = new HomePageDesktop(shoppingCartViewModel);
                         break;
                     case "Saved Products":
-                        selectedContent=new SavedItemsPageDesktop();
+                        selectedContent=new SavedItemsPageDesktop(shoppingCartViewModel);
                         break;
                     case "Cart":
                         break;

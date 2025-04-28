@@ -177,7 +177,10 @@
                                                                 <Setter Property="Text" Value="&#xe739;" />
                                                             </DataTrigger>
                                                         </Label.Triggers>
-                                                    </Label>
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="ToggleSavedStatus_Home" />
+                                                        </Label.GestureRecognizers>
+                                                        </Label>
                                                 </Grid>
                                             </StackLayout>
                                             </effects:SfEffectsView>
@@ -212,7 +215,11 @@
                                         <VerticalStackLayout Grid.Column="1" Grid.Row="0" Spacing="7">
                                             <Grid ColumnDefinitions="*,Auto">
                                                 <Label Text="{Binding Name}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" FontAttributes="Bold"></Label>
-                                                <Label Text="&#xe7cc;" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundSelected-Light},Dark={StaticResource PrimaryBackgroundSelected-Dark}}" FontFamily="MauiSampleFontIcon" FontSize="12"  Grid.Row="0" Grid.Column="1" Margin="0,0,7,0"></Label>
+                                                <Label Text="&#xe7cc;" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundSelected-Light},Dark={StaticResource PrimaryBackgroundSelected-Dark}}" FontFamily="MauiSampleFontIcon" FontSize="12"  Grid.Row="0" Grid.Column="1" Margin="0,0,7,0" BindingContext="{Binding}">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="ToggleSavedStatus_SavedPage" />
+                                                    </Label.GestureRecognizers>
+                                                </Label>
                                             </Grid>
 
                                             <Label Text="In Stock" TextColor="{AppThemeBinding Light={StaticResource SucessForeground-Light},Dark={StaticResource SucessForeground-Dark}}" FontSize="12"></Label>

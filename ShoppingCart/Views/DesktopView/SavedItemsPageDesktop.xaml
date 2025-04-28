@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:list="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
              xmlns:local="clr-namespace:ShoppingCart"
              x:Class="ShoppingCart.SavedItemsPageDesktop">
@@ -9,7 +9,7 @@
 
     <ContentView.Resources>
         <local:TagSeparateConverter x:Key="TagSeparateConverter"/>
-        <Style TargetType="sf:ListViewItem">
+        <Style TargetType="list:ListViewItem">
             <Setter Property="VisualStateManager.VisualStateGroups">
                 <VisualStateGroupList>
                     <VisualStateGroup>
@@ -59,11 +59,11 @@
     <Grid RowDefinitions="Auto,*" RowSpacing="16">
         <Label Grid.Row="0" Text="Saved Items" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"></Label>
         <ScrollView Grid.Row="1" Grid.Column="0" VerticalScrollBarVisibility="Never">
-            <sf:SfListView ItemsSource="{Binding SavedProducts}"  SelectionMode="None" ScrollBarVisibility="Never" ItemSize="225" WidthRequest="800" HorizontalOptions="Start">
-                <sf:SfListView.ItemsLayout>
-                    <sf:LinearLayout  x:Name="listView"></sf:LinearLayout>
-                </sf:SfListView.ItemsLayout>
-                <sf:SfListView.ItemTemplate>
+            <list:SfListView ItemsSource="{Binding SavedProducts}"  SelectionMode="None" ScrollBarVisibility="Never" ItemSize="225" WidthRequest="800" HorizontalOptions="Start" ItemTapped="ProductsList_ItemTapped">
+                <list:SfListView.ItemsLayout>
+                    <list:LinearLayout  x:Name="listView"></list:LinearLayout>
+                </list:SfListView.ItemsLayout>
+                <list:SfListView.ItemTemplate>
                     <DataTemplate>
                         <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8" HeightRequest="212" >
                             <effects:SfEffectsView>
@@ -75,7 +75,11 @@
                                                 <Label Text="{Binding Description}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"></Label>
                                                 <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"/>
                                             </VerticalStackLayout>
-                                            <Label Text="&#xe7cc;" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundSelected-Light},Dark={StaticResource PrimaryBackgroundSelected-Dark}}" FontFamily="MauiSampleFontIcon" FontSize="18"  Grid.Row="0" Grid.Column="1" Margin="0,0,7,0"></Label>
+                                            <Label Text="&#xe7cc;" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundSelected-Light},Dark={StaticResource PrimaryBackgroundSelected-Dark}}" FontFamily="MauiSampleFontIcon" FontSize="18"  Grid.Row="0" Grid.Column="1" Margin="0,0,7,0" BindingContext="{Binding}">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="ToggleSavedStatus" />
+                                                </Label.GestureRecognizers>
+                                            </Label>
                                         </Grid>
                                         <HorizontalStackLayout>
                                             <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" Margin="0,0,4,0" FontSize="14" VerticalTextAlignment="Center"/>
@@ -97,8 +101,8 @@
                             </effects:SfEffectsView>
                         </Border>
                     </DataTemplate>
-                </sf:SfListView.ItemTemplate>
-            </sf:SfListView>
+                </list:SfListView.ItemTemplate>
+            </list:SfListView>
         </ScrollView>
        </Grid>
    

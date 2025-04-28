@@ -19,7 +19,6 @@ namespace ShoppingCart
             {
                 shoppingCartViewModel.FilteredProducts.Add(shoppingCartViewModel.Products[i]);
             }
-            tabView.SelectionChanged += TabView_SelectionChanged;
             BindingContext = shoppingCartViewModel;
         }
 
@@ -155,6 +154,26 @@ namespace ShoppingCart
             for (int i = 0; i < 4; i++)
             {
                 shoppingCartViewModel.FilteredProducts?.Add(shoppingCartViewModel.Products[i]);
+            }
+        }
+
+        void ToggleSavedStatus_Home(object sender, EventArgs e)
+        {
+            if (sender is Label tappedLabel)
+            {
+                if (tappedLabel.BindingContext is Product currentItem)
+                {
+                    currentItem.IsSaved = !currentItem.IsSaved;
+                }
+            }
+        }
+
+        private void ToggleSavedStatus_SavedPage(object sender, TappedEventArgs e)
+        {
+            if (sender is Label label && label.BindingContext is Product product)
+            {
+                shoppingCartViewModel.SavedProducts?.Remove(product);
+                product.IsSaved = false;
             }
         }
     }
