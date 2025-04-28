@@ -73,7 +73,7 @@
                                         <Grid ColumnDefinitions="*,Auto">
                                             <VerticalStackLayout>
                                                 <Label Text="{Binding Description}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"></Label>
-                                                <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="Black" FontSize="16"/>
+                                                <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"/>
                                             </VerticalStackLayout>
                                             <Label Text="&#xe7cc;" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundSelected-Light},Dark={StaticResource PrimaryBackgroundSelected-Dark}}" FontFamily="MauiSampleFontIcon" FontSize="18"  Grid.Row="0" Grid.Column="1" Margin="0,0,7,0"></Label>
                                         </Grid>
