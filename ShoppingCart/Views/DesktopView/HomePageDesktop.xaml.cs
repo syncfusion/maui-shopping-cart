@@ -8,7 +8,7 @@ namespace ShoppingCart
     public partial class HomePageDesktop : ContentView
     {
 
-        ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel();
+        ShoppingCartViewModel shoppingCartViewModel;
         public HomePageDesktop(ShoppingCartViewModel shoppingCartViewModel)
         {
             InitializeComponent();

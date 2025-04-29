@@ -4,17 +4,15 @@ namespace ShoppingCart;
 
 public partial class SavedItemsPageDesktop : ContentView
 {
-    ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel();
+    ShoppingCartViewModel shoppingCartViewModel;
     public SavedItemsPageDesktop(ShoppingCartViewModel shoppingCartViewModel)
 	{
 		InitializeComponent();
         this.shoppingCartViewModel = shoppingCartViewModel;
         if (shoppingCartViewModel != null)
         {
-            shoppingCartViewModel.SavedProducts = new ObservableCollection<Product>(
-        shoppingCartViewModel.Products.Where(product => product.IsSaved));
-
-            BindingContext =shoppingCartViewModel;
+            shoppingCartViewModel.FindSavedProducts();
+            BindingContext = shoppingCartViewModel;
         }
     }
 

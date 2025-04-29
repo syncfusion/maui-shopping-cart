@@ -14,32 +14,12 @@ namespace ShoppingCart
             InitializeComponent();
             shoppingCartViewModel = new ShoppingCartViewModel();
             shoppingCartViewModel.FilteredProducts = new ObservableCollection<Product>();
-            shoppingCartViewModel.SavedProducts = new ObservableCollection<Product>();
+            shoppingCartViewModel.FindSavedProducts();
             for (int i = 0; i < 4; i++)
             {
                 shoppingCartViewModel.FilteredProducts.Add(shoppingCartViewModel.Products[i]);
             }
             BindingContext = shoppingCartViewModel;
-        }
-
-        private void TabView_SelectionChanged(object? sender, TabSelectionChangedEventArgs e)
-        {
-            
-            if (shoppingCartViewModel != null && e.NewIndex==2)
-            {
-                if (shoppingCartViewModel.SavedProducts != null)
-                {
-                    shoppingCartViewModel.SavedProducts.Clear();
-
-                    foreach (var product in shoppingCartViewModel.Products.Where(product => product.IsSaved))
-                    {
-                        shoppingCartViewModel.SavedProducts.Add(product);
-                    }
-
-                }
-
-            }
-  
         }
 
         private void ViewAll_Tapped(object sender, TappedEventArgs e)
@@ -157,18 +137,19 @@ namespace ShoppingCart
             }
         }
 
-        void ToggleSavedStatus_Home(object sender, EventArgs e)
+        void ToggleSavedStatus(object sender, EventArgs e)
         {
             if (sender is Label tappedLabel)
             {
                 if (tappedLabel.BindingContext is Product currentItem)
                 {
                     currentItem.IsSaved = !currentItem.IsSaved;
+                    shoppingCartViewModel.FindSavedProducts();
                 }
             }
         }
 
-        private void ToggleSavedStatus_SavedPage(object sender, TappedEventArgs e)
+        private void RemoveProductFromSavedItems(object sender, TappedEventArgs e)
         {
             if (sender is Label label && label.BindingContext is Product product)
             {

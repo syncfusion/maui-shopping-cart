@@ -85,7 +85,7 @@
         </Style>
 
     </ContentPage.Resources>
-    <syncfusion:SfTabView TabBarPlacement="Bottom" TabBarBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" TabHeaderPadding="20,0" TabBarHeight="56" IndicatorBackground="#F7F2FB" SelectionChanged="TabView_SelectionChanged" x:Name="tabView">
+    <syncfusion:SfTabView TabBarPlacement="Bottom" TabBarBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" TabHeaderPadding="20,0" TabBarHeight="56" IndicatorBackground="#F7F2FB" x:Name="tabView">
 
         <syncfusion:SfTabItem Header="&#xe738;" FontFamily="MauiSampleFontIcon" FontSize="32" >
             <Grid RowDefinitions="Auto,*" Padding="16">
@@ -178,7 +178,7 @@
                                                             </DataTrigger>
                                                         </Label.Triggers>
                                                         <Label.GestureRecognizers>
-                                                            <TapGestureRecognizer Tapped="ToggleSavedStatus_Home" />
+                                                            <TapGestureRecognizer Tapped="ToggleSavedStatus" />
                                                         </Label.GestureRecognizers>
                                                         </Label>
                                                 </Grid>
@@ -217,7 +217,7 @@
                                                 <Label Text="{Binding Name}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" FontAttributes="Bold"></Label>
                                                 <Label Text="&#xe7cc;" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundSelected-Light},Dark={StaticResource PrimaryBackgroundSelected-Dark}}" FontFamily="MauiSampleFontIcon" FontSize="12"  Grid.Row="0" Grid.Column="1" Margin="0,0,7,0" BindingContext="{Binding}">
                                                     <Label.GestureRecognizers>
-                                                        <TapGestureRecognizer Tapped="ToggleSavedStatus_SavedPage" />
+                                                        <TapGestureRecognizer Tapped="RemoveProductFromSavedItems" />
                                                     </Label.GestureRecognizers>
                                                 </Label>
                                             </Grid>
