@@ -97,7 +97,7 @@
                                 <effects:SfEffectsView>
                                     <StackLayout Padding="15,10,15,10">
                                         <Grid ColumnDefinitions="*,Auto" Padding="5">
-                                            <Image Source="{Binding ImageUrl}" Aspect="AspectFill" Margin="0,5,0,0" Grid.ColumnSpan="2"/>
+                                            <Image Source="{Binding ImageUrl}" Aspect="AspectFit" HeightRequest="171" Margin="0,5,0,0" Grid.ColumnSpan="2"/>
                                             <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2">
                                                 <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}"/>
                                                 <Label Text="{Binding Rating}" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
