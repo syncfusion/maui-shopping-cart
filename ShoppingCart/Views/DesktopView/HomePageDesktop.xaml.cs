@@ -58,9 +58,13 @@ namespace ShoppingCart
         {
             if(width>0)
             {
-                if (width > 1200)
+                if (width > 900)
                 {
                     listView.SpanCount = 5;
+                }
+                else if (width > 700 && width < 900)
+                {
+                    listView.SpanCount = 4;
                 }
                 else
                 {
@@ -90,5 +94,20 @@ namespace ShoppingCart
             }
             UpdateColumn(this.Width);
         }
+
+        private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
+        {
+            if (e.DataItem is Product tappedProduct)
+            {
+                var productpageDesktop = new ProductPageDesktop
+                {
+                    BindingContext = tappedProduct
+                };
+
+                // Add ProductDetailsView to the page
+                Content = productpageDesktop;
+            }
+        }
+    
     }
 }

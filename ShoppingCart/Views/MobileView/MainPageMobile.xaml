@@ -149,15 +149,14 @@
                     <StackLayout >
                         <Grid x:Name="ProductScrollviewGrid" >
 
-                            <sf:SfListView ItemsSource="{Binding FilteredProducts}" ItemSize="250" SelectionMode="None" ScrollBarVisibility="Never">
+                            <sf:SfListView ItemsSource="{Binding FilteredProducts}" ItemSize="250" SelectionMode="None" ScrollBarVisibility="Never" ItemTapped="SfListView_ItemTapped" ItemSpacing="5">
                                 <sf:SfListView.ItemsLayout>
                                     <sf:GridLayout x:Name="listView" SpanCount="2" />
                                 </sf:SfListView.ItemsLayout>
                                 <sf:SfListView.ItemTemplate>
                                     <DataTemplate>
-                                        <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8" Margin="5" >
-                                            <effects:SfEffectsView>
-                                                <StackLayout Padding="10" Spacing="10">
+                                        <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8" >
+                                            <StackLayout Padding="10" Spacing="10">
                                                 <Grid ColumnDefinitions="*,auto" Padding="5">
                                                     <Image Source="{Binding ImageUrl}" HeightRequest="116" Grid.ColumnSpan="2" HorizontalOptions="Center" Margin="0,10,0,0" WidthRequest="124" Grid.Row="0" Grid.Column="0" />
                                                     <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2" HorizontalOptions="End">
@@ -183,7 +182,6 @@
                                                         </Label>
                                                 </Grid>
                                             </StackLayout>
-                                            </effects:SfEffectsView>
                                         </Border>
                                     </DataTemplate>
                                 </sf:SfListView.ItemTemplate>

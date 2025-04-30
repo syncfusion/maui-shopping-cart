@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="ShoppingCart.ProductPageDesktop"
+             xmlns:local="clr-namespace:ShoppingCart"
+             BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}">
+
+    <ContentView.Resources>
+        <local:TagSeparateConverter x:Key="TagSeparateConverter"/>
+    </ContentView.Resources>
+    <StackLayout>
+        <Grid x:Name="BackArrow" Margin="0,20,0,0" ColumnDefinitions="Auto,Auto">
+            <effects:SfEffectsView>
+                <effects:SfEffectsView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BackArrow_Tapped" />
+                </effects:SfEffectsView.GestureRecognizers>
+                <Label FontSize="20" Text="&#xe70e; " FontFamily="MauiSampleFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+            </effects:SfEffectsView>
+            <Label Grid.Column="1" Text="Product Details" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+        </Grid>
+        <Grid Padding="20" ColumnDefinitions="*,*" ColumnSpacing="20">
+            <!-- Back Button -->
+            <StackLayout  Grid.Column="0">
+                <!-- Product Image -->
+                <Grid RowDefinitions="484,*" RowSpacing="10">
+                    <Border StrokeShape="RoundRectangle 12" BackgroundColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource content-bg-Dark}}">
+                        <Image Source="{Binding ImageUrl}" Aspect="AspectFill" Margin="10"/>
+                    </Border>
+                    <Grid Grid.Row="1" ColumnDefinitions="82,82,82,82" ColumnSpacing="5">
+                        <Border Grid.Column="0" StrokeShape="RoundRectangle 8">
+                            <Image Source="{Binding ImageUrl}"  Aspect="AspectFill" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="1" StrokeShape="RoundRectangle 8">
+                            <Image Source="{Binding ImageUrl}"  Aspect="AspectFill" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="2" StrokeShape="RoundRectangle 8">
+                            <Image Source="{Binding ImageUrl}"  Aspect="AspectFill" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="3" StrokeShape="RoundRectangle 8">
+                            <Image Source="{Binding ImageUrl}"  Aspect="AspectFill" Margin="10"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </StackLayout>
+
+            <!-- Product Details -->
+            <StackLayout Grid.Column="1" Spacing="15" Padding="10,0">
+                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"/>
+                <Grid ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="5">
+                    <HorizontalStackLayout Grid.Column="0" Spacing="2" >
+                        <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" FontSize="14" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}"/>
+                        <Label Text="{Binding Rating}" VerticalTextAlignment="Center" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                    </HorizontalStackLayout>
+                    <Label Grid.Column="1" Text="|" FontSize="14" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource border-Light},Dark={StaticResource border-Dark}}"/>
+                    <Label Grid.Column="2" FontSize="12" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding PurchasedCount}" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
+                                <Span Text="+ bought  in past month" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Grid>
+
+                <Label Text="{Binding Price, StringFormat='${0}'}" FontSize="24" FontAttributes="Bold" />
+                <Label  FontSize="14" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="M.R.P: "/>
+                            <Span Text="$1999" TextDecorations="Strikethrough"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label Text="Description" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                <Label Text="{Binding Description}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" />
+
+                <!-- Size Options -->
+                <Label Text="Size" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                <HorizontalStackLayout x:Name="SizeLayout">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Border HeightRequest="32" WidthRequest="32" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeThickness="0" Background="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}"
+                                    StrokeShape="RoundRectangle 20"
+                                    Margin="6">
+                                <Label Text="{Binding}" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"/>
+                            </Border>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </HorizontalStackLayout>
+
+                <!-- Color Options -->
+                <Label Text="Color" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                <HorizontalStackLayout Spacing="10">
+                    <Border BackgroundColor="{AppThemeBinding Light={StaticResource SeriesColor1-Light},Dark={StaticResource SeriesColor1-Dark}}" Stroke="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource Secondary-text-colorDark}}" WidthRequest="30" HeightRequest="30" StrokeShape="RoundRectangle 15" />
+                    <Border BackgroundColor="{AppThemeBinding Light={StaticResource SeriesColor2-Light},Dark={StaticResource SeriesColor2-Dark}}" Stroke="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource Secondary-text-colorDark}}" WidthRequest="30" HeightRequest="30" StrokeShape="RoundRectangle 15" />
+                    <Border BackgroundColor="{AppThemeBinding Light={StaticResource SeriesColor3-Light},Dark={StaticResource SeriesColor3-Dark}}" Stroke="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource Secondary-text-colorDark}}" WidthRequest="30" HeightRequest="30" StrokeShape="RoundRectangle 15" />
+                </HorizontalStackLayout>
+
+                <!-- Action Buttons -->
+                <HorizontalStackLayout Spacing="10" Margin="0,10,0,0">
+                    <Button Text="Add to cart" WidthRequest="156" BackgroundColor="{AppThemeBinding Light={StaticResource bg-Light},Dark={StaticResource border-Dark}}" CornerRadius="20" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"  />
+                    <Button Text="Buy now" WidthRequest="156" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"  CornerRadius="20" />
+                </HorizontalStackLayout>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+
+</ContentView>
