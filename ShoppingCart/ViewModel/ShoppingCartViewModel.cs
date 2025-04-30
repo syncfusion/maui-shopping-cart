@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace ShoppingCart;
@@ -14,6 +13,7 @@ public class ShoppingCartViewModel : ContentPage
     public ObservableCollection<String> Catagories { get; set; }
     public ObservableCollection<Product> Products { get; set; }
     public ObservableCollection<Product>? FilteredProducts { get; set; }
+    public ObservableCollection<Product>? SavedProducts { get; set; } = new ObservableCollection<Product>();
 
     public class SfRotatorItem
     {
@@ -149,6 +149,19 @@ public class ShoppingCartViewModel : ContentPage
 
         };
 
+        
+    }
+
+    public void FindSavedProducts()
+    {
+        if(SavedProducts!=null)
+        {
+            SavedProducts.Clear();
+            foreach (var product in Products.Where(product => product.IsSaved))
+            {
+                SavedProducts.Add(product);
+            }
+        }
         
     }
 }

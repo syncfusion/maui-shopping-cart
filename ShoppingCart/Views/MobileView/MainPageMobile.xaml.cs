@@ -1,4 +1,5 @@
 ﻿using Syncfusion.Maui.Rotator;
+using Syncfusion.Maui.Toolkit.TabView;
 using System.Collections.ObjectModel;
 
 namespace ShoppingCart
@@ -8,12 +9,12 @@ namespace ShoppingCart
 
         ShoppingCartViewModel shoppingCartViewModel;
         bool isMenuSelected = false;
-
         public MainPageMobile()
         {
             InitializeComponent();
             shoppingCartViewModel = new ShoppingCartViewModel();
             shoppingCartViewModel.FilteredProducts = new ObservableCollection<Product>();
+            shoppingCartViewModel.FindSavedProducts();
             for (int i = 0; i < 4; i++)
             {
                 shoppingCartViewModel.FilteredProducts.Add(shoppingCartViewModel.Products[i]);
@@ -74,6 +75,8 @@ namespace ShoppingCart
                             shoppingCartViewModel.FilteredProducts?.Add(product);
                         }
                     }
+
+                   
                 }
             }
             else
@@ -131,6 +134,27 @@ namespace ShoppingCart
             for (int i = 0; i < 4; i++)
             {
                 shoppingCartViewModel.FilteredProducts?.Add(shoppingCartViewModel.Products[i]);
+            }
+        }
+
+        void ToggleSavedStatus(object sender, EventArgs e)
+        {
+            if (sender is Label tappedLabel)
+            {
+                if (tappedLabel.BindingContext is Product currentItem)
+                {
+                    currentItem.IsSaved = !currentItem.IsSaved;
+                    shoppingCartViewModel.FindSavedProducts();
+                }
+            }
+        }
+
+        private void RemoveProductFromSavedItems(object sender, TappedEventArgs e)
+        {
+            if (sender is Label label && label.BindingContext is Product product)
+            {
+                shoppingCartViewModel.SavedProducts?.Remove(product);
+                product.IsSaved = false;
             }
         }
     }

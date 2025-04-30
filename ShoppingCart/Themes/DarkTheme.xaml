@@ -32,5 +32,7 @@
     <Color x:Key="SeriesColor6-Dark">#AA6ADD</Color>
     <Color x:Key="PrimaryBackgroundSelected-Dark">#C4AFF4</Color>
     <Color x:Key="ContentBackgroundAlt1-Dark">#25232A</Color>
+    <Color x:Key="SucessForeground-Dark">#9DD67E</Color>
+    <Color x:Key="BorderAlt1-Dark">#938F99</Color>
 
 </ResourceDictionary>

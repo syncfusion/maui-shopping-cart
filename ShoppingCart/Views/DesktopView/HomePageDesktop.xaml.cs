@@ -1,3 +1,4 @@
+using Microsoft.Maui.Controls;
 using Syncfusion.Maui.Rotator;
 using System.Collections.ObjectModel;
 using static ShoppingCart.ShoppingCartViewModel;
@@ -7,10 +8,11 @@ namespace ShoppingCart
     public partial class HomePageDesktop : ContentView
     {
 
-        ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel();
-        public HomePageDesktop()
+        ShoppingCartViewModel shoppingCartViewModel;
+        public HomePageDesktop(ShoppingCartViewModel shoppingCartViewModel)
         {
             InitializeComponent();
+            this.shoppingCartViewModel = shoppingCartViewModel;
             this.MinimumWidthRequest = 800;
             var selectedCategory = "Men";
             if (selectedCategory != null)
@@ -29,6 +31,17 @@ namespace ShoppingCart
                 }
             }
              BindingContext = shoppingCartViewModel;
+        }
+        
+        void ToggleSavedStatus(object sender, EventArgs e)
+        {
+            if (sender is Label tappedLabel)
+            {
+                if (tappedLabel.BindingContext is Product currentItem)
+                {
+                    currentItem.IsSaved = !currentItem.IsSaved;
+                }
+            }
         }
 
 
