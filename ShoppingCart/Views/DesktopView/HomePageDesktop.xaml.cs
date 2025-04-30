@@ -1,4 +1,5 @@
 using Microsoft.Maui.Controls;
+using Syncfusion.Maui.ListView;
 using Syncfusion.Maui.Rotator;
 using System.Collections.ObjectModel;
 using static ShoppingCart.ShoppingCartViewModel;
@@ -13,7 +14,7 @@ namespace ShoppingCart
         {
             InitializeComponent();
             this.shoppingCartViewModel = shoppingCartViewModel;
-            this.MinimumWidthRequest = 800;
+            this.MinimumWidthRequest = 600;
             var selectedCategory = "Men";
             if (selectedCategory != null)
             {
@@ -45,13 +46,12 @@ namespace ShoppingCart
         }
 
 
-        protected override void OnSizeAllocated(double width, double height)
+        protected async override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                UpdateColumn(width);
-            });
+
+            await Task.Delay(50);
+            UpdateColumn(width);
         }
 
         internal void UpdateColumn(double width)

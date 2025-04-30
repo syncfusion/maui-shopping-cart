@@ -86,14 +86,14 @@
         <ScrollView Orientation="Vertical" Grid.Row="1" Padding="16" VerticalScrollBarVisibility="Never">
             <Grid x:Name="ProductGrid" >
 
-                <sf:SfListView  ItemsSource="{Binding FilteredProducts}" SelectionMode="None" AutoFitMode="DynamicHeight" ScrollBarVisibility="Never" ItemTapped="SfListView_ItemTapped">
+                <sf:SfListView ItemsSource="{Binding FilteredProducts}" AutoFitMode="Height" SelectionMode="None" ScrollBarVisibility="Never" ItemTapped="SfListView_ItemTapped">
                     <sf:SfListView.ItemsLayout>
                         <sf:GridLayout x:Name="listView" />
                     </sf:SfListView.ItemsLayout>
 
                     <sf:SfListView.ItemTemplate>
                         <DataTemplate>
-                            <Border MinimumHeightRequest="220" Margin="5" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8">
+                            <Border Margin="5" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8">
                                 <effects:SfEffectsView>
                                     <StackLayout Padding="15,10,15,10">
                                         <Grid ColumnDefinitions="*,Auto" Padding="5">
