@@ -14,4 +14,18 @@ public partial class ProductPageDesktop : ContentView
         var productpageDesktop = new HomePageDesktop(shoppingCartViewModel);
         Content = productpageDesktop;
     }
+
+    private void AddButton_Clicked(object sender, EventArgs e)
+    {
+        if (this.BindingContext is Product product)
+        {
+            product.IsAddedToCart = true;
+            popup.IsOpen=true;
+        }
+    }
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        popup.IsOpen = false;
+    }
 }
