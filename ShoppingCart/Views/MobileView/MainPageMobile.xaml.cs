@@ -6,7 +6,8 @@ namespace ShoppingCart
 {
     public partial class MainPageMobile : ContentPage
     {
-
+        decimal _totalPrice;
+        decimal _price;
         ShoppingCartViewModel shoppingCartViewModel;
         bool isMenuSelected = false;
         public MainPageMobile()
@@ -157,5 +158,96 @@ namespace ShoppingCart
                 product.IsSaved = false;
             }
         }
+
+        private void tabView_SelectionChanged(object sender, TabSelectionChangedEventArgs e)
+        {
+            _price = 0;
+            if (e.NewIndex == 4)
+            {
+                shoppingCartViewModel.FindCartProducts();
+                if (shoppingCartViewModel.MyCartProducts?.Count == 0)
+                {
+                    CartDetailsLayout.IsVisible = false;
+                    popup.IsOpen = true;
+                }
+                else
+                {
+                    foreach (var product in shoppingCartViewModel.MyCartProducts)
+                    {
+                        _price += (decimal)product.Price;
+                    }
+
+                    _totalPrice = (_price + 40);
+                    priceLabel.Text = $"${_price}";
+                    totalAmountLabel.Text = $"${_totalPrice}";
+                }
+               
+            }
+        }
+
+        private void IncrementQuantity_Tapped(object sender, TappedEventArgs e)
+        {
+            if (sender is Element element && element.Parent is HorizontalStackLayout stackLayout
+                && element.BindingContext is Product product)
+            {
+                var quantityLabel = stackLayout.Children.OfType<Label>().FirstOrDefault(l => l.Text.All(char.IsDigit));
+                if (quantityLabel != null && int.TryParse(quantityLabel.Text, out int quantity))
+                {
+                    quantity++;
+                    quantityLabel.Text = quantity.ToString("D2");
+                    _price += (decimal)product.Price;
+                    priceLabel.Text = $"${_price}";
+                    _totalPrice = (_price + 40);
+                    totalAmountLabel.Text = $"${_totalPrice}";
+                }
+            }
+        }
+
+        private void DecrementQuantity_Tapped(object sender, TappedEventArgs e)
+        {
+            if (sender is Element element && element.Parent is HorizontalStackLayout stackLayout
+                && element.BindingContext is Product product)
+            {
+                var quantityLabel = stackLayout.Children.OfType<Label>().FirstOrDefault(l => l.Text.All(char.IsDigit));
+                if (quantityLabel != null && int.TryParse(quantityLabel.Text, out int quantity) && quantity > 0)
+                {
+                    quantity--;
+                    if (quantity == 0)
+                    {
+                        product.IsAddedToCart = false;
+                        shoppingCartViewModel.FindCartProducts();
+                        _price = 0;
+                        foreach (var item in shoppingCartViewModel.MyCartProducts)
+                        {
+                            _price += (decimal)item.Price;
+                        }
+                        this.BindingContext = shoppingCartViewModel;
+                        quantityLabel.Text = "01";
+                        priceLabel.Text = $"${_price}";
+                        _totalPrice = (_price + 40);
+                        totalAmountLabel.Text = $"${_totalPrice}";
+                        if (shoppingCartViewModel.MyCartProducts.Count == 0)
+                        {
+                            CartDetailsLayout.IsVisible = false;
+                            popup.IsOpen = true;
+                        }
+                    }
+                    else
+                    {
+                        quantityLabel.Text = quantity.ToString("D2");
+                        _price -= (decimal)product.Price;
+                        priceLabel.Text = $"${_price}";
+                        _totalPrice = (_price + 40);
+                        totalAmountLabel.Text = $"${_totalPrice}";
+                    }
+                }
+            }
+
+        }
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            popup.IsOpen = false;
+        }
+
     }
 }
