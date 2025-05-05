@@ -1,4 +1,5 @@
 using Microsoft.Maui.Controls;
+using Syncfusion.Maui.ListView;
 using Syncfusion.Maui.Rotator;
 using System.Collections.ObjectModel;
 using static ShoppingCart.ShoppingCartViewModel;
@@ -13,7 +14,7 @@ namespace ShoppingCart
         {
             InitializeComponent();
             this.shoppingCartViewModel = shoppingCartViewModel;
-            this.MinimumWidthRequest = 800;
+            this.MinimumWidthRequest = 600;
             var selectedCategory = "Men";
             if (selectedCategory != null)
             {
@@ -45,22 +46,25 @@ namespace ShoppingCart
         }
 
 
-        protected override void OnSizeAllocated(double width, double height)
+        protected async override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                UpdateColumn(width);
-            });
+
+            await Task.Delay(50);
+            UpdateColumn(width);
         }
 
         internal void UpdateColumn(double width)
         {
             if(width>0)
             {
-                if (width > 1200)
+                if (width > 900)
                 {
                     listView.SpanCount = 5;
+                }
+                else if (width > 700 && width < 900)
+                {
+                    listView.SpanCount = 4;
                 }
                 else
                 {
@@ -90,5 +94,20 @@ namespace ShoppingCart
             }
             UpdateColumn(this.Width);
         }
+
+        private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
+        {
+            if (e.DataItem is Product tappedProduct)
+            {
+                var productpageDesktop = new ProductPageDesktop
+                {
+                    BindingContext = tappedProduct
+                };
+
+                // Add ProductDetailsView to the page
+                Content = productpageDesktop;
+            }
+        }
+    
     }
 }
