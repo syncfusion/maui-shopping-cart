@@ -7,6 +7,7 @@
              xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              x:Class="ShoppingCart.MainPageMobile"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}">
@@ -238,7 +239,62 @@
                 </sf:SfListView>
             </Grid>
         </syncfusion:SfTabItem>
-        <syncfusion:SfTabItem Header="&#xe760;" FontFamily="MauiSampleFontIcon" FontSize="32"/>
+        <syncfusion:SfTabItem Header="&#xe760;" FontFamily="MauiSampleFontIcon" FontSize="32">
+            <StackLayout Spacing="20" VerticalOptions="Start" >
+                <HorizontalStackLayout>
+                    <Button ImageSource="backimage.png" HeightRequest="30" Margin="0,10,0,0" WidthRequest="30"  BackgroundColor="Transparent"/>
+                    <Label Text="Profile" FontSize="16"  FontAttributes="Bold" Margin="0,20,0,0"
+TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+                </HorizontalStackLayout>
+                <Border Margin="0,50,0,0" HeightRequest="790" Background="#F7F2FB" >
+                    <VerticalStackLayout Spacing="30" Margin="0,50,0,0">
+                        <HorizontalStackLayout Margin="30,0,0,0" Spacing="20">
+                            <input:SfAvatarView AvatarName="Jessica Jessy" AvatarShape="Circle" AvatarSize="Large" InitialsType="SingleCharacter" ContentType="Initials" Background="#6750A4"/>
+                            <VerticalStackLayout  VerticalOptions="Center">
+                                <Label Text="Jessica Jessy" FontSize="16" FontAttributes="Bold"/>
+                                <Label Text="jessicajessy@gmail.com" FontSize="14"/>
+                            </VerticalStackLayout>
+                            <Button ImageSource="editimage.jpg" HeightRequest="60" Clicked="EditOption_Clicked"  WidthRequest="60" BackgroundColor="Transparent" Margin="20,0,0,0"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout Spacing="10" Margin="30,0,0,0">
+                            <Image Source="myordersimage.jpg" HeightRequest="25" WidthRequest="25"/>
+                            <Label Text="My Order" FontSize="16" FontAttributes="Bold"
+       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="MyOrdersTapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout Spacing="10" Margin="30,0,0,0">
+                            <Image Source="notificationimage.jpg" HeightRequest="25" WidthRequest="25"/>
+                            <Label Text="Notifications" FontSize="16" FontAttributes="Bold"
+       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnNotificationsTapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout Spacing="10" Margin="30,0,0,0">
+                            <Image Source="paymenticon.jpg" HeightRequest="25" WidthRequest="25"/>
+                            <Label Text="Payment Methods" FontSize="16" FontAttributes="Bold"
+       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout Spacing="10" Margin="30,0,0,0">
+                            <Image Source="locationicon.jpg" HeightRequest="25" WidthRequest="25"/>
+                            <Label Text="Address" FontSize="16" FontAttributes="Bold"
+       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="10" Margin="30,0,0,0">
+                            <Image Source="brightnessicon.png" HeightRequest="25" WidthRequest="25"/>
+                            <Label Text="Dark mode" FontSize="16" VerticalOptions="Center" FontAttributes="Bold"
+           TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+                            <buttons:SfSwitch x:Name="sfSwitch" HorizontalOptions="End" Margin="150,0,0,0" StateChanged="SfSwitch_StateChanged"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+            </StackLayout>
+        </syncfusion:SfTabItem>
 
         <syncfusion:SfTabItem Header="&#xe73e;" FontFamily="MauiSampleFontIcon" FontSize="32"/>
 

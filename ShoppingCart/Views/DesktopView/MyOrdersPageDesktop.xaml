@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingCart.MyOrdersPageDesktop">
+
+
+    <Grid >
+            <ScrollView>
+                <StackLayout Padding="20" Spacing="10" Orientation="Vertical" HorizontalOptions="Start">
+                <HorizontalStackLayout>
+                    <Button ImageSource="backimage.png" HeightRequest="30" Margin="0,-10,0,0" WidthRequest="30" Clicked="SfButton_Clicked" BackgroundColor="Transparent"/>
+                    <Label Text="My Orders" FontSize="16"  
+TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+                </HorizontalStackLayout>
+                <Border  Stroke="#F7F2FB" HeightRequest="200" WidthRequest="600" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+                        <StackLayout Padding="5" Spacing="10" Orientation="Horizontal">
+                            <Image Source="shirt1.png" />
+                            <VerticalStackLayout Spacing="10">
+                                <Label WidthRequest="300" Text="Symbol Men Short Sleeve Solid Cotton Rich Polo T Shirt | Collar Tshirts | Half Sleeves | Plain-Regular Fit (Available in Plus Size)" LineBreakMode="WordWrap"/>
+                                <HorizontalStackLayout Padding="0,10,0,0" Spacing="5">
+                                    <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                                    <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                    <Label Text="|" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                    <Label Text="700+ bought in past month" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                </HorizontalStackLayout>
+                                <Label Text="$399" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                            </VerticalStackLayout>
+                        <Button ImageSource="rightarrowimage.jpg" HeightRequest="60" WidthRequest="60" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                    </Border>
+
+                    <Border  Stroke="#F7F2FB" HeightRequest="200" WidthRequest="600" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"   StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+                        <StackLayout Padding="5" Spacing="10" Orientation="Horizontal">
+                            <Image Source="gown.png" />
+                            <VerticalStackLayout Spacing="10">
+                                <Label WidthRequest="300" Text="Symbol Men Short Sleeve Solid Cotton Rich Polo T Shirt | Collar Tshirts | Half Sleeves | Plain-Regular Fit (Available in Plus Size)" LineBreakMode="WordWrap"/>
+                                <HorizontalStackLayout Padding="0,10,0,0" Spacing="5">
+                                    <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                                    <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                    <Label Text="|" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                    <Label Text="700+ bought in past month" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                </HorizontalStackLayout>
+                                <Label Text="$399" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                            </VerticalStackLayout>
+                        <Button ImageSource="rightarrowimage.jpg" HeightRequest="60" WidthRequest="60" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                    </Border>
+
+                    <Border Stroke="#F7F2FB"  HeightRequest="200" WidthRequest="600" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+                        <StackLayout Padding="5" Spacing="10" Orientation="Horizontal">
+                            <Image Source="shirt2.png" />
+                            <VerticalStackLayout Spacing="10">
+                                <Label WidthRequest="300" Text="Symbol Men Short Sleeve Solid Cotton Rich Polo T Shirt | Collar Tshirts | Half Sleeves | Plain-Regular Fit (Available in Plus Size)" LineBreakMode="WordWrap"/>
+                                <HorizontalStackLayout Padding="0,10,0,0" Spacing="5">
+                                    <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                                    <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                    <Label Text="|" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                    <Label Text="700+ bought in past month" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                </HorizontalStackLayout>
+                                <Label Text="$399" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                            </VerticalStackLayout>
+                        <Button ImageSource="rightarrowimage.jpg" HeightRequest="60" WidthRequest="60" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                    </Border>
+
+                    <Border  HeightRequest="200" WidthRequest="600" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+                        <StackLayout Padding="5" Spacing="10" Orientation="Horizontal">
+                            <Image Source="gown.png" />
+                            <VerticalStackLayout Spacing="10">
+                                <Label WidthRequest="300" Text="Symbol Men Short Sleeve Solid Cotton Rich Polo T Shirt | Collar Tshirts | Half Sleeves | Plain-Regular Fit (Available in Plus Size)" LineBreakMode="WordWrap"/>
+                                <HorizontalStackLayout Padding="0,10,0,0" Spacing="5">
+                                    <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                                    <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                    <Label Text="|" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                    <Label Text="700+ bought in past month" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                </HorizontalStackLayout>
+                                <Label Text="$399" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                            </VerticalStackLayout>
+                        <Button ImageSource="rightarrowimage.jpg" HeightRequest="60" WidthRequest="60" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                    </Border>
+
+                    <Border  HeightRequest="200" WidthRequest="600" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+                        <StackLayout Padding="5" Spacing="10" Orientation="Horizontal">
+                            <Image Source="shirt2.png" />
+                            <VerticalStackLayout Spacing="10">
+                                <Label WidthRequest="300" Text="Symbol Men Short Sleeve Solid Cotton Rich Polo T Shirt | Collar Tshirts | Half Sleeves | Plain-Regular Fit (Available in Plus Size)" LineBreakMode="WordWrap"/>
+                                <HorizontalStackLayout Padding="0,10,0,0" Spacing="5">
+                                    <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                                    <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                    <Label Text="|" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                    <Label Text="700+ bought in past month" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                </HorizontalStackLayout>
+                                <Label Text="$399" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                            </VerticalStackLayout>
+                        <Button ImageSource="rightarrowimage.jpg" HeightRequest="60" WidthRequest="60" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                    </Border>
+                </StackLayout>
+            </ScrollView>
+    </Grid>
+</ContentView>

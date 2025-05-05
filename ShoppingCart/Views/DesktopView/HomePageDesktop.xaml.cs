@@ -31,9 +31,9 @@ namespace ShoppingCart
                     }
                 }
             }
-             BindingContext = shoppingCartViewModel;
+            BindingContext = shoppingCartViewModel;
         }
-        
+
         void ToggleSavedStatus(object sender, EventArgs e)
         {
             if (sender is Label tappedLabel)
@@ -56,7 +56,7 @@ namespace ShoppingCart
 
         internal void UpdateColumn(double width)
         {
-            if(width>0)
+            if (width > 0)
             {
                 if (width > 900)
                 {
@@ -108,6 +108,6 @@ namespace ShoppingCart
                 Content = productpageDesktop;
             }
         }
-    
+
     }
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Toolkit.TabView;assembly=Syncfusion.Maui.Toolkit"
+            xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+            xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
+            xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+            xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             x:Class="ShoppingCart.ProfilePageDesktop">
+
+
+    <Grid Grid.Column="1" >
+            <StackLayout Padding="20" Spacing="10" HorizontalOptions="Start" VerticalOptions="Start">
+            <HorizontalStackLayout>
+                <Button ImageSource="backimage.png" HeightRequest="30" Margin="0,-10,0,0" WidthRequest="30" Clicked="BackButton_Clicked" BackgroundColor="Transparent"/>
+                <Label Text="My Profile" FontSize="16"  
+TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+            </HorizontalStackLayout>
+
+            <chip:SfBadgeView HorizontalOptions="Center" VerticalOptions="Center" >
+                    <chip:SfBadgeView.Content>
+                        <chip:SfAvatarView ContentType="Initials" Margin="-130,0,0,0"
+            InitialsType="SingleCharacter"
+            AvatarName="Jessica Jessy"
+            FontSize="30"
+            InitialsColor="#FFFFFF" 
+            WidthRequest="80"
+            HeightRequest="80"
+            CornerRadius="40"          
+            Background="#6750A4"/>
+                    </chip:SfBadgeView.Content>
+                    <chip:SfBadgeView.BadgeSettings>
+                        <chip:BadgeSettings  Background="#EEE8F4"  Offset="-60,-10" Position="BottomRight" Icon="Away"/>
+                    </chip:SfBadgeView.BadgeSettings>
+                </chip:SfBadgeView>
+
+                <chip:SfTextInputLayout Hint="Name"
+                    IsHintAlwaysFloated="true" 
+                                     WidthRequest="400"
+                                     HeightRequest="80"
+                    ContainerType="Outlined" >
+                    <Entry  Text="Jessica Jessy"/>
+                </chip:SfTextInputLayout>
+                <chip:SfTextInputLayout Hint="Email"
+                                 IsHintAlwaysFloated="true" 
+                                 ContainerType="Outlined"
+                               WidthRequest="400"
+                         HeightRequest="80">
+                    <Entry Text="jessicajessy@gmail.com" />
+                </chip:SfTextInputLayout>
+                <chip:SfTextInputLayout Hint="Phone Number"
+                             IsHintAlwaysFloated="true" 
+                            WidthRequest="400"
+                     HeightRequest="80"
+                             ContainerType="Outlined">
+                    <Entry Text="9988776655" />
+                </chip:SfTextInputLayout>
+                <chip:SfTextInputLayout Hint="Gender"
+                             IsHintAlwaysFloated="true" 
+                             ContainerType="Outlined"
+                             WidthRequest="400"
+                             HeightRequest="80">
+                    <Entry Text="Female"/>
+                </chip:SfTextInputLayout>
+
+                <buttons:SfButton WidthRequest="400" HeightRequest="40" Text="Update Profile"/>
+
+            </StackLayout>
+    </Grid>
+
+</ContentView>

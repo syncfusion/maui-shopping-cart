@@ -1,4 +1,6 @@
-﻿namespace ShoppingCart
+﻿using ShoppingCart;
+
+namespace ShoppingCart
 {
     public partial class MainPageDesktop : ContentPage
     {
@@ -29,6 +31,21 @@
             var tapGesture = new TapGestureRecognizer();
             tapGesture.Tapped += (s, e) => SetSelected(border);
             border.GestureRecognizers.Add(tapGesture);
+        }
+
+        private void OnAvatarViewTapped(object sender, EventArgs e)
+        {
+            var profilePage = new ProfilePageDesktop(() => NavigateBackToHome());
+
+            selectedtab.Children.Clear(); 
+            selectedtab.Children.Add(profilePage); 
+        }
+
+        private void NavigateBackToHome()
+        {
+            var homePage = new HomePageDesktop(shoppingCartViewModel);
+            selectedtab.Children.Clear(); 
+            selectedtab.Children.Add(homePage); 
         }
 
         void SetSelected(Border border)
@@ -82,7 +99,8 @@
                         break;
                     case "Cart":
                         break;
-                    case "Account":
+                    case "My Account":
+                        selectedContent = new SettingsPageDesktop();
                         break;
                 }
 

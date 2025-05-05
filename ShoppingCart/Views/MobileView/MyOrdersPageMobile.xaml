@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingCart.Views.MobileView.MyOrdersPageMobile"
+             Title="MyOrdersPageMobile">
+    
+    <StackLayout Padding="20" Spacing="10" Orientation="Vertical" HorizontalOptions="Start">
+        <Label Text="My Orders" FontSize="16"  FontAttributes="Bold" Margin="30,-55,0,0"
+TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+        <Border  HeightRequest="150" WidthRequest="400" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+            <StackLayout Padding="5" Spacing="10" Orientation="Horizontal">
+                <Image Source="bag.png" />
+               
+                <VerticalStackLayout Spacing="10" WidthRequest="180">
+                    <Label WidthRequest="180" Text="Women's handbag" LineBreakMode="WordWrap"/>
+                    <HorizontalStackLayout Padding="0,10,0,0" Spacing="5">
+                        <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                        <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                    </HorizontalStackLayout>
+                    <Label Text="$24.00" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                </VerticalStackLayout>
+                <Button ImageSource="rightarrowimage.jpg" HeightRequest="60" WidthRequest="60" Background="Transparent" />
+
+
+            </StackLayout>
+        </Border>
+
+        <Border  HeightRequest="150" WidthRequest="400" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"   StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+            <StackLayout  Spacing="10" Orientation="Horizontal">
+                <Image Source="shirt1.png" />
+                <VerticalStackLayout Spacing="10" WidthRequest="180" >
+                    <Label WidthRequest="180" Text="Women's Shirt" LineBreakMode="WordWrap"/>
+                    <HorizontalStackLayout Padding="0,10,0,0" Spacing="5">
+                        <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                        <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                    </HorizontalStackLayout>
+                    <Label Text="$24.00" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                </VerticalStackLayout>
+                <Button ImageSource="rightarrowimage.jpg" HeightRequest="60" WidthRequest="60" BackgroundColor="Transparent"/>
+
+            </StackLayout>
+        </Border>
+
+        <Border  HeightRequest="150" WidthRequest="400" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  StrokeShape="RoundRectangle 8" Margin="5" Padding="10">
+            <StackLayout Padding="5" Spacing="10" Orientation="Horizontal">
+                <Image Source="gown.png" />
+                <VerticalStackLayout Spacing="10" WidthRequest="180">
+                    <Label WidthRequest="180" Text="Satin midi dress" LineBreakMode="WordWrap"/>
+                    <HorizontalStackLayout Padding="0,10,0,0" Spacing="5">
+                        <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                        <Label Text="4.5" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                    </HorizontalStackLayout>
+                    <Label Text="$24.00" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                </VerticalStackLayout>
+                <Button ImageSource="rightarrowimage.jpg" HeightRequest="60" WidthRequest="60" BackgroundColor="Transparent"/>
+
+            </StackLayout>
+        </Border>
+
+
+    </StackLayout>
+</ContentPage>

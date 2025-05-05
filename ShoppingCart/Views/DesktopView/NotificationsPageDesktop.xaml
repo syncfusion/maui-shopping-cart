@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             x:Class="ShoppingCart.NotificationsPageDesktop">
+    
+    <Grid>
+            <StackLayout Padding="20" Spacing="10">
+            <HorizontalStackLayout>
+                <Button ImageSource="backimage.png" HeightRequest="30" Margin="0,-10,0,0" WidthRequest="30" Clicked="SfButton_Clicked" BackgroundColor="Transparent"/>
+            <Label Text="Notifications" FontSize="16"  
+     TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+            </HorizontalStackLayout>
+
+            <Border  Padding="10" Stroke="#F7F2FB"  Background="#F7F2FB" WidthRequest="400" HorizontalOptions="Start" Margin="30,20,0,0"
+     BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt-Light}, Dark={StaticResource ContentBackgroundAlt-Dark}}">
+                    <Border.Clip>
+                        <RoundRectangleGeometry CornerRadius="20" Rect="0,0,400,60" />
+                    </Border.Clip>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+                        <Image Source="notificationimage.jpg" WidthRequest="30" HeightRequest="30"/>
+                        <Label Text="Sales and promotions" VerticalOptions="Center" 
+             TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+                        <buttons:SfSwitch IsOn="true" HorizontalOptions="End" Margin="100,0,0,0"/>
+                    </StackLayout>
+                </Border>
+            </StackLayout>
+    </Grid>
+</ContentView>

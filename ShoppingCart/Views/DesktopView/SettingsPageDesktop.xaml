@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Toolkit.TabView;assembly=Syncfusion.Maui.Toolkit"
+            xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+            xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
+            xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+            xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+            xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             x:Class="ShoppingCart.SettingsPageDesktop">
+   
+    
+    <Grid>
+        <StackLayout Spacing="20">
+                <VerticalStackLayout Spacing="30">
+                    <Label Text="Settings" FontSize="16"  Margin="20,20,0,0"
+TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+                    <HorizontalStackLayout Spacing="10" Margin="30,0,0,0">
+                        <Image Source="myordersimage.jpg" HeightRequest="25" WidthRequest="25"/>
+                        <Label Text="My Order" FontSize="16" 
+                   TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="10" Margin="30,0,0,0">
+                        <Image Source="notificationimage.jpg" HeightRequest="25" WidthRequest="25"/>
+                        <Label Text="Notifications" FontSize="16" 
+                   TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="10" Margin="30,0,0,0">
+                        <Image Source="paymenticon.jpg" HeightRequest="25" WidthRequest="25"/>
+                        <Label Text="Payment Methods" FontSize="16" 
+                   TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="10" Margin="30,0,0,0">
+                        <Image Source="locationicon.jpg" HeightRequest="25" WidthRequest="25"/>
+                        <Label Text="Address" FontSize="16" 
+                   TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10" Margin="30,0,0,0">
+                        <Image Source="brightnessicon.png" HeightRequest="25" WidthRequest="25"/>
+                        <Label Text="Dark mode" FontSize="16" VerticalOptions="Center"
+                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+                        <buttons:SfSwitch x:Name="sfSwitch" HorizontalOptions="End" IsOn="True" Margin="150,0,0,0" StateChanged="SfSwitch_StateChanged"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+            </StackLayout>
+    </Grid>
+</ContentView>
