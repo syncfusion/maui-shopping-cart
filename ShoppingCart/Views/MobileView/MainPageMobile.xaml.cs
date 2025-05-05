@@ -158,8 +158,18 @@ namespace ShoppingCart
                 product.IsSaved = false;
             }
         }
+private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
+        {
+            if (e.DataItem is Product tappedProduct)
+            {
+                var productpageMobile = new ProductPageMobile
+                {
+                    BindingContext = tappedProduct
+                };
 
-        private void tabView_SelectionChanged(object sender, TabSelectionChangedEventArgs e)
+                Navigation.PushAsync(productpageMobile);
+            }
+        }private void tabView_SelectionChanged(object sender, TabSelectionChangedEventArgs e)
         {
             _price = 0;
             if (e.NewIndex == 4)
@@ -248,6 +258,5 @@ namespace ShoppingCart
         {
             popup.IsOpen = false;
         }
-
     }
 }

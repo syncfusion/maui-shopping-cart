@@ -35,5 +35,8 @@
     <Color x:Key="ContentBackgroundAlt1-Light">#F7F2FB</Color>
     <Color x:Key="SucessForeground-Light">#205107</Color>
     <Color x:Key="BorderAlt1-Light">#79747E</Color>
+    <Color x:Key="SeriesColor1-Light">#2196F3</Color>
+    <Color x:Key="SeriesColor2-Light">#0CBD1E</Color>
+    <Color x:Key="SeriesColor3-Light">#F4890B</Color>
 
 </ResourceDictionary>
