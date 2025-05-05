@@ -249,5 +249,18 @@ namespace ShoppingCart
             popup.IsOpen = false;
         }
 
+        private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
+        {
+            if (e.DataItem is Product tappedProduct)
+            {
+                var productpageMobile = new ProductPageMobile
+                {
+                    BindingContext = tappedProduct
+                };
+
+                Navigation.PushAsync(productpageMobile);
+            }
+        }
+
     }
 }
