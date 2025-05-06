@@ -96,12 +96,6 @@
 	  <MauiXaml Update="Views\DesktopView\MainPageDesktop.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-<MauiXaml Update="Views\DesktopView\ProductPageDesktop.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml><MauiXaml Update="Views\DesktopView\MyCartPageDesktop.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
- 
         <MauiXaml Update="Views\DesktopView\SavedItemsPageDesktop.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

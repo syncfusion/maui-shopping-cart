@@ -52,7 +52,7 @@ public class ShoppingCartViewModel : ContentPage
         Products = new ObservableCollection<Product>
         {
             // Men Category
-             new Product { Name = "Men's Plaid Shirt", ImageUrl = "shirt1.png", Description = "Stylish men's plaid shirt, perfect for casual outings.", Price = 24.00m, Category = "Men", Rating = 4.5, IsSaved = true, PurchasedCount = 50, Tags = new List<string> { "Collar Tshirts", "Half Sleeves", "Plain-Regular Fit" } ,IsAddedToCart=false},
+            new Product { Name = "Men's Plaid Shirt", ImageUrl = "shirt1.png", Description = "Stylish men's plaid shirt, perfect for casual outings.", Price = 24.00m, Category = "Men", Rating = 4.5, IsSaved = true, PurchasedCount = 50, Tags = new List<string> { "Collar Tshirts", "Half Sleeves", "Plain-Regular Fit" } ,IsAddedToCart=false},
             new Product { Name = "Men's Grey T-Shirt", ImageUrl = "shirt2.png", Description = "Basic grey t-shirt, ideal for everyday wear.", Price = 20.00m, Category = "Men", Rating = 4.3, IsSaved = false, PurchasedCount = 38, Tags = new List<string> { "T-Shirt", "Casual", "Grey" } ,IsAddedToCart=false},
             new Product { Name = "Men's Baseball Tee", ImageUrl = "tshirt2.png", Description = "Black and white raglan tee, sporty and stylish.", Price = 22.00m, Category = "Men", Rating = 4.4, IsSaved = false, PurchasedCount = 45, Tags = new List<string> { "T-Shirt", "Raglan", "Sporty" } ,IsAddedToCart=false},
             new Product { Name = "Men's White Tank", ImageUrl = "tshirt3.png", Description = "White sleeveless tank, great for gym or summer.", Price = 18.00m, Category = "Men", Rating = 4.2, IsSaved = false, PurchasedCount = 29, Tags = new List<string> { "Tank Top", "Sleeveless", "Workout" } ,IsAddedToCart=false},
@@ -126,7 +126,7 @@ public class ShoppingCartViewModel : ContentPage
             new Product { Name = "Kitchen Appliance Set", ImageUrl = "kitchen_appliance_set.png", Description = "Complete set of kitchen appliances for daily use.", Price = 150.00m, Category = "Electronics", Rating = 4.7, IsSaved = true, PurchasedCount = 85, Tags = new List<string> { "Kitchen", "Appliances", "Set" } ,IsAddedToCart=false},
             new Product { Name = "Steam Iron", ImageUrl = "steam_iron.png", Description = "Steam iron for crisp and smooth clothes.", Price = 35.00m, Category = "Electronics", Rating = 4.5, IsSaved = false, PurchasedCount = 72, Tags = new List<string> { "Iron", "Home" } ,IsAddedToCart=false},
             new Product { Name = "Laptop", ImageUrl = "laptop.png", Description = "High-performance laptop suitable for work and play.", Price = 850.00m, Category = "Electronics", Rating = 4.8, IsSaved = true, PurchasedCount = 133, Tags = new List<string> { "Laptop", "Electronics", "Computer" } ,IsAddedToCart=false},
-            new Product { Name = "Smartphone (Compact)", ImageUrl = "smartphone2.png", Description = "Compact smartphone with advanced features.", Price = 499.00m, Category = "Electronics", Rating = 4.6, IsSaved = false, PurchasedCount = 92, Tags = new List<string> { "Phone", "Smartphone", "Compact" } ,IsAddedToCart=false},        };
+        };
 
         
     }

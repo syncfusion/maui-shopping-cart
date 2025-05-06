@@ -168,10 +168,9 @@ namespace ShoppingCart
                     BindingContext = tappedProduct
                 };
 
-                Navigation.PushAsync(productpageMobile);
+				Navigation.PushAsync(productpageMobile);
             }
-        }
-        private void tabView_SelectionChanged(object sender, TabSelectionChangedEventArgs e)
+        }        private void tabView_SelectionChanged(object sender, TabSelectionChangedEventArgs e)
         {
             _price = 0;
             if(e.NewIndex == 2 && shoppingCartViewModel != null)
