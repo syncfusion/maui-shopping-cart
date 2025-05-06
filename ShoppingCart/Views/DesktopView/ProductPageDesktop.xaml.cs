@@ -3,16 +3,16 @@ namespace ShoppingCart;
 
 public partial class ProductPageDesktop : ContentView
 {
-	public ProductPageDesktop()
+    private ContentView _callerPage;
+    public ProductPageDesktop(ContentView callerPage)
 	{
 		InitializeComponent();
+        _callerPage = callerPage;
     }
 
     private void BackArrow_Tapped(object sender, TappedEventArgs e)
     {
-        ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel();
-        var productpageDesktop = new HomePageDesktop(shoppingCartViewModel);
-        Content = productpageDesktop;
+        this.Content = _callerPage;
     }
 
     private void AddButton_Clicked(object sender, EventArgs e)

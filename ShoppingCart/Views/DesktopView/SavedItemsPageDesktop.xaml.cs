@@ -27,6 +27,16 @@ public partial class SavedItemsPageDesktop : ContentView
 
     private void ProductsList_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
     {
+        if (e.DataItem is Product tappedProduct)
+        {
+            var savedItemsPage = new SavedItemsPageDesktop(shoppingCartViewModel);
+            var productpageDesktop = new ProductPageDesktop(savedItemsPage)
+            {
+                BindingContext = tappedProduct
+            };
 
+            // Add ProductDetailsView to the page
+            Content = productpageDesktop;
+        }
     }
 }

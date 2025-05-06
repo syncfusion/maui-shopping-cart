@@ -16,6 +16,7 @@ namespace ShoppingCart
             shoppingCartViewModel = new ShoppingCartViewModel();
             shoppingCartViewModel.FilteredProducts = new ObservableCollection<Product>();
             shoppingCartViewModel.FindSavedProducts();
+            shoppingCartViewModel.FindCartProducts();
             for (int i = 0; i < 4; i++)
             {
                 shoppingCartViewModel.FilteredProducts.Add(shoppingCartViewModel.Products[i]);
@@ -158,7 +159,7 @@ namespace ShoppingCart
                 product.IsSaved = false;
             }
         }
-private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
+        private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
         {
             if (e.DataItem is Product tappedProduct)
             {
@@ -169,15 +170,21 @@ private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemT
 
                 Navigation.PushAsync(productpageMobile);
             }
-        }private void tabView_SelectionChanged(object sender, TabSelectionChangedEventArgs e)
+        }
+        private void tabView_SelectionChanged(object sender, TabSelectionChangedEventArgs e)
         {
             _price = 0;
-            if (e.NewIndex == 4)
+            if(e.NewIndex == 2 && shoppingCartViewModel != null)
+            {
+                shoppingCartViewModel.FindSavedProducts();
+            }
+            if (e.NewIndex == 4 && shoppingCartViewModel!=null)
             {
                 shoppingCartViewModel.FindCartProducts();
                 if (shoppingCartViewModel.MyCartProducts?.Count == 0)
                 {
                     CartDetailsLayout.IsVisible = false;
+                    popup.IsVisible = true;
                     popup.IsOpen = true;
                 }
                 else
@@ -256,7 +263,13 @@ private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemT
         }
         private void Button_Clicked(object sender, EventArgs e)
         {
+            popup.IsVisible = false;
             popup.IsOpen = false;
+        }
+
+        private void BackArrowButton_Tapped(object sender, TappedEventArgs e)
+        {
+            tabView.SelectedIndex = 0;
         }
     }
 }

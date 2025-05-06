@@ -31,7 +31,6 @@ namespace ShoppingCart
                 }
             }
         }
-        public bool IsAddedToCart { get; set; }
 
         private bool _isAddedtoCart;
         public bool IsAddedToCart

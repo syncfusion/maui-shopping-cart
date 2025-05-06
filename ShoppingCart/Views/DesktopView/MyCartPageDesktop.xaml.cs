@@ -110,4 +110,30 @@ public partial class MyCartPageDesktop : ContentView
     {
         popup.IsOpen = false;
     }
+
+    private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
+    {
+        if (e.DataItem is Product tappedProduct)
+        {
+            var MyCartPage = new MyCartPageDesktop(shoppingCartViewModel);
+            var productpageDesktop = new ProductPageDesktop(MyCartPage)
+            {
+                BindingContext = tappedProduct
+            };
+
+            // Add ProductDetailsView to the page
+            Content = productpageDesktop;
+        }
+    }
+
+    void ToggleSavedStatus(object sender, EventArgs e)
+    {
+        if (sender is Label tappedLabel)
+        {
+            if (tappedLabel.BindingContext is Product currentItem)
+            {
+                currentItem.IsSaved = !currentItem.IsSaved;
+            }
+        }
+    }
 }

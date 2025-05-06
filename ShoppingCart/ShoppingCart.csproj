@@ -100,8 +100,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml><MauiXaml Update="Views\DesktopView\MyCartPageDesktop.xaml">
 	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml><Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>	  <MauiXaml Update="Views\DesktopView\SavedItemsPageDesktop.xaml">
+	  </MauiXaml>
+ 
+        <MauiXaml Update="Views\DesktopView\SavedItemsPageDesktop.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\DesktopView\SignUpPageDesktop.xaml">
