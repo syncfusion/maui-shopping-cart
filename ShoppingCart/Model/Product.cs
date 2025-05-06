@@ -31,7 +31,20 @@ namespace ShoppingCart
                 }
             }
         }
-        public bool IsAddedToCart { get; set; }
+
+        private bool _isAddedtoCart;
+        public bool IsAddedToCart
+        {
+            get => _isAddedtoCart;
+            set
+            {
+                if (_isAddedtoCart != value)
+                {
+                    _isAddedtoCart = value;
+                    OnPropertyChanged(nameof(IsAddedToCart));
+                }
+            }
+        }
 
         // Implement INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
