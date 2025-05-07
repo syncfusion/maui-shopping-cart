@@ -232,7 +232,6 @@
                                             </Grid>
                                         </VerticalStackLayout>
                                     </Grid>
-                                </effects:SfEffectsView>
                             </Border>
                         </DataTemplate>
                     </sf:SfListView.ItemTemplate>

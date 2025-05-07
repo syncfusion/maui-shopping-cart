@@ -28,6 +28,9 @@
                         <Setter Property="Text" Value="&#xe739;" />
                     </DataTrigger>
                 </Label.Triggers>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ToggleSavedStatus" />
+                </Label.GestureRecognizers>
             </Label>
         </Grid>
 
