@@ -7,13 +7,20 @@
             xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
             xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
              x:Class="ShoppingCart.ProfilePageDesktop">
 
 
     <Grid Grid.Column="1" >
-            <StackLayout Padding="20" Spacing="10" HorizontalOptions="Start" VerticalOptions="Start">
-            <HorizontalStackLayout>
-                <Button ImageSource="backimage.png" HeightRequest="30" Margin="0,-10,0,0" WidthRequest="30" Clicked="BackButton_Clicked" BackgroundColor="Transparent"/>
+            <StackLayout Padding="10" Spacing="10" HorizontalOptions="Start" VerticalOptions="Start">
+            <HorizontalStackLayout Margin="-15,0,0,0" Spacing="10">
+                <effects:SfEffectsView>
+                    <effects:SfEffectsView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackArrow_Tapped" />
+                    </effects:SfEffectsView.GestureRecognizers>
+                    <Label FontSize="20"  Text="&#xe70e; " FontFamily="MauiSampleFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                </effects:SfEffectsView>
                 <Label Text="My Profile" FontSize="16"  
 TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
             </HorizontalStackLayout>
@@ -22,7 +29,7 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                     <chip:SfBadgeView.Content>
                         <chip:SfAvatarView ContentType="Initials" Margin="-130,0,0,0"
             InitialsType="SingleCharacter"
-            AvatarName="Jessica Jessy"
+            AvatarName="{Binding CurrentUser.UserName}"
             FontSize="30"
             InitialsColor="#FFFFFF" 
             WidthRequest="80"
@@ -40,14 +47,14 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                                      WidthRequest="400"
                                      HeightRequest="80"
                     ContainerType="Outlined" >
-                    <Entry  Text="Jessica Jessy"/>
+                <Entry  Text="{Binding CurrentUser.UserName}"/>
                 </chip:SfTextInputLayout>
                 <chip:SfTextInputLayout Hint="Email"
                                  IsHintAlwaysFloated="true" 
                                  ContainerType="Outlined"
                                WidthRequest="400"
                          HeightRequest="80">
-                    <Entry Text="jessicajessy@gmail.com" />
+                <Entry Text="{Binding CurrentUser.Email}" />
                 </chip:SfTextInputLayout>
                 <chip:SfTextInputLayout Hint="Phone Number"
                              IsHintAlwaysFloated="true" 
@@ -56,15 +63,27 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                              ContainerType="Outlined">
                     <Entry Text="9988776655" />
                 </chip:SfTextInputLayout>
-                <chip:SfTextInputLayout Hint="Gender"
-                             IsHintAlwaysFloated="true" 
-                             ContainerType="Outlined"
-                             WidthRequest="400"
-                             HeightRequest="80">
-                    <Entry Text="Female"/>
-                </chip:SfTextInputLayout>
+            <chip:SfTextInputLayout 
+                        Hint="Gender" 
+                        ContainerType="Outlined" 
+                        WidthRequest="400" 
+                        HeightRequest="80"
+                        IsHintAlwaysFloated="True">
+                <editors:SfComboBox 
+                    x:Name="genderComboBox"
+                    TextColor="Black">
+                    <editors:SfComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Male</x:String>
+                            <x:String>Female</x:String>
+                        </x:Array>
+                    </editors:SfComboBox.ItemsSource>
 
-                <buttons:SfButton WidthRequest="400" HeightRequest="40" Text="Update Profile"/>
+                </editors:SfComboBox>
+
+            </chip:SfTextInputLayout>
+
+            <buttons:SfButton WidthRequest="400" HeightRequest="40" Text="Update Profile"/>
 
             </StackLayout>
     </Grid>

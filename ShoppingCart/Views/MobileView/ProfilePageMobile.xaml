@@ -18,7 +18,7 @@
                     <chip:SfBadgeView.Content>
                         <chip:SfAvatarView ContentType="Initials" HorizontalOptions="Center" VerticalOptions="Center"
              InitialsType="SingleCharacter"
-             AvatarName="Jessica Jessy"
+             AvatarName="{Binding}"
              FontSize="30"
              InitialsColor="#FFFFFF" 
              WidthRequest="80"

@@ -2,13 +2,19 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
              x:Class="ShoppingCart.NotificationsPageDesktop">
     
     <Grid>
-            <StackLayout Padding="20" Spacing="10">
-            <HorizontalStackLayout>
-                <Button ImageSource="backimage.png" HeightRequest="30" Margin="0,-10,0,0" WidthRequest="30" Clicked="SfButton_Clicked" BackgroundColor="Transparent"/>
-            <Label Text="Notifications" FontSize="16"  
+            <StackLayout  Spacing="10">
+            <HorizontalStackLayout Spacing="10">
+                <effects:SfEffectsView>
+                    <effects:SfEffectsView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackArrow_Tapped" />
+                    </effects:SfEffectsView.GestureRecognizers>
+                    <Label FontSize="20" Text="&#xe70e; " FontFamily="MauiSampleFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                </effects:SfEffectsView>
+                <Label Text="Notifications" FontSize="16"  
      TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
             </HorizontalStackLayout>
 

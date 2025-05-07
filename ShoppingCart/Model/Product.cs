@@ -46,6 +46,48 @@ namespace ShoppingCart
             }
         }
 
+        private string _email;
+        public string Email
+        {
+            get => _email;
+            set
+            {
+                if (_email != value)
+                {
+                    _email = value;
+                    OnPropertyChanged(nameof(Email));
+                }
+            }
+        }
+
+        private string _userName;
+        public string UserName
+        {
+            get => _userName;
+            set
+            {
+                if (_userName != value)
+                {
+                    _userName = value;
+                    OnPropertyChanged(nameof(UserName));
+                }
+            }
+        }
+
+        private bool _isProductBuyed;
+        public bool IsProductBuyed
+        {
+            get => _isProductBuyed;
+            set
+            {
+                if (_isProductBuyed != value)
+                {
+                    _isProductBuyed = value;
+                    OnPropertyChanged(nameof(IsProductBuyed));
+                }
+            }
+        }
+
         // Implement INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 

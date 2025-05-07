@@ -48,7 +48,7 @@
                 <Editor Placeholder="Search product" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" HeightRequest="45" VerticalTextAlignment="Center"
  HorizontalOptions="FillAndExpand"  />
             </input:SfTextInputLayout>
-            <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" CornerRadius="20" AvatarName="James" Margin="10">
+            <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" CornerRadius="20" AvatarName="{Binding CurrentUser.UserName}" Margin="10">
                 <chip:SfAvatarView.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnAvatarViewTapped" />
                 </chip:SfAvatarView.GestureRecognizers>

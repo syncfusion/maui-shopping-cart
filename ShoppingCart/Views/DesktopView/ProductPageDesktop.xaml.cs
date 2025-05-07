@@ -4,10 +4,13 @@ namespace ShoppingCart;
 public partial class ProductPageDesktop : ContentView
 {
     private ContentView _callerPage;
-    public ProductPageDesktop(ContentView callerPage)
+
+    ShoppingCartViewModel shoppingCartViewModel;
+    public ProductPageDesktop(ContentView callerPage, ShoppingCartViewModel viewModel)
 	{
 		InitializeComponent();
         _callerPage = callerPage;
+        BindingContext = viewModel;
     }
 
     private void BackArrow_Tapped(object sender, TappedEventArgs e)
@@ -27,5 +30,14 @@ public partial class ProductPageDesktop : ContentView
     private void Button_Clicked(object sender, EventArgs e)
     {
         popup.IsOpen = false;
+    }
+
+    private void BuyNowButton_Clicked(object sender, EventArgs e)
+    {
+        if (this.BindingContext is Product product)
+        {
+            product.IsProductBuyed = true;
+            popup.IsOpen = true;
+        }
     }
 }

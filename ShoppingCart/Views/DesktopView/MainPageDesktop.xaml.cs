@@ -7,10 +7,11 @@ namespace ShoppingCart
         List<Border> _tabBorders = new List<Border>();
         ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel();
         Border _selectedBorder;
-        public MainPageDesktop()
+        public MainPageDesktop(ShoppingCartViewModel viewModel)
         {
             InitializeComponent();
-
+            shoppingCartViewModel = viewModel;
+            BindingContext = shoppingCartViewModel;
             _selectedBorder = HomeBorder;
             SetSelected(HomeBorder);
 
@@ -35,17 +36,55 @@ namespace ShoppingCart
 
         private void OnAvatarViewTapped(object sender, EventArgs e)
         {
-            var profilePage = new ProfilePageDesktop(() => NavigateBackToHome());
+            ProfilePageDesktop profilePage = null;
 
-            selectedtab.Children.Clear(); 
-            selectedtab.Children.Add(profilePage); 
+            if (_selectedBorder == HomeBorder)
+            {
+                profilePage = new ProfilePageDesktop(() => NavigateBackToHome(), shoppingCartViewModel);
+            }
+            else if (_selectedBorder == AccountBorder)
+            {
+                profilePage = new ProfilePageDesktop(() => NavigateBackToSettings(), shoppingCartViewModel);
+            }
+            else if (_selectedBorder == SavedProductsBorder)
+            {
+                profilePage = new ProfilePageDesktop(() => NavigateBackToSavedProducts(), shoppingCartViewModel);
+            }
+            else if(_selectedBorder == CartBorder)
+            {
+                profilePage = new ProfilePageDesktop(() => NavigateBackToMyCart(), shoppingCartViewModel);
+            }
+
+                selectedtab.Children.Clear();
+            selectedtab.Children.Add(profilePage);
         }
 
         private void NavigateBackToHome()
         {
             var homePage = new HomePageDesktop(shoppingCartViewModel);
-            selectedtab.Children.Clear(); 
-            selectedtab.Children.Add(homePage); 
+            selectedtab.Children.Clear();
+            selectedtab.Children.Add(homePage);
+        }
+
+        private void NavigateBackToSettings()
+        {
+            var settingsPage = new SettingsPageDesktop(shoppingCartViewModel);
+            selectedtab.Children.Clear();
+            selectedtab.Children.Add(settingsPage);
+        }
+
+        private void NavigateBackToMyCart()
+        {
+            var settingsPage = new MyCartPageDesktop(shoppingCartViewModel);
+            selectedtab.Children.Clear();
+            selectedtab.Children.Add(settingsPage);
+        }
+
+        private void NavigateBackToSavedProducts()
+        {
+            var settingsPage = new SavedItemsPageDesktop(shoppingCartViewModel);
+            selectedtab.Children.Clear();
+            selectedtab.Children.Add(settingsPage);
         }
 
         void SetSelected(Border border)
@@ -101,7 +140,7 @@ namespace ShoppingCart
                         selectedContent = new MyCartPageDesktop(shoppingCartViewModel);
                         break;
                     case "My Account":
-                        selectedContent = new SettingsPageDesktop();
+                        selectedContent = new SettingsPageDesktop(shoppingCartViewModel);
                         break;
                 }
 

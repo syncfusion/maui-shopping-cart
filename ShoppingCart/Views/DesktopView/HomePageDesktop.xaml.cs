@@ -100,7 +100,7 @@ namespace ShoppingCart
             if (e.DataItem is Product tappedProduct)
             {
                 var HomePageContent = new HomePageDesktop(shoppingCartViewModel);
-                var productpageDesktop = new ProductPageDesktop(HomePageContent)
+                var productpageDesktop = new ProductPageDesktop(HomePageContent, shoppingCartViewModel)
                 {
                     BindingContext = tappedProduct
                 };

@@ -1,3 +1,4 @@
+using ShoppingCart.Model;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 
@@ -5,8 +6,7 @@ namespace ShoppingCart;
 
 public class ShoppingCartViewModel : ContentPage
 {
-    public string Email { get; set; } = "emmawilliam@gmail.com";
-    public string Password { get; set; } = "Emma@2024";
+    public UserProfile CurrentUser { get; set; }
 
     public ObservableCollection<SfRotatorItem> RotatorItems { get; set; }
     public ObservableCollection<SfRotatorItem> DesktopRotatorItems { get; set; }
@@ -15,6 +15,9 @@ public class ShoppingCartViewModel : ContentPage
     public ObservableCollection<Product>? FilteredProducts { get; set; }
     public ObservableCollection<Product>? SavedProducts { get; set; } = new ObservableCollection<Product>();
     public ObservableCollection<Product>? MyCartProducts { get; set; } = new ObservableCollection<Product>();
+
+    public ObservableCollection<Product> OrderedProducts { get; set; } = new ObservableCollection<Product> { };
+    public ObservableCollection<string> GenderList { get; set; }
 
     public class SfRotatorItem
     {
@@ -26,6 +29,13 @@ public class ShoppingCartViewModel : ContentPage
 
     public ShoppingCartViewModel()
     {
+        CurrentUser = new UserProfile();
+        CurrentUser.Email = "emmawilliam@gmail.com";
+        CurrentUser.Password = "Emma@2024";
+        CurrentUser.UserName = "Emma William";
+
+        GenderList = new ObservableCollection<string> { "Male", "Female" };
+
         RotatorItems = new ObservableCollection<SfRotatorItem>
             {
                 new SfRotatorItem { Title = "Big Sale! Up to 75% Off! Grab Yours Now!", Subtitle = "Step up style - Find your perfect style", ImageSource = "shoes.png" },
@@ -153,6 +163,19 @@ public class ShoppingCartViewModel : ContentPage
             {
                 MyCartProducts.Add(product);
             }
+        }
+    }
+
+    public void AddToOrders()
+    {
+        if(OrderedProducts != null)
+        {
+            OrderedProducts.Clear();
+            foreach (var product in Products.Where(product => product.IsProductBuyed))
+            {
+                OrderedProducts.Add(product);
+            }
+
         }
     }
 }
