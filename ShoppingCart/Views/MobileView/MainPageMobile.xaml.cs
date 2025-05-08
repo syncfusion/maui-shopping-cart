@@ -196,7 +196,7 @@ namespace ShoppingCart
 
  _totalPrice = (_price + 40);
                     priceLabel.Text = $"${_price}";
-                    totalAmountLabel.Text = $"${_totalPrice}"
+                    totalAmountLabel.Text = $"${_totalPrice}";
                 }
                
             }
