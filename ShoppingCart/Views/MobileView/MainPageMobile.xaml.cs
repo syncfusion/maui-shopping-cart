@@ -219,7 +219,8 @@ namespace ShoppingCart
             }
         }
 
-        private void OnSearchTextChanged(object sender, TextChangedEventArgs e) {
+        private void OnSearchTextChanged(object sender, TextChangedEventArgs e) 
+        {
             var searchText = e.NewTextValue?.Trim() ?? string.Empty;
             if (string.IsNullOrEmpty(searchText)) {
                 searchitem.IsVisible = false;
