@@ -16,6 +16,7 @@ public class ShoppingCartViewModel : ContentPage
     public ObservableCollection<Product>? SavedProducts { get; set; } = new ObservableCollection<Product>();
     public ObservableCollection<Product>? MyCartProducts { get; set; } = new ObservableCollection<Product>();
 
+    public ObservableCollection<string> FilteredCategories { get; set; }
     public class SfRotatorItem
     {
         public string? Title { get; set; }
@@ -48,6 +49,7 @@ public class ShoppingCartViewModel : ContentPage
         {
              "Men", "Women" , "Kids", "Accessories", "Shoes","Sports","Beauty","Electronics"
         };
+        FilteredCategories = new ObservableCollection<string>();
 
         Products = new ObservableCollection<Product>
         {
