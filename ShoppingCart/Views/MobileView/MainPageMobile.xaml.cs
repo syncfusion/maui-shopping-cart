@@ -171,5 +171,36 @@ namespace ShoppingCart
             }
         }
 
+        private void OnSearchTextChanged(object sender, TextChangedEventArgs e) 
+        {
+            var searchText = e.NewTextValue?.Trim() ?? string.Empty;
+
+            if (string.IsNullOrEmpty(searchText)) {
+                searchitem.IsVisible = false;
+                recentsearch.IsVisible = true;
+                return;
+            }
+
+            
+            var filtered = shoppingCartViewModel.Catagories
+                .Where(c => c.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0)
+                .ToList();
+
+            if (filtered.Any()) {
+               
+                shoppingCartViewModel.FilteredCategories.Clear();
+                foreach (var item in filtered)
+                    shoppingCartViewModel.FilteredCategories.Add(item);
+
+                searchitem.IsVisible = true;
+                recentsearch.IsVisible = false;
+            }
+            else {
+                
+                searchitem.IsVisible = false;
+                recentsearch.IsVisible = false;
+            }
+
+        }
     }
 }

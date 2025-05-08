@@ -1,5 +1,7 @@
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace ShoppingCart;
 
@@ -15,6 +17,8 @@ public class ShoppingCartViewModel : ContentPage
     public ObservableCollection<Product>? FilteredProducts { get; set; }
     public ObservableCollection<Product>? SavedProducts { get; set; } = new ObservableCollection<Product>();
 
+    public ObservableCollection<string> FilteredCategories { get; set; }
+
     public class SfRotatorItem
     {
         public string? Title { get; set; }
@@ -23,8 +27,7 @@ public class ShoppingCartViewModel : ContentPage
         public string? ImageSource { get; set; }
     }
 
-    public ShoppingCartViewModel()
-    {
+    public ShoppingCartViewModel() {
         RotatorItems = new ObservableCollection<SfRotatorItem>
             {
                 new SfRotatorItem { Title = "Big Sale! Up to 75% Off! Grab Yours Now!", Subtitle = "Step up style - Find your perfect style", ImageSource = "shoes.png" },
@@ -47,6 +50,8 @@ public class ShoppingCartViewModel : ContentPage
         {
              "Men", "Women" , "Kids", "Accessories", "Shoes","Sports","Beauty","Electronics"
         };
+        FilteredCategories = new ObservableCollection<string>();
+
 
         Products = new ObservableCollection<Product>
         {
@@ -131,7 +136,7 @@ public class ShoppingCartViewModel : ContentPage
             new Product { Name = "Steam Iron", ImageUrl = "steam_iron.png", Description = "Steam iron for crisp and smooth clothes.", Price = 35.00m, Category = "Electronics", Rating = 4.5, IsSaved = false, PurchasedCount = 72, Tags = new List<string> { "Iron", "Home" } ,IsAddedToCart=false},
             new Product { Name = "Laptop", ImageUrl = "laptop.png", Description = "High-performance laptop suitable for work and play.", Price = 850.00m, Category = "Electronics", Rating = 4.8, IsSaved = true, PurchasedCount = 133, Tags = new List<string> { "Laptop", "Electronics", "Computer" } ,IsAddedToCart=false},
             new Product { Name = "Smartphone (Compact)", ImageUrl = "smartphone2.png", Description = "Compact smartphone with advanced features.", Price = 499.00m, Category = "Electronics", Rating = 4.6, IsSaved = false, PurchasedCount = 92, Tags = new List<string> { "Phone", "Smartphone", "Compact" } ,IsAddedToCart=false},
-        };
+        }; 
 
         
     }

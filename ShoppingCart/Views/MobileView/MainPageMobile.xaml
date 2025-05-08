@@ -192,7 +192,72 @@
             </Grid>
         </syncfusion:SfTabItem>
 
-        <syncfusion:SfTabItem Header="&#xe728;" FontFamily="MauiSampleFontIcon" FontSize="32"/>
+        <syncfusion:SfTabItem Header="&#xe728;" FontFamily="MauiSampleFontIcon" FontSize="32">
+
+            <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="16,20,16,0" RowSpacing="20">
+
+                 <!--Header with Back Arrow and Title--> 
+                <Grid ColumnDefinitions="Auto,*" Grid.Row="0" Grid.Column="0" ColumnSpacing="14">
+                    <Label Text="&#xe70e;" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" FontFamily="MauiSampleFontIcon" FontSize="16" Grid.Column="0" Grid.Row="0"></Label>
+                    <Label Text="Search Items" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"></Label>
+                </Grid>
+
+                 <!--Search Input--> 
+                <input:SfTextInputLayout Grid.Row="1"
+                              OutlineCornerRadius="16"
+                              InputViewPadding="10,0,0,5"
+                              ContainerType="Outlined"
+                              HeightRequest="62"
+                              IsHintAlwaysFloated="True"
+                              ContainerBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"
+                              Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}">
+                    <Entry Placeholder="Search product"
+                           x:Name="entry"
+                PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"
+                TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"
+                FontSize="14"
+                HeightRequest="45"
+                TextChanged="OnSearchTextChanged"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="FillAndExpand" />
+                </input:SfTextInputLayout>
+
+                 <!--Empty State View-->
+                <VerticalStackLayout Grid.Row="2"
+                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="Center"
+                         x:Name="recentsearch"
+                         IsVisible="True"
+                         Spacing="10">
+                    <Image Source="clock.png"
+               WidthRequest="40"
+               HeightRequest="40" />
+                    <Label Text="You have no recent searches"
+               TextColor="{AppThemeBinding Light={StaticResource ContentForegroundAlt1-Light},Dark={StaticResource ContentForegroundAlt1-Dark}}"
+               HorizontalTextAlignment="Center"
+               FontSize="14" />
+                </VerticalStackLayout>
+
+                 <!--Recent Searches View-->
+                <StackLayout Grid.Row="2" Spacing="10" IsVisible="False" x:Name="searchitem">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Recent searches" FontAttributes="Bold" Grid.Column="0"/>
+                        <Label Text="Clear all" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackground-Light},Dark={StaticResource PrimaryBackground-Dark}}" Grid.Column="1" />
+                    </Grid>
+
+                    <CollectionView ItemsSource="{Binding FilteredCategories}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Label Text="{Binding}" FontSize="14" Padding="10,5" />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </Grid>
+
+
+        </syncfusion:SfTabItem>
+
         <syncfusion:SfTabItem Header="&#xe739;" FontFamily="MauiSampleFontIcon" FontSize="32">
             
             <Grid RowDefinitions="Auto,*" Padding="16,20,16,0" RowSpacing="16">
