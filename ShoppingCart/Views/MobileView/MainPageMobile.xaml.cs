@@ -1,7 +1,4 @@
-﻿using ShoppingCart.Views.MobileView;
-using Syncfusion.Maui.Buttons;
-using Syncfusion.Maui.Rotator;
-using Syncfusion.Maui.Themes;
+﻿using Syncfusion.Maui.Rotator;
 using Syncfusion.Maui.Toolkit.TabView;
 using System.Collections.ObjectModel;
 
@@ -9,16 +6,17 @@ namespace ShoppingCart
 {
     public partial class MainPageMobile : ContentPage
     {
-
+        decimal _totalPrice;
+        decimal _price;
         ShoppingCartViewModel shoppingCartViewModel;
         bool isMenuSelected = false;
-        private View _originalProfileContent;
         public MainPageMobile()
         {
             InitializeComponent();
             shoppingCartViewModel = new ShoppingCartViewModel();
             shoppingCartViewModel.FilteredProducts = new ObservableCollection<Product>();
             shoppingCartViewModel.FindSavedProducts();
+            shoppingCartViewModel.FindCartProducts();
             for (int i = 0; i < 4; i++)
             {
                 shoppingCartViewModel.FilteredProducts.Add(shoppingCartViewModel.Products[i]);
@@ -161,7 +159,6 @@ namespace ShoppingCart
                 product.IsSaved = false;
             }
         }
-
         private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
         {
             if (e.DataItem is Product tappedProduct)
@@ -171,108 +168,107 @@ namespace ShoppingCart
                     BindingContext = tappedProduct
                 };
 
-                Navigation.PushAsync(productpageMobile);
+				Navigation.PushAsync(productpageMobile);
+            }
+        }        private void tabView_SelectionChanged(object sender, TabSelectionChangedEventArgs e)
+        {
+            _price = 0;
+            if(e.NewIndex == 2 && shoppingCartViewModel != null)
+            {
+                shoppingCartViewModel.FindSavedProducts();
+            }
+            if (e.NewIndex == 4 && shoppingCartViewModel!=null)
+            {
+                shoppingCartViewModel.FindCartProducts();
+                if (shoppingCartViewModel.MyCartProducts?.Count == 0)
+                {
+                    CartDetailsLayout.IsVisible = false;
+                    popup.IsVisible = true;
+                    popup.IsOpen = true;
+                }
+                else
+                {
+                    foreach (var product in shoppingCartViewModel.MyCartProducts)
+                    {
+                        _price += (decimal)product.Price;
+                    }
+
+                    _totalPrice = (_price + 40);
+                    priceLabel.Text = $"${_price}";
+                    totalAmountLabel.Text = $"${_totalPrice}";
+                }
+               
             }
         }
 
-        private void OnNotificationsTapped(object sender, EventArgs e)
+        private void IncrementQuantity_Tapped(object sender, TappedEventArgs e)
         {
-            int profileTabIndex = 3;
-
-            _originalProfileContent = tabView.Items[profileTabIndex].Content;
-
-            var notificationsPage = new NotificationsPageMobile();
-
-            var layout = new StackLayout
+            if (sender is Element element && element.Parent is HorizontalStackLayout stackLayout
+                && element.BindingContext is Product product)
             {
-                Children =
-           {
-            new Button
-            {
-                ImageSource = "backimage.png",
-                Background = Colors.White,
-                WidthRequest= 30,
-                HeightRequest= 30,
-                HorizontalOptions = LayoutOptions.Start,
-                VerticalOptions = LayoutOptions.Start,
-                Command = new Command(() => NavigateBackToProfile(profileTabIndex))
-            },
-                    notificationsPage.Content
+                var quantityLabel = stackLayout.Children.OfType<Label>().FirstOrDefault(l => l.Text.All(char.IsDigit));
+                if (quantityLabel != null && int.TryParse(quantityLabel.Text, out int quantity))
+                {
+                    quantity++;
+                    quantityLabel.Text = quantity.ToString("D2");
+                    _price += (decimal)product.Price;
+                    priceLabel.Text = $"${_price}";
+                    _totalPrice = (_price + 40);
+                    totalAmountLabel.Text = $"${_totalPrice}";
                 }
-            };
-
-            tabView.Items[profileTabIndex].Content = layout;
-        }
-
-        private void MyOrdersTapped(object sender, EventArgs e)
-        {
-            int profileTabIndex = 3;
-
-            _originalProfileContent = tabView.Items[profileTabIndex].Content;
-
-            var myOrdersPage = new MyOrdersPageMobile();
-
-            var layout = new StackLayout
-            {
-                Children =
-           {
-            new Button
-            {
-                ImageSource = "backimage.png",
-                Background = Colors.White,
-                WidthRequest= 30,
-                HeightRequest= 30,
-                HorizontalOptions = LayoutOptions.Start,
-                VerticalOptions = LayoutOptions.Start,
-                Command = new Command(() => NavigateBackToProfile(profileTabIndex))
-            },
-                    myOrdersPage.Content
-                }
-            };
-
-            tabView.Items[profileTabIndex].Content = layout;
-        }
-
-        private void NavigateBackToProfile(int tabIndex)
-        {
-            if (_originalProfileContent != null)
-            {
-                tabView.Items[tabIndex].Content = _originalProfileContent;
             }
         }
 
-        private void EditOption_Clicked(object sender, EventArgs e)
+        private void DecrementQuantity_Tapped(object sender, TappedEventArgs e)
         {
-            int profileTabIndex = 3;
-
-            _originalProfileContent = tabView.Items[profileTabIndex].Content;
-
-            var profilePage = new ProfilePageMobile();
-
-            var layout = new StackLayout
+            if (sender is Element element && element.Parent is HorizontalStackLayout stackLayout
+                && element.BindingContext is Product product)
             {
-                Children =
-           {
-            new Button
-            {
-                ImageSource = "backimage.png",
-                Background = Colors.White,
-                WidthRequest= 30,
-                HeightRequest= 30,
-                HorizontalOptions = LayoutOptions.Start,
-                VerticalOptions = LayoutOptions.Start,
-                Command = new Command(() => NavigateBackToProfile(profileTabIndex))
-            },
-                    profilePage.Content
+                var quantityLabel = stackLayout.Children.OfType<Label>().FirstOrDefault(l => l.Text.All(char.IsDigit));
+                if (quantityLabel != null && int.TryParse(quantityLabel.Text, out int quantity) && quantity > 0)
+                {
+                    quantity--;
+                    if (quantity == 0)
+                    {
+                        product.IsAddedToCart = false;
+                        shoppingCartViewModel.FindCartProducts();
+                        _price = 0;
+                        foreach (var item in shoppingCartViewModel.MyCartProducts)
+                        {
+                            _price += (decimal)item.Price;
+                        }
+                        this.BindingContext = shoppingCartViewModel;
+                        quantityLabel.Text = "01";
+                        priceLabel.Text = $"${_price}";
+                        _totalPrice = (_price + 40);
+                        totalAmountLabel.Text = $"${_totalPrice}";
+                        if (shoppingCartViewModel.MyCartProducts.Count == 0)
+                        {
+                            CartDetailsLayout.IsVisible = false;
+                            popup.IsOpen = true;
+                        }
+                    }
+                    else
+                    {
+                        quantityLabel.Text = quantity.ToString("D2");
+                        _price -= (decimal)product.Price;
+                        priceLabel.Text = $"${_price}";
+                        _totalPrice = (_price + 40);
+                        totalAmountLabel.Text = $"${_totalPrice}";
+                    }
                 }
-            };
+            }
 
-            tabView.Items[profileTabIndex].Content = layout;
+        }
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            popup.IsVisible = false;
+            popup.IsOpen = false;
         }
 
-        private void SfSwitch_StateChanged(object sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
+        private void BackArrowButton_Tapped(object sender, TappedEventArgs e)
         {
-            App.Current.UserAppTheme = (bool)sfSwitch.IsOn ? AppTheme.Light : AppTheme.Dark;
+            tabView.SelectedIndex = 0;
         }
     }
 }
