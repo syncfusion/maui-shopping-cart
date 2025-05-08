@@ -159,7 +159,6 @@ namespace ShoppingCart
                 product.IsSaved = false;
             }
         }
-
         private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
         {
             if (e.DataItem is Product tappedProduct)
@@ -169,7 +168,7 @@ namespace ShoppingCart
                     BindingContext = tappedProduct
                 };
 
-                Navigation.PushAsync(productpageMobile);
+				Navigation.PushAsync(productpageMobile);
             }
         }        private void tabView_SelectionChanged(object sender, TabSelectionChangedEventArgs e)
         {
@@ -177,7 +176,7 @@ namespace ShoppingCart
             if(e.NewIndex == 2 && shoppingCartViewModel != null)
             {
                 shoppingCartViewModel.FindSavedProducts();
-        }
+            }
             if (e.NewIndex == 4 && shoppingCartViewModel!=null)
             {
                 shoppingCartViewModel.FindCartProducts();
@@ -194,7 +193,7 @@ namespace ShoppingCart
                         _price += (decimal)product.Price;
                     }
 
- _totalPrice = (_price + 40);
+                    _totalPrice = (_price + 40);
                     priceLabel.Text = $"${_price}";
                     totalAmountLabel.Text = $"${_totalPrice}";
                 }
@@ -217,6 +216,35 @@ namespace ShoppingCart
                     _totalPrice = (_price + 40);
                     totalAmountLabel.Text = $"${_totalPrice}";
                 }
+            }
+        }
+
+        private void OnSearchTextChanged(object sender, TextChangedEventArgs e) {
+            var searchText = e.NewTextValue?.Trim() ?? string.Empty;
+            if (string.IsNullOrEmpty(searchText)) {
+                searchitem.IsVisible = false;
+                recentsearch.IsVisible = true;
+                return;
+            }
+
+
+            var filtered = shoppingCartViewModel.Catagories
+                .Where(c => c.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0)
+                .ToList();
+
+            if (filtered.Any()) {
+
+                shoppingCartViewModel.FilteredCategories.Clear();
+                foreach (var item in filtered)
+                    shoppingCartViewModel.FilteredCategories.Add(item);
+
+                searchitem.IsVisible = true;
+                recentsearch.IsVisible = false;
+            }
+            else {
+
+                searchitem.IsVisible = false;
+                recentsearch.IsVisible = false;
             }
         }
 
@@ -271,34 +299,5 @@ namespace ShoppingCart
         {
             tabView.SelectedIndex = 0;
         }
-
-        private void OnSearchTextChanged(object sender, TextChangedEventArgs e) 
-        {
-            var searchText = e.NewTextValue?.Trim() ?? string.Empty;
-if (string.IsNullOrEmpty(searchText)) {
-                searchitem.IsVisible = false;
-                recentsearch.IsVisible = true;
-                return;
-            }
-
-            
-            var filtered = shoppingCartViewModel.Catagories
-                .Where(c => c.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0)
-                .ToList();
-
-            if (filtered.Any()) {
-               
-                shoppingCartViewModel.FilteredCategories.Clear();
-                foreach (var item in filtered)
-                    shoppingCartViewModel.FilteredCategories.Add(item);
-
-                searchitem.IsVisible = true;
-                recentsearch.IsVisible = false;
-            }
-            else {
-                
-                searchitem.IsVisible = false;
-                recentsearch.IsVisible = false;
-            }
-       }
-    }}
+    }
+}

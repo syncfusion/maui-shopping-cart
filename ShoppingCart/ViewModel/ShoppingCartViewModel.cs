@@ -1,7 +1,5 @@
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Input;
 
 namespace ShoppingCart;
 
@@ -18,7 +16,7 @@ public class ShoppingCartViewModel : ContentPage
     public ObservableCollection<Product>? SavedProducts { get; set; } = new ObservableCollection<Product>();
     public ObservableCollection<Product>? MyCartProducts { get; set; } = new ObservableCollection<Product>();
 
-  public ObservableCollection<string> FilteredCategories { get; set; }
+    public ObservableCollection<string> FilteredCategories { get; set; }
     public class SfRotatorItem
     {
         public string? Title { get; set; }
@@ -51,7 +49,7 @@ public class ShoppingCartViewModel : ContentPage
         {
              "Men", "Women" , "Kids", "Accessories", "Shoes","Sports","Beauty","Electronics"
         };
-       FilteredCategories = new ObservableCollection<string>();
+        FilteredCategories = new ObservableCollection<string>();
 
         Products = new ObservableCollection<Product>
         {
@@ -67,8 +65,9 @@ public class ShoppingCartViewModel : ContentPage
             new Product { Name = "Men's Red T-Shirt", ImageUrl = "tshirt6.png", Description = "Vibrant red t-shirt, durable and soft.", Price = 21.00m, Category = "Men", Rating = 4.3, IsSaved = false, PurchasedCount = 44, Tags = new List<string> { "T-Shirt", "Red", "Comfort" } ,IsAddedToCart=false},
             new Product { Name = "Men's Green Polo", ImageUrl = "tshirt4.png", Description = "Dark green polo shirt, perfect for semi-casual wear.", Price = 28.00m, Category = "Men", Rating = 4.5, IsSaved = true, PurchasedCount = 36, Tags = new List<string> { "Polo", "Green", "Semi-Formal" } ,IsAddedToCart=false},
 
+
             // Women Category
-            new Product { Name = "Yellow Dress", ImageUrl = "gown.png", Description = "Elegant yellow dress for special occasions.", Price = 24.00m, Category = "Women", Rating = 4.5, IsSaved = false, PurchasedCount = 35, Tags = new List<string> { "Dress", "Elegant" } },
+           new Product { Name = "Yellow Dress", ImageUrl = "gown.png", Description = "Elegant yellow dress for special occasions.", Price = 24.00m, Category = "Women", Rating = 4.5, IsSaved = false, PurchasedCount = 35, Tags = new List<string> { "Dress", "Elegant" } },
             new Product { Name = "Women's Blue Bow Blouse", ImageUrl = "blue_bow_blouse.png", Description = "Stylish blue blouse with front bow detail.", Price = 35.00m, Category = "Women", Rating = 4.7, IsSaved = true, PurchasedCount = 50, Tags = new List<string> { "Blouse", "Bow", "Blue" } ,IsAddedToCart=false},
             new Product { Name = "Women's Pink T-Shirt", ImageUrl = "pink_tshirt.png", Description = "Soft pink t-shirt perfect for casual days.", Price = 22.00m, Category = "Women", Rating = 4.5, IsSaved = false, PurchasedCount = 42, Tags = new List<string> { "T-Shirt", "Pink", "Casual" } ,IsAddedToCart=false},
             new Product { Name = "Women's White Scoop Tee", ImageUrl = "white_scoop_tee.png", Description = "White scoop neck t-shirt with a flattering fit.", Price = 24.00m, Category = "Women", Rating = 4.6, IsSaved = true, PurchasedCount = 60, Tags = new List<string> { "T-Shirt", "White", "Fitted" } ,IsAddedToCart=false},
@@ -96,8 +95,7 @@ public class ShoppingCartViewModel : ContentPage
             new Product { Name = "Brown Leather Belt", ImageUrl = "belt_brown_leather.png", Description = "Durable brown leather belt with metal buckle.", Price = 18.00m, Category = "Accessories", Rating = 4.6, IsSaved = false, PurchasedCount = 48, Tags = new List<string> { "Belt", "Leather", "Brown" } ,IsAddedToCart=false},
             new Product { Name = "Red-Blue Check Scarf", ImageUrl = "scarf_check_red_blue.png", Description = "Warm scarf with red and blue checkered pattern.", Price = 22.00m, Category = "Accessories", Rating = 4.7, IsSaved = true, PurchasedCount = 52, Tags = new List<string> { "Scarf", "Winter", "Checkered" } ,IsAddedToCart=false},
             new Product { Name = "Black Knit Beanie", ImageUrl = "beanie_black_knit.png", Description = "Cozy black knit beanie for cold weather.", Price = 16.00m, Category = "Accessories", Rating = 4.5, IsSaved = false, PurchasedCount = 45, Tags = new List<string> { "Beanie", "Winter", "Black" } ,IsAddedToCart=false},
-             new Product { Name = "Striped Winter Gloves", ImageUrl = "gloves_winter_striped.png", Description = "Warm gloves with blue, black, and white stripes.", Price = 12.00m, Category = "Accessories", Rating = 4.4, IsSaved = true, PurchasedCount = 34, Tags = new List<string> { "Gloves", "Winter", "Striped" } ,IsAddedToCart=false},
-          
+            new Product { Name = "Striped Winter Gloves", ImageUrl = "gloves_winter_striped.png", Description = "Warm gloves with blue, black, and white stripes.", Price = 12.00m, Category = "Accessories", Rating = 4.4, IsSaved = true, PurchasedCount = 34, Tags = new List<string> { "Gloves", "Winter", "Striped" } ,IsAddedToCart=false},            
             // Shoes Category
             new Product { Name = "Casual Sandals", ImageUrl = "sandals_casual.png", Description = "Comfortable sandals for everyday wear.", Price = 35.00m, Category = "Shoes", Rating = 4.3, IsSaved = false, PurchasedCount = 50, Tags = new List<string> { "Sandals", "Casual" } ,IsAddedToCart=false},
             new Product { Name = "Flip Flops", ImageUrl = "flip_flops_nude.png", Description = "Easy slip-on sandals.", Price = 18.00m, Category = "Shoes", Rating = 4.2, IsSaved = false, PurchasedCount = 43, Tags = new List<string> { "Flip Flops", "Casual" } ,IsAddedToCart=false},
@@ -130,7 +128,7 @@ public class ShoppingCartViewModel : ContentPage
             new Product { Name = "Kitchen Appliance Set", ImageUrl = "kitchen_appliance_set.png", Description = "Complete set of kitchen appliances for daily use.", Price = 150.00m, Category = "Electronics", Rating = 4.7, IsSaved = true, PurchasedCount = 85, Tags = new List<string> { "Kitchen", "Appliances", "Set" } ,IsAddedToCart=false},
             new Product { Name = "Steam Iron", ImageUrl = "steam_iron.png", Description = "Steam iron for crisp and smooth clothes.", Price = 35.00m, Category = "Electronics", Rating = 4.5, IsSaved = false, PurchasedCount = 72, Tags = new List<string> { "Iron", "Home" } ,IsAddedToCart=false},
             new Product { Name = "Laptop", ImageUrl = "laptop.png", Description = "High-performance laptop suitable for work and play.", Price = 850.00m, Category = "Electronics", Rating = 4.8, IsSaved = true, PurchasedCount = 133, Tags = new List<string> { "Laptop", "Electronics", "Computer" } ,IsAddedToCart=false},
-        
+        };
 
         
     }
