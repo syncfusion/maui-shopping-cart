@@ -28,5 +28,4 @@ public partial class MyOrdersPageMobile : ContentPage
             Navigation.PushAsync(productpageMobile);
         }
     }
-
 }
