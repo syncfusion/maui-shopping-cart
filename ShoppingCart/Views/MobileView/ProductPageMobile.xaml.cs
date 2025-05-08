@@ -9,7 +9,7 @@ public partial class ProductPageMobile : ContentPage
 
     private void BackArrow_Tapped(object sender, TappedEventArgs e)
     {
-        Navigation.PushAsync(new MainPageMobile());
+         Navigation.PopAsync();
     }
 
     private void AddButton_Clicked(object sender, EventArgs e)
@@ -24,5 +24,16 @@ public partial class ProductPageMobile : ContentPage
     private void Button_Clicked(object sender, EventArgs e)
     {
         popup.IsOpen = false;
+    }
+
+    void ToggleSavedStatus(object sender, EventArgs e)
+    {
+        if (sender is Label tappedLabel)
+        {
+            if (tappedLabel.BindingContext is Product currentItem)
+            {
+                currentItem.IsSaved = !currentItem.IsSaved;
+            }
+        }
     }
 }

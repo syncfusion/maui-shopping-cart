@@ -16,9 +16,9 @@ public class ShoppingCartViewModel : ContentPage
     public ObservableCollection<Product> Products { get; set; }
     public ObservableCollection<Product>? FilteredProducts { get; set; }
     public ObservableCollection<Product>? SavedProducts { get; set; } = new ObservableCollection<Product>();
+    public ObservableCollection<Product>? MyCartProducts { get; set; } = new ObservableCollection<Product>();
 
-    public ObservableCollection<string> FilteredCategories { get; set; }
-
+  public ObservableCollection<string> FilteredCategories { get; set; }
     public class SfRotatorItem
     {
         public string? Title { get; set; }
@@ -27,7 +27,8 @@ public class ShoppingCartViewModel : ContentPage
         public string? ImageSource { get; set; }
     }
 
-    public ShoppingCartViewModel() {
+    public ShoppingCartViewModel()
+    {
         RotatorItems = new ObservableCollection<SfRotatorItem>
             {
                 new SfRotatorItem { Title = "Big Sale! Up to 75% Off! Grab Yours Now!", Subtitle = "Step up style - Find your perfect style", ImageSource = "shoes.png" },
@@ -50,8 +51,7 @@ public class ShoppingCartViewModel : ContentPage
         {
              "Men", "Women" , "Kids", "Accessories", "Shoes","Sports","Beauty","Electronics"
         };
-        FilteredCategories = new ObservableCollection<string>();
-
+       FilteredCategories = new ObservableCollection<string>();
 
         Products = new ObservableCollection<Product>
         {
@@ -78,7 +78,6 @@ public class ShoppingCartViewModel : ContentPage
             new Product { Name = "Women's Grey Wrap Top", ImageUrl = "grey_wrap_top.png", Description = "Chic wrap top in grey with stylish tie detail.", Price = 34.00m, Category = "Women", Rating = 4.6, IsSaved = false, PurchasedCount = 31, Tags = new List<string> { "Top", "Wrap", "Grey" } ,IsAddedToCart=false},
             new Product { Name = "Women's Red Off-Shoulder Top", ImageUrl = "red_offshoulder_top.png", Description = "Red off-shoulder top with elegant ruffles.", Price = 33.00m, Category = "Women", Rating = 4.7, IsSaved = true, PurchasedCount = 54, Tags = new List<string> { "Top", "Red", "Off-Shoulder" } ,IsAddedToCart=false},
             new Product { Name = "Women's Pink Flared Dress", ImageUrl = "pink_flared_dress.png", Description = "Flared pink dress perfect for special occasions.", Price = 45.00m, Category = "Women", Rating = 4.8, IsSaved = false, PurchasedCount = 48, Tags = new List<string> { "Dress", "Pink", "Elegant" } ,IsAddedToCart=false},
-
             // Kids Category
             new Product { Name = "Kids Dress", ImageUrl = "womendress.png", Description = "Cute and colorful dress for kids.", Price = 24.00m, Category = "Kids", Rating = 4.5, IsSaved = false, PurchasedCount = 45, Tags = new List<string> { "Dress", "Colorful" } },
             new Product { Name = "Kids' Brown Tee and Shorts Set", ImageUrl = "kids_brown_set.png", Description = "Comfortable brown t-shirt and shorts set for kids.", Price = 18.00m, Category = "Kids", Rating = 4.5, IsSaved = true, PurchasedCount = 40, Tags = new List<string> { "Set", "Tee", "Shorts" } ,IsAddedToCart=false},
@@ -88,7 +87,6 @@ public class ShoppingCartViewModel : ContentPage
             new Product { Name = "Kids' Pink Bunny Sweater", ImageUrl = "kids_pink_bunny_sweater.png", Description = "Cozy pink sweater with bunny design.", Price = 21.00m, Category = "Kids", Rating = 4.5, IsSaved = false, PurchasedCount = 44, Tags = new List<string> { "Sweater", "Pink", "Bunny" } ,IsAddedToCart=false},
             new Product { Name = "Kids' Denim Shirt Jacket", ImageUrl = "kids_denim_shirt_jacket.png", Description = "Denim shirt-style jacket for boys and girls.", Price = 29.00m, Category = "Kids", Rating = 4.6, IsSaved = false, PurchasedCount = 50, Tags = new List<string> { "Jacket", "Denim", "Shirt Style" } ,IsAddedToCart=false},
             new Product { Name = "Kids' Teddy Sweater", ImageUrl = "kids_teddy_sweater.png", Description = "Playful cream sweater with teddy illustrations.", Price = 24.00m, Category = "Kids", Rating = 4.7, IsSaved = true, PurchasedCount = 52, Tags = new List<string> { "Sweater", "Teddy", "Fun" } ,IsAddedToCart=false},
-
             // Accessories Category
             new Product { Name = "Blue Handbag", ImageUrl = "bag.png", Description = "Chic blue handbag, ideal for everyday use.", Price = 24.00m, Category = "Accessories", Rating = 4.5, IsSaved = true, PurchasedCount = 60, Tags = new List<string> { "Handbag", "Chic" } },
             new Product { Name = "Blue Striped Bow Tie", ImageUrl = "bow_tie_blue_striped.png", Description = "Elegant blue-striped bow tie for formal occasions.", Price = 15.00m, Category = "Accessories", Rating = 4.6, IsSaved = true, PurchasedCount = 38, Tags = new List<string> { "Bow Tie", "Formal", "Blue" } ,IsAddedToCart=false},
@@ -98,8 +96,8 @@ public class ShoppingCartViewModel : ContentPage
             new Product { Name = "Brown Leather Belt", ImageUrl = "belt_brown_leather.png", Description = "Durable brown leather belt with metal buckle.", Price = 18.00m, Category = "Accessories", Rating = 4.6, IsSaved = false, PurchasedCount = 48, Tags = new List<string> { "Belt", "Leather", "Brown" } ,IsAddedToCart=false},
             new Product { Name = "Red-Blue Check Scarf", ImageUrl = "scarf_check_red_blue.png", Description = "Warm scarf with red and blue checkered pattern.", Price = 22.00m, Category = "Accessories", Rating = 4.7, IsSaved = true, PurchasedCount = 52, Tags = new List<string> { "Scarf", "Winter", "Checkered" } ,IsAddedToCart=false},
             new Product { Name = "Black Knit Beanie", ImageUrl = "beanie_black_knit.png", Description = "Cozy black knit beanie for cold weather.", Price = 16.00m, Category = "Accessories", Rating = 4.5, IsSaved = false, PurchasedCount = 45, Tags = new List<string> { "Beanie", "Winter", "Black" } ,IsAddedToCart=false},
-            new Product { Name = "Striped Winter Gloves", ImageUrl = "gloves_winter_striped.png", Description = "Warm gloves with blue, black, and white stripes.", Price = 12.00m, Category = "Accessories", Rating = 4.4, IsSaved = true, PurchasedCount = 34, Tags = new List<string> { "Gloves", "Winter", "Striped" } ,IsAddedToCart=false},
-            
+             new Product { Name = "Striped Winter Gloves", ImageUrl = "gloves_winter_striped.png", Description = "Warm gloves with blue, black, and white stripes.", Price = 12.00m, Category = "Accessories", Rating = 4.4, IsSaved = true, PurchasedCount = 34, Tags = new List<string> { "Gloves", "Winter", "Striped" } ,IsAddedToCart=false},
+          
             // Shoes Category
             new Product { Name = "Casual Sandals", ImageUrl = "sandals_casual.png", Description = "Comfortable sandals for everyday wear.", Price = 35.00m, Category = "Shoes", Rating = 4.3, IsSaved = false, PurchasedCount = 50, Tags = new List<string> { "Sandals", "Casual" } ,IsAddedToCart=false},
             new Product { Name = "Flip Flops", ImageUrl = "flip_flops_nude.png", Description = "Easy slip-on sandals.", Price = 18.00m, Category = "Shoes", Rating = 4.2, IsSaved = false, PurchasedCount = 43, Tags = new List<string> { "Flip Flops", "Casual" } ,IsAddedToCart=false},
@@ -109,7 +107,6 @@ public class ShoppingCartViewModel : ContentPage
             new Product { Name = "Women's Flats", ImageUrl = "flats_pink.png", Description = "Simple and comfy flats.", Price = 28.00m, Category = "Shoes", Rating = 4.5, IsSaved = true, PurchasedCount = 52, Tags = new List<string> { "Flats", "Comfy" } ,IsAddedToCart=false},
             new Product { Name = "Men's Boots", ImageUrl = "boots_brown.png", Description = "Rugged and stylish.", Price = 95.00m, Category = "Shoes", Rating = 4.7, IsSaved = false, PurchasedCount = 47, Tags = new List<string> { "Boots", "Rugged" } ,IsAddedToCart=false},
             new Product { Name = "Slip-on Shoes", ImageUrl = "shoes_slipon_brown.png", Description = "Convenient slip-on style.", Price = 38.00m, Category = "Shoes", Rating = 4.4, IsSaved = true, PurchasedCount = 34, Tags = new List<string> { "Slip-on", "Convenient" } ,IsAddedToCart=false},
-
             // Sports Category
             new Product { Name = "Sports Socks", ImageUrl = "socks.png", Description = "Comfortable ankle sports socks.", Price = 12.00m, Category = "Sports", Rating = 4.4, IsSaved = true, PurchasedCount = 80, Tags = new List<string> { "Socks", "Sportswear" } ,IsAddedToCart=false},
             new Product { Name = "Sports Sneakers", ImageUrl = "sneakers.png", Description = "High-performance athletic sneakers.", Price = 85.00m, Category = "Sports", Rating = 4.7, IsSaved = true, PurchasedCount = 110, Tags = new List<string> { "Sneakers", "Shoes" } ,IsAddedToCart=false},
@@ -117,8 +114,7 @@ public class ShoppingCartViewModel : ContentPage
             new Product { Name = "Purple & White Cap", ImageUrl = "purple_white_cap.png", Description = "Purple and white sports cap.", Price = 18.00m, Category = "Sports", Rating = 4.5, IsSaved = false, PurchasedCount = 50, Tags = new List<string> { "Cap", "Headwear" } ,IsAddedToCart=false},
             new Product { Name = "Sports Jacket", ImageUrl = "sports_jacket.png", Description = "Lightweight water-resistant sports jacket.", Price = 60.00m, Category = "Sports", Rating = 4.6, IsSaved = true, PurchasedCount = 70, Tags = new List<string> { "Jacket", "Outerwear" } ,IsAddedToCart=false},
             new Product { Name = "White/Blue Sports T-Shirt", ImageUrl = "sports_tee_blue_white.png", Description = "Breathable white and blue sports t-shirt.", Price = 25.00m, Category = "Sports", Rating = 4.5, IsSaved = false, PurchasedCount = 67, Tags = new List<string> { "T-Shirt", "Sportswear" } ,IsAddedToCart=false},
-            new Product { Name = "Blue Sports T-Shirt", ImageUrl = "sports_tee_blue.png", Description = "Classic blue sports t-shirt.", Price = 22.00m, Category = "Sports", Rating = 4.4, IsSaved = true, PurchasedCount = 83, Tags = new List<string> { "T-Shirt", "Sportswear" } ,IsAddedToCart=false},
-           
+            new Product { Name = "Blue Sports T-Shirt", ImageUrl = "sports_tee_blue.png", Description = "Classic blue sports t-shirt.", Price = 22.00m, Category = "Sports", Rating = 4.4, IsSaved = true, PurchasedCount = 83, Tags = new List<string> { "T-Shirt", "Sportswear" } ,IsAddedToCart=false},           
             // Beauty Category
             new Product { Name = "Red Lipstick", ImageUrl = "red_lipstick.png", Description = "Vibrant red lipstick with long-lasting formula.", Price = 15.00m, Category = "Beauty", Rating = 4.7, IsSaved = true, PurchasedCount = 110, Tags = new List<string> { "Lipstick", "Red", "Makeup" } ,IsAddedToCart=false},
             new Product { Name = "Eyeshadow Palette", ImageUrl = "eyeshadow_palette.png", Description = "12-shade eyeshadow palette with matte and shimmer finishes.", Price = 25.00m, Category = "Beauty", Rating = 4.6, IsSaved = false, PurchasedCount = 78, Tags = new List<string> { "Eyeshadow", "Palette", "Makeup" } ,IsAddedToCart=true},
@@ -126,7 +122,6 @@ public class ShoppingCartViewModel : ContentPage
             new Product { Name = "Complete Makeup Kit", ImageUrl = "makeup_kit.png", Description = "All-in-one beauty kit with essentials for any look.", Price = 60.00m, Category = "Beauty", Rating = 4.8, IsSaved = true, PurchasedCount = 95, Tags = new List<string> { "Makeup", "Kit", "Complete" } ,IsAddedToCart=false},
             new Product { Name = "Hair Styling Set", ImageUrl = "hair_styling_set.png", Description = "Professional hair styling tools for salon-quality results.", Price = 40.00m, Category = "Beauty", Rating = 4.6, IsSaved = false, PurchasedCount = 59, Tags = new List<string> { "Hair", "Styling", "Tools" } ,IsAddedToCart=false},
             new Product { Name = "Pink Lipstick", ImageUrl = "pink_lipstick.png", Description = "Bright pink lipstick for a bold look.", Price = 15.00m, Category = "Beauty", Rating = 4.4, IsSaved = false, PurchasedCount = 70, Tags = new List<string> { "Lipstick", "Pink", "Makeup" } ,IsAddedToCart=false},
-
             // Electronics Category
             new Product { Name = "Smartphone", ImageUrl = "smartphone1.png", Description = "Latest smartphone with high-resolution display.", Price = 699.00m, Category = "Electronics", Rating = 4.7, IsSaved = true, PurchasedCount = 150, Tags = new List<string> { "Phone", "Smartphone", "Electronics" } ,IsAddedToCart=false},
             new Product { Name = "Washing Machine", ImageUrl = "washing_machine.png", Description = "Fully automatic washing machine with quick wash feature.", Price = 420.00m, Category = "Electronics", Rating = 4.5, IsSaved = false, PurchasedCount = 65, Tags = new List<string> { "Washing Machine", "Appliance" } ,IsAddedToCart=false},
@@ -135,8 +130,7 @@ public class ShoppingCartViewModel : ContentPage
             new Product { Name = "Kitchen Appliance Set", ImageUrl = "kitchen_appliance_set.png", Description = "Complete set of kitchen appliances for daily use.", Price = 150.00m, Category = "Electronics", Rating = 4.7, IsSaved = true, PurchasedCount = 85, Tags = new List<string> { "Kitchen", "Appliances", "Set" } ,IsAddedToCart=false},
             new Product { Name = "Steam Iron", ImageUrl = "steam_iron.png", Description = "Steam iron for crisp and smooth clothes.", Price = 35.00m, Category = "Electronics", Rating = 4.5, IsSaved = false, PurchasedCount = 72, Tags = new List<string> { "Iron", "Home" } ,IsAddedToCart=false},
             new Product { Name = "Laptop", ImageUrl = "laptop.png", Description = "High-performance laptop suitable for work and play.", Price = 850.00m, Category = "Electronics", Rating = 4.8, IsSaved = true, PurchasedCount = 133, Tags = new List<string> { "Laptop", "Electronics", "Computer" } ,IsAddedToCart=false},
-            new Product { Name = "Smartphone (Compact)", ImageUrl = "smartphone2.png", Description = "Compact smartphone with advanced features.", Price = 499.00m, Category = "Electronics", Rating = 4.6, IsSaved = false, PurchasedCount = 92, Tags = new List<string> { "Phone", "Smartphone", "Compact" } ,IsAddedToCart=false},
-        }; 
+        
 
         
     }
@@ -152,5 +146,17 @@ public class ShoppingCartViewModel : ContentPage
             }
         }
         
+    }
+
+    public void FindCartProducts()
+    {
+        if(MyCartProducts !=null)
+        {
+            MyCartProducts.Clear();
+            foreach (var product in Products.Where(product => product.IsAddedToCart))
+            {
+                MyCartProducts.Add(product);
+            }
+        }
     }
 }

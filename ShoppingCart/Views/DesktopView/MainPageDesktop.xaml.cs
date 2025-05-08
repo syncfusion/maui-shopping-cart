@@ -80,7 +80,8 @@
                     case "Saved Products":
                         selectedContent=new SavedItemsPageDesktop(shoppingCartViewModel);
                         break;
-                    case "Cart":
+                    case "My Cart":
+                        selectedContent = new MyCartPageDesktop(shoppingCartViewModel);
                         break;
                     case "Account":
                         break;
