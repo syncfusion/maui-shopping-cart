@@ -45,14 +45,14 @@
                     <Label Text="Sign up" FontSize="24" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" HorizontalOptions="Center" />
 
                     <!-- Name Entry -->
-                    <input:SfTextInputLayout Hint="Name" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True"  >
+                    <input:SfTextInputLayout x:Name="nameInput" Hint="Name" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True"  >
                         <Entry Placeholder="Name" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" HeightRequest="45"/>
                     </input:SfTextInputLayout>
                     <!-- Email Entry -->
-                    <input:SfTextInputLayout  Hint="Email" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True"  >
+                    <input:SfTextInputLayout x:Name="emailInput" Hint="Email" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True"  >
                         <Entry Placeholder="Email" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" Keyboard="Email" HeightRequest="45"/>
                     </input:SfTextInputLayout>
-                    <input:SfTextInputLayout  Hint="Password" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True"  >
+                    <input:SfTextInputLayout x:Name="passwordInput" Hint="Password" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True"  >
                         <!-- Password Entry -->
                         <Entry Placeholder="Password" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" IsPassword="True"  HeightRequest="45"/>
                     </input:SfTextInputLayout>
@@ -77,12 +77,12 @@
                     <Label Text="Sign in" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
 
                     <!-- Email Entry -->
-                    <input:SfTextInputLayout  Hint="Email" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True" >
+                    <input:SfTextInputLayout   Hint="Email" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True" >
                         <Entry x:Name="signinEmail" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" Placeholder="Email" Keyboard="Email" HeightRequest="45"/>
                     </input:SfTextInputLayout>
                     <!-- Password Entry -->
                     <StackLayout>
-                        <input:SfTextInputLayout  Hint="Password" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True"  >
+                        <input:SfTextInputLayout   Hint="Password" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True"  >
                             <Entry x:Name="signinPassword" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" Placeholder="Password" IsPassword="True" HeightRequest="45" />
                         </input:SfTextInputLayout>
                         <Label  Text="Forgot password?" VerticalOptions="Center" HorizontalOptions="End" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>

@@ -7,6 +7,7 @@
             xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
             xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
             xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              Title="ProfilePageMobile">
 
@@ -18,7 +19,7 @@
                     <chip:SfBadgeView.Content>
                         <chip:SfAvatarView ContentType="Initials" HorizontalOptions="Center" VerticalOptions="Center"
              InitialsType="SingleCharacter"
-             AvatarName="{Binding}"
+             AvatarName="{Binding CurrentUser.UserName}"
              FontSize="30"
              InitialsColor="#FFFFFF" 
              WidthRequest="80"
@@ -36,14 +37,14 @@
                                       WidthRequest="400"
                                       HeightRequest="100"
                      ContainerType="Outlined" >
-                    <Entry  Text="Jessica Jessy"/>
+            <Entry  Text="{Binding CurrentUser.UserName}"/>
                 </chip:SfTextInputLayout>
                 <chip:SfTextInputLayout Hint="Email"
                                   IsHintAlwaysFloated="true" 
                                   ContainerType="Outlined"
                                 WidthRequest="400"
                           HeightRequest="100">
-                    <Entry Text="jessicajessy@gmail.com" />
+            <Entry Text="{Binding CurrentUser.Email}" />
                 </chip:SfTextInputLayout>
                 <chip:SfTextInputLayout Hint="Phone Number"
                               IsHintAlwaysFloated="true" 
@@ -52,14 +53,26 @@
                               ContainerType="Outlined">
                     <Entry Text="9988776655" />
                 </chip:SfTextInputLayout>
-                <chip:SfTextInputLayout Hint="Gender"
-                              IsHintAlwaysFloated="true" 
-                              ContainerType="Outlined"
-                              WidthRequest="400"
-                              HeightRequest="100">
-                    <Entry Text="Female"/>
-                </chip:SfTextInputLayout>
+        <chip:SfTextInputLayout 
+             Hint="Gender" 
+             ContainerType="Outlined" 
+             WidthRequest="400" 
+             HeightRequest="100"
+             IsHintAlwaysFloated="True">
+            <editors:SfComboBox 
+         x:Name="genderComboBox"
+         TextColor="Black">
+                <editors:SfComboBox.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Male</x:String>
+                        <x:String>Female</x:String>
+                    </x:Array>
+                </editors:SfComboBox.ItemsSource>
 
-                <buttons:SfButton WidthRequest="400" HeightRequest="40" Text="Update Profile"/>
+            </editors:SfComboBox>
+
+        </chip:SfTextInputLayout>
+
+        <buttons:SfButton WidthRequest="400" HeightRequest="40" Text="Update Profile"/>
         </StackLayout>
 </ContentPage>

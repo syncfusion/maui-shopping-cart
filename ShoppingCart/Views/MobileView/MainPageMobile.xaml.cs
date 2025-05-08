@@ -1,4 +1,5 @@
-﻿using Syncfusion.Maui.Rotator;
+﻿using ShoppingCart.Views.MobileView;
+using Syncfusion.Maui.Rotator;
 using Syncfusion.Maui.Toolkit.TabView;
 using System.Collections.ObjectModel;
 
@@ -9,6 +10,7 @@ namespace ShoppingCart
         decimal _totalPrice;
         decimal _price;
         ShoppingCartViewModel shoppingCartViewModel;
+        private View _originalProfileContent;
         bool isMenuSelected = false;
         public MainPageMobile()
         {
@@ -260,6 +262,104 @@ namespace ShoppingCart
             }
 
         }
+
+
+        private void OnNotificationsTapped(object sender, EventArgs e)
+        {
+            int profileTabIndex = 3;
+
+            _originalProfileContent = tabView.Items[profileTabIndex].Content;
+
+            var notificationsPage = new NotificationsPageMobile();
+
+            var layout = new StackLayout
+            {
+                Children =
+           {
+            new Button
+            {
+                ImageSource = "backimage.png",
+                Background = Colors.White,
+                WidthRequest= 30,
+                HeightRequest= 30,
+                HorizontalOptions = LayoutOptions.Start,
+                VerticalOptions = LayoutOptions.Start,
+                Command = new Command(() => NavigateBackToProfile(profileTabIndex))
+            },
+                    notificationsPage.Content
+                }
+            };
+
+            tabView.Items[profileTabIndex].Content = layout;
+        }
+
+        private void MyOrdersTapped(object sender, EventArgs e)
+        {
+            int profileTabIndex = 3;
+
+            _originalProfileContent = tabView.Items[profileTabIndex].Content;
+
+            var myOrdersPage = new MyOrdersPageMobile(shoppingCartViewModel);
+
+            var layout = new StackLayout
+            {
+                Children =
+           {
+            new Button
+            {
+                ImageSource = "backimage.png",
+                Background = Colors.White,
+                WidthRequest= 30,
+                HeightRequest= 30,
+                HorizontalOptions = LayoutOptions.Start,
+                VerticalOptions = LayoutOptions.Start,
+                Command = new Command(() => NavigateBackToProfile(profileTabIndex))
+            },
+                    myOrdersPage.Content
+                }
+            };
+
+            tabView.Items[profileTabIndex].Content = layout;
+        }
+
+        private void NavigateBackToProfile(int tabIndex)
+        {
+            if (_originalProfileContent != null)
+            {
+                tabView.Items[tabIndex].Content = _originalProfileContent;
+            }
+        }
+
+        private void EditOption_Clicked(object sender, EventArgs e)
+        {
+            int profileTabIndex = 3;
+
+            _originalProfileContent = tabView.Items[profileTabIndex].Content;
+
+            var profilePage = new ProfilePageMobile(shoppingCartViewModel);
+
+            var layout = new StackLayout
+            {
+                Children =
+           {
+            new Button
+            {
+                ImageSource = "backimage.png",
+                Background = Colors.White,
+                WidthRequest= 30,
+                HeightRequest= 30,
+                HorizontalOptions = LayoutOptions.Start,
+                VerticalOptions = LayoutOptions.Start,
+                Command = new Command(() => NavigateBackToProfile(profileTabIndex))
+            },
+                    profilePage.Content
+                }
+            };
+
+            tabView.Items[profileTabIndex].Content = layout;
+        }
+
+
         private void Button_Clicked(object sender, EventArgs e)
         {
             popup.IsVisible = false;
@@ -269,6 +369,11 @@ namespace ShoppingCart
         private void BackArrowButton_Tapped(object sender, TappedEventArgs e)
         {
             tabView.SelectedIndex = 0;
+        }
+
+        private void SfSwitch_StateChanged(object sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
+        {
+            App.Current.UserAppTheme = (bool)sfSwitch.IsOn ? AppTheme.Dark : AppTheme.Light;
         }
     }
 }

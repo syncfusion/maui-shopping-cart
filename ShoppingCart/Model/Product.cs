@@ -46,33 +46,6 @@ namespace ShoppingCart
             }
         }
 
-        private string _email;
-        public string Email
-        {
-            get => _email;
-            set
-            {
-                if (_email != value)
-                {
-                    _email = value;
-                    OnPropertyChanged(nameof(Email));
-                }
-            }
-        }
-
-        private string _userName;
-        public string UserName
-        {
-            get => _userName;
-            set
-            {
-                if (_userName != value)
-                {
-                    _userName = value;
-                    OnPropertyChanged(nameof(UserName));
-                }
-            }
-        }
 
         private bool _isProductBuyed;
         public bool IsProductBuyed

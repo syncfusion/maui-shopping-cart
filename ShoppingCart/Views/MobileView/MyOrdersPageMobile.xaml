@@ -57,25 +57,18 @@
     </ContentPage.Resources>
 
     <Grid >
-        <ScrollView VerticalScrollBarVisibility="Never">
+       
             <StackLayout>
-                <HorizontalStackLayout Spacing="10">
-                    <effects:SfEffectsView>
-                        <effects:SfEffectsView.GestureRecognizers>
-                            <TapGestureRecognizer  />
-                        </effects:SfEffectsView.GestureRecognizers>
-                        <Label FontSize="20" Text="&#xe70e; " FontFamily="MauiSampleFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                    </effects:SfEffectsView>
-                    <Label Text="My Orders" FontSize="16"  
+                <Label Text="My orders" FontSize="16"  FontAttributes="Bold" Margin="30,0,0,0"
 TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
-                </HorizontalStackLayout>
+            <ScrollView  VerticalScrollBarVisibility="Never">
                 <list:SfListView ItemsSource="{Binding OrderedProducts}"  SelectionMode="None" AutoFitMode="DynamicHeight" ItemSpacing="10" ScrollBarVisibility="Never" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
                     <list:SfListView.ItemsLayout>
                         <list:GridLayout SpanCount="1" x:Name="listView"></list:GridLayout>
                     </list:SfListView.ItemsLayout>
                     <list:SfListView.ItemTemplate>
                         <DataTemplate>
-                            <Border MinimumWidthRequest="450" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8">
+                            <Border  BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8">
                                 <effects:SfEffectsView>
                                     <StackLayout>
                                         <Grid ColumnDefinitions="Auto,*" Padding="15">
@@ -114,7 +107,8 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                         </DataTemplate>
                     </list:SfListView.ItemTemplate>
                 </list:SfListView>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </StackLayout>
+        
     </Grid>
 </ContentPage>

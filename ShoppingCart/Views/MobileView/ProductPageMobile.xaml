@@ -58,7 +58,7 @@
         <Border Grid.Row="2" StrokeShape="RoundRectangle 20,20,0,0" Margin="-20" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}">
         <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
             <Button Text="Add to cart" WidthRequest="156" HeightRequest="40" BackgroundColor="{AppThemeBinding Light={StaticResource bg-Light},Dark={StaticResource border-Dark}}" CornerRadius="20" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"  Clicked="AddButton_Clicked"/>
-            <Button Text="Buy now" WidthRequest="156" HeightRequest="40" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"  CornerRadius="20" />
+                <Button Text="Buy now" WidthRequest="156" HeightRequest="40" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"  CornerRadius="20"  Clicked="BuyNowButton_Clicked"/>
         </HorizontalStackLayout>
         </Border>
 

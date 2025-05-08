@@ -138,7 +138,14 @@ public class ShoppingCartViewModel : ContentPage
             new Product { Name = "Laptop", ImageUrl = "laptop.png", Description = "High-performance laptop suitable for work and play.", Price = 850.00m, Category = "Electronics", Rating = 4.8, IsSaved = true, PurchasedCount = 133, Tags = new List<string> { "Laptop", "Electronics", "Computer" } ,IsAddedToCart=false},
         };
 
-        
+        OrderedProducts.Add(Products.First(p => p.Name == "Men's Plaid Shirt"));
+        OrderedProducts.Add(Products.First(p => p.Name == "Women's Blue Bow Blouse"));
+        OrderedProducts.Add(Products.First(p => p.Name == "Red Lipstick"));
+
+        foreach (var product in OrderedProducts)
+        {
+            product.IsProductBuyed = true;
+        }
     }
 
     public void FindSavedProducts()
