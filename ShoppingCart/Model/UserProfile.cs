@@ -51,6 +51,35 @@ namespace ShoppingCart.Model
             }
         }
 
+        private string _gender;
+        public string Gender
+        {
+            get => _gender;
+            set
+            {
+                if (_gender != value)
+                {
+                    _gender = value;
+                    OnPropertyChanged(nameof(Gender));
+                }
+            }
+        }
+
+        private string _mobileNumber;
+        public string MobileNumber
+        {
+            get => _mobileNumber;
+            set
+            {
+                if (_mobileNumber != value)
+                {
+                    _mobileNumber = value;
+                    OnPropertyChanged(nameof(MobileNumber));
+                }
+            }
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)

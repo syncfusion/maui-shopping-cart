@@ -42,21 +42,21 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                     </chip:SfBadgeView.BadgeSettings>
                 </chip:SfBadgeView>
 
-                <chip:SfTextInputLayout Hint="Name"
+                <chip:SfTextInputLayout Hint="Name" x:Name="nameInput"
                     IsHintAlwaysFloated="true" 
                                      WidthRequest="400"
                                      HeightRequest="80"
                     ContainerType="Outlined" >
                 <Entry  Text="{Binding CurrentUser.UserName}"/>
                 </chip:SfTextInputLayout>
-                <chip:SfTextInputLayout Hint="Email"
+                <chip:SfTextInputLayout Hint="Email" x:Name="mailInput"
                                  IsHintAlwaysFloated="true" 
                                  ContainerType="Outlined"
                                WidthRequest="400"
                          HeightRequest="80">
                 <Entry Text="{Binding CurrentUser.Email}" />
                 </chip:SfTextInputLayout>
-                <chip:SfTextInputLayout Hint="Phone Number"
+                <chip:SfTextInputLayout Hint="Phone Number" x:Name="phoneNumberInput"
                              IsHintAlwaysFloated="true" 
                             WidthRequest="400"
                      HeightRequest="80"
@@ -64,7 +64,7 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                     <Entry Text="9988776655" />
                 </chip:SfTextInputLayout>
             <chip:SfTextInputLayout 
-                        Hint="Gender" 
+                        Hint="Gender"  x:Name="genderInput"
                         ContainerType="Outlined" 
                         WidthRequest="400" 
                         HeightRequest="80"
@@ -83,9 +83,11 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
 
             </chip:SfTextInputLayout>
 
-            <buttons:SfButton WidthRequest="400" HeightRequest="40" Text="Update Profile"/>
+            <effects:SfEffectsView>
+            <buttons:SfButton WidthRequest="400" HeightRequest="40" Text="Update Profile" Clicked="SfButton_Clicked"/>
+            </effects:SfEffectsView>
 
-            </StackLayout>
+        </StackLayout>
     </Grid>
 
 </ContentView>

@@ -16,4 +16,12 @@ public partial class ProfilePageDesktop : ContentView
     {
         _navigateBack?.Invoke(); 
     }
+
+    private void SfButton_Clicked(object sender, EventArgs e)
+    {
+        shoppingCartViewModel.CurrentUser.UserName = nameInput.Text;
+        shoppingCartViewModel.CurrentUser.Email = mailInput.Text;
+        shoppingCartViewModel.CurrentUser.MobileNumber = phoneNumberInput.Text;
+        shoppingCartViewModel.CurrentUser.Gender = genderInput.Text;
+    }
 }
