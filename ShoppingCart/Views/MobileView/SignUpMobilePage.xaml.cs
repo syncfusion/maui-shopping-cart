@@ -6,8 +6,8 @@ public partial class SignUpMobilePage : ContentPage
     public SignUpMobilePage()
 	{
 		InitializeComponent();
-        signinEmail.Text = shoppingCartViewModel.Email;
-        signinPassword.Text = shoppingCartViewModel.Password;
+        signinEmail.Text = shoppingCartViewModel.CurrentUser.Email;
+        signinPassword.Text = shoppingCartViewModel.CurrentUser.Password;
     }
 
     private void SignIn_Tapped(object sender, TappedEventArgs e)
@@ -24,6 +24,9 @@ public partial class SignUpMobilePage : ContentPage
 
     private void SignUpButton_Clicked(object sender, EventArgs e)
     {
+        shoppingCartViewModel.CurrentUser.UserName = nameInput.Text;
+        shoppingCartViewModel.CurrentUser.Email = emailInput.Text;
+        shoppingCartViewModel.CurrentUser.Password = passwordInput.Text;
         Navigation.PushAsync(new MainPageMobile());
     }
 
