@@ -123,7 +123,7 @@
                                             <Label Text="{Binding Title}" FontSize="16" WidthRequest="210" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
                                             <Label Text="{Binding Subtitle}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" FontSize="11"/>
                                         </StackLayout>
-                                        <Image Source="{Binding ImageSource}" WidthRequest="80" HeightRequest="80"/>
+                                        <Image Source="{Binding ImageSource}" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center"/>
                                     </HorizontalStackLayout>
                                 </Border>
                             </DataTemplate>
