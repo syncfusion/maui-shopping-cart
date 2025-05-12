@@ -102,6 +102,9 @@
 	  <MauiXaml Update="Views\DesktopView\SignUpPageDesktop.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\MobileView\PaymentPageMobile.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\MobileView\ProductPageMobile.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

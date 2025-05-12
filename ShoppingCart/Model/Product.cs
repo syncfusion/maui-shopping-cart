@@ -10,6 +10,10 @@ namespace ShoppingCart
     {
         public string? Name { get; set; }
         public string? ImageUrl { get; set; }
+        public string? PreviewOneImageUrl { get; set; }
+        public string? PreviewTwoImageUrl { get; set; }
+        public string? PreviewThreeImageUrl { get; set; }
+        public string? PreviewFourImageUrl { get; set; }
         public string? Description { get; set; }
         public decimal? Price { get; set; }
         public string? Category { get; set; }

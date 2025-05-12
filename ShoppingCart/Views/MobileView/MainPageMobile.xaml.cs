@@ -270,5 +270,10 @@ namespace ShoppingCart
         {
             tabView.SelectedIndex = 0;
         }
+
+        private void BuyButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PaymentPageMobile());
+        }
     }
 }
