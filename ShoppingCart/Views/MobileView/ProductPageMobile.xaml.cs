@@ -36,4 +36,9 @@ public partial class ProductPageMobile : ContentPage
             }
         }
     }
+
+    private void BuyNowButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PaymentPageMobile());
+    }
 }
