@@ -5,7 +5,7 @@ namespace ShoppingCart
     public partial class MainPageDesktop : ContentPage
     {
         List<Border> _tabBorders = new List<Border>();
-        ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel();
+        ShoppingCartViewModel shoppingCartViewModel;
         Border _selectedBorder;
         public MainPageDesktop(ShoppingCartViewModel viewModel)
         {
