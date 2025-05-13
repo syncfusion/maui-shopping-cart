@@ -36,27 +36,32 @@ namespace ShoppingCart
 
         private void OnAvatarViewTapped(object sender, EventArgs e)
         {
-            ProfilePageDesktop profilePage = null;
+            ProfilePageDesktop profilePage;
 
             if (_selectedBorder == HomeBorder)
             {
                 profilePage = new ProfilePageDesktop(() => NavigateBackToHome(), shoppingCartViewModel);
+                selectedtab.Children.Clear();
+                selectedtab.Children.Add(profilePage);
             }
             else if (_selectedBorder == AccountBorder)
             {
                 profilePage = new ProfilePageDesktop(() => NavigateBackToSettings(), shoppingCartViewModel);
+                selectedtab.Children.Clear();
+                selectedtab.Children.Add(profilePage);
             }
             else if (_selectedBorder == SavedProductsBorder)
             {
                 profilePage = new ProfilePageDesktop(() => NavigateBackToSavedProducts(), shoppingCartViewModel);
+                selectedtab.Children.Clear();
+                selectedtab.Children.Add(profilePage);
             }
             else if(_selectedBorder == CartBorder)
             {
                 profilePage = new ProfilePageDesktop(() => NavigateBackToMyCart(), shoppingCartViewModel);
+                selectedtab.Children.Clear();
+                selectedtab.Children.Add(profilePage);
             }
-
-            selectedtab.Children.Clear();
-            selectedtab.Children.Add(profilePage);
         }
 
         private void NavigateBackToHome()

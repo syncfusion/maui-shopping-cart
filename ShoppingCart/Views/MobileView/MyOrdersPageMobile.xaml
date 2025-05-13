@@ -62,29 +62,23 @@
 TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
             <ScrollView  VerticalScrollBarVisibility="Never">
                 <list:SfListView ItemsSource="{Binding OrderedProducts}"  SelectionMode="None" AutoFitMode="DynamicHeight" ItemSpacing="10" ScrollBarVisibility="Never" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
+                    <list:SfListView.ItemsLayout>
+                        <list:GridLayout SpanCount="1" x:Name="listView"></list:GridLayout>
+                    </list:SfListView.ItemsLayout>
                     <list:SfListView.ItemTemplate>
                         <DataTemplate>
                             <Border  BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8">
                                     <StackLayout>
                                         <Grid ColumnDefinitions="Auto,*" Padding="15">
-                                            <Image Source="{Binding ImageUrl}" Grid.Row="0" Grid.Column="0" MinimumWidthRequest="151" Aspect="AspectFit" VerticalOptions="Center" ></Image>
+                                            <Image Source="{Binding ImageUrl}" Grid.Row="0" Grid.Column="0" WidthRequest="100" HorizontalOptions="Start" Aspect="AspectFit" VerticalOptions="Center" ></Image>
                                             <StackLayout Grid.Column="1" Grid.Row="0" Spacing="10">
                                                 <Grid ColumnDefinitions="*,Auto">
                                                     <VerticalStackLayout>
                                                         <Label Text="{Binding Description}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"></Label>
                                                         <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"/>
                                                     </VerticalStackLayout>
-                                                    <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundSelected-Light},Dark={StaticResource PrimaryBackgroundSelected-Dark}}" HorizontalOptions="End" Grid.Row="0" Grid.Column="1" Margin="0,5,7,0">
-                                                        <Label.Triggers>
-                                                            <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
-                                                                <Setter Property="Text" Value="&#xe7cc;" />
-                                                            </DataTrigger>
-                                                            <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
-                                                                <Setter Property="Text" Value="&#xe739;" />
-                                                            </DataTrigger>
-                                                        </Label.Triggers>
-                                                    </Label>
-                                                </Grid>
+                                                         <Label Text="&#xe710;" Margin="0,15,0,0" VerticalOptions="End" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundSelected-Light},Dark={StaticResource PrimaryBackgroundSelected-Dark}}" HorizontalOptions="End"  />
+                                               </Grid>
                                                 <HorizontalStackLayout>
                                                     <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" Margin="0,0,4,0" FontSize="14" VerticalTextAlignment="Center"/>
                                                     <Label Text="{Binding Rating}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />

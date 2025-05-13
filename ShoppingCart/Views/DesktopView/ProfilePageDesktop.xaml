@@ -76,6 +76,8 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Male</x:String>
                             <x:String>Female</x:String>
+                            <x:String>Non-binary</x:String>
+                            <x:String>Other</x:String>
                         </x:Array>
                     </editors:SfComboBox.ItemsSource>
 

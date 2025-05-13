@@ -12,7 +12,7 @@
                     <effects:SfEffectsView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="BackArrow_Tapped" />
                     </effects:SfEffectsView.GestureRecognizers>
-                    <Label FontSize="20" Text="&#xe70e; " FontFamily="MauiSampleFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                    <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                 </effects:SfEffectsView>
                 <Label Text="Notifications" FontSize="16"  
      TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
@@ -24,8 +24,8 @@
                         <RoundRectangleGeometry CornerRadius="20" Rect="0,0,400,60" />
                     </Border.Clip>
                     <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
-                        <Image Source="notificationimage.jpg" WidthRequest="30" HeightRequest="30"/>
-                        <Label Text="Sales and promotions" VerticalOptions="Center" 
+                    <Label Text="&#xe709;  " FontFamily="ShoppingCartFontIcon" VerticalOptions="Center" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
+                    <Label Text="Sales and promotions" VerticalOptions="Center" 
              TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
                         <buttons:SfSwitch IsOn="true" HorizontalOptions="End" Margin="100,0,0,0"/>
                     </StackLayout>

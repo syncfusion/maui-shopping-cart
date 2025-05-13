@@ -16,16 +16,16 @@ public partial class MyOrdersPageMobile : ContentPage
         }
     }
 
-    private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
+    private async void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
     {
         if (e.DataItem is Product tappedProduct)
         {
-            var productpageMobile = new ProductPageMobile
+            var productPage = new ProductPageMobile
             {
                 BindingContext = tappedProduct
             };
 
-            Navigation.PushAsync(productpageMobile);
+            await Application.Current.MainPage.Navigation.PushAsync(productPage);
         }
     }
 }

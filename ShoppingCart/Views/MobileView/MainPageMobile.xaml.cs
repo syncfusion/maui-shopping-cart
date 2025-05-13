@@ -267,27 +267,32 @@ namespace ShoppingCart
         private void Notifications_Tapped(object sender, EventArgs e)
         {
             int profileTabIndex = 3;
-
             _originalProfileContent = tabView.Items[profileTabIndex].Content;
-
             var notificationsPage = new NotificationsPageMobile();
+
+            var navigateBackCommand = new Command(() => NavigateBackToProfile(profileTabIndex));
+
+            var backButtonLabel = new Label
+            {
+                Text = "\ue70d",
+                FontFamily = "ShoppingCartFontIcon",
+                Background = Colors.White,
+                TextColor = Colors.Black,
+                Margin = 10,
+                FontSize = 24,
+            };
+
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Command = navigateBackCommand;
+            backButtonLabel.GestureRecognizers.Add(tapGestureRecognizer);
 
             var layout = new StackLayout
             {
-                Children =
-           {
-            new Button
+                    Children =
             {
-                ImageSource = "backimage.png",
-                Background = Colors.White,
-                WidthRequest= 30,
-                HeightRequest= 30,
-                HorizontalOptions = LayoutOptions.Start,
-                VerticalOptions = LayoutOptions.Start,
-                Command = new Command(() => NavigateBackToProfile(profileTabIndex))
-            },
-                    notificationsPage.Content
-                }
+                backButtonLabel,
+                notificationsPage.Content
+            }
             };
 
             tabView.Items[profileTabIndex].Content = layout;
@@ -296,27 +301,32 @@ namespace ShoppingCart
         private void MyOrders_Tapped(object sender, EventArgs e)
         {
             int profileTabIndex = 3;
-
             _originalProfileContent = tabView.Items[profileTabIndex].Content;
-
             var myOrdersPage = new MyOrdersPageMobile(shoppingCartViewModel);
+
+            var navigateBackCommand = new Command(() => NavigateBackToProfile(profileTabIndex));
+
+            var backButtonLabel = new Label
+            {
+                Text = "\ue70d",
+                FontFamily = "ShoppingCartFontIcon",
+                TextColor = Colors.Black,
+                Background = Colors.White,
+                Margin= 10,
+                FontSize = 24,
+            };
+
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Command = navigateBackCommand;
+            backButtonLabel.GestureRecognizers.Add(tapGestureRecognizer);
 
             var layout = new StackLayout
             {
                 Children =
-           {
-            new Button
-            {
-                ImageSource = "backimage.png",
-                Background = Colors.White,
-                WidthRequest= 30,
-                HeightRequest= 30,
-                HorizontalOptions = LayoutOptions.Start,
-                VerticalOptions = LayoutOptions.Start,
-                Command = new Command(() => NavigateBackToProfile(profileTabIndex))
-            },
-                    myOrdersPage.Content
-                }
+                    {
+                        backButtonLabel,
+                        myOrdersPage.Content
+                    }
             };
 
             tabView.Items[profileTabIndex].Content = layout;
@@ -338,22 +348,29 @@ namespace ShoppingCart
 
             var profilePage = new ProfilePageMobile(shoppingCartViewModel);
 
+            var navigateBackCommand = new Command(() => NavigateBackToProfile(profileTabIndex));
+
+            var backButtonLabel = new Label
+            {
+                Text = "\ue70d",
+                FontFamily = "ShoppingCartFontIcon",
+                TextColor = Colors.Black,
+                Background = Colors.White,
+                Margin = 10,
+                FontSize = 24,
+            };
+
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Command = navigateBackCommand;
+            backButtonLabel.GestureRecognizers.Add(tapGestureRecognizer);
+
             var layout = new StackLayout
             {
                 Children =
-           {
-            new Button
-            {
-                ImageSource = "backimage.png",
-                Background = Colors.White,
-                WidthRequest= 30,
-                HeightRequest= 30,
-                HorizontalOptions = LayoutOptions.Start,
-                VerticalOptions = LayoutOptions.Start,
-                Command = new Command(() => NavigateBackToProfile(profileTabIndex))
-            },
-                    profilePage.Content
-                }
+                    {
+                        backButtonLabel,
+                        profilePage.Content
+                    }
             };
 
             tabView.Items[profileTabIndex].Content = layout;
