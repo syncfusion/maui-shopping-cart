@@ -1,5 +1,4 @@
 using Microsoft.Maui.Controls.Compatibility;
-using static ShoppingCart.ShoppingCartViewModel;
 namespace ShoppingCart;
 
 public partial class ProductPageDesktop : ContentView
@@ -32,13 +31,57 @@ public partial class ProductPageDesktop : ContentView
     {
         popup.IsOpen = false;
     }
+    private void PreviewImageOne_Tapped(object sender, TappedEventArgs e)
+    {
+        if (sender is Border border && border.BindingContext is Product product)
+        {
+            MainImage.Source = product.PreviewOneImageUrl;
+        }
+    }
+
+    private void MainImage_Tapped(object sender, TappedEventArgs e)
+    {
+        if (sender is Border border && border.BindingContext is Product product)
+        {
+            MainImage.Source = product.ImageUrl;
+        }
+    }
+    private void PreviewImageTwo_Tapped(object sender, TappedEventArgs e)
+    {
+        if (sender is Border border && border.BindingContext is Product product)
+        {
+            MainImage.Source = product.PreviewTwoImageUrl;
+        }
+    }
+    private void PreviewImageThree_Tapped(object sender, TappedEventArgs e)
+    {
+        if (sender is Border border && border.BindingContext is Product product)
+        {
+            MainImage.Source = product.PreviewThreeImageUrl;
+        }
+    }
+    private void PreviewImageFour_Tapped(object sender, TappedEventArgs e)
+    {
+        if (sender is Border border && border.BindingContext is Product product)
+        {
+            MainImage.Source = product.PreviewFourImageUrl;
+        }
+    }
+    private void PaymentBackArrow_Tapped(object sender, TappedEventArgs e)
+    {
+        PaymentLayout.IsVisible = false;
+        ProductLayout.IsVisible = true;
+    }
 
     private void BuyNowButton_Clicked(object sender, EventArgs e)
     {
+        ProductLayout.IsVisible = false;
+        PaymentLayout.IsVisible = true;
         if (this.BindingContext is Product product)
         {
-            product.IsProductBuyed = true;
+            product.IsProductBought = true;
             popup.IsOpen = true;
         }
     }
+
 }

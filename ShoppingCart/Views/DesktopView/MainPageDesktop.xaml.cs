@@ -55,7 +55,7 @@ namespace ShoppingCart
                 profilePage = new ProfilePageDesktop(() => NavigateBackToMyCart(), shoppingCartViewModel);
             }
 
-                selectedtab.Children.Clear();
+            selectedtab.Children.Clear();
             selectedtab.Children.Add(profilePage);
         }
 

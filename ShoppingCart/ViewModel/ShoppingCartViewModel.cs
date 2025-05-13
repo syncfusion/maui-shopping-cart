@@ -1,6 +1,4 @@
-using ShoppingCart.Model;
 using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
 
 namespace ShoppingCart;
 
@@ -17,7 +15,7 @@ public class ShoppingCartViewModel : ContentPage
     public ObservableCollection<Product>? MyCartProducts { get; set; } = new ObservableCollection<Product>();
 
     public ObservableCollection<Product> OrderedProducts { get; set; } = new ObservableCollection<Product> { };
-    public ObservableCollection<string> GenderList { get; set; }
+    public ObservableCollection<string> GenderOptions { get; set; }
 
     public class SfRotatorItem
     {
@@ -29,12 +27,9 @@ public class ShoppingCartViewModel : ContentPage
 
     public ShoppingCartViewModel()
     {
-        CurrentUser = new UserProfile();
-        CurrentUser.Email = "emmawilliam@gmail.com";
-        CurrentUser.Password = "Emma@2024";
-        CurrentUser.UserName = "Emma William";
+        GetUserProfileDetails();
 
-        GenderList = new ObservableCollection<string> { "Male", "Female" };
+        GenderOptions = new ObservableCollection<string> { "Male", "Female", "Non-binary", "Other" };
 
         RotatorItems = new ObservableCollection<SfRotatorItem>
             {
@@ -133,14 +128,22 @@ public class ShoppingCartViewModel : ContentPage
 
         };
 
-        OrderedProducts.Add(Products.First(p => p.Name == "Men's Plaid Shirt"));
-        OrderedProducts.Add(Products.First(p => p.Name == "Women's Blue Bow Blouse"));
-        OrderedProducts.Add(Products.First(p => p.Name == "Red Lipstick"));
+        OrderedProducts.Add(Products.First(p => p.Name == "Men's White Graphic T-Shirt"));
+        OrderedProducts.Add(Products.First(p => p.Name == "Women's Yellow Hoodie"));
+        OrderedProducts.Add(Products.First(p => p.Name == "Foundation"));
 
         foreach (var product in OrderedProducts)
         {
-            product.IsProductBuyed = true;
+            product.IsProductBought = true;
         }
+    }
+
+    void GetUserProfileDetails()
+    {
+        CurrentUser = new UserProfile();
+        CurrentUser.Email = "emmawilliam@gmail.com";
+        CurrentUser.Password = "Emma@2024";
+        CurrentUser.UserName = "Emma William";
     }
 
     public void FindSavedProducts()
@@ -173,7 +176,7 @@ public class ShoppingCartViewModel : ContentPage
         if(OrderedProducts != null)
         {
             OrderedProducts.Clear();
-            foreach (var product in Products.Where(product => product.IsProductBuyed))
+            foreach (var product in Products.Where(product => product.IsProductBought))
             {
                 OrderedProducts.Add(product);
             }

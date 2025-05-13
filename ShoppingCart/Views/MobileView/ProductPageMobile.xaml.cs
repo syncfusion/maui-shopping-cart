@@ -25,7 +25,7 @@ public partial class ProductPageMobile : ContentPage
     {
         if (this.BindingContext is Product product)
         {
-            product.IsProductBuyed = true;
+            product.IsProductBought = true;
             popup.IsOpen = true;
         }
     }

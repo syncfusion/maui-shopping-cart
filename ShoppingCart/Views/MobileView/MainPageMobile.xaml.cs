@@ -264,7 +264,7 @@ namespace ShoppingCart
         }
 
 
-        private void OnNotificationsTapped(object sender, EventArgs e)
+        private void Notifications_Tapped(object sender, EventArgs e)
         {
             int profileTabIndex = 3;
 
@@ -293,7 +293,7 @@ namespace ShoppingCart
             tabView.Items[profileTabIndex].Content = layout;
         }
 
-        private void MyOrdersTapped(object sender, EventArgs e)
+        private void MyOrders_Tapped(object sender, EventArgs e)
         {
             int profileTabIndex = 3;
 

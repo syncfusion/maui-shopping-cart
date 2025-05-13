@@ -51,16 +51,16 @@ namespace ShoppingCart
         }
 
 
-        private bool _isProductBuyed;
-        public bool IsProductBuyed
+        private bool _isProductBought;
+        public bool IsProductBought
         {
-            get => _isProductBuyed;
+            get => _isProductBought;
             set
             {
-                if (_isProductBuyed != value)
+                if (_isProductBought != value)
                 {
-                    _isProductBuyed = value;
-                    OnPropertyChanged(nameof(IsProductBuyed));
+                    _isProductBought = value;
+                    OnPropertyChanged(nameof(IsProductBought));
                 }
             }
         }

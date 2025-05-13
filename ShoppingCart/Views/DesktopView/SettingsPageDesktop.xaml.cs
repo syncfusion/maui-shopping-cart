@@ -9,13 +9,13 @@ public partial class SettingsPageDesktop : ContentView
         shoppingCartViewModel = viewModel;
     }
 
-    private async void TapGestureRecognizer_Tapped_1(object sender, TappedEventArgs e)
+    private async void MyOrders_Tapped(object sender, TappedEventArgs e)
     {
         var notificationsView = new MyOrdersPageDesktop(shoppingCartViewModel);
         this.Content = notificationsView;
     }
 
-    private async void TapGestureRecognizer_Tapped_2(object sender, TappedEventArgs e)
+    private async void Notifications_Tapped(object sender, TappedEventArgs e)
     {
         var notificationsView = new NotificationsPageDesktop(shoppingCartViewModel);
         this.Content = notificationsView;

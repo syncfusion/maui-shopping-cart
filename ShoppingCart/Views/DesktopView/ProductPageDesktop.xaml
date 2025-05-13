@@ -98,32 +98,48 @@
                     <Label Text="Description" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                     <Label Text="{Binding Description}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" />
 
-                <!-- Action Buttons -->
-                <HorizontalStackLayout Spacing="10" Margin="0,10,0,0">
-                    <Button Text="Add to cart" WidthRequest="156" BackgroundColor="{AppThemeBinding Light={StaticResource bg-Light},Dark={StaticResource border-Dark}}" CornerRadius="20" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" Clicked="AddButton_Clicked"/>
-                    <Button Text="Buy now" WidthRequest="156" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"  CornerRadius="20"  Clicked="BuyNowButton_Clicked"/>
-                </HorizontalStackLayout>
-            </StackLayout>
+                    <!-- Action Buttons -->
+                    <HorizontalStackLayout Spacing="10" Margin="0,10,0,0">
+                        <Button Text="Add to cart" WidthRequest="156" BackgroundColor="{AppThemeBinding Light={StaticResource bg-Light},Dark={StaticResource border-Dark}}" CornerRadius="20" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" Clicked="AddButton_Clicked"/>
+                        <Button Text="Buy now" WidthRequest="156" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"  CornerRadius="20"  Clicked="BuyNowButton_Clicked"/>
+                    </HorizontalStackLayout>
+                </StackLayout>
 
-            <popup:SfPopup x:Name="popup" Grid.ColumnSpan="2" IsOpen="False" ShowFooter="True" >
-                <popup:SfPopup.HeaderTemplate>
-                    <DataTemplate>
-                        <Label Text="Notification" FontSize="20" FontAttributes="Bold" Padding="15" VerticalTextAlignment="Center"/>
-                    </DataTemplate>
-                </popup:SfPopup.HeaderTemplate>
-                <popup:SfPopup.ContentTemplate>
-                    <DataTemplate>
-                        <StackLayout>
-                            <Label Text="&#xe78b;" TextColor="{AppThemeBinding Light={StaticResource SucessForeground-Light},Dark={StaticResource SucessForeground-Dark}}" FontSize="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="MauiMaterialAssets"/>
-                            <Label Text="Added to cart successfully." HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                           
-                        </StackLayout>
-                    </DataTemplate>
-                </popup:SfPopup.ContentTemplate>
-                <popup:SfPopup.FooterTemplate>
-                    <DataTemplate>
+                <popup:SfPopup x:Name="popup" Grid.ColumnSpan="2" IsOpen="False" ShowFooter="True" >
+                    <popup:SfPopup.HeaderTemplate>
+                        <DataTemplate>
+                            <Label Text="Notification" FontSize="20" FontAttributes="Bold" Padding="15" VerticalTextAlignment="Center"/>
+                        </DataTemplate>
+                    </popup:SfPopup.HeaderTemplate>
+                    <popup:SfPopup.ContentTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Label Text="&#xe718;" TextColor="{AppThemeBinding Light={StaticResource SucessForeground-Light},Dark={StaticResource SucessForeground-Dark}}" FontSize="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="MauiSampleFontIcon"/>
+                                <Label Text="Added to cart successfully." HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </popup:SfPopup.ContentTemplate>
+                    <popup:SfPopup.FooterTemplate>
+                        <DataTemplate>
+                            <Button Text="Ok" Clicked="Button_Clicked" HorizontalOptions="End" Margin="10" WidthRequest="80" CornerRadius="20" HeightRequest="40" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                        </DataTemplate>
+                    </popup:SfPopup.FooterTemplate>
+                </popup:SfPopup>
+            </Grid>
+        </StackLayout>
+        <Grid RowDefinitions="50,*" x:Name="PaymentLayout" IsVisible="False">
+
+            <Grid Margin="0,20,0,0" ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                <effects:SfEffectsView>
+                    <effects:SfEffectsView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PaymentBackArrow_Tapped" />
+                    </effects:SfEffectsView.GestureRecognizers>
+                    <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
+                </effects:SfEffectsView>
+                <Label Grid.Column="1" Text="Payments" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+            </Grid>
         </Grid>
-    </StackLayout>
     </VerticalStackLayout>
 
 </ContentView>

@@ -69,9 +69,6 @@
 TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
             </HorizontalStackLayout>
             <list:SfListView ItemsSource="{Binding OrderedProducts}" MinimumHeightRequest="600"  SelectionMode="None" AutoFitMode="DynamicHeight" ItemSpacing="10" ScrollBarVisibility="Never" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
-                <list:SfListView.ItemsLayout>
-                    <list:GridLayout SpanCount="1" x:Name="listView"></list:GridLayout>
-                </list:SfListView.ItemsLayout>
                 <list:SfListView.ItemTemplate>
                     <DataTemplate>
                         <Border MinimumWidthRequest="450" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8">

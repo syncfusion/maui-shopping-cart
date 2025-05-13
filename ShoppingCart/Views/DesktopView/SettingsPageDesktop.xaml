@@ -21,7 +21,7 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                         <Label Text="My Order" FontSize="16" 
                    TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" >
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                                <TapGestureRecognizer Tapped="MyOrders_Tapped" />
                             </Label.GestureRecognizers>
                         </Label>
                     </HorizontalStackLayout>
@@ -32,7 +32,7 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                         <Label Text="Notifications" FontSize="16" 
                    TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" >
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                                <TapGestureRecognizer Tapped="Notifications_Tapped" />
                             </Label.GestureRecognizers>
                         </Label>
                     </HorizontalStackLayout>

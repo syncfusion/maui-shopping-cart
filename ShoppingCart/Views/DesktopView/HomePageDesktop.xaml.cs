@@ -97,7 +97,9 @@ namespace ShoppingCart
         {
             if (e.DataItem is Product tappedProduct)
             {
+                var selected = this.selectedCategory;
                 var HomePageContent = new HomePageDesktop(shoppingCartViewModel);
+                HomePageContent.catagoriesChip.SelectedItem = selected;
                 var productpageDesktop = new ProductPageDesktop(HomePageContent, shoppingCartViewModel)
                 {
                     BindingContext = tappedProduct
