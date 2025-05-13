@@ -73,7 +73,7 @@ public partial class ProductPageDesktop : ContentView
         ProductLayout.IsVisible = true;
     }
 
-    private void BuyNowButton_Clicked(object sender, EventArgs e)
+    private void BuyNow_Clicked(object sender, EventArgs e)
     {
         ProductLayout.IsVisible = false;
         PaymentLayout.IsVisible = true;

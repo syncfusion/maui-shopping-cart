@@ -101,7 +101,7 @@
                     <!-- Action Buttons -->
                     <HorizontalStackLayout Spacing="10" Margin="0,10,0,0">
                         <Button Text="Add to cart" WidthRequest="156" BackgroundColor="{AppThemeBinding Light={StaticResource bg-Light},Dark={StaticResource border-Dark}}" CornerRadius="20" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" Clicked="AddButton_Clicked"/>
-                        <Button Text="Buy now" WidthRequest="156" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"  CornerRadius="20"  Clicked="BuyNowButton_Clicked"/>
+                        <Button Text="Buy now" WidthRequest="156" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"  CornerRadius="20"  Clicked="BuyNow_Clicked"/>
                     </HorizontalStackLayout>
                 </StackLayout>
 

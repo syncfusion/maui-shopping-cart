@@ -21,7 +21,7 @@ public partial class ProductPageMobile : ContentPage
         }
     }
 
-    private void BuyNowButton_Clicked(object sender, EventArgs e)
+    private void BuyNow_clicked(object sender, EventArgs e)
     {
         if (this.BindingContext is Product product)
         {
