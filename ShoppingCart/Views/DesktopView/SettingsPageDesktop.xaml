@@ -60,7 +60,7 @@
                 </HorizontalStackLayout>
             </effects:SfEffectsView>
 
-            <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="300">
+            <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="400">
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
                     <Label Text="&#xe716;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
                     <Label Text="Dark mode" FontSize="16"
