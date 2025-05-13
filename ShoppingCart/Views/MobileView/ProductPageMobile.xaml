@@ -15,10 +15,10 @@
                 <effects:SfEffectsView.GestureRecognizers>
                     <TapGestureRecognizer Tapped="BackArrow_Tapped" />
                 </effects:SfEffectsView.GestureRecognizers>
-                <Label FontSize="20" Text="&#xe70e; " FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
+                <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
             </effects:SfEffectsView>
             <Label Grid.Column="1" Text="Product Details" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-            <Label Grid.Column="2" FontSize="16" Text="&#xe728;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
+            <Label Grid.Column="2" FontSize="16" Text="&#xe713;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
             <Label Grid.Column="3" FontSize="16" Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" HorizontalOptions="End">
                 <Label.Triggers>
                     <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">

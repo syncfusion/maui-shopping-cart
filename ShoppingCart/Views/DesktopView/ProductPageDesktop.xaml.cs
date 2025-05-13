@@ -1,3 +1,4 @@
+using Microsoft.Maui.Controls.Compatibility;
 using static ShoppingCart.ShoppingCartViewModel;
 namespace ShoppingCart;
 

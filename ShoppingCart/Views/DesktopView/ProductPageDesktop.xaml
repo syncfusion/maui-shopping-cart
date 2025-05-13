@@ -11,73 +11,92 @@
     <ContentView.Resources>
         <local:TagSeparateConverter x:Key="TagSeparateConverter"/>
     </ContentView.Resources>
-    <StackLayout>
-        <Grid x:Name="BackArrow" Margin="0,20,0,0" ColumnDefinitions="Auto,Auto">
-            <effects:SfEffectsView>
-                <effects:SfEffectsView.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="BackArrow_Tapped" />
-                </effects:SfEffectsView.GestureRecognizers>
-                <Label FontSize="20" Text="&#xe70e; " FontFamily="MauiSampleFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-            </effects:SfEffectsView>
-            <Label Grid.Column="1" Text="Product Details" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-        </Grid>
-        <Grid Padding="20" ColumnDefinitions="*,*" ColumnSpacing="20">
-            <!-- Back Button -->
-            <StackLayout  Grid.Column="0">
-                <!-- Product Image -->
-                <Grid RowDefinitions="484,*" RowSpacing="10">
-                    <Border StrokeShape="RoundRectangle 12" BackgroundColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource content-bg-Dark}}">
-                        <Image Source="{Binding ImageUrl}" Aspect="AspectFill" Margin="10"/>
-                    </Border>
-                    <Grid Grid.Row="1" ColumnDefinitions="82,82,82,82" ColumnSpacing="5">
-                        <Border Grid.Column="0" StrokeShape="RoundRectangle 8">
-                            <Image Source="{Binding ImageUrl}"  Aspect="AspectFill" Margin="10"/>
+    <VerticalStackLayout>
+        <StackLayout x:Name="ProductLayout">
+            <Grid x:Name="BackArrow" Margin="0,20,0,0" ColumnDefinitions="Auto,Auto">
+                <effects:SfEffectsView>
+                    <effects:SfEffectsView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackArrow_Tapped" />
+                    </effects:SfEffectsView.GestureRecognizers>
+                    <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                </effects:SfEffectsView>
+                <Label Grid.Column="1" Text="Product Details" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+            </Grid>
+            <Grid Padding="20" ColumnDefinitions="*,*" ColumnSpacing="20">
+                <!-- Back Button -->
+                <StackLayout  Grid.Column="0">
+                    <!-- Product Image -->
+                    <Grid RowDefinitions="484,*" RowSpacing="10">
+                        <Border StrokeShape="RoundRectangle 12" BackgroundColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource content-bg-Dark}}">
+                            <Image x:Name="MainImage" Source="{Binding ImageUrl}" Aspect="AspectFill" Margin="10"/>
                         </Border>
-                        <Border Grid.Column="1" StrokeShape="RoundRectangle 8">
-                            <Image Source="{Binding ImageUrl}"  Aspect="AspectFill" Margin="10"/>
-                        </Border>
-                        <Border Grid.Column="2" StrokeShape="RoundRectangle 8">
-                            <Image Source="{Binding ImageUrl}"  Aspect="AspectFill" Margin="10"/>
-                        </Border>
-                        <Border Grid.Column="3" StrokeShape="RoundRectangle 8">
-                            <Image Source="{Binding ImageUrl}"  Aspect="AspectFill" Margin="10"/>
-                        </Border>
+                        <Grid Grid.Row="1" ColumnDefinitions="82,82,82,82,82" ColumnSpacing="5">
+                            <Border Grid.Column="0" StrokeShape="RoundRectangle 8" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="PreviewImageOne_Tapped"/>
+                                </Border.GestureRecognizers>
+                                <Image Source="{Binding PreviewOneImageUrl}"  Aspect="AspectFill" Margin="10"/>
+                            </Border>
+                            <Border Grid.Column="1" StrokeShape="RoundRectangle 8" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="MainImage_Tapped"/>
+                                </Border.GestureRecognizers>
+                                <Image Source="{Binding ImageUrl}"  Aspect="AspectFill" Margin="10"/>
+                            </Border>
+                            <Border x:Name="PreviewImageTwoBorder" Grid.Column="2" StrokeShape="RoundRectangle 8" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="PreviewImageTwo_Tapped"/>
+                                </Border.GestureRecognizers>
+                                <Image Source="{Binding PreviewTwoImageUrl}"  Aspect="AspectFill" Margin="10"/>
+                            </Border>
+                            <Border x:Name="PreviewImageThreeBorder" Grid.Column="3" StrokeShape="RoundRectangle 8" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="PreviewImageThree_Tapped"/>
+                                </Border.GestureRecognizers>
+                                <Image Source="{Binding PreviewThreeImageUrl}"  Aspect="AspectFill" Margin="10"/>
+                            </Border>
+                            <Border x:Name="PreviewImageFourBorder" Grid.Column="4" StrokeShape="RoundRectangle 8" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="PreviewImageFour_Tapped"/>
+                                </Border.GestureRecognizers>
+                                <Image Source="{Binding PreviewFourImageUrl}"  Aspect="AspectFill" Margin="10"/>
+                            </Border>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </StackLayout>
+                </StackLayout>
 
-            <!-- Product Details -->
-            <StackLayout Grid.Column="1" Spacing="15" Padding="10,0">
-                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"/>
-                <Grid ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="5">
-                    <HorizontalStackLayout Grid.Column="0" Spacing="2" >
-                        <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" FontSize="14" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}"/>
-                        <Label Text="{Binding Rating}" VerticalTextAlignment="Center" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                    </HorizontalStackLayout>
-                    <Label Grid.Column="1" Text="|" FontSize="14" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource border-Light},Dark={StaticResource border-Dark}}"/>
-                    <Label Grid.Column="2" FontSize="12" VerticalTextAlignment="Center">
+                <!-- Product Details -->
+                <StackLayout Grid.Column="1" Spacing="15" Padding="10,0">
+                    <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                    <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"/>
+                    <Grid ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="5">
+                        <HorizontalStackLayout Grid.Column="0" Spacing="2" >
+                            <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" FontSize="14" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}"/>
+                            <Label Text="{Binding Rating}" VerticalTextAlignment="Center" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                        </HorizontalStackLayout>
+                        <Label Grid.Column="1" Text="|" FontSize="14" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource border-Light},Dark={StaticResource border-Dark}}"/>
+                        <Label Grid.Column="2" FontSize="12" VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding PurchasedCount}" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
+                                    <Span Text="+ bought  in past month" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+
+                    <Label Text="{Binding Price, StringFormat='${0}'}" FontSize="24" FontAttributes="Bold" />
+                    <Label  FontSize="14" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" >
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="{Binding PurchasedCount}" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
-                                <Span Text="+ bought  in past month" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" />
+                                <Span Text="M.R.P: "/>
+                                <Span Text="$1999" TextDecorations="Strikethrough"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
-                </Grid>
 
-                <Label Text="{Binding Price, StringFormat='${0}'}" FontSize="24" FontAttributes="Bold" />
-                <Label  FontSize="14" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" >
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="M.R.P: "/>
-                            <Span Text="$1999" TextDecorations="Strikethrough"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                
-                <Label Text="Description" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                <Label Text="{Binding Description}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" />
+                    <Label Text="Description" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                    <Label Text="{Binding Description}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" />
 
                 <!-- Action Buttons -->
                 <HorizontalStackLayout Spacing="10" Margin="0,10,0,0">
@@ -103,11 +122,8 @@
                 </popup:SfPopup.ContentTemplate>
                 <popup:SfPopup.FooterTemplate>
                     <DataTemplate>
-                        <Button Text="Ok" Clicked="Button_Clicked" HorizontalOptions="End" Margin="10" WidthRequest="80" CornerRadius="20" HeightRequest="40" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
-                    </DataTemplate>
-                </popup:SfPopup.FooterTemplate>
-            </popup:SfPopup>
         </Grid>
     </StackLayout>
+    </VerticalStackLayout>
 
 </ContentView>
