@@ -26,7 +26,7 @@
                 <!-- Back Button -->
                 <StackLayout  Grid.Column="0">
                     <!-- Product Image -->
-                    <Grid RowDefinitions="484,*" RowSpacing="10">
+                    <Grid RowDefinitions="484,80" RowSpacing="10">
                         <Border StrokeShape="RoundRectangle 12" BackgroundColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource content-bg-Dark}}">
                             <Image x:Name="MainImage" Source="{Binding ImageUrl}" Aspect="AspectFill" Margin="10"/>
                         </Border>
@@ -105,7 +105,7 @@
                     </HorizontalStackLayout>
                 </StackLayout>
 
-                <popup:SfPopup x:Name="popup" Grid.ColumnSpan="2" IsOpen="False" ShowFooter="True" >
+                <popup:SfPopup x:Name="popup" IsVisible="False" Grid.ColumnSpan="2" IsOpen="False" ShowFooter="True" >
                     <popup:SfPopup.HeaderTemplate>
                         <DataTemplate>
                             <Label Text="Notification" FontSize="20" FontAttributes="Bold" Padding="15" VerticalTextAlignment="Center"/>
