@@ -19,13 +19,13 @@
             </effects:SfEffectsView>
             <Label Grid.Column="1" Text="Product Details" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
             <Label Grid.Column="2" FontSize="16" Text="&#xe713;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
-            <Label Grid.Column="3" FontSize="16" Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" HorizontalOptions="End">
+            <Label Grid.Column="3" FontSize="16" Text="&#xe701;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" HorizontalOptions="End">
                 <Label.Triggers>
                     <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
-                        <Setter Property="Text" Value="&#xe7cc;" />
+                        <Setter Property="Text" Value="&#xe71a;" />
                     </DataTrigger>
                     <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
-                        <Setter Property="Text" Value="&#xe739;" />
+                        <Setter Property="Text" Value="&#xe701;" />
                     </DataTrigger>
                 </Label.Triggers>
                 <Label.GestureRecognizers>
@@ -41,7 +41,7 @@
                 <Grid  ColumnDefinitions="*,Auto" ColumnSpacing="5">
                         <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                         <HorizontalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
-                            <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}"/>
+                        <Label Text="&#xe71b;" FontFamily="ShoppingCartFontIcon" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}"/>
                         <Label Text="{Binding Rating}" VerticalTextAlignment="Center" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                     </HorizontalStackLayout>
                 </Grid>
@@ -70,10 +70,9 @@
             </popup:SfPopup.HeaderTemplate>
             <popup:SfPopup.ContentTemplate>
                 <DataTemplate>
-                    <StackLayout>
-                        <Label Text="&#xe78b;" TextColor="{AppThemeBinding Light={StaticResource SucessForeground-Light},Dark={StaticResource SucessForeground-Dark}}" FontSize="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="MauiMaterialAssets"/>
+                    <StackLayout Spacing="5">
+                        <Label Text="&#xe71d;" TextColor="{AppThemeBinding Light={StaticResource SucessForeground-Light},Dark={StaticResource SucessForeground-Dark}}" FontSize="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="ShoppingCartFontIcon"/>
                         <Label Text="Added to cart successfully." HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-
                     </StackLayout>
                 </DataTemplate>
             </popup:SfPopup.ContentTemplate>
