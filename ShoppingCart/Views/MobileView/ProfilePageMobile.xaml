@@ -20,10 +20,12 @@
         <Label Text="Profile" FontSize="16" Margin="40,-35,0,0"
            TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
 
-        <StackLayout Padding="20" Spacing="10" Grid.Row="1">
-            <chip:SfBadgeView HorizontalOptions="Center" VerticalOptions="Center" Margin="0,30,0,0">
-                <chip:SfBadgeView.Content>
-                    <chip:SfAvatarView ContentType="Initials" HorizontalOptions="Center" VerticalOptions="Center"
+        <Border Margin="0,50,0,0" HeightRequest="790" Background="#F7F2FB" >
+
+            <StackLayout  Spacing="10" Grid.Row="1">
+                <chip:SfBadgeView HorizontalOptions="Center" VerticalOptions="Center" Margin="0,30,0,0">
+                    <chip:SfBadgeView.Content>
+                        <chip:SfAvatarView ContentType="Initials" HorizontalOptions="Center" VerticalOptions="Center"
                                    InitialsType="SingleCharacter"
                                    AvatarName="{Binding CurrentUser.UserName}"
                                    FontSize="30"
@@ -32,50 +34,51 @@
                                    HeightRequest="80"
                                    CornerRadius="40"          
                                    Background="#6750A4"/>
-                </chip:SfBadgeView.Content>
-                <chip:SfBadgeView.BadgeSettings>
-                    <chip:BadgeSettings Background="#EEE8F4" Position="BottomRight" Icon="Away"/>
-                </chip:SfBadgeView.BadgeSettings>
-            </chip:SfBadgeView>
+                    </chip:SfBadgeView.Content>
+                    <chip:SfBadgeView.BadgeSettings>
+                        <chip:BadgeSettings Background="#EEE8F4" Position="BottomRight" Icon="Away"/>
+                    </chip:SfBadgeView.BadgeSettings>
+                </chip:SfBadgeView>
 
-            <chip:SfTextInputLayout Hint="Name" x:Name="nameInput"
+                <chip:SfTextInputLayout Hint="Name" x:Name="nameInput"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
                                 HorizontalOptions="FillAndExpand">
-                <Entry Text="{Binding TempUserName}"/>
-            </chip:SfTextInputLayout>
+                    <Entry Text="{Binding TempUserName}"/>
+                </chip:SfTextInputLayout>
 
-            <chip:SfTextInputLayout Hint="Email" x:Name="mailInput"
+                <chip:SfTextInputLayout Hint="Email" x:Name="mailInput"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
                                 HorizontalOptions="FillAndExpand">
-                <Entry Text="{Binding CurrentUser.Email}" />
-            </chip:SfTextInputLayout>
+                    <Entry Text="{Binding CurrentUser.Email}" />
+                </chip:SfTextInputLayout>
 
-            <chip:SfTextInputLayout Hint="Phone Number" x:Name="phoneNumberInput"
+                <chip:SfTextInputLayout Hint="Phone Number" x:Name="phoneNumberInput"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
                                 HorizontalOptions="FillAndExpand">
-                <Entry Text="9988776655" />
-            </chip:SfTextInputLayout>
+                    <Entry Text="9988776655" />
+                </chip:SfTextInputLayout>
 
-            <chip:SfTextInputLayout Hint="Gender" x:Name="genderInput"
+                <chip:SfTextInputLayout Hint="Gender" x:Name="genderInput"
                                 ContainerType="Outlined"
                                 IsHintAlwaysFloated="True"
                                 HorizontalOptions="FillAndExpand">
-                <editors:SfComboBox x:Name="genderComboBox" TextColor="Black" SelectedIndex="1">
-                    <editors:SfComboBox.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Male</x:String>
-                            <x:String>Female</x:String>
-                            <x:String>Non-binary</x:String>
-                            <x:String>Other</x:String>
-                        </x:Array> 
-                    </editors:SfComboBox.ItemsSource>
-                </editors:SfComboBox>
-            </chip:SfTextInputLayout>
+                    <editors:SfComboBox x:Name="genderComboBox" TextColor="Black" SelectedIndex="1">
+                        <editors:SfComboBox.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Male</x:String>
+                                <x:String>Female</x:String>
+                                <x:String>Non-binary</x:String>
+                                <x:String>Other</x:String>
+                            </x:Array>
+                        </editors:SfComboBox.ItemsSource>
+                    </editors:SfComboBox>
+                </chip:SfTextInputLayout>
 
-            <buttons:SfButton HorizontalOptions="Center" Text="Update Profile" Clicked="SfButton_Clicked" />
-        </StackLayout>
+                <buttons:SfButton HorizontalOptions="Center" Text="Update Profile" WidthRequest="350" Clicked="SfButton_Clicked" />
+            </StackLayout>
+        </Border>
     </Grid>
 </ContentPage>
