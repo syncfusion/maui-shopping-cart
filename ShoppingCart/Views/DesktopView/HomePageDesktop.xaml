@@ -64,7 +64,7 @@
                     <DataTemplate>
                         <Border BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" Stroke="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" StrokeShape="RoundRectangle 8" Padding="10" >
                             <HorizontalStackLayout Spacing="45">
-                                <Image Source="{Binding ImageSource}" WidthRequest="121" HeightRequest="121"/>
+                                <Image Source="{Binding ImageSource}" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center"/>
                                 <StackLayout Spacing="5" WidthRequest="584">
                                     <Label Text="{Binding Title}" FontSize="22" LineBreakMode="WordWrap" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
                                     <Label Text="{Binding Subtitle}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" FontSize="16"/>
