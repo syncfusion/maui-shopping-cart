@@ -73,26 +73,26 @@
                                             <Image Source="{Binding ImageUrl}" Grid.Row="0" Grid.Column="0" MinimumWidthRequest="151" WidthRequest="151" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" ></Image>
                                             <StackLayout Grid.Column="1" Grid.Row="0" Spacing="10">
                                                 <Grid ColumnDefinitions="*,Auto">
-                                                    <VerticalStackLayout>
-                                                        <Label Text="{Binding Description}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"></Label>
-                                                        <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"/>
-                                                    </VerticalStackLayout>
-                                                    <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundSelected-Light},Dark={StaticResource PrimaryBackgroundSelected-Dark}}" HorizontalOptions="End" Grid.Row="0" Grid.Column="1" Margin="0,5,7,0">
-                                                        <Label.Triggers>
-                                                            <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
-                                                                <Setter Property="Text" Value="&#xe739;" />
-                                                            </DataTrigger>
-                                                            <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
-                                                                <Setter Property="Text" Value="&#xe7cc;" />
-                                                            </DataTrigger>
-                                                        </Label.Triggers>
-                                                        <Label.GestureRecognizers>
-                                                            <TapGestureRecognizer Tapped="ToggleSavedStatus" />
-                                                        </Label.GestureRecognizers>
-                                                    </Label>
-                                                </Grid>
+                                                        <VerticalStackLayout>
+                                                            <Label Text="{Binding Description}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"></Label>
+                                                            <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"/>
+                                                        </VerticalStackLayout>
+                                                        <Label Text="&#xe701;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundSelected-Light},Dark={StaticResource PrimaryBackgroundSelected-Dark}}" HorizontalOptions="End" Grid.Row="0" Grid.Column="1" Margin="0,5,7,0">
+                                                            <Label.Triggers>
+                                                                <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
+                                                                    <Setter Property="Text" Value="&#xe71a;" />
+                                                                </DataTrigger>
+                                                                <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
+                                                                    <Setter Property="Text" Value="&#xe701;" />
+                                                                </DataTrigger>
+                                                            </Label.Triggers>
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="ToggleSavedStatus" />
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                    </Grid>
                                                 <HorizontalStackLayout>
-                                                    <Label Text="&#xe702;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" Margin="0,0,4,0" FontSize="14" VerticalTextAlignment="Center"/>
+                                                        <Label Text="&#xe71b;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" Margin="0,0,4,0" FontSize="14" VerticalTextAlignment="Center"/>
                                                     <Label Text="{Binding Rating}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />
                                                     <Image Source="line.png" Margin="5,0,5,0"></Image>
                                                     <Label Text="{Binding PurchasedCount, StringFormat='{}{0} bought in past month'}" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" FontSize="12" ></Label>
@@ -171,7 +171,7 @@
                 <popup:SfPopup.ContentTemplate>
                     <DataTemplate>
                         <StackLayout>
-                            <Label Text="&#xe796;" TextColor="Red" FontSize="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="MauiSampleFontIcon"/>
+                            <Label Text="&#xe71c;" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="ShoppingCartFontIcon"/>
                             <Label Text="Your Cart is Empty." HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                         </StackLayout>
                     </DataTemplate>
