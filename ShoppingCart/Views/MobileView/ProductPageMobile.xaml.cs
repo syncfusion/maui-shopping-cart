@@ -17,12 +17,14 @@ public partial class ProductPageMobile : ContentPage
         if (this.BindingContext is Product product)
         {
             product.IsAddedToCart = true;
+            popup.IsVisible= true;
             popup.IsOpen = true;
         }
     }
 
     private void Button_Clicked(object sender, EventArgs e)
     {
+        popup.IsVisible = false;
         popup.IsOpen = false;
     }
 
