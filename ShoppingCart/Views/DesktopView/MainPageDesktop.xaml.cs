@@ -92,5 +92,17 @@
                 selectedtab.Children.Add(selectedContent);
             }
         }
+
+        private void comboBox_SelectionChanged(object sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e) 
+        {
+            if (comboBox.SelectedValue is Product tappedProduct) {
+                var HomePageContent = new HomePageDesktop(shoppingCartViewModel);
+                var productpageDesktop = new ProductPageDesktop(HomePageContent) {
+                    BindingContext = tappedProduct
+                };
+                Content = productpageDesktop;
+            }
+
+        }
     }
 }

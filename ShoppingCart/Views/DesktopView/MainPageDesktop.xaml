@@ -6,9 +6,16 @@
              xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
              xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:editor="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              x:Class="ShoppingCart.MainPageDesktop"
+             xmlns:local="clr-namespace:ShoppingCart"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}">
+
+    <ContentPage.BindingContext>
+        <local:ShoppingCartViewModel/>
+    </ContentPage.BindingContext>
+        
     <ContentPage.Resources>
         <Style TargetType="syncfusion:SfTabItem">
             <Setter Property="VisualStateManager.VisualStateGroups">
@@ -45,8 +52,22 @@
                 <Label Text="Shopping cart" TextColor="#7633DA" FontAttributes="Bold" FontSize="24" FontFamily="Roboto" VerticalOptions="Center" />
             </HorizontalStackLayout>
             <input:SfTextInputLayout Grid.Column="1" Margin="0,20,0,0" OutlineCornerRadius="16" InputViewPadding="10,0,0,5"  ContainerType="Outlined" WidthRequest="464" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" >
-                <Editor Placeholder="Search product" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" HeightRequest="45" VerticalTextAlignment="Center"
- HorizontalOptions="FillAndExpand"  />
+                <editor:SfComboBox x:Name="comboBox"
+                    IsEditable="true"
+                    Placeholder="Search product"
+                    PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"
+                    IsFilteringEnabled="true"
+                    FontSize="14" 
+                    IsDropdownButtonVisible="False"
+                    IsClearButtonVisible="False"
+                    VerticalTextAlignment="Center"
+                    HeightRequest="45" 
+                    MaxDropDownHeight="200"
+                    ItemsSource="{Binding Products}"
+                    TextMemberPath="Name"
+                    SelectionChanged="comboBox_SelectionChanged"
+                    DisplayMemberPath="Name" >
+                </editor:SfComboBox>
             </input:SfTextInputLayout>
             <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" CornerRadius="20" AvatarName="James" Margin="10"/>
         </Grid>

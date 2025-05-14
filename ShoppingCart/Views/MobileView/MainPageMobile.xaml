@@ -8,6 +8,7 @@
              xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
              xmlns:popup="clr-namespace:Syncfusion.Maui.Toolkit.Popup;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:editor="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              x:Class="ShoppingCart.MainPageMobile"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}">
@@ -102,10 +103,42 @@
                         <Label Grid.Column="1" Text="Back" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                     </Grid>
                     <Grid ColumnDefinitions="*,42" ColumnSpacing="10" >
-                        <input:SfTextInputLayout Margin="0,20,0,0" InputViewPadding="10,0,0,5"  ContainerType="Outlined" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" >
-                            <Editor Placeholder="Search product" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" HeightRequest="45" VerticalTextAlignment="Center"
-                        HorizontalOptions="FillAndExpand"  />
-                        </input:SfTextInputLayout>
+
+
+                        <Grid Grid.Column="0">
+                            <!-- Search Entry -->
+
+                            <input:SfTextInputLayout 
+            Margin="0,20,0,0"
+            OutlineCornerRadius="8"
+            InputViewPadding="10,0,0,5"  
+            ContainerType="Outlined" 
+            HeightRequest="62"
+            ContainerBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  
+            IsHintAlwaysFloated="True" 
+            Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}">
+
+                                <editor:SfComboBox x:Name="comboBox"
+                                                   IsEditable="true"
+                                                   Placeholder="Search product"
+                                                   PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"
+                                                   IsFilteringEnabled="true"
+                                                   FontSize="14" 
+                                                   IsDropdownButtonVisible="False"
+                                                   IsClearButtonVisible="False"
+                                                   VerticalTextAlignment="Center"
+                                                   HeightRequest="45" 
+                                                   MaxDropDownHeight="200"
+                                                   ItemsSource="{Binding Products}"
+                                                   TextMemberPath="Name"
+                                                   SelectionChanged="comboBox_SelectionChanged"
+                                                   DisplayMemberPath="Name" >
+
+                                </editor:SfComboBox>
+
+                            </input:SfTextInputLayout>
+
+                        </Grid>
                         <Border x:Name="MenuBorder" Grid.Column="1" StrokeShape="RoundRectangle 8" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" WidthRequest="42" HeightRequest="42">
                             <Label x:Name="MenuLabel" Text="&#xe748;" FontFamily="MauiMaterialAssets" HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}">
                                 <Label.GestureRecognizers>
@@ -218,6 +251,7 @@
                 TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"
                 FontSize="14"
                 HeightRequest="45"
+                Focused="OnEntryFocused"
                 TextChanged="OnSearchTextChanged"
                 VerticalTextAlignment="Center"
                 HorizontalOptions="FillAndExpand" />
@@ -239,20 +273,44 @@
                FontSize="14" />
                 </VerticalStackLayout>
 
-                 <!--Recent Searches View-->
+                <!-- Filtered Categories List Only (while typing) -->
+                <ListView x:Name="filteredResultsView"
+                Grid.Row="2"
+                ItemsSource="{Binding FilteredProducts}"
+                SelectionMode="Single"
+                IsVisible="False"
+                ItemTapped="filteredResultsView_ItemTapped">
+                    <ListView.ItemTemplate> 
+                    <DataTemplate>
+                            <ViewCell>
+                            <Label Text="{Binding Name}" FontSize="14" Padding="10,5"/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+                <!--Recent Searches View-->
                 <StackLayout Grid.Row="2" Spacing="10" IsVisible="False" x:Name="searchitem">
                     <Grid ColumnDefinitions="*,Auto">
                         <Label Text="Recent searches" FontAttributes="Bold" Grid.Column="0"/>
-                        <Label Text="Clear all" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackground-Light},Dark={StaticResource PrimaryBackground-Dark}}" Grid.Column="1" />
+                        <Label Text="Clear all" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" Grid.Column="1">
+                            <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnClearAllTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
                     </Grid>
 
-                    <CollectionView ItemsSource="{Binding FilteredCategories}">
-                        <CollectionView.ItemTemplate>
+                    <ListView ItemsSource="{Binding RecentSearchedProducts}"
+                    SelectionMode="Single"
+                    ItemTapped="ListView_ItemTapped">
+                        <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Label Text="{Binding}" FontSize="14" Padding="10,5" />
+                                <ViewCell>
+                                    <Label Text="{Binding Name}" FontSize="14" Padding="10,5"/>
+                                </ViewCell>
                             </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackLayout>
             </Grid>
 
