@@ -89,7 +89,7 @@
     </ContentPage.Resources>
     <syncfusion:SfTabView TabBarPlacement="Bottom" TabBarBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" TabHeaderPadding="20,0" TabBarHeight="56" IndicatorBackground="#F7F2FB" x:Name="tabView" SelectionChanged="tabView_SelectionChanged">
 
-        <syncfusion:SfTabItem Header="&#xe738;" FontFamily="MauiSampleFontIcon" FontSize="32" >
+        <syncfusion:SfTabItem Header="&#xe700;" FontFamily="ShoppingCartFontIcon" FontSize="32" >
             <Grid RowDefinitions="Auto,*" Padding="16">
                 <StackLayout >
                     <Label x:Name="TitleLabel" Text="Discover" HorizontalOptions="Center" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
@@ -98,7 +98,7 @@
                             <effects:SfEffectsView.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="BackArrow_Tapped" />
                             </effects:SfEffectsView.GestureRecognizers>
-                            <Label FontSize="20" Text="&#xe70e; " FontFamily="MauiSampleFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                            <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                         </effects:SfEffectsView>
                         <Label Grid.Column="1" Text="Back" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                     </Grid>
@@ -140,14 +140,14 @@
 
                         </Grid>
                         <Border x:Name="MenuBorder" Grid.Column="1" StrokeShape="RoundRectangle 8" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" WidthRequest="42" HeightRequest="42">
-                            <Label x:Name="MenuLabel" Text="&#xe748;" FontFamily="MauiMaterialAssets" HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}">
+                            <Label x:Name="MenuLabel" Text="&#xe719;" FontFamily="ShoppingCartFontIcon" HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Menu_Tapped"/>
                                 </Label.GestureRecognizers>
                             </Label>
                         </Border>
                     </Grid>
-                    <rotator:SfRotator x:Name="rotatorView" ItemsSource="{Binding RotatorItems}" NavigationDirection="Horizontal" HeightRequest="120" DotPlacement="OutSide" NavigationStripMode="Dots" DotsStroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" SelectedDotColor="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}">
+                    <rotator:SfRotator x:Name="rotatorView" WidthRequest="{OnPlatform iOS=360}" ItemsSource="{Binding RotatorItems}" NavigationDirection="Horizontal" HeightRequest="120" DotPlacement="OutSide" NavigationStripMode="Dots" DotsStroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" SelectedDotColor="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}">
                         <rotator:SfRotator.ItemTemplate>
                             <DataTemplate>
                                 <Border BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" Stroke="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" StrokeShape="RoundRectangle 8" Padding="10">
@@ -156,7 +156,7 @@
                                             <Label Text="{Binding Title}" FontSize="16" WidthRequest="210" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
                                             <Label Text="{Binding Subtitle}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" FontSize="11"/>
                                         </StackLayout>
-                                        <Image Source="{Binding ImageSource}" WidthRequest="80" HeightRequest="80"/>
+                                        <Image Source="{Binding ImageSource}" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center"/>
                                     </HorizontalStackLayout>
                                 </Border>
                             </DataTemplate>
@@ -178,6 +178,7 @@
                         </chip:SfChipGroup>
                     </ScrollView>
                 </StackLayout>
+                
                 <ScrollView x:Name="ProductScrollView" Orientation="Vertical" Grid.Row="1"  Padding="0,10,0,0" VerticalScrollBarVisibility="Never">
                     <!-- Product Grid -->
                     <StackLayout >
@@ -189,25 +190,25 @@
                                 </sf:SfListView.ItemsLayout>
                                 <sf:SfListView.ItemTemplate>
                                     <DataTemplate>
-                                        <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8" >
+                                        <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8" >
                                             <StackLayout Padding="10" Spacing="10">
                                                 <Grid ColumnDefinitions="*,auto" Padding="5">
                                                     <Image Source="{Binding ImageUrl}" HeightRequest="116" Grid.ColumnSpan="2" HorizontalOptions="Center" Margin="0,10,0,0" WidthRequest="124" Grid.Row="0" Grid.Column="0" />
                                                     <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2" HorizontalOptions="End">
-                                                        <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
+                                                        <Label Text="&#xe71b;" FontFamily="ShoppingCartFontIcon" VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" WidthRequest="20" HeightRequest="20"/>
                                                         <Label Text="{Binding Rating}" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                                                     </HorizontalStackLayout>
                                                 </Grid>
                                                 <Label Text="{Binding Name}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                                                 <Grid ColumnDefinitions="*,10">
-                                                    <Label Text="{Binding Price}" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                                                    <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" WidthRequest="16" HorizontalOptions="End" HeightRequest="16">
+                                                    <Label Text="{Binding Price, StringFormat='{}{0:C}'}" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                                    <Label Text="&#xe701;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" WidthRequest="16" HorizontalOptions="End" HeightRequest="16">
                                                         <Label.Triggers>
                                                             <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
-                                                                <Setter Property="Text" Value="&#xe7cc;" />
+                                                                <Setter Property="Text" Value="&#xe71a;" />
                                                             </DataTrigger>
                                                             <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
-                                                                <Setter Property="Text" Value="&#xe739;" />
+                                                                <Setter Property="Text" Value="&#xe701;" />
                                                             </DataTrigger>
                                                         </Label.Triggers>
                                                         <Label.GestureRecognizers>
@@ -226,7 +227,8 @@
             </Grid>
         </syncfusion:SfTabItem>
 
-        <syncfusion:SfTabItem Header="&#xe728;" FontFamily="MauiSampleFontIcon" FontSize="32">
+        <syncfusion:SfTabItem Header="&#xe713;" FontFamily="ShoppingCartFontIcon" FontSize="32"/>
+<syncfusion:SfTabItem Header="&#xe728;" FontFamily="MauiSampleFontIcon" FontSize="32">
 
             <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="16,20,16,0" RowSpacing="20">
 
@@ -316,12 +318,15 @@
 
 
         </syncfusion:SfTabItem>
-
-        <syncfusion:SfTabItem Header="&#xe739;" FontFamily="MauiSampleFontIcon" FontSize="32">
-            
-            <Grid RowDefinitions="Auto,*" Padding="16,20,16,0" RowSpacing="16">
+<syncfusion:SfTabItem Header="&#xe739;" FontFamily="MauiSampleFontIcon" FontSize="32">
+            <Grid RowDefinitions="Auto,*" Padding="16,20,16,0" RowSpacing="16" Margin="0,15,0,0">
                 <Grid ColumnDefinitions="Auto,*" Grid.Row="0" Grid.Column="0" ColumnSpacing="14">
-                    <Label Text="&#xe70e;" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" FontFamily="MauiSampleFontIcon" FontSize="16" Grid.Column="0" Grid.Row="0"></Label>
+                    <effects:SfEffectsView>
+                        <effects:SfEffectsView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BackArrowButton_Tapped" />
+                        </effects:SfEffectsView.GestureRecognizers>
+                        <Label Text="&#xe70d;" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" FontFamily="ShoppingCartFontIcon" FontSize="20" ></Label>
+                    </effects:SfEffectsView>
                     <Label Text="Saved Items" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"></Label>
                 </Grid>
                 <sf:SfListView ItemsSource="{Binding SavedProducts}"  SelectionMode="None" ScrollBarVisibility="Never" ItemSize="110" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
@@ -347,9 +352,9 @@
                                             <Grid ColumnDefinitions="*,Auto">
                                                 <Label Text="{Binding Price, StringFormat='{}{0:C}'}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontAttributes="Bold" FontSize="14"></Label>
                                                 <HorizontalStackLayout Spacing="4"  Grid.Row="0" Grid.Column="1">
-                                                    <Label Text="&#xe71c;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" VerticalTextAlignment="Center" FontSize="12"></Label>
+                                                <Label Text="&#xe706;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" VerticalTextAlignment="Center" FontSize="12"></Label>
                                                     <Label Text="0"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" VerticalTextAlignment="Center" FontSize="14" FontAttributes="Bold"></Label>
-                                                    <Label Text="&#xe71b;" FontFamily="MauiSampleFontIcon" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" VerticalTextAlignment="Center"></Label>
+                                                <Label Text="&#xe705;" FontFamily="ShoppingCartFontIcon" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" VerticalTextAlignment="Center"></Label>
                                                 </HorizontalStackLayout>
                                             </Grid>
                                         </VerticalStackLayout>
@@ -360,18 +365,18 @@
                 </sf:SfListView>
             </Grid>
         </syncfusion:SfTabItem>
-        <syncfusion:SfTabItem Header="&#xe760;" FontFamily="MauiSampleFontIcon" FontSize="32"/>
+        <syncfusion:SfTabItem Header="&#xe703;" FontFamily="ShoppingCartFontIcon" FontSize="32"/>
 
-        <syncfusion:SfTabItem Header="&#xe73e;" FontFamily="MauiSampleFontIcon" FontSize="32">
+        <syncfusion:SfTabItem Header="&#xe704;" FontFamily="ShoppingCartFontIcon" FontSize="32">
             <Grid RowDefinitions="*,Auto" Margin="0,15,0,0">
                 <Grid Grid.Row="0">
-                    <Grid RowDefinitions="Auto,*" Padding="16,20,16,0" RowSpacing="16">
+                    <Grid RowDefinitions="Auto,*" Padding="10,20,10,0" RowSpacing="16">
                         <Grid ColumnDefinitions="Auto,*" Grid.Row="0" Grid.Column="0" ColumnSpacing="14">
                             <effects:SfEffectsView>
                                 <effects:SfEffectsView.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="BackArrowButton_Tapped" />
                                 </effects:SfEffectsView.GestureRecognizers>
-                                <Label Text="&#xe70e;" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" FontFamily="MauiSampleFontIcon" FontSize="20" ></Label>
+                                <Label Text="&#xe70d;" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" FontFamily="ShoppingCartFontIcon" FontSize="20" ></Label>
                             </effects:SfEffectsView>
                             <Label Text="My Cart" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"></Label>
                         </Grid>
@@ -381,19 +386,19 @@
                             </sf:SfListView.ItemsLayout>
                             <sf:SfListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8" >
+                                    <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8" >
                                         <Grid ColumnDefinitions="Auto,*" Padding="16,12,16,12">
                                                 <Image Source="{Binding ImageUrl}" Grid.Row="0" Grid.Column="0" Margin="0,0,20,0" WidthRequest="72" HeightRequest="80"></Image>
                                                 <VerticalStackLayout Grid.Column="1" Grid.Row="0" Spacing="7" VerticalOptions="Center">
                                                     <Grid ColumnDefinitions="*,Auto">
                                                     <Label Text="{Binding Name}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" FontAttributes="Bold"></Label>
-                                                    <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundSelected-Light},Dark={StaticResource PrimaryBackgroundSelected-Dark}}" FontSize="12"  Grid.Row="0" Grid.Column="1" Margin="0,0,7,0">
+                                                    <Label Text="&#xe701;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundSelected-Light},Dark={StaticResource PrimaryBackgroundSelected-Dark}}" FontSize="12"  Grid.Row="0" Grid.Column="1" Margin="0,0,7,0">
                                                         <Label.Triggers>
                                                             <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
-                                                                <Setter Property="Text" Value="&#xe7cc;" />
+                                                                <Setter Property="Text" Value="&#xe71a;" />
                                                             </DataTrigger>
                                                             <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
-                                                                <Setter Property="Text" Value="&#xe739;" />
+                                                                <Setter Property="Text" Value="&#xe701;" />
                                                             </DataTrigger>
                                                         </Label.Triggers>
                                                         <Label.GestureRecognizers>
@@ -404,15 +409,15 @@
 
                                                     <Label Text="In Stock" TextColor="{AppThemeBinding Light={StaticResource SucessForeground-Light},Dark={StaticResource SucessForeground-Dark}}" FontSize="12"></Label>
                                                     <Grid ColumnDefinitions="*,Auto">
-                                                        <Label Text="{Binding Price}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontAttributes="Bold" FontSize="14"></Label>
+                                                    <Label Text="{Binding Price, StringFormat='{}{0:C}'}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontAttributes="Bold" FontSize="14"></Label>
                                                         <HorizontalStackLayout Spacing="4"  Grid.Row="0" Grid.Column="1">
-                                                            <Label Text="&#xe71c;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" VerticalTextAlignment="Center" FontSize="12">
+                                                        <Label Text="&#xe706;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" VerticalTextAlignment="Center" FontSize="12">
                                                                 <Label.GestureRecognizers>
                                                                     <TapGestureRecognizer Tapped="DecrementQuantity_Tapped"/>
                                                                 </Label.GestureRecognizers>
                                                             </Label>
                                                             <Label x:Name="quantityLabel" Text="01"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" VerticalTextAlignment="Center" FontSize="14" FontAttributes="Bold"></Label>
-                                                            <Label Text="&#xe71b;" FontFamily="MauiSampleFontIcon" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" VerticalTextAlignment="Center">
+                                                        <Label Text="&#xe705;" FontFamily="ShoppingCartFontIcon" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" VerticalTextAlignment="Center">
                                                                 <Label.GestureRecognizers>
                                                                     <TapGestureRecognizer Tapped="IncrementQuantity_Tapped"/>
                                                                 </Label.GestureRecognizers>
@@ -428,26 +433,26 @@
                     </Grid>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <Border x:Name="CartDetailsLayout" BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}" Stroke="{AppThemeBinding Light={StaticResource border-Light},Dark={StaticResource border-Dark}}" StrokeThickness="1" Padding="10" StrokeShape="RoundRectangle 20,20,0,0" VerticalOptions="Start">
+                    <Border x:Name="CartDetailsLayout" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" Stroke="{AppThemeBinding Light={StaticResource border-Light},Dark={StaticResource border-Dark}}" StrokeThickness="1" Padding="10" StrokeShape="RoundRectangle 20,20,0,0" VerticalOptions="Start">
                         <StackLayout Spacing="20" Padding="10">
                             <Grid ColumnDefinitions="*,Auto">
-                                <Label Text="Items Cost" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                                <Label x:Name="priceLabel"  Grid.Column="1" HorizontalTextAlignment="End" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                <Label Text="Items Cost" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                <Label x:Name="priceLabel" FontAttributes="Bold" Grid.Column="1" HorizontalTextAlignment="End" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                             </Grid>
 
                             <Grid ColumnDefinitions="*,Auto">
-                                <Label Text="Delivery charges" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                                <Label Text="$40" Grid.Column="1" HorizontalTextAlignment="End" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                <Label Text="Delivery charges" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                <Label Text="$40" FontAttributes="Bold" Grid.Column="1" HorizontalTextAlignment="End" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                             </Grid>
 
-                            <BoxView HeightRequest="1" Background="{AppThemeBinding Light={StaticResource border-Light},Dark={StaticResource border-Dark}}" />
+                            <BoxView HeightRequest="1" Background="{AppThemeBinding Light={StaticResource border-Light},Dark={StaticResource border-Dark}}" Margin="35,0"/>
 
-                            <Grid ColumnDefinitions="*,Auto" Margin="10">
-                                <Label Text="Total" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                            <Grid ColumnDefinitions="*,Auto" Margin="0,10">
+                                <Label Text="Total" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                                 <Label x:Name="totalAmountLabel" FontAttributes="Bold" Grid.Column="1" Text="$1,620" HorizontalTextAlignment="End" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                             </Grid>
 
-                            <Button Text="Buy Now" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                            <Button Text="Buy Now" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" Clicked="BuyButton_Clicked"/>
                         </StackLayout>
                     </Border>
                 </Grid>
@@ -460,7 +465,7 @@
                     <popup:SfPopup.ContentTemplate>
                         <DataTemplate>
                             <StackLayout>
-                                <Label Text="&#xe796;" TextColor="Red" FontSize="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="MauiSampleFontIcon"/>
+                                <Label Text="&#xe71c;" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="ShoppingCartFontIcon"/>
                                 <Label Text="Your Cart is Empty." HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                             </StackLayout>
                         </DataTemplate>

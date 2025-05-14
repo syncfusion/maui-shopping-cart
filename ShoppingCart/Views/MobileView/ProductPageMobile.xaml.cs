@@ -17,12 +17,14 @@ public partial class ProductPageMobile : ContentPage
         if (this.BindingContext is Product product)
         {
             product.IsAddedToCart = true;
+            popup.IsVisible= true;
             popup.IsOpen = true;
         }
     }
 
     private void Button_Clicked(object sender, EventArgs e)
     {
+        popup.IsVisible = false;
         popup.IsOpen = false;
     }
 
@@ -35,5 +37,10 @@ public partial class ProductPageMobile : ContentPage
                 currentItem.IsSaved = !currentItem.IsSaved;
             }
         }
+    }
+
+    private void BuyNowButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PaymentPageMobile());
     }
 }

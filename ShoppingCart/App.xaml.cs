@@ -20,18 +20,12 @@ namespace ShoppingCart
                             theme1.VisualTheme = Syncfusion.Maui.Toolkit.Themes.SfVisuals.MaterialLight;
                             theme2.VisualTheme = SfVisuals.MaterialLight;
                             Application.Current.UserAppTheme = AppTheme.Light;
-#if WINDOWS || MACCATALYST
-                            Application.Current.Resources["SfListViewItemRippleBackground"] = Color.FromArgb("#FFFBFE");
-#endif
                         }
                         else if (Application.Current.RequestedTheme == AppTheme.Dark || Application.Current.RequestedTheme == AppTheme.Unspecified)
                         {
                             theme1.VisualTheme = Syncfusion.Maui.Toolkit.Themes.SfVisuals.MaterialDark;
                             theme2.VisualTheme = SfVisuals.MaterialDark;
                             Application.Current.UserAppTheme = AppTheme.Dark;
-#if WINDOWS || MACCATALYST
-                            Application.Current.Resources["SfListViewItemRippleBackground"] = Color.FromArgb("#1C1B1F");
-#endif
                         }
                     }
                 }

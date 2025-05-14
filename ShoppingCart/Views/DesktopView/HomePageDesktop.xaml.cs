@@ -8,14 +8,13 @@ namespace ShoppingCart
 {
     public partial class HomePageDesktop : ContentView
     {
-
+        string selectedCategory = "Men";
         ShoppingCartViewModel shoppingCartViewModel;
         public HomePageDesktop(ShoppingCartViewModel shoppingCartViewModel)
         {
             InitializeComponent();
             this.shoppingCartViewModel = shoppingCartViewModel;
             this.MinimumWidthRequest = 600;
-            var selectedCategory = "Men";
             if (selectedCategory != null)
             {
 
@@ -31,7 +30,7 @@ namespace ShoppingCart
                     }
                 }
             }
-             BindingContext = shoppingCartViewModel;
+            BindingContext = shoppingCartViewModel;
         }
         
         void ToggleSavedStatus(object sender, EventArgs e)
@@ -46,11 +45,10 @@ namespace ShoppingCart
         }
 
 
-        protected async override void OnSizeAllocated(double width, double height)
+        protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
 
-            await Task.Delay(50);
             UpdateColumn(width);
         }
 
@@ -76,7 +74,7 @@ namespace ShoppingCart
 
         private void catagoriesChip_SelectionChanged(object sender, Syncfusion.Maui.Core.Chips.SelectionChangedEventArgs e)
         {
-            var selectedCategory = e.AddedItem;
+            selectedCategory = e.AddedItem?.ToString();
             if (selectedCategory != null)
             {
                 if (shoppingCartViewModel != null)
@@ -99,7 +97,9 @@ namespace ShoppingCart
         {
             if (e.DataItem is Product tappedProduct)
             {
+                var selected = this.selectedCategory;
                 var HomePageContent = new HomePageDesktop(shoppingCartViewModel);
+                HomePageContent.catagoriesChip.SelectedItem = selected;
                 var productpageDesktop = new ProductPageDesktop(HomePageContent)
                 {
                     BindingContext = tappedProduct

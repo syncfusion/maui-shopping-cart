@@ -33,6 +33,7 @@ public partial class MyCartPageDesktop : ContentView
         if (shoppingCartViewModel.MyCartProducts.Count == 0)
         {
             CartDetailsLayout.IsVisible = false;
+            popup.IsVisible = true;
             popup.IsOpen = true;
         }
     }
@@ -88,6 +89,7 @@ public partial class MyCartPageDesktop : ContentView
                     if (shoppingCartViewModel.MyCartProducts.Count == 0)
                     {
                         CartDetailsLayout.IsVisible = false;
+                        popup.IsVisible = true;
                         popup.IsOpen = true;
                     }
                 }
@@ -108,6 +110,7 @@ public partial class MyCartPageDesktop : ContentView
     }
     private void Button_Clicked(object sender, EventArgs e)
     {
+        popup.IsVisible = false;
         popup.IsOpen = false;
     }
 

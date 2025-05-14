@@ -326,6 +326,21 @@ namespace ShoppingCart
             tabView.SelectedIndex = 0;
         }
 
+        private void BuyButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PaymentPageMobile());
+
+
+
+
+
+
+
+
+
+
+        }
+
         private void filteredResultsView_ItemTapped(object sender, ItemTappedEventArgs e) 
         {
             if (e.Item is Product tappedProduct)

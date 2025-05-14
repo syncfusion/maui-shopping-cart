@@ -23,6 +23,9 @@
     <MauiXaml Update="Views\DesktopView\SignUpPageDesktop.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\MobileView\PaymentPageMobile.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\MobileView\SignUpMobilePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

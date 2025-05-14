@@ -37,5 +37,6 @@
     <Color x:Key="SeriesColor1-Dark">#0D71C1</Color>
     <Color x:Key="SeriesColor2-Dark">#33B677</Color>
     <Color x:Key="SeriesColor3-Dark">#DA9646</Color>
+    <Color x:Key="ContentBackgroundAlt3-Dark">#302D38</Color>
 
 </ResourceDictionary>
