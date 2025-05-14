@@ -145,6 +145,7 @@
                         </chip:SfChipGroup>
                     </ScrollView>
                 </StackLayout>
+                
                 <ScrollView x:Name="ProductScrollView" Orientation="Vertical" Grid.Row="1"  Padding="0,10,0,0" VerticalScrollBarVisibility="Never">
                     <!-- Product Grid -->
                     <StackLayout >
