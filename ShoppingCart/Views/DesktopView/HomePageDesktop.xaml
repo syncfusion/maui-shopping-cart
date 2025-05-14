@@ -93,32 +93,32 @@
                 <sf:SfListView.ItemTemplate>
                     <DataTemplate>
                         <Border Margin="5" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8">
-                            <StackLayout Padding="15,10,15,10">
-                                <Grid ColumnDefinitions="*,Auto" Padding="5">
-                                    <Image Source="{Binding ImageUrl}" Aspect="AspectFit" HeightRequest="171" Margin="0,5,0,0" Grid.ColumnSpan="2"/>
-                                    <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2">
-                                        <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}"/>
-                                        <Label Text="{Binding Rating}" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                                    </HorizontalStackLayout>
-                                </Grid>
-                                <Label Text="{Binding Name}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                                <Grid ColumnDefinitions="*,auto">
-                                    <Label Text="{Binding Price}" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                                    <Label Text="&#xe739;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" HorizontalOptions="End">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
-                                                <Setter Property="Text" Value="&#xe7cc;" />
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
-                                                <Setter Property="Text" Value="&#xe739;" />
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="ToggleSavedStatus" />
-                                        </Label.GestureRecognizers>
-                                    </Label>
-                                </Grid>
-                            </StackLayout>
+                                    <StackLayout Padding="15,10,15,10">
+                                    <Grid ColumnDefinitions="*,Auto" Padding="5">
+                                        <Image Source="{Binding ImageUrl}" Aspect="AspectFit" HeightRequest="171" Margin="0,5,0,0" Grid.ColumnSpan="2"/>
+                                        <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2">
+                                            <Label Text="&#xe71b;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}"/>
+                                            <Label Text="{Binding Rating}" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                    <Label Text="{Binding Name}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                    <Grid ColumnDefinitions="*,auto">
+                                        <Label Text="{Binding Price}" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                        <Label Text="&#xe71a;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" HorizontalOptions="End">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
+                                                    <Setter Property="Text" Value="&#xe701;" />
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
+                                                    <Setter Property="Text" Value="&#xe71a;" />
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="ToggleSavedStatus" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </Grid>
+                                </StackLayout>
                         </Border>
 
                     </DataTemplate>
