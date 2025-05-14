@@ -8,6 +8,7 @@ public partial class ProfilePageDesktop : ContentView
     {
         InitializeComponent();
         shoppingCartViewModel = viewModel;
+        shoppingCartViewModel.TempUserName = shoppingCartViewModel.CurrentUser.UserName;
         BindingContext = shoppingCartViewModel;
         _navigateBack = navigateBack;
     }
@@ -19,7 +20,7 @@ public partial class ProfilePageDesktop : ContentView
 
     private void SfButton_Clicked(object sender, EventArgs e)
     {
-        shoppingCartViewModel.CurrentUser.UserName = nameInput.Text;
+        shoppingCartViewModel.CurrentUser.UserName = shoppingCartViewModel.TempUserName;
         shoppingCartViewModel.CurrentUser.Email = mailInput.Text;
         shoppingCartViewModel.CurrentUser.MobileNumber = phoneNumberInput.Text;
         shoppingCartViewModel.CurrentUser.Gender = genderInput.Text;

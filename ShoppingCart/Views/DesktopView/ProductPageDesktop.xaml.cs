@@ -10,6 +10,7 @@ public partial class ProductPageDesktop : ContentView
 	{
 		InitializeComponent();
         _callerPage = callerPage;
+        shoppingCartViewModel = viewModel;
         BindingContext = viewModel;
     }
 
@@ -79,7 +80,7 @@ public partial class ProductPageDesktop : ContentView
         PaymentLayout.IsVisible = true;
         if (this.BindingContext is Product product)
         {
-            product.IsProductBought = true;
+            shoppingCartViewModel.AddToOrders(product);
             popup.IsOpen = true;
         }
     }

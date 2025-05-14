@@ -47,8 +47,8 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                                      WidthRequest="400"
                                      HeightRequest="80"
                     ContainerType="Outlined" >
-                <Entry  Text="{Binding CurrentUser.UserName}"/>
-                </chip:SfTextInputLayout>
+                <Entry Text="{Binding TempUserName}" />
+            </chip:SfTextInputLayout>
                 <chip:SfTextInputLayout Hint="Email" x:Name="mailInput"
                                  IsHintAlwaysFloated="true" 
                                  ContainerType="Outlined"
@@ -71,8 +71,8 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                         IsHintAlwaysFloated="True">
                 <editors:SfComboBox 
                     x:Name="genderComboBox"
-                    TextColor="Black">
-                    <editors:SfComboBox.ItemsSource>
+                    SelectedIndex="1">
+                    <editors:SfComboBox.ItemsSource >
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Male</x:String>
                             <x:String>Female</x:String>

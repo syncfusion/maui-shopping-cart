@@ -17,6 +17,17 @@ public class ShoppingCartViewModel : ContentPage
     public ObservableCollection<Product> OrderedProducts { get; set; } = new ObservableCollection<Product> { };
     public ObservableCollection<string> GenderOptions { get; set; }
 
+    private string _tempUserName;
+    public string TempUserName
+    {
+        get => _tempUserName;
+        set
+        {
+            _tempUserName = value;
+            OnPropertyChanged();
+        }
+    }
+
     public class SfRotatorItem
     {
         public string? Title { get; set; }
@@ -144,6 +155,7 @@ public class ShoppingCartViewModel : ContentPage
         CurrentUser.Email = "emmawilliam@gmail.com";
         CurrentUser.Password = "Emma@2024";
         CurrentUser.UserName = "Emma William";
+        CurrentUser.Gender = "Female";
     }
 
     public void FindSavedProducts()
@@ -171,16 +183,12 @@ public class ShoppingCartViewModel : ContentPage
         }
     }
 
-    public void AddToOrders()
+    public void AddToOrders(Product product)
     {
-        if(OrderedProducts != null)
+        if (product != null && !OrderedProducts.Contains(product))
         {
-            OrderedProducts.Clear();
-            foreach (var product in Products.Where(product => product.IsProductBought))
-            {
-                OrderedProducts.Add(product);
-            }
-
+            product.IsProductBought = true;
+            OrderedProducts.Add(product);
         }
     }
 }

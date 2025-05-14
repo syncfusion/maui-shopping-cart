@@ -7,6 +7,10 @@ namespace ShoppingCart
         List<Border> _tabBorders = new List<Border>();
         ShoppingCartViewModel shoppingCartViewModel;
         Border _selectedBorder;
+        private bool _isProfilePageVisible = false;
+        private ProfilePageDesktop _profilePage;
+        private View _previousPageContent;
+
         public MainPageDesktop(ShoppingCartViewModel viewModel)
         {
             InitializeComponent();
@@ -36,31 +40,35 @@ namespace ShoppingCart
 
         private void OnAvatarViewTapped(object sender, EventArgs e)
         {
-            ProfilePageDesktop profilePage;
+            if (_isProfilePageVisible)
+            {
+                ContentView selectedContent = _selectedBorder switch
+                {
+                    var b when b == HomeBorder => new HomePageDesktop(shoppingCartViewModel),
+                    var b when b == AccountBorder => new SettingsPageDesktop(shoppingCartViewModel),
+                    var b when b == CartBorder => new MyCartPageDesktop(shoppingCartViewModel),
+                    var b when b == SavedProductsBorder => new SavedItemsPageDesktop(shoppingCartViewModel),
+                    _ => new HomePageDesktop(shoppingCartViewModel)
+                };
 
-            if (_selectedBorder == HomeBorder)
-            {
-                profilePage = new ProfilePageDesktop(() => NavigateBackToHome(), shoppingCartViewModel);
                 selectedtab.Children.Clear();
-                selectedtab.Children.Add(profilePage);
+                selectedtab.Children.Add(selectedContent);
+
+                _isProfilePageVisible = false;
+                _profilePage = null;
             }
-            else if (_selectedBorder == AccountBorder)
+            else
             {
-                profilePage = new ProfilePageDesktop(() => NavigateBackToSettings(), shoppingCartViewModel);
+                Action backAction = _selectedBorder == HomeBorder ? () => NavigateBackToHome() :
+                                    _selectedBorder == AccountBorder ? () => NavigateBackToSettings() :
+                                    _selectedBorder == CartBorder ? () => NavigateBackToMyCart() :
+                                    () => NavigateBackToSavedProducts();
+
+                _profilePage = new ProfilePageDesktop(backAction, shoppingCartViewModel);
                 selectedtab.Children.Clear();
-                selectedtab.Children.Add(profilePage);
-            }
-            else if (_selectedBorder == SavedProductsBorder)
-            {
-                profilePage = new ProfilePageDesktop(() => NavigateBackToSavedProducts(), shoppingCartViewModel);
-                selectedtab.Children.Clear();
-                selectedtab.Children.Add(profilePage);
-            }
-            else if(_selectedBorder == CartBorder)
-            {
-                profilePage = new ProfilePageDesktop(() => NavigateBackToMyCart(), shoppingCartViewModel);
-                selectedtab.Children.Clear();
-                selectedtab.Children.Add(profilePage);
+                selectedtab.Children.Add(_profilePage);
+
+                _isProfilePageVisible = true;
             }
         }
 
@@ -137,15 +145,19 @@ namespace ShoppingCart
                 {
                     case "Home":
                         selectedContent = new HomePageDesktop(shoppingCartViewModel);
+                        _isProfilePageVisible = false;
                         break;
                     case "Saved Products":
                         selectedContent=new SavedItemsPageDesktop(shoppingCartViewModel);
+                        _isProfilePageVisible = false;
                         break;
                     case "My Cart":
                         selectedContent = new MyCartPageDesktop(shoppingCartViewModel);
+                        _isProfilePageVisible = false;
                         break;
                     case "My Account":
                         selectedContent = new SettingsPageDesktop(shoppingCartViewModel);
+                        _isProfilePageVisible = false;
                         break;
                 }
 

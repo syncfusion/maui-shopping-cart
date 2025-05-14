@@ -6,12 +6,14 @@ public partial class MyOrdersPageMobile : ContentPage
 {
     private readonly Action _navigateBack;
 
-    public MyOrdersPageMobile(ShoppingCartViewModel shoppingCartViewModel)
+    ShoppingCartViewModel shoppingCartViewModel;
+
+    public MyOrdersPageMobile(ShoppingCartViewModel viewModel)
 	{
 		InitializeComponent();
         if (shoppingCartViewModel != null)
         {
-            shoppingCartViewModel.AddToOrders();
+            shoppingCartViewModel = viewModel;
             BindingContext = shoppingCartViewModel;
         }
     }
@@ -20,7 +22,7 @@ public partial class MyOrdersPageMobile : ContentPage
     {
         if (e.DataItem is Product tappedProduct)
         {
-            var productPage = new ProductPageMobile
+            var productPage = new ProductPageMobile(shoppingCartViewModel)
             {
                 BindingContext = tappedProduct
             };

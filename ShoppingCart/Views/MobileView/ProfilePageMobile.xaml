@@ -42,7 +42,7 @@
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
                                 HorizontalOptions="FillAndExpand">
-                <Entry Text="{Binding CurrentUser.UserName}"/>
+                <Entry Text="{Binding TempUserName}"/>
             </chip:SfTextInputLayout>
 
             <chip:SfTextInputLayout Hint="Email" x:Name="mailInput"
@@ -63,7 +63,7 @@
                                 ContainerType="Outlined"
                                 IsHintAlwaysFloated="True"
                                 HorizontalOptions="FillAndExpand">
-                <editors:SfComboBox x:Name="genderComboBox" TextColor="Black">
+                <editors:SfComboBox x:Name="genderComboBox" TextColor="Black" SelectedIndex="1">
                     <editors:SfComboBox.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Male</x:String>

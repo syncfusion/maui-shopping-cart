@@ -8,16 +8,14 @@ public partial class ProfilePageMobile : ContentPage
 	{
 		InitializeComponent();
 
-        if (shoppingCartViewModel != null)
-        {
             shoppingCartViewModel = viewModel;
+            shoppingCartViewModel.TempUserName = shoppingCartViewModel.CurrentUser.UserName;
             BindingContext = shoppingCartViewModel;
-        }
     }
 
     private void SfButton_Clicked(object sender, EventArgs e)
     {
-        shoppingCartViewModel.CurrentUser.UserName = nameInput.Text;
+        shoppingCartViewModel.CurrentUser.UserName = shoppingCartViewModel.TempUserName;
         shoppingCartViewModel.CurrentUser.Email = mailInput.Text;
         shoppingCartViewModel.CurrentUser.MobileNumber = phoneNumberInput.Text;
         shoppingCartViewModel.CurrentUser.Gender = genderInput.Text;

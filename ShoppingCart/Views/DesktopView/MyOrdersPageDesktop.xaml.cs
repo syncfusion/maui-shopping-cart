@@ -9,7 +9,6 @@ public partial class MyOrdersPageDesktop : ContentView
         shoppingCartViewModel = viewModel;
         if (shoppingCartViewModel != null)
         {
-            shoppingCartViewModel.AddToOrders();
             BindingContext = shoppingCartViewModel;
         }
     }

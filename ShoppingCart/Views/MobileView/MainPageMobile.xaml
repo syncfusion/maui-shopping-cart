@@ -303,9 +303,9 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                         <effects:SfEffectsView >
                             <HorizontalStackLayout Spacing="10" Margin="30,0,0,0">
                                 <Label Text="&#xe716;  " VerticalOptions="Center" FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
-                                <Label Text="Dark mode" FontSize="16" VerticalOptions="Center" FontAttributes="Bold"
+                                <Label Text="Dark mode" FontSize="16" VerticalOptions="Center" Margin="0,-5,0,0" FontAttributes="Bold"
            TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
-                                <buttons:SfSwitch x:Name="sfSwitch" HorizontalOptions="End" Margin="150,0,0,0" StateChanged="SfSwitch_StateChanged"/>
+                                <buttons:SfSwitch x:Name="sfSwitch" HorizontalOptions="End" VerticalOptions="Center" Margin="150,0,0,0" StateChanged="SfSwitch_StateChanged"/>
                             </HorizontalStackLayout>
                         </effects:SfEffectsView>
                     </VerticalStackLayout>

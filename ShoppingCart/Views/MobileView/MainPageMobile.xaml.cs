@@ -165,9 +165,9 @@ namespace ShoppingCart
         {
             if (e.DataItem is Product tappedProduct)
             {
-                var productpageMobile = new ProductPageMobile
+                var productpageMobile = new ProductPageMobile(shoppingCartViewModel)
                 {
-                    BindingContext = tappedProduct
+                    BindingContext = tappedProduct,
                 };
 
 				Navigation.PushAsync(productpageMobile);

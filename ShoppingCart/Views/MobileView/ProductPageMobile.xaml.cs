@@ -2,9 +2,12 @@ namespace ShoppingCart;
 
 public partial class ProductPageMobile : ContentPage
 {
-    public ProductPageMobile()
-	{
-		InitializeComponent();
+    ShoppingCartViewModel shoppingCartViewModel;
+    public ProductPageMobile(ShoppingCartViewModel viewModel)
+    {
+        InitializeComponent();
+        shoppingCartViewModel = viewModel;
+        BindingContext = shoppingCartViewModel;
     }
 
     private void BackArrow_Tapped(object sender, TappedEventArgs e)
@@ -25,7 +28,7 @@ public partial class ProductPageMobile : ContentPage
     {
         if (this.BindingContext is Product product)
         {
-            product.IsProductBought = true;
+            shoppingCartViewModel.AddToOrders(product);
             popup.IsOpen = true;
         }
     }
