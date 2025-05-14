@@ -332,7 +332,7 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                             </sf:SfListView.ItemsLayout>
                             <sf:SfListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8" >
+                                    <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8" >
                                         <Grid ColumnDefinitions="Auto,*" Padding="16,12,16,12">
                                                 <Image Source="{Binding ImageUrl}" Grid.Row="0" Grid.Column="0" Margin="0,0,20,0" WidthRequest="72" HeightRequest="80"></Image>
                                                 <VerticalStackLayout Grid.Column="1" Grid.Row="0" Spacing="7" VerticalOptions="Center">
@@ -355,16 +355,16 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
 
                                                     <Label Text="In Stock" TextColor="{AppThemeBinding Light={StaticResource SucessForeground-Light},Dark={StaticResource SucessForeground-Dark}}" FontSize="12"></Label>
                                                     <Grid ColumnDefinitions="*,Auto">
-                                                        <Label Text="{Binding Price}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontAttributes="Bold" FontSize="14"></Label>
-                                                        <HorizontalStackLayout Spacing="4"  Grid.Row="0" Grid.Column="1">
-                                                            <Label Text="&#xe71c;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" VerticalTextAlignment="Center" FontSize="12">
-                                                                <Label.GestureRecognizers>
+                                                    <Label Text="{Binding Price, StringFormat='{}{0:C}'}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontAttributes="Bold" FontSize="14"></Label>
+                                                    <HorizontalStackLayout Spacing="4"  Grid.Row="0" Grid.Column="1">
+                                                        <Label Text="&#xe706;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" VerticalTextAlignment="Center" FontSize="12">
+                                                            <Label.GestureRecognizers>
                                                                     <TapGestureRecognizer Tapped="DecrementQuantity_Tapped"/>
                                                                 </Label.GestureRecognizers>
                                                             </Label>
                                                             <Label x:Name="quantityLabel" Text="01"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" VerticalTextAlignment="Center" FontSize="14" FontAttributes="Bold"></Label>
-                                                            <Label Text="&#xe71b;" FontFamily="MauiSampleFontIcon" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" VerticalTextAlignment="Center">
-                                                                <Label.GestureRecognizers>
+                                                        <Label Text="&#xe705;" FontFamily="ShoppingCartFontIcon" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" VerticalTextAlignment="Center">
+                                                            <Label.GestureRecognizers>
                                                                     <TapGestureRecognizer Tapped="IncrementQuantity_Tapped"/>
                                                                 </Label.GestureRecognizers>
                                                             </Label>
@@ -398,7 +398,7 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
                                 <Label x:Name="totalAmountLabel" FontAttributes="Bold" Grid.Column="1" Text="$1,620" HorizontalTextAlignment="End" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                             </Grid>
 
-                            <Button Text="Buy Now" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"/>
+                            <Button Text="Buy Now" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" Clicked="BuyButton_Clicked"/>
                         </StackLayout>
                     </Border>
                 </Grid>

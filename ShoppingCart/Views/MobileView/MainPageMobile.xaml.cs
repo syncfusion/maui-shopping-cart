@@ -388,6 +388,11 @@ namespace ShoppingCart
             tabView.SelectedIndex = 0;
         }
 
+        private void BuyButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PaymentPageMobile());
+        }
+
         private void SfSwitch_StateChanged(object sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
         {
             App.Current.UserAppTheme = (bool)sfSwitch.IsOn ? AppTheme.Dark : AppTheme.Light;
