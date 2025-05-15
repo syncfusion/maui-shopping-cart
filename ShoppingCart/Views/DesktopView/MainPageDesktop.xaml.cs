@@ -5,6 +5,7 @@
         List<Border> _tabBorders = new List<Border>();
         ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel();
         Border _selectedBorder;
+        ContentView selectedContent = new();
         public MainPageDesktop()
         {
             InitializeComponent();
@@ -69,7 +70,7 @@
                 iconLabel!.TextColor = Colors.White;
                 textLabel!.TextColor = Colors.White;
 
-                ContentView selectedContent = new();
+               
                 selectedContent.IsVisible = true;
 
                 switch (text)
@@ -103,7 +104,10 @@
                 {
                     BindingContext = tappedProduct
                 };
-                Content = productpageDesktop;
+                selectedContent = productpageDesktop;
+                selectedContent.IsVisible = true;
+                selectedtab.Children.Clear();
+                selectedtab.Children.Add(selectedContent);
             }
 
         }
