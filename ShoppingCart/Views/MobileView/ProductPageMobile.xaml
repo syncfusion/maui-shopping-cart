@@ -11,12 +11,14 @@
     <!-- Product Details -->
     <Grid RowDefinitions="Auto,*,72" RowSpacing="15" Padding="20">
         <Grid x:Name="BackArrow" Margin="0,20,0,0" ColumnDefinitions="Auto,*,Auto,Auto" ColumnSpacing="10">
-            <effects:SfEffectsView>
+            <Border StrokeShape="RoundRectangle 10" StrokeThickness="0">
+                <effects:SfEffectsView>
                 <effects:SfEffectsView.GestureRecognizers>
                     <TapGestureRecognizer Tapped="BackArrow_Tapped" />
                 </effects:SfEffectsView.GestureRecognizers>
                 <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
             </effects:SfEffectsView>
+                </Border>
             <Label Grid.Column="1" Text="Product Details" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
             <Label Grid.Column="2" FontSize="16" Text="&#xe713;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
             <Label Grid.Column="3" FontSize="16" Text="&#xe701;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" HorizontalOptions="End">

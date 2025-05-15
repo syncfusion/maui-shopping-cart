@@ -11,6 +11,8 @@ public partial class ProfilePageMobile : ContentPage
             shoppingCartViewModel = viewModel;
             shoppingCartViewModel.TempUserName = shoppingCartViewModel.CurrentUser.UserName;
             BindingContext = shoppingCartViewModel;
+        numberentry.Text = shoppingCartViewModel.CurrentUser.MobileNumber;
+        genderComboBox.SelectedItem = shoppingCartViewModel.CurrentUser.Gender;
     }
 
     private void SfButton_Clicked(object sender, EventArgs e)
@@ -19,5 +21,6 @@ public partial class ProfilePageMobile : ContentPage
         shoppingCartViewModel.CurrentUser.Email = mailInput.Text;
         shoppingCartViewModel.CurrentUser.MobileNumber = phoneNumberInput.Text;
         shoppingCartViewModel.CurrentUser.Gender = genderInput.Text;
+        Navigation.PopAsync();
     }
 }

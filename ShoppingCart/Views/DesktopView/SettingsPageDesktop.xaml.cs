@@ -25,4 +25,16 @@ public partial class SettingsPageDesktop : ContentView
     {
           App.Current.UserAppTheme = (bool)sfSwitch.IsOn ? AppTheme.Dark : AppTheme.Light;
     }
+
+    private void PaymentMethod_Tapped(object sender, TappedEventArgs e)
+    {
+        var PaymentView = new PaymentPageDesktop(shoppingCartViewModel);
+        this.Content = PaymentView;
     }
+
+    private void Address_Tapped(object sender, TappedEventArgs e)
+    {
+        var AddressView = new AddressPageDesktop(shoppingCartViewModel);
+        this.Content = AddressView;
+    }
+}

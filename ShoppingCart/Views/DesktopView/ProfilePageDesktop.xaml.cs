@@ -10,6 +10,8 @@ public partial class ProfilePageDesktop : ContentView
         shoppingCartViewModel = viewModel;
         shoppingCartViewModel.TempUserName = shoppingCartViewModel.CurrentUser.UserName;
         BindingContext = shoppingCartViewModel;
+        numberentry.Text = shoppingCartViewModel.CurrentUser.MobileNumber ;
+        genderComboBox.SelectedItem = shoppingCartViewModel.CurrentUser.Gender ;
         _navigateBack = navigateBack;
     }
 
@@ -24,5 +26,6 @@ public partial class ProfilePageDesktop : ContentView
         shoppingCartViewModel.CurrentUser.Email = mailInput.Text;
         shoppingCartViewModel.CurrentUser.MobileNumber = phoneNumberInput.Text;
         shoppingCartViewModel.CurrentUser.Gender = genderInput.Text;
+        _navigateBack?.Invoke();
     }
 }

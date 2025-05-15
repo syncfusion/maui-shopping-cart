@@ -6,4 +6,9 @@ public partial class NotificationsPageMobile : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void BackArrowButton_Tapped(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
+    }
 }

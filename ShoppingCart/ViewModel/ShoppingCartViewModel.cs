@@ -156,6 +156,7 @@ public class ShoppingCartViewModel : ContentPage
         CurrentUser.Password = "Emma@2024";
         CurrentUser.UserName = "Emma William";
         CurrentUser.Gender = "Female";
+        CurrentUser.MobileNumber = "9876554321";
     }
 
     public void FindSavedProducts()

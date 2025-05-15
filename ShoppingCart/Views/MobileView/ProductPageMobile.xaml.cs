@@ -30,7 +30,7 @@ public partial class ProductPageMobile : ContentPage
         if (this.BindingContext is Product product)
         {
             shoppingCartViewModel.AddToOrders(product);
-            popup.IsOpen = true;
+            Navigation.PushAsync(new PaymentPageMobile(true));
         }
     }
 

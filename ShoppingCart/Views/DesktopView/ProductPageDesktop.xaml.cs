@@ -10,6 +10,15 @@ public partial class ProductPageDesktop : ContentView
 	{
 		InitializeComponent();
         _callerPage = callerPage;
+        this.BindingContextChanged += (s, e) =>
+        {
+            if (this.BindingContext is Product product)
+            {
+                PreviewImageTwoBorder.IsVisible = product.PreviewTwoImageUrl != null;
+                PreviewImageThreeBorder.IsVisible = product.PreviewThreeImageUrl != null;
+                PreviewImageFourBorder.IsVisible = product.PreviewFourImageUrl != null;
+            }
+        };
         shoppingCartViewModel = viewModel;
         BindingContext = viewModel;
     }

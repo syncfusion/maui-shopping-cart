@@ -30,4 +30,9 @@ public partial class MyOrdersPageMobile : ContentPage
             await Application.Current.MainPage.Navigation.PushAsync(productPage);
         }
     }
+
+    private void BackArrowButton_Tapped(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
+    }
 }

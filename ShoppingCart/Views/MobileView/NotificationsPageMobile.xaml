@@ -6,11 +6,9 @@
              Title="NotificationsPageMobile">
     
     <Grid>
-        <StackLayout Padding="20" Spacing="10">
-            <Label Text="Notifications" FontSize="16"  FontAttributes="Bold" Margin="30,-55,0,0"
- TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+        <StackLayout Padding="10" Spacing="10">
 
-            <Border  Padding="10" Stroke="#F7F2FB" Background="#F7F2FB" WidthRequest="350" HorizontalOptions="Start" Margin="10,20,0,0"
+            <Border  Padding="10" Stroke="#F7F2FB" WidthRequest="350" HorizontalOptions="Start" Margin="10,20,0,0"
  BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt-Light}, Dark={StaticResource ContentBackgroundAlt-Dark}}">
                 <Border.Clip>
                     <RoundRectangleGeometry CornerRadius="20" Rect="0,0,350,60" />

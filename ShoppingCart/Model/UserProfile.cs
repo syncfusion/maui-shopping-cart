@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace ShoppingCart
 {
@@ -74,6 +75,24 @@ namespace ShoppingCart
             }
         }
 
+        public ObservableCollection<Address> Addresses { get; set; }
+
+        public class Address
+        {
+            public string Title { get; set; }
+            public string Description { get; set; }
+        }
+
+        public UserProfile()
+        {
+            Addresses = new ObservableCollection<Address>
+            {
+                new Address { Title = "Home", Description = "No.67, 21st cross street, Chennai-xxxxxx" },
+                new Address { Title = "Office", Description = "No.67, 21st cross street, Chennai-xxxxxx" },
+                new Address { Title = "Office", Description = "No.67, 21st cross street, Chennai-xxxxxx" },
+                new Address { Title = "Office", Description = "No.67, 21st cross street, Chennai-xxxxxx" },
+            };
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
