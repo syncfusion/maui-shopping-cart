@@ -350,6 +350,8 @@ namespace ShoppingCart
                 filteredResultsView.IsVisible = false;
                 searchitem.IsVisible = true;
                 recentsearch.IsVisible = false;
+                entry.Text = string.Empty;
+                entry.Unfocus();
             }
 
             
@@ -367,19 +369,9 @@ namespace ShoppingCart
             }
         }
 
-        
-
-        private void comboBox_SelectionChanged(object sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e) 
+        private void entry_Focused(object sender, FocusEventArgs e) 
         {
-            if (comboBox.SelectedValue is Product tappedProduct) {
-                var productpageMobile = new ProductPageMobile {
-                    BindingContext = tappedProduct
-                };
-
-                Navigation.PushAsync(productpageMobile);
-            }
-
-           
+            tabView.SelectedIndex = 1;
         }
     }
 }

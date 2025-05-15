@@ -87,7 +87,7 @@
         </Style>
 
     </ContentPage.Resources>
-    <syncfusion:SfTabView TabBarPlacement="Bottom" TabBarBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" TabHeaderPadding="20,0" TabBarHeight="56" IndicatorBackground="#F7F2FB" x:Name="tabView" SelectionChanged="tabView_SelectionChanged">
+    <syncfusion:SfTabView x:Name="tabView" TabBarPlacement="Bottom" TabBarBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" TabHeaderPadding="20,0" TabBarHeight="56" IndicatorBackground="#F7F2FB"  SelectionChanged="tabView_SelectionChanged">
 
         <syncfusion:SfTabItem Header="&#xe700;" FontFamily="ShoppingCartFontIcon" FontSize="32" >
             <Grid RowDefinitions="Auto,*" Padding="16">
@@ -118,23 +118,10 @@
             IsHintAlwaysFloated="True" 
             Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}">
 
-                                <editor:SfComboBox x:Name="comboBox"
-                                                   IsEditable="true"
-                                                   Placeholder="Search product"
-                                                   PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"
-                                                   IsFilteringEnabled="true"
-                                                   FontSize="14" 
-                                                   IsDropdownButtonVisible="False"
-                                                   IsClearButtonVisible="False"
-                                                   VerticalTextAlignment="Center"
-                                                   HeightRequest="45" 
-                                                   MaxDropDownHeight="200"
-                                                   ItemsSource="{Binding Products}"
-                                                   TextMemberPath="Name"
-                                                   SelectionChanged="comboBox_SelectionChanged"
-                                                   DisplayMemberPath="Name" >
+                                <Entry Placeholder="Search product" Focused="entry_Focused" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" HeightRequest="45" VerticalTextAlignment="Center"
+                        HorizontalOptions="FillAndExpand"  />
 
-                                </editor:SfComboBox>
+                                
 
                             </input:SfTextInputLayout>
 
@@ -227,7 +214,7 @@
             </Grid>
         </syncfusion:SfTabItem>
 
-        <syncfusion:SfTabItem Header="&#xe713;" FontFamily="ShoppingCartFontIcon" FontSize="32">
+        <syncfusion:SfTabItem Header="&#xe713;" FontFamily="ShoppingCartFontIcon" FontSize="32" >
 
         <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="16,20,16,0" RowSpacing="20">
 
