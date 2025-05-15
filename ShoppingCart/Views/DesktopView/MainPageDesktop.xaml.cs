@@ -1,14 +1,21 @@
-﻿namespace ShoppingCart
+﻿using ShoppingCart;
+
+namespace ShoppingCart
 {
     public partial class MainPageDesktop : ContentPage
     {
         List<Border> _tabBorders = new List<Border>();
-        ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel();
+        ShoppingCartViewModel shoppingCartViewModel;
         Border _selectedBorder;
-        public MainPageDesktop()
+        private bool _isProfilePageVisible = false;
+        private ProfilePageDesktop _profilePage;
+        private View _previousPageContent;
+
+        public MainPageDesktop(ShoppingCartViewModel viewModel)
         {
             InitializeComponent();
-
+            shoppingCartViewModel = viewModel;
+            BindingContext = shoppingCartViewModel;
             _selectedBorder = HomeBorder;
             SetSelected(HomeBorder);
 
@@ -29,6 +36,68 @@
             var tapGesture = new TapGestureRecognizer();
             tapGesture.Tapped += (s, e) => SetSelected(border);
             border.GestureRecognizers.Add(tapGesture);
+        }
+
+        private void OnAvatarViewTapped(object sender, EventArgs e)
+        {
+            if (_isProfilePageVisible)
+            {
+                ContentView selectedContent = _selectedBorder switch
+                {
+                    var b when b == HomeBorder => new HomePageDesktop(shoppingCartViewModel),
+                    var b when b == AccountBorder => new SettingsPageDesktop(shoppingCartViewModel),
+                    var b when b == CartBorder => new MyCartPageDesktop(shoppingCartViewModel),
+                    var b when b == SavedProductsBorder => new SavedItemsPageDesktop(shoppingCartViewModel),
+                    _ => new HomePageDesktop(shoppingCartViewModel)
+                };
+
+                selectedtab.Children.Clear();
+                selectedtab.Children.Add(selectedContent);
+
+                _isProfilePageVisible = false;
+                _profilePage = null;
+            }
+            else
+            {
+                Action backAction = _selectedBorder == HomeBorder ? () => NavigateBackToHome() :
+                                    _selectedBorder == AccountBorder ? () => NavigateBackToSettings() :
+                                    _selectedBorder == CartBorder ? () => NavigateBackToMyCart() :
+                                    () => NavigateBackToSavedProducts();
+
+                _profilePage = new ProfilePageDesktop(backAction, shoppingCartViewModel);
+                selectedtab.Children.Clear();
+                selectedtab.Children.Add(_profilePage);
+
+                _isProfilePageVisible = true;
+            }
+        }
+
+        private void NavigateBackToHome()
+        {
+            var homePage = new HomePageDesktop(shoppingCartViewModel);
+            selectedtab.Children.Clear();
+            selectedtab.Children.Add(homePage);
+        }
+
+        private void NavigateBackToSettings()
+        {
+            var settingsPage = new SettingsPageDesktop(shoppingCartViewModel);
+            selectedtab.Children.Clear();
+            selectedtab.Children.Add(settingsPage);
+        }
+
+        private void NavigateBackToMyCart()
+        {
+            var settingsPage = new MyCartPageDesktop(shoppingCartViewModel);
+            selectedtab.Children.Clear();
+            selectedtab.Children.Add(settingsPage);
+        }
+
+        private void NavigateBackToSavedProducts()
+        {
+            var settingsPage = new SavedItemsPageDesktop(shoppingCartViewModel);
+            selectedtab.Children.Clear();
+            selectedtab.Children.Add(settingsPage);
         }
 
         void SetSelected(Border border)
@@ -76,14 +145,19 @@
                 {
                     case "Home":
                         selectedContent = new HomePageDesktop(shoppingCartViewModel);
+                        _isProfilePageVisible = false;
                         break;
                     case "Saved Products":
                         selectedContent=new SavedItemsPageDesktop(shoppingCartViewModel);
+                        _isProfilePageVisible = false;
                         break;
                     case "My Cart":
                         selectedContent = new MyCartPageDesktop(shoppingCartViewModel);
+                        _isProfilePageVisible = false;
                         break;
-                    case "Account":
+                    case "My Account":
+                        selectedContent = new SettingsPageDesktop(shoppingCartViewModel);
+                        _isProfilePageVisible = false;
                         break;
                 }
 

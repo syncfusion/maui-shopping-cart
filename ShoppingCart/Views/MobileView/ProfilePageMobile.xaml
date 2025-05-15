@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingCart.Views.MobileView.ProfilePageMobile"
+              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Toolkit.TabView;assembly=Syncfusion.Maui.Toolkit"
+            xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+            xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
+            xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+            xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             Title="ProfilePageMobile">
+
+    <Grid RowDefinitions="*,*" Margin="0,50">
+        <Border HeightRequest="790" StrokeShape="RoundRectangle 24,24,0,0" Margin="0,35,0,0" Background="#F7F2FB" >
+
+            <StackLayout  Spacing="10" Padding="15,65">
+
+                <chip:SfTextInputLayout Hint="Name" x:Name="nameInput" HeightRequest="90"
+                                IsHintAlwaysFloated="true"
+                                ContainerType="Outlined"
+                                HorizontalOptions="FillAndExpand">
+                    <Entry Text="{Binding TempUserName}"/>
+                </chip:SfTextInputLayout>
+
+                <chip:SfTextInputLayout Hint="Email" x:Name="mailInput" HeightRequest="90"
+                                IsHintAlwaysFloated="true"
+                                ContainerType="Outlined"
+                                HorizontalOptions="FillAndExpand">
+                    <Entry Text="{Binding CurrentUser.Email}" />
+                </chip:SfTextInputLayout>
+
+                <chip:SfTextInputLayout Hint="Phone Number" x:Name="phoneNumberInput" HeightRequest="90"
+                                IsHintAlwaysFloated="true"
+                                ContainerType="Outlined"
+                                HorizontalOptions="FillAndExpand">
+                    <Entry x:Name="numberentry" Text="{Binding CurrentUser.MobileNumber}" />
+                </chip:SfTextInputLayout>
+
+                <chip:SfTextInputLayout Hint="Gender" x:Name="genderInput" HeightRequest="90"
+                                ContainerType="Outlined"
+                                IsHintAlwaysFloated="True"
+                                HorizontalOptions="FillAndExpand">
+                    <editors:SfComboBox x:Name="genderComboBox" TextColor="Black" SelectedIndex="1">
+                        <editors:SfComboBox.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Male</x:String>
+                                <x:String>Female</x:String>
+                                <x:String>Non-binary</x:String>
+                                <x:String>Other</x:String>
+                            </x:Array>
+                        </editors:SfComboBox.ItemsSource>
+                    </editors:SfComboBox>
+                </chip:SfTextInputLayout>
+
+                <buttons:SfButton HorizontalOptions="Center" Text="Update Profile" WidthRequest="350" Clicked="SfButton_Clicked" />
+            </StackLayout>
+        </Border>
+        <chip:SfBadgeView HorizontalOptions="Center" VerticalOptions="Start" >
+            <chip:SfBadgeView.Content>
+                <chip:SfAvatarView ContentType="Initials" HorizontalOptions="Center" VerticalOptions="Center"
+                    InitialsType="SingleCharacter"
+                    AvatarName="{Binding CurrentUser.UserName}"
+                    FontSize="30"
+                    InitialsColor="#FFFFFF" 
+                    WidthRequest="80"
+                    HeightRequest="80"
+                    CornerRadius="40"          
+                    Background="#6750A4"/>
+            </chip:SfBadgeView.Content>
+            <chip:SfBadgeView.BadgeSettings>
+                <chip:BadgeSettings Background="#EEE8F4" Position="BottomRight" Icon="Away"/>
+            </chip:SfBadgeView.BadgeSettings>
+        </chip:SfBadgeView>
+    </Grid>
+</ContentPage>

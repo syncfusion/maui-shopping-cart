@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Toolkit.TabView;assembly=Syncfusion.Maui.Toolkit"
+            xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+            xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
+            xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+            xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
+             x:Class="ShoppingCart.ProfilePageDesktop">
+
+
+    <Grid Grid.Column="1" >
+            <StackLayout Padding="10" Spacing="10" HorizontalOptions="Start" VerticalOptions="Start">
+            <HorizontalStackLayout Margin="-15,0,0,0" Spacing="10">
+                <Border StrokeShape="RoundRectangle 10" StrokeThickness="0">
+                    <effects:SfEffectsView>
+                        <effects:SfEffectsView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BackArrow_Tapped" />
+                        </effects:SfEffectsView.GestureRecognizers>
+                        <Label FontSize="20"  Text="&#xe70e; " FontFamily="MauiSampleFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                    </effects:SfEffectsView>
+                </Border>
+                <Label Text="My Profile" FontSize="16"  
+TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+            </HorizontalStackLayout>
+
+            <chip:SfBadgeView HorizontalOptions="Center" VerticalOptions="Center" >
+                    <chip:SfBadgeView.Content>
+                        <chip:SfAvatarView ContentType="Initials" Margin="-130,0,0,0"
+            InitialsType="SingleCharacter"
+            AvatarName="{Binding CurrentUser.UserName}"
+            FontSize="30"
+            InitialsColor="#FFFFFF" 
+            WidthRequest="80"
+            HeightRequest="80"
+            CornerRadius="40"          
+            Background="#6750A4"/>
+                    </chip:SfBadgeView.Content>
+                    <chip:SfBadgeView.BadgeSettings>
+                        <chip:BadgeSettings  Background="#EEE8F4"  Offset="-60,-10" Position="BottomRight" Icon="Away"/>
+                    </chip:SfBadgeView.BadgeSettings>
+                </chip:SfBadgeView>
+
+            <chip:SfTextInputLayout Hint="Name" x:Name="nameInput" InputViewPadding="15,5"
+                    IsHintAlwaysFloated="true" 
+                                     WidthRequest="400"
+                                     HeightRequest="80"
+                    ContainerType="Outlined" >
+                <Entry Text="{Binding TempUserName}" />
+            </chip:SfTextInputLayout>
+            <chip:SfTextInputLayout Hint="Email" x:Name="mailInput" InputViewPadding="15,5"
+                                 IsHintAlwaysFloated="true" 
+                                 ContainerType="Outlined"
+                               WidthRequest="400"
+                         HeightRequest="80">
+                <Entry Text="{Binding CurrentUser.Email}" />
+                </chip:SfTextInputLayout>
+                <chip:SfTextInputLayout Hint="Phone Number" x:Name="phoneNumberInput" InputViewPadding="15,5"
+                             IsHintAlwaysFloated="true" 
+                            WidthRequest="400"
+                     HeightRequest="80"
+                             ContainerType="Outlined">
+                    <Entry x:Name="numberentry" Text="9988776655" />
+                </chip:SfTextInputLayout>
+            <chip:SfTextInputLayout 
+                        Hint="Gender"  x:Name="genderInput"
+                        ContainerType="Outlined" 
+                        WidthRequest="400" 
+                        HeightRequest="80"
+                        IsHintAlwaysFloated="True">
+                <editors:SfComboBox 
+                    x:Name="genderComboBox"
+                    SelectedIndex="1">
+                    <editors:SfComboBox.ItemsSource >
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Male</x:String>
+                            <x:String>Female</x:String>
+                            <x:String>Non-binary</x:String>
+                            <x:String>Other</x:String>
+                        </x:Array>
+                    </editors:SfComboBox.ItemsSource>
+
+                </editors:SfComboBox>
+
+            </chip:SfTextInputLayout>
+
+            <effects:SfEffectsView>
+            <buttons:SfButton WidthRequest="400" HeightRequest="40" Text="Update Profile" Clicked="SfButton_Clicked"/>
+            </effects:SfEffectsView>
+
+        </StackLayout>
+    </Grid>
+
+</ContentView>

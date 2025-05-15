@@ -30,7 +30,7 @@ public partial class SavedItemsPageDesktop : ContentView
         if (e.DataItem is Product tappedProduct)
         {
             var savedItemsPage = new SavedItemsPageDesktop(shoppingCartViewModel);
-            var productpageDesktop = new ProductPageDesktop(savedItemsPage)
+            var productpageDesktop = new ProductPageDesktop(savedItemsPage, shoppingCartViewModel)
             {
                 BindingContext = tappedProduct
             };

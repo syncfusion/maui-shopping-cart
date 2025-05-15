@@ -50,6 +50,21 @@ namespace ShoppingCart
             }
         }
 
+
+        private bool _isProductBought;
+        public bool IsProductBought
+        {
+            get => _isProductBought;
+            set
+            {
+                if (_isProductBought != value)
+                {
+                    _isProductBought = value;
+                    OnPropertyChanged(nameof(IsProductBought));
+                }
+            }
+        }
+
         // Implement INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 

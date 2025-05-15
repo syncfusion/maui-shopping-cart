@@ -14,12 +14,14 @@
     <VerticalStackLayout>
         <StackLayout x:Name="ProductLayout">
             <Grid x:Name="BackArrow" Margin="0,20,0,0" ColumnDefinitions="Auto,Auto">
-                <effects:SfEffectsView>
-                    <effects:SfEffectsView.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="BackArrow_Tapped" />
-                    </effects:SfEffectsView.GestureRecognizers>
-                    <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                </effects:SfEffectsView>
+                <Border StrokeShape="RoundRectangle 10" StrokeThickness="0">
+                    <effects:SfEffectsView>
+                        <effects:SfEffectsView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BackArrow_Tapped" />
+                        </effects:SfEffectsView.GestureRecognizers>
+                        <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                    </effects:SfEffectsView>
+                </Border>
                 <Label Grid.Column="1" Text="Product Details" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
             </Grid>
             <Grid Padding="20" ColumnDefinitions="*,*" ColumnSpacing="20">
@@ -101,7 +103,7 @@
                     <!-- Action Buttons -->
                     <HorizontalStackLayout Spacing="10" Margin="0,10,0,0">
                         <Button Text="Add to cart" WidthRequest="156" BackgroundColor="{AppThemeBinding Light={StaticResource bg-Light},Dark={StaticResource border-Dark}}" CornerRadius="20" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" Clicked="AddButton_Clicked"/>
-                        <Button Text="Buy now" WidthRequest="156" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"  CornerRadius="20" Clicked="BuyNowButton_Clicked"/>
+                        <Button Text="Buy now" WidthRequest="156" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}"  CornerRadius="20"  Clicked="BuyNow_Clicked"/>
                     </HorizontalStackLayout>
                 </StackLayout>
 
@@ -139,39 +141,38 @@
                 </effects:SfEffectsView>
                 <Label Grid.Column="1" Text="Payments" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
             </Grid>
-            <!-- UPI Section -->
 
-            <StackLayout Spacing="20" Grid.Row="1" Padding="30,15">
-                <!-- Saved Cards Section -->
-                <Label Text="Saved cards" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"
+    <StackLayout Spacing="20" Grid.Row="1" Padding="30,15">
+        <!-- Saved Cards Section -->
+        <Label Text="Saved cards" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"
                 FontAttributes="Bold"/>
 
-                <!-- Card Display -->
-                <Border Padding="10" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}"
+        <!-- Card Display -->
+        <Border Padding="10" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}"
                BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}"
                StrokeShape="RoundRectangle 10" WidthRequest="467" HorizontalOptions="Start">
-                    <HorizontalStackLayout Spacing="10">
-                        <Image Source="visa.png"
+            <HorizontalStackLayout Spacing="10">
+                <Image Source="visa.png"
                     WidthRequest="36" HeightRequest="20"
                     VerticalOptions="Center" />
-                        <VerticalStackLayout>
-                            <Label Text="Personal" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />
-                            <Label Text="**** 8487" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" FontSize="12" />
-                        </VerticalStackLayout>
-                    </HorizontalStackLayout>
-                </Border>
+                <VerticalStackLayout>
+                    <Label Text="Personal" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />
+                    <Label Text="**** 8487" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" FontSize="12" />
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+        </Border>
 
-                <Grid ColumnSpacing="10" ColumnDefinitions="Auto,*">
-                    <Label Text="&#xe707;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
+        <Grid ColumnSpacing="10" ColumnDefinitions="Auto,*">
+            <Label Text="&#xe707;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
                         WidthRequest="20" HeightRequest="20"
                         VerticalOptions="Center"
                         />
-                    <Label Text="Add new card" Grid.Column="1"
+            <Label Text="Add new card" Grid.Column="1"
                         TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"
                         VerticalOptions="Center" />
-                </Grid>
-            </StackLayout>
         </Grid>
+    </StackLayout>
+    </Grid>
     </VerticalStackLayout>
 
 </ContentView>

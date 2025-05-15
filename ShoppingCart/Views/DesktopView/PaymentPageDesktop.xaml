@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
+             x:Class="ShoppingCart.PaymentPageDesktop">
+    <Grid RowDefinitions="50,*" x:Name="PaymentLayout" >
+
+        <Grid Margin="0,20,0,0" ColumnDefinitions="Auto,*" ColumnSpacing="10">
+            <Border StrokeShape="RoundRectangle 10" StrokeThickness="0">
+                <effects:SfEffectsView>
+                    <effects:SfEffectsView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PaymentBackArrow_Tapped" />
+                    </effects:SfEffectsView.GestureRecognizers>
+                    <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
+                </effects:SfEffectsView>
+            </Border>
+            <Label Grid.Column="1" Text="Payments" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+        </Grid>
+
+        <StackLayout Spacing="20" Grid.Row="1" Padding="30,15">
+            <!-- Saved Cards Section -->
+            <Label Text="Saved cards" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"
+            FontAttributes="Bold"/>
+
+            <!-- Card Display -->
+            <Border Padding="10" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}"
+           BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}"
+           StrokeShape="RoundRectangle 10" WidthRequest="467" HorizontalOptions="Start">
+                <HorizontalStackLayout Spacing="10">
+                    <Image Source="visa.png"
+                WidthRequest="36" HeightRequest="20"
+                VerticalOptions="Center" />
+                    <VerticalStackLayout>
+                        <Label Text="Personal" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />
+                        <Label Text="**** 8487" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" FontSize="12" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Border>
+
+            <Grid ColumnSpacing="10" ColumnDefinitions="Auto,*">
+                <Label Text="&#xe707;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
+                    WidthRequest="20" HeightRequest="20"
+                    VerticalOptions="Center"
+                    />
+                <Label Text="Add new card" Grid.Column="1"
+                    TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"
+                    VerticalOptions="Center" />
+            </Grid>
+        </StackLayout>
+    </Grid>
+</ContentView>

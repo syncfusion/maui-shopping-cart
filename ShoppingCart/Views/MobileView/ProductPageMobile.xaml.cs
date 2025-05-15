@@ -2,9 +2,12 @@ namespace ShoppingCart;
 
 public partial class ProductPageMobile : ContentPage
 {
-    public ProductPageMobile()
-	{
-		InitializeComponent();
+    ShoppingCartViewModel shoppingCartViewModel;
+    public ProductPageMobile(ShoppingCartViewModel viewModel)
+    {
+        InitializeComponent();
+        shoppingCartViewModel = viewModel;
+        BindingContext = shoppingCartViewModel;
     }
 
     private void BackArrow_Tapped(object sender, TappedEventArgs e)
@@ -19,6 +22,15 @@ public partial class ProductPageMobile : ContentPage
             product.IsAddedToCart = true;
             popup.IsVisible= true;
             popup.IsOpen = true;
+        }
+    }
+
+    private void BuyNow_clicked(object sender, EventArgs e)
+    {
+        if (this.BindingContext is Product product)
+        {
+            shoppingCartViewModel.AddToOrders(product);
+            Navigation.PushAsync(new PaymentPageMobile(true));
         }
     }
 
@@ -39,8 +51,5 @@ public partial class ProductPageMobile : ContentPage
         }
     }
 
-    private void BuyNowButton_Clicked(object sender, EventArgs e)
-    {
-        Navigation.PushAsync(new PaymentPageMobile());
-    }
+   
 }

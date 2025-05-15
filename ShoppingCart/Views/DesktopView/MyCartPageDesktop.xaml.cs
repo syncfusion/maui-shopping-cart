@@ -119,7 +119,7 @@ public partial class MyCartPageDesktop : ContentView
         if (e.DataItem is Product tappedProduct)
         {
             var MyCartPage = new MyCartPageDesktop(shoppingCartViewModel);
-            var productpageDesktop = new ProductPageDesktop(MyCartPage)
+            var productpageDesktop = new ProductPageDesktop(MyCartPage, shoppingCartViewModel)
             {
                 BindingContext = tappedProduct
             };

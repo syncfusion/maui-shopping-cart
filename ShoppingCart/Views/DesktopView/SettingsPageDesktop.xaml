@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Toolkit.TabView;assembly=Syncfusion.Maui.Toolkit"
+            xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+            xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
+            xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+            xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+            xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             x:Class="ShoppingCart.SettingsPageDesktop">
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Text="Settings" FontSize="20"  Margin="5,5,0,20" FontFamily="ShoppingCartFontIcon"
+           TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+
+        <VerticalStackLayout Spacing="30" Grid.Row="1" Padding="5" >
+            <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Label Text="&#xe704;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
+                    <Label Text="My Order" FontSize="16"
+                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="MyOrders_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+            </effects:SfEffectsView>
+
+            <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Label Text="&#xe709;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
+                    <Label Text="Notifications" FontSize="16"
+                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Notifications_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+            </effects:SfEffectsView>
+
+            <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Label Text="&#xe717;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
+                    <Label Text="Payment Methods" FontSize="16"
+                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PaymentMethod_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+            </effects:SfEffectsView>
+
+            <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Label Text="&#xe708;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
+                    <Label Text="Address" FontSize="16"
+                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Address_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+            </effects:SfEffectsView>
+
+            <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Label Text="&#xe716;  " FontFamily="ShoppingCartFontIcon" VerticalOptions="Center" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
+                    <Label Text="Dark mode" FontSize="16" VerticalOptions="Center"
+                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+                    <buttons:SfSwitch x:Name="sfSwitch" HorizontalOptions="EndAndExpand" VerticalOptions="Center" IsOn="True" Margin="200,0,0,0"
+                                  StateChanged="SfSwitch_StateChanged"/>
+                </HorizontalStackLayout>
+            </effects:SfEffectsView>
+        </VerticalStackLayout>
+    </Grid>
+</ContentView>
