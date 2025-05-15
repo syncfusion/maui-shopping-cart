@@ -329,34 +329,24 @@ namespace ShoppingCart
         private void BuyButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new PaymentPageMobile());
-
-
-
-
-
-
-
-
-
-
         }
 
         private void filteredResultsView_ItemTapped(object sender, ItemTappedEventArgs e) 
         {
             if (e.Item is Product tappedProduct)
             {
-                var productpageMobile = new ProductPageMobile {
+                var productpageMobile = new ProductPageMobile 
+                {
                     BindingContext = tappedProduct
                 };
 
                 Navigation.PushAsync(productpageMobile);
 
                 
-                if (!shoppingCartViewModel.RecentSearchedProducts.Any(p => p.Name == tappedProduct.Name)) {
+                if (!shoppingCartViewModel.RecentSearchedProducts.Any(p => p.Name == tappedProduct.Name))
+                {
                     shoppingCartViewModel.RecentSearchedProducts.Insert(0, tappedProduct);
                 }
-
-               
                 filteredResultsView.IsVisible = false;
                 searchitem.IsVisible = true;
                 recentsearch.IsVisible = false;

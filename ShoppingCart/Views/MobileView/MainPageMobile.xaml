@@ -227,10 +227,9 @@
             </Grid>
         </syncfusion:SfTabItem>
 
-        <syncfusion:SfTabItem Header="&#xe713;" FontFamily="ShoppingCartFontIcon" FontSize="32"/>
-<syncfusion:SfTabItem Header="&#xe728;" FontFamily="MauiSampleFontIcon" FontSize="32">
+        <syncfusion:SfTabItem Header="&#xe713;" FontFamily="ShoppingCartFontIcon" FontSize="32">
 
-            <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="16,20,16,0" RowSpacing="20">
+        <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="16,20,16,0" RowSpacing="20">
 
                  <!--Header with Back Arrow and Title--> 
                 <Grid ColumnDefinitions="Auto,*" Grid.Row="0" Grid.Column="0" ColumnSpacing="14">

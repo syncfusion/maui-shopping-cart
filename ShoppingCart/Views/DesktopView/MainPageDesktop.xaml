@@ -61,7 +61,7 @@
                     IsDropdownButtonVisible="False"
                     IsClearButtonVisible="False"
                     VerticalTextAlignment="Center"
-                    HeightRequest="45" 
+                    HeightRequest="30" 
                     MaxDropDownHeight="200"
                     ItemsSource="{Binding Products}"
                     TextMemberPath="Name"
