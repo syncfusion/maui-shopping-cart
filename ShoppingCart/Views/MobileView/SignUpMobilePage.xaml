@@ -99,13 +99,13 @@
                     </HorizontalStackLayout>
 
                     <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
-                        <Border WidthRequest="156" HeightRequest="40" StrokeShape="RoundRectangle 20" BackgroundColor="{AppThemeBinding Light={StaticResource  bg-Light},Dark={StaticResource border-Dark}}" Stroke="{AppThemeBinding Light={StaticResource  bg-Light},Dark={StaticResource border-Dark}}">
+                        <Border HeightRequest="40" StrokeShape="RoundRectangle 20" BackgroundColor="{AppThemeBinding Light={StaticResource  bg-Light},Dark={StaticResource border-Dark}}" Stroke="{AppThemeBinding Light={StaticResource  bg-Light},Dark={StaticResource border-Dark}}">
                             <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
                                 <Image Source="google.png" WidthRequest="18" VerticalOptions="Center" HeightRequest="18"/>
                                 <Label  Text="Google" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"/>
                             </HorizontalStackLayout>
                         </Border>
-                        <Border WidthRequest="156" Grid.Column="1" HeightRequest="40" StrokeShape="RoundRectangle 20" BackgroundColor="{AppThemeBinding Light={StaticResource  bg-Light},Dark={StaticResource border-Dark}}" Stroke="{AppThemeBinding Light={StaticResource  bg-Light},Dark={StaticResource border-Dark}}">
+                        <Border Grid.Column="1" HeightRequest="40" StrokeShape="RoundRectangle 20" BackgroundColor="{AppThemeBinding Light={StaticResource  bg-Light},Dark={StaticResource border-Dark}}" Stroke="{AppThemeBinding Light={StaticResource  bg-Light},Dark={StaticResource border-Dark}}">
                             <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
                                 <Image Source="facebook.png" VerticalOptions="Center" WidthRequest="18" HeightRequest="18"/>
                                 <Label  Text="Facebook" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"/>

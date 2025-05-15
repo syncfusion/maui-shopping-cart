@@ -66,7 +66,6 @@
                 <list:SfListView.ItemTemplate>
                     <DataTemplate>
                         <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8" HeightRequest="212" >
-                            <effects:SfEffectsView>
                                 <Grid ColumnDefinitions="Auto,*"  Padding="24,24,16,24">
                                     <Image Source="{Binding ImageUrl}" Grid.Row="0" Grid.Column="0" Margin="0,0,16,0" WidthRequest="151" HeightRequest="140" VerticalOptions="Start"></Image>
                                     <VerticalStackLayout Grid.Column="1" Grid.Row="0" Spacing="10">
@@ -98,7 +97,6 @@
                                         </Grid>
                                     </VerticalStackLayout>
                                 </Grid>
-                            </effects:SfEffectsView>
                         </Border>
                     </DataTemplate>
                 </list:SfListView.ItemTemplate>

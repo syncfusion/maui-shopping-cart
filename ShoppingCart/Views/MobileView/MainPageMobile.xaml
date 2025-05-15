@@ -115,7 +115,7 @@
                             </Label>
                         </Border>
                     </Grid>
-                    <rotator:SfRotator x:Name="rotatorView" ItemsSource="{Binding RotatorItems}" NavigationDirection="Horizontal" HeightRequest="120" DotPlacement="OutSide" NavigationStripMode="Dots" DotsStroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" SelectedDotColor="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}">
+                    <rotator:SfRotator x:Name="rotatorView" WidthRequest="{OnPlatform iOS=360}" ItemsSource="{Binding RotatorItems}" NavigationDirection="Horizontal" HeightRequest="120" DotPlacement="OutSide" NavigationStripMode="Dots" DotsStroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" SelectedDotColor="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}">
                         <rotator:SfRotator.ItemTemplate>
                             <DataTemplate>
                                 <Border BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" Stroke="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" StrokeShape="RoundRectangle 8" Padding="10">
@@ -146,6 +146,7 @@
                         </chip:SfChipGroup>
                     </ScrollView>
                 </StackLayout>
+                
                 <ScrollView x:Name="ProductScrollView" Orientation="Vertical" Grid.Row="1"  Padding="0,10,0,0" VerticalScrollBarVisibility="Never">
                     <!-- Product Grid -->
                     <StackLayout >

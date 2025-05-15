@@ -62,7 +62,7 @@
         </HorizontalStackLayout>
         </Border>
 
-        <popup:SfPopup x:Name="popup" IsOpen="False" ShowFooter="True" >
+        <popup:SfPopup x:Name="popup" IsOpen="False" ShowFooter="True" IsVisible="False">
             <popup:SfPopup.HeaderTemplate>
                 <DataTemplate>
                     <Label Text="Notification" FontSize="20" FontAttributes="Bold" Padding="15" VerticalTextAlignment="Center"/>
