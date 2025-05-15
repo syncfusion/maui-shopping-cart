@@ -70,7 +70,7 @@
         <list:SfListView WidthRequest="800" Grid.Row="1" ItemsSource="{Binding OrderedProducts}"   SelectionMode="None" AutoFitMode="DynamicHeight" ItemSpacing="10" ScrollBarVisibility="Never" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
             <list:SfListView.ItemTemplate>
                 <DataTemplate>
-                    <Border MinimumWidthRequest="450" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8">
+                    <Border MinimumWidthRequest="450" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8">
                         <effects:SfEffectsView>
                             <StackLayout>
                                 <Grid ColumnDefinitions="Auto,*" Padding="15">

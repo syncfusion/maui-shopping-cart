@@ -218,7 +218,7 @@
                     </sf:SfListView.ItemsLayout>
                     <sf:SfListView.ItemTemplate>
                         <DataTemplate>
-                            <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8"  HeightRequest="100">
+                            <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8"  HeightRequest="100">
                                 <Grid ColumnDefinitions="Auto,*" Padding="16,12,16,12">
                                         <Image Source="{Binding ImageUrl}" Grid.Row="0" Grid.Column="0" Margin="0,0,20,0" WidthRequest="72" HeightRequest="80"></Image>
                                         <VerticalStackLayout Grid.Column="1" Grid.Row="0" Spacing="7">
@@ -261,7 +261,7 @@
                     </Border>
                     <Label Text="Profile" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"></Label>
                 </Grid>
-                <Border Background="#F7F2FB" Grid.Row="1" StrokeShape="RoundRectangle 24,24,0,0">
+                <Border Margin="0,15,0,0" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" Grid.Row="1" StrokeShape="RoundRectangle 24,24,0,0">
                     <VerticalStackLayout Spacing="30" Padding="20">
                         <effects:SfEffectsView >
                             <HorizontalStackLayout  Spacing="20">
@@ -270,7 +270,11 @@
                                     <Label Text="{Binding CurrentUser.UserName}" FontSize="16" FontAttributes="Bold"/>
                                     <Label Text="{Binding CurrentUser.Email}" FontSize="14"/>
                                 </VerticalStackLayout>
-                                <Button ImageSource="editimage.jpg" HeightRequest="60" Clicked="EditOption_Clicked"  WidthRequest="60" BackgroundColor="Transparent" Margin="20,0,0,0"/>
+                                <Label Text="&#xe70c;" FontSize="20" FontFamily="ShoppingCartFontIcon" VerticalTextAlignment="Center" HeightRequest="60" WidthRequest="60" Margin="20,0,0,0" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Edit_Tapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
                             </HorizontalStackLayout>
                         </effects:SfEffectsView>
                         <effects:SfEffectsView >

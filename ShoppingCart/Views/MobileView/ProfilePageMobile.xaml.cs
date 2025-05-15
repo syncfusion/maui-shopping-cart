@@ -21,6 +21,5 @@ public partial class ProfilePageMobile : ContentPage
         shoppingCartViewModel.CurrentUser.Email = mailInput.Text;
         shoppingCartViewModel.CurrentUser.MobileNumber = phoneNumberInput.Text;
         shoppingCartViewModel.CurrentUser.Gender = genderInput.Text;
-        Navigation.PopAsync();
     }
 }

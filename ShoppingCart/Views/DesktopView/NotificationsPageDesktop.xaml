@@ -20,12 +20,9 @@
      TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
             </HorizontalStackLayout>
 
-            <Border  Padding="10" Stroke="#F7F2FB"  Background="#F7F2FB" WidthRequest="400" HorizontalOptions="Start" Margin="30,20,0,0"
+            <Border StrokeShape="RoundRectangle 20" Padding="10" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt-Light}, Dark={StaticResource ContentBackgroundAlt-Dark}}" WidthRequest="400" HorizontalOptions="Start" Margin="30,20,0,0"
      BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt-Light}, Dark={StaticResource ContentBackgroundAlt-Dark}}">
-                    <Border.Clip>
-                        <RoundRectangleGeometry CornerRadius="20" Rect="0,0,400,60" />
-                    </Border.Clip>
-                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
                     <Label Text="&#xe709;  " FontFamily="ShoppingCartFontIcon" VerticalOptions="Center" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
                     <Label Text="Sales and promotions" VerticalOptions="Center" 
              TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />

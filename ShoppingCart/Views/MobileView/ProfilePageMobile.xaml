@@ -12,7 +12,8 @@
              Title="ProfilePageMobile">
 
     <Grid RowDefinitions="*,*" Margin="0,50">
-        <Border HeightRequest="790" StrokeShape="RoundRectangle 24,24,0,0" Margin="0,35,0,0" Background="#F7F2FB" >
+        <Border HeightRequest="790" StrokeShape="RoundRectangle 24,24,0,0" Margin="0,35,0,0" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}"
+           BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}">
 
             <StackLayout  Spacing="10" Padding="15,65">
 
@@ -20,28 +21,28 @@
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
                                 HorizontalOptions="FillAndExpand">
-                    <Entry Text="{Binding TempUserName}"/>
+                    <Entry Text="{Binding TempUserName}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}"/>
                 </chip:SfTextInputLayout>
 
                 <chip:SfTextInputLayout Hint="Email" x:Name="mailInput" HeightRequest="90"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
                                 HorizontalOptions="FillAndExpand">
-                    <Entry Text="{Binding CurrentUser.Email}" />
+                    <Entry Text="{Binding CurrentUser.Email}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}"/>
                 </chip:SfTextInputLayout>
 
                 <chip:SfTextInputLayout Hint="Phone Number" x:Name="phoneNumberInput" HeightRequest="90"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
                                 HorizontalOptions="FillAndExpand">
-                    <Entry x:Name="numberentry" Text="{Binding CurrentUser.MobileNumber}" />
+                    <Entry x:Name="numberentry" Text="{Binding CurrentUser.MobileNumber}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}"/>
                 </chip:SfTextInputLayout>
 
                 <chip:SfTextInputLayout Hint="Gender" x:Name="genderInput" HeightRequest="90"
                                 ContainerType="Outlined"
                                 IsHintAlwaysFloated="True"
                                 HorizontalOptions="FillAndExpand">
-                    <editors:SfComboBox x:Name="genderComboBox" TextColor="Black" SelectedIndex="1">
+                    <editors:SfComboBox x:Name="genderComboBox" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" SelectedIndex="1">
                         <editors:SfComboBox.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>Male</x:String>

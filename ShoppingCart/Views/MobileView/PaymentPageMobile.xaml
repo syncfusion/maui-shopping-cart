@@ -21,7 +21,7 @@
         </Grid>
         <!-- UPI Section -->
 
-        <Border Grid.Row="1" StrokeShape="RoundRectangle 24,24,0,0" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3}}">
+        <Border Grid.Row="1" StrokeShape="RoundRectangle 24,24,0,0" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}">
             <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,*" RowSpacing="10">
                 <Label Text="UPI" Margin="20,15,0,0"
                    FontAttributes="Bold"

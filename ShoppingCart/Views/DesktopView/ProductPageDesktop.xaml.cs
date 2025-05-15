@@ -92,7 +92,6 @@ public partial class ProductPageDesktop : ContentView
         if (this.BindingContext is Product product)
         {
             shoppingCartViewModel.AddToOrders(product);
-            popup.IsOpen = true;
         }
     }
 
