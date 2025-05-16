@@ -1,7 +1,10 @@
 ﻿
-using Syncfusion.Maui.Rotator;
+using Microsoft.Maui.Controls.Shapes;
+using ShoppingCart.Views.MobileView;
+using Syncfusion.Maui.Core;using Syncfusion.Maui.Rotator;
 using Syncfusion.Maui.Toolkit.TabView;
 using System.Collections.ObjectModel;
+using static Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific.VisualElement;
 
 namespace ShoppingCart
 {
@@ -10,6 +13,7 @@ namespace ShoppingCart
         decimal _totalPrice;
         decimal _price;
         ShoppingCartViewModel shoppingCartViewModel;
+        private View _originalProfileContent;
         bool isMenuSelected = false;
         public MainPageMobile()
         {
@@ -164,9 +168,9 @@ namespace ShoppingCart
         {
             if (e.DataItem is Product tappedProduct)
             {
-                var productpageMobile = new ProductPageMobile
+                var productpageMobile = new ProductPageMobile(shoppingCartViewModel)
                 {
-                    BindingContext = tappedProduct
+                    BindingContext = tappedProduct,
                 };
 
 				Navigation.PushAsync(productpageMobile);
@@ -315,6 +319,27 @@ namespace ShoppingCart
             }
 
         }
+
+
+        private void Notifications_Tapped(object sender, EventArgs e)
+        {
+            SetupPageContent(3, new NotificationsPageMobile(), "Notification");
+        }
+
+        private void MyOrders_Tapped(object sender, EventArgs e)
+        {
+            SetupPageContent(3, new MyOrdersPageMobile(shoppingCartViewModel), "My Orders");
+        }
+
+        private void NavigateBackToProfile(int tabIndex)
+        {
+            if (_originalProfileContent != null)
+            {
+                tabView.Items[tabIndex].Content = _originalProfileContent;
+            }
+        }
+
+
         private void Button_Clicked(object sender, EventArgs e)
         {
             popup.IsVisible = false;
@@ -328,25 +353,113 @@ namespace ShoppingCart
 
         private void BuyButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new PaymentPageMobile());
+            Navigation.PushAsync(new PaymentPageMobile(true));
+        }
+        private void SfSwitch_StateChanged(object sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
+        {
+            App.Current.UserAppTheme = (bool)sfSwitch.IsOn ? AppTheme.Dark : AppTheme.Light;
+        }
+private void Payment_Tapped(object sender, TappedEventArgs e)
+        {
+            SetupPageContent(3, new PaymentPageMobile(false), "Payments");
+        }
+        private void Address_Tapped(object sender, TappedEventArgs e)
+        {
+            SetupPageContent(3, new AddressPageMobile(shoppingCartViewModel), "Addresses");
         }
 
-        private void filteredResultsView_ItemTapped(object sender, ItemTappedEventArgs e) 
+        private void SetupPageContent(int profileTabIndex, ContentPage page, string title)
         {
-            if (e.Item is Product tappedProduct)
+            _originalProfileContent = tabView.Items[profileTabIndex].Content;
+            var navigateBackCommand = new Command(() => NavigateBackToProfile(profileTabIndex));
+
+            var backButtonLabel = CreateBackButton(navigateBackCommand);
+
+            var titleLabel = CreateTitleLabel(title);
+
+            // Optional: Wrap the back button with an EffectView or Border if needed
+            var effectView = new SfEffectsView
             {
-                var productpageMobile = new ProductPageMobile 
-                {
+                Content = backButtonLabel
+            };
+
+            var border = new Border
+            {
+                Content = effectView,
+                StrokeThickness = 0,
+                StrokeShape = new RoundRectangle { CornerRadius = 8 }
+            };
+
+            var headerLayout = new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,Spacing=5,
+                Children =
+                    {
+                        border,  
+                        titleLabel
+                    }
+            };
+
+            var layout = new StackLayout
+            {
+                Children =
+                    {
+                        headerLayout,
+                        page.Content
+                    }
+            };
+
+            tabView.Items[profileTabIndex].Content = layout;
+        }
+
+        private Label CreateBackButton(Command navigateBackCommand)
+        {
+            var backButtonLabel = new Label
+            {
+                Text = "\ue70d",
+                FontFamily = "ShoppingCartFontIcon",
+                Margin = new Thickness(15, 30,0,0),
+                VerticalTextAlignment = TextAlignment.Center,
+                FontSize = 20,
+            };
+
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Command = navigateBackCommand;
+            backButtonLabel.GestureRecognizers.Add(tapGestureRecognizer);
+
+            return backButtonLabel;
+        }
+
+        private Label CreateTitleLabel(string title)
+        {
+            return new Label
+            {
+                Text = title,
+                Margin = new Thickness(15, 35,0,0),
+                FontSize = 14,
+                VerticalTextAlignment = TextAlignment.Center
+            };
+        }
+
+        private void Edit_Tapped(object sender, TappedEventArgs e)
+        {
+            SetupPageContent(3, new ProfilePageMobile(shoppingCartViewModel, () => NavigateBackToProfile(3)), "Profile");
+        }
+
+        private void filteredResultsView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item is Product tappedProduct) {
+                var productpageMobile = new ProductPageMobile (shoppingCartViewModel) {
                     BindingContext = tappedProduct
                 };
 
                 Navigation.PushAsync(productpageMobile);
 
-                
-                if (!shoppingCartViewModel.RecentSearchedProducts.Any(p => p.Name == tappedProduct.Name))
-                {
+
+                if (!shoppingCartViewModel.RecentSearchedProducts.Any(p => p.Name == tappedProduct.Name)) {
                     shoppingCartViewModel.RecentSearchedProducts.Insert(0, tappedProduct);
                 }
+
                 filteredResultsView.IsVisible = false;
                 searchitem.IsVisible = true;
                 recentsearch.IsVisible = false;
@@ -354,14 +467,12 @@ namespace ShoppingCart
                 entry.Unfocus();
             }
 
-            
+
         }
 
-        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e) 
-        {
-            if (e.Item is Product tappedProduct) 
-            {
-                var productpageMobile = new ProductPageMobile {
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e) {
+            if (e.Item is Product tappedProduct) {
+                var productpageMobile = new ProductPageMobile (shoppingCartViewModel) {
                     BindingContext = tappedProduct
                 };
 
@@ -369,9 +480,12 @@ namespace ShoppingCart
             }
         }
 
-        private void entry_Focused(object sender, FocusEventArgs e) 
-        {
+        private void entry_Focused(object sender, FocusEventArgs e) {
             tabView.SelectedIndex = 1;
         }
     }
+
 }
+    
+
+ 

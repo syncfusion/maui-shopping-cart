@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
+             x:Class="ShoppingCart.AddressPageDesktop">
+    <Grid Padding="10">
+        <ScrollView>
+            <VerticalStackLayout Spacing="20" >
+                <Grid ColumnDefinitions="328,328" >
+                    <Grid  ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                        <Border StrokeShape="RoundRectangle 10" StrokeThickness="0">
+                            <effects:SfEffectsView>
+                            <effects:SfEffectsView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AddressBackArrow_Tapped" />
+                            </effects:SfEffectsView.GestureRecognizers>
+                                <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
+                            </effects:SfEffectsView>
+                        </Border>
+                        <Label Grid.Column="1" Text="Addresses" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                    </Grid>
+                    <Grid Grid.Column="1" ColumnSpacing="10" ColumnDefinitions="Auto,*" HorizontalOptions="End" >
+                        <Label Text="&#xe707;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
+                                WidthRequest="20" HeightRequest="20" 
+                                VerticalOptions="Center"/>
+                        <Label Text="Add new address" Grid.Column="1" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" VerticalOptions="Center" />
+                    </Grid>
+                </Grid>
+                
+
+
+                <CollectionView ItemsSource="{Binding Addresses}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal" Span="2" HorizontalItemSpacing="10" VerticalItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}"
+                                    StrokeShape="RoundRectangle 10" HeightRequest="146" WidthRequest="328" Margin="5">
+                                <VerticalStackLayout Padding="10" Spacing="10">
+                                    <HorizontalStackLayout Spacing="5">
+                                        <Label Text="&#xe708;" FontFamily="ShoppingCartFontIcon" VerticalTextAlignment="Center" 
+                                               TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
+                                        <Label Text="{Binding Title}" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                    </HorizontalStackLayout>
+                                    <Label Text="{Binding Description}"  LineBreakMode="WordWrap" HorizontalOptions="Start" Margin="20,0" 
+                                           TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                    <HorizontalStackLayout Spacing="10" Margin="30,0">
+                                        <Label Text="Edit" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"/>
+                                        <Label Text="Delete" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"/>
+                                        <Label Text="Share" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"/>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentView>

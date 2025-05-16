@@ -32,7 +32,7 @@ namespace ShoppingCart
             }
             BindingContext = shoppingCartViewModel;
         }
-        
+
         void ToggleSavedStatus(object sender, EventArgs e)
         {
             if (sender is Label tappedLabel)
@@ -54,7 +54,7 @@ namespace ShoppingCart
 
         internal void UpdateColumn(double width)
         {
-            if(width>0)
+            if (width > 0)
             {
                 if (width > 900)
                 {
@@ -100,7 +100,7 @@ namespace ShoppingCart
                 var selected = this.selectedCategory;
                 var HomePageContent = new HomePageDesktop(shoppingCartViewModel);
                 HomePageContent.catagoriesChip.SelectedItem = selected;
-                var productpageDesktop = new ProductPageDesktop(HomePageContent)
+                var productpageDesktop = new ProductPageDesktop(HomePageContent, shoppingCartViewModel)
                 {
                     BindingContext = tappedProduct
                 };
@@ -109,6 +109,6 @@ namespace ShoppingCart
                 Content = productpageDesktop;
             }
         }
-    
+
     }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingCart.Views.MobileView.NotificationsPageMobile"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             Title="NotificationsPageMobile">
+    
+    <Grid>
+        <StackLayout Padding="10" Spacing="10">
+
+            <Border  Padding="10" StrokeShape="RoundRectangle 20" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light}, Dark={StaticResource ContentBackgroundAlt1-Dark}}" WidthRequest="350" HorizontalOptions="Start" Margin="10,20,0,0"
+ BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light}, Dark={StaticResource ContentBackgroundAlt1-Dark}}">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+                    <Label Text="&#xe709;  " VerticalOptions="Center" FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
+                    <Label Text="Sales and promotions" VerticalOptions="Center"  FontAttributes="Bold"
+         TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+                    <buttons:SfSwitch IsOn="true" HorizontalOptions="End" Margin="50,0,0,0"/>
+                </StackLayout>
+            </Border>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

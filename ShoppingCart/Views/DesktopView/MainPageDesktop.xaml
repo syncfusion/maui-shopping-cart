@@ -67,13 +67,11 @@
 
 
                 </input:SfTextInputLayout>
-
-
-
-
-
-                <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" CornerRadius="20" AvatarName="James" Margin="10"/>
-
+ <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" CornerRadius="20" AvatarName="{Binding CurrentUser.UserName}" Margin="10">
+                <chip:SfAvatarView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAvatarViewTapped" />
+                </chip:SfAvatarView.GestureRecognizers>
+            </chip:SfAvatarView>
 
             </Grid>
 

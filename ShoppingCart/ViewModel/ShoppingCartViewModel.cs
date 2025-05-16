@@ -1,12 +1,10 @@
 using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
 
 namespace ShoppingCart;
 
 public class ShoppingCartViewModel : ContentPage
 {
-    public string Email { get; set; } = "emmawilliam@gmail.com";
-    public string Password { get; set; } = "Emma@2024";
+    public UserProfile CurrentUser { get; set; }
 
     public ObservableCollection<SfRotatorItem> RotatorItems { get; set; }
     public ObservableCollection<SfRotatorItem> DesktopRotatorItems { get; set; }
@@ -17,6 +15,20 @@ public class ShoppingCartViewModel : ContentPage
     public ObservableCollection<Product>? MyCartProducts { get; set; } = new ObservableCollection<Product>();
     public ObservableCollection<Product> RecentSearchedProducts { get; set; } = new();
   
+    public ObservableCollection<Product> OrderedProducts { get; set; } = new ObservableCollection<Product> { };
+    public ObservableCollection<string> GenderOptions { get; set; }
+
+    private string _tempUserName;
+    public string TempUserName
+    {
+        get => _tempUserName;
+        set
+        {
+            _tempUserName = value;
+            OnPropertyChanged();
+        }
+    }
+
     public class SfRotatorItem
     {
         public string? Title { get; set; }
@@ -27,6 +39,10 @@ public class ShoppingCartViewModel : ContentPage
 
     public ShoppingCartViewModel()
     {
+        GetUserProfileDetails();
+
+        GenderOptions = new ObservableCollection<string> { "Male", "Female", "Non-binary", "Other" };
+
         RotatorItems = new ObservableCollection<SfRotatorItem>
             {
                 new SfRotatorItem { Title = "Big Sale! Up to 75% Off! Grab Yours Now!", Subtitle = "Step up style - Find your perfect style", ImageSource = "redcanvas1.png" },
@@ -125,7 +141,24 @@ public class ShoppingCartViewModel : ContentPage
 
         };
 
-        
+        OrderedProducts.Add(Products.First(p => p.Name == "Men's White Graphic T-Shirt"));
+        OrderedProducts.Add(Products.First(p => p.Name == "Women's Yellow Hoodie"));
+        OrderedProducts.Add(Products.First(p => p.Name == "Foundation"));
+
+        foreach (var product in OrderedProducts)
+        {
+            product.IsProductBought = true;
+    }
+    }
+
+    void GetUserProfileDetails()
+    {
+        CurrentUser = new UserProfile();
+        CurrentUser.Email = "emmawilliam@gmail.com";
+        CurrentUser.Password = "Emma@2024";
+        CurrentUser.UserName = "Emma William";
+        CurrentUser.Gender = "Female";
+        CurrentUser.MobileNumber = "9876554321";
     }
 
     public void FindSavedProducts()
@@ -150,6 +183,15 @@ public class ShoppingCartViewModel : ContentPage
             {
                 MyCartProducts.Add(product);
             }
+        }
+    }
+
+    public void AddToOrders(Product product)
+    {
+        if (product != null && !OrderedProducts.Contains(product))
+        {
+            product.IsProductBought = true;
+            OrderedProducts.Add(product);
         }
     }
 }

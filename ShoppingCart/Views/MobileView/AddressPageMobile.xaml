@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="ShoppingCart.AddressPageMobile"
+             Title="AddressPageMobile"
+             NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <Border StrokeShape="RoundRectangle 24,24,0,0" HeightRequest="790" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" Margin="0,20,0,0">
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto">
+                <input:SfTextInputLayout Margin="10,20,10,0" InputViewPadding="10,0,0,5"  ContainerType="Outlined" OutlineCornerRadius="15" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" >
+                    <Editor Placeholder="Search your saved address" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" HeightRequest="45" VerticalTextAlignment="Center"
+HorizontalOptions="FillAndExpand"  />
+                </input:SfTextInputLayout>
+                <Label Text="Saved Address" Grid.Row="1" Padding="25,15"  FontAttributes="Bold" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"
+   TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />
+                <VerticalStackLayout Grid.Row="2" Margin="15,0" BindableLayout.ItemsSource="{Binding CurrentUser.Addresses}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout Padding="10" Spacing="15" >
+                                <HorizontalStackLayout Spacing="5">
+                                    <Label Text="&#xe708;" FontFamily="ShoppingCartFontIcon" VerticalTextAlignment="Center" 
+                           TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
+                                    <Label Text="{Binding Title}" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                </HorizontalStackLayout>
+                                <Label Text="{Binding Description}" WidthRequest="250" LineBreakMode="WordWrap" HorizontalOptions="Start" Margin="20,0" 
+                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                <HorizontalStackLayout Spacing="10" Margin="30,0">
+                                    <Label Text="Edit" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"/>
+                                    <Label Text="Delete" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"/>
+                                    <Label Text="Share" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+                <Border Grid.Row="3" StrokeShape="RoundRectangle 20" Padding="15" Margin="10,0" Stroke="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" >
+                    <Grid  ColumnSpacing="10" ColumnDefinitions="Auto,*" HorizontalOptions="Center">
+                        <Label Text="&#xe707;" FontFamily="ShoppingCartFontIcon" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
+         WidthRequest="20" HeightRequest="20" 
+         VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                        <Label Text="Add new address" FontAttributes="Bold" Grid.Column="1" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </ScrollView>
+
+</ContentPage>

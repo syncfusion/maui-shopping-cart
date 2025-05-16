@@ -1,11 +1,12 @@
 using Microsoft.Maui.Controls.Compatibility;
-using static ShoppingCart.ShoppingCartViewModel;
 namespace ShoppingCart;
 
 public partial class ProductPageDesktop : ContentView
 {
     private ContentView _callerPage;
-    public ProductPageDesktop(ContentView callerPage)
+
+    ShoppingCartViewModel shoppingCartViewModel;
+    public ProductPageDesktop(ContentView callerPage, ShoppingCartViewModel viewModel)
 	{
 		InitializeComponent();
         _callerPage = callerPage;
@@ -18,6 +19,8 @@ public partial class ProductPageDesktop : ContentView
                 PreviewImageFourBorder.IsVisible = product.PreviewFourImageUrl != null;
             }
         };
+        shoppingCartViewModel = viewModel;
+        BindingContext = viewModel;
     }
 
     private void BackArrow_Tapped(object sender, TappedEventArgs e)
@@ -40,10 +43,9 @@ public partial class ProductPageDesktop : ContentView
         popup.IsVisible = false;
         popup.IsOpen = false;
     }
-
     private void PreviewImageOne_Tapped(object sender, TappedEventArgs e)
     {
-        if(sender is Border border && border.BindingContext is Product product)
+        if (sender is Border border && border.BindingContext is Product product)
         {
             MainImage.Source = product.PreviewOneImageUrl;
         }
@@ -79,13 +81,18 @@ public partial class ProductPageDesktop : ContentView
     }
     private void PaymentBackArrow_Tapped(object sender, TappedEventArgs e)
     {
-        PaymentLayout.IsVisible= false;
+        PaymentLayout.IsVisible = false;
         ProductLayout.IsVisible = true;
     }
 
-    private void BuyNowButton_Clicked(object sender, EventArgs e)
+    private void BuyNow_Clicked(object sender, EventArgs e)
     {
         ProductLayout.IsVisible = false;
         PaymentLayout.IsVisible = true;
+        if (this.BindingContext is Product product)
+        {
+            shoppingCartViewModel.AddToOrders(product);
+        }
     }
+
 }
