@@ -391,7 +391,7 @@ namespace ShoppingCart
 
         private void Edit_Tapped(object sender, TappedEventArgs e)
         {
-            SetupPageContent(3, new ProfilePageMobile(shoppingCartViewModel), "Profile");
+            SetupPageContent(3, new ProfilePageMobile(shoppingCartViewModel, () => NavigateBackToProfile(3)), "Profile");
         }
     }
 }

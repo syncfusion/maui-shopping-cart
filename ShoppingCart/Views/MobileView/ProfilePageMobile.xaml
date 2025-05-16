@@ -57,20 +57,20 @@
                 <buttons:SfButton HorizontalOptions="Center" Text="Update Profile" WidthRequest="350" Clicked="SfButton_Clicked" />
             </StackLayout>
         </Border>
-        <chip:SfBadgeView HorizontalOptions="Center" VerticalOptions="Start" >
+        <chip:SfBadgeView HorizontalOptions="Center" VerticalOptions="Start">
             <chip:SfBadgeView.Content>
                 <chip:SfAvatarView ContentType="Initials" HorizontalOptions="Center" VerticalOptions="Center"
                     InitialsType="SingleCharacter"
                     AvatarName="{Binding CurrentUser.UserName}"
                     FontSize="30"
-                    InitialsColor="#FFFFFF" 
+                    InitialsColor="{AppThemeBinding Light={StaticResource textcolor-Light}, Dark={StaticResource ContentForeground-Dark}}" 
                     WidthRequest="80"
                     HeightRequest="80"
                     CornerRadius="40"          
-                    Background="#6750A4"/>
+                    Background="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}"/>
             </chip:SfBadgeView.Content>
             <chip:SfBadgeView.BadgeSettings>
-                <chip:BadgeSettings Background="#EEE8F4" Position="BottomRight" Icon="Away"/>
+                <chip:BadgeSettings Background="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}" Position="BottomRight" Icon="Prohibit1" />
             </chip:SfBadgeView.BadgeSettings>
         </chip:SfBadgeView>
     </Grid>
