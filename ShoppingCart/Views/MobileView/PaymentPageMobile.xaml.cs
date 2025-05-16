@@ -8,12 +8,14 @@ public partial class PaymentPageMobile : ContentPage
         BackArrow.IsVisible = isvisible;
         if (isvisible)
         {
+            paymentgrid.RowDefinitions.Clear();
             paymentgrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(50, GridUnitType.Absolute) });
             paymentgrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
             paymentgrid.RowSpacing = 15;
         }
         else
-        { 
+        {
+            paymentgrid.RowDefinitions.Clear();
             paymentgrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
             paymentgrid.RowSpacing = 0;
         }
