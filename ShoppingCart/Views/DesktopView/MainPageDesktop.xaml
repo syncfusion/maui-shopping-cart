@@ -45,92 +45,188 @@
         </Style>
     </ContentPage.Resources>
     
-    <Grid RowDefinitions="48,*">
-        <Grid ColumnDefinitions="Auto, *,Auto">
-            <HorizontalStackLayout Spacing="10" Padding="16, 8, 16, 0">
-                <Image Source="shoppingcarticon.png" Aspect="Fill" HeightRequest="24" WidthRequest="24" />
-                <Label Text="Shopping cart" TextColor="#7633DA" FontAttributes="Bold" FontSize="24" FontFamily="Roboto" VerticalOptions="Center" />
-            </HorizontalStackLayout>
-            <input:SfTextInputLayout Grid.Column="1" Margin="0,20,0,0" OutlineCornerRadius="16" InputViewPadding="10,0,0,5"  ContainerType="Outlined" WidthRequest="464" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" >
-                <editor:SfComboBox x:Name="comboBox"
-                    IsEditable="true"
-                    Placeholder="Search product"
-                    PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"
-                    IsFilteringEnabled="true"
-                    FontSize="14" 
-                    IsDropdownButtonVisible="False"
-                    IsClearButtonVisible="False"
-                    VerticalTextAlignment="Center"
-                    HeightRequest="30" 
-                    MaxDropDownHeight="200"
-                    ItemsSource="{Binding Products}"
-                    TextMemberPath="Name"
-                    SelectionChanged="comboBox_SelectionChanged"
-                    DisplayMemberPath="Name" >
-                </editor:SfComboBox>
-            </input:SfTextInputLayout>
-            <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" CornerRadius="20" AvatarName="James" Margin="10"/>
-        </Grid>
-        <Grid x:Name="grid" Grid.Row="1" ColumnDefinitions="240,*">
-            <!--Drawer-->
-            <Grid Grid.Column="0">
-                <Border Padding="16">
-                    <Grid RowSpacing="40">
 
-                        <VerticalStackLayout Grid.Row="1" Spacing="10">
-                             <!--Home Item--> 
-                            <Border x:Name="HomeBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
-                                <Border.StrokeShape>
-                                    <RoundRectangle CornerRadius="10" />
-                                </Border.StrokeShape>
-                                <HorizontalStackLayout Spacing="10">
-                                    <Label Text="&#xe700;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
-                                    <Label Text="Home" FontSize="16" Margin="0,2" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
-                                </HorizontalStackLayout>
-                            </Border>
+        <Grid RowDefinitions="48,*"  AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All">
+            <Grid ColumnDefinitions="Auto, *,Auto">
+                <HorizontalStackLayout Spacing="10" Padding="16, 8, 16, 0">
+                    <Image Source="shoppingcarticon.png" Aspect="Fill" HeightRequest="24" WidthRequest="24" />
+                    <Label Text="Shopping cart" TextColor="#7633DA" FontAttributes="Bold" FontSize="24" FontFamily="Roboto" VerticalOptions="Center" />
+                </HorizontalStackLayout>
 
-                            <Border x:Name="SavedProductsBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
-                                <Border.StrokeShape>
-                                    <RoundRectangle CornerRadius="10" />
-                                </Border.StrokeShape>
-                                <HorizontalStackLayout Spacing="10">
-                                    <Label Text="&#xe701;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
-                                    <Label Text="Saved Products" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
-                                </HorizontalStackLayout>
-                            </Border>
+                <input:SfTextInputLayout Grid.Column="1" Margin="0,20,0,0" OutlineCornerRadius="16" InputViewPadding="10,0,0,5"  ContainerType="Outlined" WidthRequest="464" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" >
+                    <Entry Placeholder="Search product" 
+                           x:Name="entry"
+                        PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" 
+                        TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" 
+                        FontSize="14" 
+                        HeightRequest="45" 
+                        VerticalTextAlignment="Center"
+                        TextChanged="OnSearchTextChanged"
+                        HorizontalOptions="FillAndExpand"  />
 
-                            <Border x:Name="CartBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
-                                <Border.StrokeShape>
-                                    <RoundRectangle CornerRadius="10" />
-                                </Border.StrokeShape>
-                                <HorizontalStackLayout Spacing="10">
-                                    <Label Text="&#xe704;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
-                                    <Label Text="My Cart" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
-                                </HorizontalStackLayout>
-                            </Border>
 
-                            <Border x:Name="AccountBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
-                                <Border.StrokeShape>
-                                    <RoundRectangle CornerRadius="10" />
-                                </Border.StrokeShape>
-                                <HorizontalStackLayout Spacing="10">
-                                    <Label Text="&#xe703;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
-                                    <Label Text="My Account" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
-                                </HorizontalStackLayout>
-                            </Border>
-                        </VerticalStackLayout>
+                </input:SfTextInputLayout>
 
-                    </Grid>
-                </Border>
-            </Grid> 
-            <!--Content-->
-            <Grid Grid.Column="1" >
-                <!--Header-->
-                <Border>
-                    <Grid x:Name="selectedtab" Padding="16"/>
-                </Border>
+
+
+
+
+                <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" CornerRadius="20" AvatarName="James" Margin="10"/>
+
+
             </Grid>
+
+            <Grid x:Name="grid" Grid.Row="1" ColumnDefinitions="240,*">
+                <!--Drawer-->
+                <Grid Grid.Column="0">
+                    <Border Padding="16">
+                        <Grid RowSpacing="40">
+
+                            <VerticalStackLayout Grid.Row="1" Spacing="10">
+                                <!--Home Item-->
+                                <Border x:Name="HomeBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10" />
+                                    </Border.StrokeShape>
+                                    <HorizontalStackLayout Spacing="10">
+                                        <Label Text="&#xe700;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
+                                        <Label Text="Home" FontSize="16" Margin="0,2" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
+                                    </HorizontalStackLayout>
+                                </Border>
+
+                                <Border x:Name="SavedProductsBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10" />
+                                    </Border.StrokeShape>
+                                    <HorizontalStackLayout Spacing="10">
+                                        <Label Text="&#xe701;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
+                                        <Label Text="Saved Products" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
+                                    </HorizontalStackLayout>
+                                </Border>
+
+                                <Border x:Name="CartBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10" />
+                                    </Border.StrokeShape>
+                                    <HorizontalStackLayout Spacing="10">
+                                        <Label Text="&#xe704;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
+                                        <Label Text="My Cart" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
+                                    </HorizontalStackLayout>
+                                </Border>
+
+                                <Border x:Name="AccountBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10" />
+                                    </Border.StrokeShape>
+                                    <HorizontalStackLayout Spacing="10">
+                                        <Label Text="&#xe703;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
+                                        <Label Text="My Account" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
+                                    </HorizontalStackLayout>
+                                </Border>
+                            </VerticalStackLayout>
+
+                        </Grid>
+                    </Border>
+                </Grid>
+                <!--Content-->
+                <Grid Grid.Column="1" >
+                    <!--Header-->
+                    <Border>
+                        <Grid x:Name="selectedtab" Padding="16"/>
+                    </Border>
+                </Grid>
+            </Grid>
+
+        <Grid x:Name="searchListGrid"
+              IsVisible="False"
+              WidthRequest="464"  
+              InputTransparent="False"
+              BackgroundColor="White"
+              AbsoluteLayout.LayoutBounds="0.6, 49, -1, -1"
+              AbsoluteLayout.LayoutFlags="XProportional"
+              Padding="0"
+              ZIndex="1"
+              Grid.Row="1" >
+            <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}"
+                    Stroke="{AppThemeBinding Light={StaticResource ContentStroke-Light}, Dark={StaticResource ContentStroke-Dark}}"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10">
+                
+                <!-- Filtered Results -->
+                <ListView x:Name="filteredResultsView"
+                          BackgroundColor="Red" 
+                          ItemsSource="{Binding FilteredProducts}"
+                          SelectionMode="Single"
+                          IsVisible="True"
+                          ItemTapped="filteredResultsView_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label Text="{Binding }" TextColor="Black" FontSize="14" Padding="10,5"/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!-- Recent Searches Header -->
+            </Border>
+
         </Grid>
-       
+
+
+        <Grid x:Name="searchlistGrid2"
+              Grid.Row="1"  
+              IsVisible="False" 
+              WidthRequest="464"
+              MaximumHeightRequest="540"
+              Padding="0"
+              ZIndex="1"
+              InputTransparent="False"
+              AbsoluteLayout.LayoutBounds="0.6, 49, -1, -1"
+              AbsoluteLayout.LayoutFlags="XProportional">
+
+            <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}"
+                    Stroke="{AppThemeBinding Light={StaticResource ContentStroke-Light}, Dark={StaticResource ContentStroke-Dark}}"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10">
+
+                <StackLayout>
+
+                    <Grid ColumnDefinitions="*,Auto">
+                    <Label Text="Recent searches" FontAttributes="Bold" Grid.Column="0"/>
+                    <Label Text="Clear all" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" Grid.Column="1">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnClearAllTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+
+                <!-- Recent Search Items -->
+                <CollectionView x:Name="recentSearch"
+         ItemsSource="{Binding RecentSearchedProducts}"
+         IsVisible="True"
+         ItemsLayout="HorizontalList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding Name}"
+                                   Margin="5"
+                                   BackgroundColor="#EEE"
+                                   Padding="10"
+                                   FontSize="14"
+                                   TextColor="Black">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                </StackLayout>
+            </Border>
+        </Grid>
+
     </Grid>
+
+      
+
 </ContentPage>
