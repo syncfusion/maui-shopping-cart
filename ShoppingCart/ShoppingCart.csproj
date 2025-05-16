@@ -64,7 +64,8 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 		<PackageReference Include="Syncfusion.Maui.Core" Version="*" />
 		<PackageReference Include="Syncfusion.Maui.Buttons" Version="*" />
-		<PackageReference Include="Syncfusion.Maui.Inputs" Version="100.2.1805" />
+        <PackageReference Include="Syncfusion.Maui.Inputs" Version="*" />
+
 		<PackageReference Include="Syncfusion.Maui.ListView" Version="*" />
 		<PackageReference Include="Syncfusion.Maui.Rotator" Version="*" />
 		<PackageReference Include="Syncfusion.Maui.Toolkit" Version="*" />
@@ -116,7 +117,7 @@
 	  <MauiXaml Update="Views\DesktopView\ProfilePageDesktop.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\DesktopView\SavedItemsPageDesktop.xaml">
+        <MauiXaml Update="Views\DesktopView\SavedItemsPageDesktop.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\DesktopView\SettingsPageDesktop.xaml">

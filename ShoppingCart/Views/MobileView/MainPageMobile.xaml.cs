@@ -1,7 +1,7 @@
-﻿using Microsoft.Maui.Controls.Shapes;
+﻿
+using Microsoft.Maui.Controls.Shapes;
 using ShoppingCart.Views.MobileView;
-using Syncfusion.Maui.Core;
-using Syncfusion.Maui.Rotator;
+using Syncfusion.Maui.Core;using Syncfusion.Maui.Rotator;
 using Syncfusion.Maui.Toolkit.TabView;
 using System.Collections.ObjectModel;
 using static Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific.VisualElement;
@@ -224,6 +224,60 @@ namespace ShoppingCart
             }
         }
 
+        private void OnSearchTextChanged(object sender, TextChangedEventArgs e) 
+        {
+
+            var searchText = e.NewTextValue?.Trim() ?? string.Empty;
+
+            if (string.IsNullOrEmpty(searchText)) 
+            {
+                filteredResultsView.IsVisible = false;
+
+               
+                if (shoppingCartViewModel.RecentSearchedProducts.Any()) 
+                {
+                    searchitem.IsVisible = true;
+                    recentsearch.IsVisible = false;
+                }
+                else
+                {
+                    searchitem.IsVisible = false;
+                    recentsearch.IsVisible = true;
+                }
+
+                return;
+            }
+
+            var filtered = shoppingCartViewModel.Products
+                .Where(p => p.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            shoppingCartViewModel.FilteredProducts!.Clear();
+            foreach (var item in filtered)
+                shoppingCartViewModel.FilteredProducts.Add(item);
+
+            filteredResultsView.IsVisible = filtered.Any();
+            searchitem.IsVisible = false;
+            recentsearch.IsVisible = false;
+        }
+
+   
+        private void OnClearAllTapped(object sender, EventArgs e) 
+        {
+            shoppingCartViewModel.RecentSearchedProducts.Clear();
+            recentsearch.IsVisible = true;
+            searchitem.IsVisible = false;
+            filteredResultsView.IsVisible = false;
+        }
+
+        private void OnEntryFocused(object sender, FocusEventArgs e) 
+        {
+            recentsearch.IsVisible = false;
+            filteredResultsView.IsVisible = false;
+            searchitem.IsVisible = false;
+        }
+
+
         private void DecrementQuantity_Tapped(object sender, TappedEventArgs e)
         {
             if (sender is Element element && element.Parent is HorizontalStackLayout stackLayout
@@ -301,13 +355,11 @@ namespace ShoppingCart
         {
             Navigation.PushAsync(new PaymentPageMobile(true));
         }
-
         private void SfSwitch_StateChanged(object sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
         {
             App.Current.UserAppTheme = (bool)sfSwitch.IsOn ? AppTheme.Dark : AppTheme.Light;
         }
-
-        private void Payment_Tapped(object sender, TappedEventArgs e)
+private void Payment_Tapped(object sender, TappedEventArgs e)
         {
             SetupPageContent(3, new PaymentPageMobile(false), "Payments");
         }
@@ -393,5 +445,47 @@ namespace ShoppingCart
         {
             SetupPageContent(3, new ProfilePageMobile(shoppingCartViewModel, () => NavigateBackToProfile(3)), "Profile");
         }
+
+        private void filteredResultsView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item is Product tappedProduct) {
+                var productpageMobile = new ProductPageMobile (shoppingCartViewModel) {
+                    BindingContext = tappedProduct
+                };
+
+                Navigation.PushAsync(productpageMobile);
+
+
+                if (!shoppingCartViewModel.RecentSearchedProducts.Any(p => p.Name == tappedProduct.Name)) {
+                    shoppingCartViewModel.RecentSearchedProducts.Insert(0, tappedProduct);
+                }
+
+                filteredResultsView.IsVisible = false;
+                searchitem.IsVisible = true;
+                recentsearch.IsVisible = false;
+                entry.Text = string.Empty;
+                entry.Unfocus();
+            }
+
+
+        }
+
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e) {
+            if (e.Item is Product tappedProduct) {
+                var productpageMobile = new ProductPageMobile (shoppingCartViewModel) {
+                    BindingContext = tappedProduct
+                };
+
+                Navigation.PushAsync(productpageMobile);
+            }
+        }
+
+        private void entry_Focused(object sender, FocusEventArgs e) {
+            tabView.SelectedIndex = 1;
+        }
     }
+
 }
+    
+
+ 
