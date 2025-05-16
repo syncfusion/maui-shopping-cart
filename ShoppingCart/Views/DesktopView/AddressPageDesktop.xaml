@@ -35,14 +35,14 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}"
-                                    StrokeShape="RoundRectangle 10" HeightRequest="136" WidthRequest="328" Margin="5">
+                                    StrokeShape="RoundRectangle 10" HeightRequest="146" WidthRequest="328" Margin="5">
                                 <VerticalStackLayout Padding="10" Spacing="10">
                                     <HorizontalStackLayout Spacing="5">
                                         <Label Text="&#xe708;" FontFamily="ShoppingCartFontIcon" VerticalTextAlignment="Center" 
                                                TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
                                         <Label Text="{Binding Title}" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                                     </HorizontalStackLayout>
-                                    <Label Text="{Binding Description}" WidthRequest="180" LineBreakMode="WordWrap" HorizontalOptions="Start" Margin="20,0" 
+                                    <Label Text="{Binding Description}"  LineBreakMode="WordWrap" HorizontalOptions="Start" Margin="20,0" 
                                            TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
                                     <HorizontalStackLayout Spacing="10" Margin="30,0">
                                         <Label Text="Edit" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"/>

@@ -8,11 +8,8 @@
     <Grid>
         <StackLayout Padding="10" Spacing="10">
 
-            <Border  Padding="10" Stroke="#F7F2FB" WidthRequest="350" HorizontalOptions="Start" Margin="10,20,0,0"
- BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt-Light}, Dark={StaticResource ContentBackgroundAlt-Dark}}">
-                <Border.Clip>
-                    <RoundRectangleGeometry CornerRadius="20" Rect="0,0,350,60" />
-                </Border.Clip>
+            <Border  Padding="10" StrokeShape="RoundRectangle 20" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light}, Dark={StaticResource ContentBackgroundAlt1-Dark}}" WidthRequest="350" HorizontalOptions="Start" Margin="10,20,0,0"
+ BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light}, Dark={StaticResource ContentBackgroundAlt1-Dark}}">
                 <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
                     <Label Text="&#xe709;  " VerticalOptions="Center" FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
                     <Label Text="Sales and promotions" VerticalOptions="Center"  FontAttributes="Bold"

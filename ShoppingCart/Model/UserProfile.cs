@@ -87,11 +87,28 @@ namespace ShoppingCart
         {
             Addresses = new ObservableCollection<Address>
             {
-                new Address { Title = "Home", Description = "No.67, 21st cross street, Chennai-xxxxxx" },
-                new Address { Title = "Office", Description = "No.67, 21st cross street, Chennai-xxxxxx" },
-                new Address { Title = "Office", Description = "No.67, 21st cross street, Chennai-xxxxxx" },
-                new Address { Title = "Office", Description = "No.67, 21st cross street, Chennai-xxxxxx" },
+                new Address
+                {
+                    Title = "Home",
+                    Description = "No. 67, 21st Cross Street, Anna Nagar, Chennai - 600040"
+                },
+                new Address
+                {
+                    Title = "Office",
+                    Description = "RMZ Millenia Business Park, Perungudi, Chennai - 600096"
+                },
+                new Address
+                {
+                    Title = "Parents' House",
+                    Description = "No. 12, 5th Main Road, Besant Nagar, Chennai - 600090"
+                },
+                new Address
+                {
+                    Title = "Friend's Place",
+                    Description = "Flat 204, Block B, Olympia Grande, Pallavaram, Chennai - 600043"
+                },
             };
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

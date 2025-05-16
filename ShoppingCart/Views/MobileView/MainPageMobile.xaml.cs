@@ -285,11 +285,6 @@ namespace ShoppingCart
             }
         }
 
-        private void EditOption_Clicked(object sender, EventArgs e)
-        {
-            SetupPageContent(3, new ProfilePageMobile(shoppingCartViewModel), "Profile");
-        }
-
 
         private void Button_Clicked(object sender, EventArgs e)
         {
@@ -371,8 +366,6 @@ namespace ShoppingCart
             {
                 Text = "\ue70d",
                 FontFamily = "ShoppingCartFontIcon",
-                TextColor = Colors.Black,
-                Background = Colors.White,
                 Margin = new Thickness(15, 30,0,0),
                 VerticalTextAlignment = TextAlignment.Center,
                 FontSize = 20,
@@ -392,9 +385,13 @@ namespace ShoppingCart
                 Text = title,
                 Margin = new Thickness(15, 35,0,0),
                 FontSize = 14,
-                TextColor = Colors.Black,
                 VerticalTextAlignment = TextAlignment.Center
             };
+        }
+
+        private void Edit_Tapped(object sender, TappedEventArgs e)
+        {
+            SetupPageContent(3, new ProfilePageMobile(shoppingCartViewModel, () => NavigateBackToProfile(3)), "Profile");
         }
     }
 }

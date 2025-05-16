@@ -4,15 +4,17 @@ namespace ShoppingCart.Views.MobileView;
 public partial class ProfilePageMobile : ContentPage
 {
     ShoppingCartViewModel shoppingCartViewModel;
-    public ProfilePageMobile(ShoppingCartViewModel viewModel)
+    private readonly Action _onBack;
+    public ProfilePageMobile(ShoppingCartViewModel viewModel, Action onBack)
 	{
 		InitializeComponent();
 
-            shoppingCartViewModel = viewModel;
-            shoppingCartViewModel.TempUserName = shoppingCartViewModel.CurrentUser.UserName;
-            BindingContext = shoppingCartViewModel;
+        shoppingCartViewModel = viewModel;
+        shoppingCartViewModel.TempUserName = shoppingCartViewModel.CurrentUser.UserName;
+        BindingContext = shoppingCartViewModel;
         numberentry.Text = shoppingCartViewModel.CurrentUser.MobileNumber;
         genderComboBox.SelectedItem = shoppingCartViewModel.CurrentUser.Gender;
+        _onBack = onBack;
     }
 
     private void SfButton_Clicked(object sender, EventArgs e)
@@ -21,6 +23,6 @@ public partial class ProfilePageMobile : ContentPage
         shoppingCartViewModel.CurrentUser.Email = mailInput.Text;
         shoppingCartViewModel.CurrentUser.MobileNumber = phoneNumberInput.Text;
         shoppingCartViewModel.CurrentUser.Gender = genderInput.Text;
-        Navigation.PopAsync();
+        _onBack?.Invoke();
     }
 }
