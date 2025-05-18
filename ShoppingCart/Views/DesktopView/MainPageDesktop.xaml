@@ -44,10 +44,8 @@
             </Setter>
         </Style>
     </ContentPage.Resources>
-    
 
-        <Grid RowDefinitions="48,*"  AbsoluteLayout.LayoutBounds="0,0,1,1"
-                AbsoluteLayout.LayoutFlags="All">
+        <Grid RowDefinitions="48,*" >
             <Grid ColumnDefinitions="Auto, *,Auto">
                 <HorizontalStackLayout Spacing="10" Padding="16, 8, 16, 0">
                     <Image Source="shoppingcarticon.png" Aspect="Fill" HeightRequest="24" WidthRequest="24" />
@@ -61,17 +59,18 @@
                         TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" 
                         FontSize="14" 
                         HeightRequest="45" 
+                           Focused="entry_Focused"
                         VerticalTextAlignment="Center"
                         TextChanged="OnSearchTextChanged"
                         HorizontalOptions="FillAndExpand"  />
 
 
                 </input:SfTextInputLayout>
- <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" CornerRadius="20" AvatarName="{Binding CurrentUser.UserName}" Margin="10">
-                <chip:SfAvatarView.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnAvatarViewTapped" />
-                </chip:SfAvatarView.GestureRecognizers>
-            </chip:SfAvatarView>
+                <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" CornerRadius="20" AvatarName="{Binding CurrentUser.UserName}" Margin="10">
+                    <chip:SfAvatarView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAvatarViewTapped" />
+                    </chip:SfAvatarView.GestureRecognizers>
+                </chip:SfAvatarView>
 
             </Grid>
 
@@ -136,95 +135,145 @@
                 </Grid>
             </Grid>
 
-        <Grid x:Name="searchListGrid"
-              IsVisible="False"
-              WidthRequest="464"  
-              InputTransparent="False"
-              BackgroundColor="White"
-              AbsoluteLayout.LayoutBounds="0.6, 49, -1, -1"
-              AbsoluteLayout.LayoutFlags="XProportional"
-              Padding="0"
-              ZIndex="1"
-              Grid.Row="1" >
-            <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}"
-                    Stroke="{AppThemeBinding Light={StaticResource ContentStroke-Light}, Dark={StaticResource ContentStroke-Dark}}"
-                    StrokeThickness="1"
-                    StrokeShape="RoundRectangle 10">
-                
-                <!-- Filtered Results -->
-                <ListView x:Name="filteredResultsView"
-                          BackgroundColor="Red" 
+            <Grid x:Name="searchListGrid" Background="Transparent" IsVisible="False"  WidthRequest="600"   Grid.Row="1"  Margin="180,0,0,0" 
+
+>
+                <Grid VerticalOptions="Start"
+                  HorizontalOptions="Center"
+                  x:Name="shadowGrid"
+                  MaximumHeightRequest="300"
+                  IsClippedToBounds="True">
+
+                    <Grid HorizontalOptions="Start" WidthRequest="5" Margin="0,0,0,3">
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="1,0">
+                                <GradientStop Color="Transparent"
+                                          Offset="0.1" />
+                                <GradientStop Color="#33000000" 
+                                          Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                    </Grid>
+                    <Grid HorizontalOptions="End" WidthRequest="5" Margin="0,0,0,3">
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="1,0">
+                                <GradientStop  Color="#33000000"
+                                           Offset="0.1" />
+                                <GradientStop Color="Transparent"
+                                          Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                    </Grid>
+                    <Grid VerticalOptions="End" HeightRequest="5" Margin="3,0" >
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="#33000000"
+                                          Offset="0.1" />
+                                <GradientStop Color="Transparent"
+                                          Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                    </Grid>
+                    <ScrollView x:Name="searchScrollView" Orientation="Vertical" HeightRequest="136" WidthRequest="464" Margin="0,0,0,5" MaximumHeightRequest="296" VerticalOptions="Fill" VerticalScrollBarVisibility="Always" >
+                        <VerticalStackLayout x:Name="searchedResultList" 
+                                         Margin="2,0"
+                                         Background="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}"
+                                         Padding="-1">
+
+                            <!--Filtered Results-->
+                            <ListView x:Name="filteredResultsView" 
                           ItemsSource="{Binding FilteredProducts}"
                           SelectionMode="Single"
-                          IsVisible="True"
+                          IsVisible="False"
                           ItemTapped="filteredResultsView_ItemTapped">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Label Text="{Binding }" TextColor="Black" FontSize="14" Padding="10,5"/>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <!-- Recent Searches Header -->
-            </Border>
-
-        </Grid>
-
-
-        <Grid x:Name="searchlistGrid2"
-              Grid.Row="1"  
-              IsVisible="False" 
-              WidthRequest="464"
-              MaximumHeightRequest="540"
-              Padding="0"
-              ZIndex="1"
-              InputTransparent="False"
-              AbsoluteLayout.LayoutBounds="0.6, 49, -1, -1"
-              AbsoluteLayout.LayoutFlags="XProportional">
-
-            <Border BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}"
-                    Stroke="{AppThemeBinding Light={StaticResource ContentStroke-Light}, Dark={StaticResource ContentStroke-Dark}}"
-                    StrokeThickness="1"
-                    StrokeShape="RoundRectangle 10">
-
-                <StackLayout>
-
-                    <Grid ColumnDefinitions="*,Auto">
-                    <Label Text="Recent searches" FontAttributes="Bold" Grid.Column="0"/>
-                    <Label Text="Clear all" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" Grid.Column="1">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnClearAllTapped" />
-                        </Label.GestureRecognizers>
-                    </Label>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Label Text="{Binding Name }" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"  FontSize="14" Padding="10,5"/>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </VerticalStackLayout>
+                    </ScrollView>
                 </Grid>
 
-                <!-- Recent Search Items -->
-                <CollectionView x:Name="recentSearch"
-         ItemsSource="{Binding RecentSearchedProducts}"
-         IsVisible="True"
-         ItemsLayout="HorizontalList">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Label Text="{Binding Name}"
-                                   Margin="5"
-                                   BackgroundColor="#EEE"
-                                   Padding="10"
-                                   FontSize="14"
-                                   TextColor="Black">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                                </Label.GestureRecognizers>
-                            </Label>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-                </StackLayout>
-            </Border>
+            </Grid>
+
+
+            <Grid x:Name="searchlistGrid2" IsVisible="False"  WidthRequest="600"   Grid.Row="1"  Margin="180,0,0,0" 
+>
+                <Grid VerticalOptions="Start"
+                      HorizontalOptions="Center"
+                      MaximumHeightRequest="300"
+                      IsClippedToBounds="True">
+
+                    <Grid HorizontalOptions="Start" WidthRequest="5" Margin="0,0,0,3">
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="1,0">
+                                <GradientStop Color="Transparent"
+                                              Offset="0.1" />
+                                <GradientStop Color="#33000000" 
+                                              Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                    </Grid>
+                    <Grid HorizontalOptions="End" WidthRequest="5" Margin="0,0,0,3">
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="1,0">
+                                <GradientStop  Color="#33000000"
+                                               Offset="0.1" />
+                                <GradientStop Color="Transparent"
+                                              Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                    </Grid>
+                    <Grid VerticalOptions="End" HeightRequest="5" Margin="3,0" >
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="#33000000"
+                                              Offset="0.1" />
+                                <GradientStop Color="Transparent"
+                                              Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                    </Grid>
+                    <ScrollView x:Name="searchScrollView2" Orientation="Vertical" HeightRequest="80" WidthRequest="464" Margin="0,0,0,5" MaximumHeightRequest="296" VerticalOptions="Fill" VerticalScrollBarVisibility="Always" >
+
+                        <VerticalStackLayout  Margin="2,0" Padding="5"  BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}">
+
+                            <HorizontalStackLayout  >
+                                <Label Text="Recent searches" Padding="10,10,270,10"
+                                        FontSize="14" TextColor="Black"/>
+                                <Label Text="Clear all" Padding="0,10,10,10" HorizontalTextAlignment="End" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" >
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnClearAllTapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </HorizontalStackLayout>
+
+                            <!--Recent Search Items-->
+                            <ListView x:Name="recentsearch"
+                                      ItemsSource="{Binding RecentSearchedProducts}"
+                                      SelectionMode="Single"
+                                      IsVisible="False"
+                                      ItemTapped="recentsearch_ItemTapped">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Label Text="{Binding Name }" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"  FontSize="16" Padding="10,5"/>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </Grid>
+
+            </Grid>
+
         </Grid>
 
-    </Grid>
-
-      
-
 </ContentPage>
+

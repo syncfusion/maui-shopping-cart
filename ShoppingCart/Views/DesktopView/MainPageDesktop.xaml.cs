@@ -160,88 +160,102 @@ namespace ShoppingCart
             }
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e) 
-         {
-            if (sender is VisualElement element && element.BindingContext is Product tappedProduct) {
-
-                var HomePageContent = new HomePageDesktop(shoppingCartViewModel);
-                var productpageDesktop = new ProductPageDesktop(HomePageContent) {
-                    BindingContext = tappedProduct
-                };
-                selectedContent = productpageDesktop;
-                selectedContent.IsVisible = true;
-                selectedtab.Children.Clear();
-                selectedtab.Children.Add(selectedContent);
-                //this.searchListGrid.IsVisible = false;
-            }
-        }
-
-
         private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
-      {
-             var text = e.NewTextValue?.Trim();
+        {
+            var text = e.NewTextValue?.Trim();
 
-            if (!string.IsNullOrWhiteSpace(text) && text.Length > 1) {
-                // Filter logic
+            if (!string.IsNullOrWhiteSpace(text) && text.Length > 1) 
+            {
+                
                 var results = shoppingCartViewModel.Products
                     .Where(p => p.Name.Contains(text, StringComparison.OrdinalIgnoreCase))
                     .ToList();
 
-                // Update FilteredProducts collection
                 shoppingCartViewModel.FilteredProducts.Clear();
                 foreach (var item in results) {
                     shoppingCartViewModel.FilteredProducts.Add(item);
                 }
 
-                // Show filtered results grid
+                filteredResultsView.ItemsSource = shoppingCartViewModel.FilteredProducts;
+                
                 searchListGrid.IsVisible = true;
                 filteredResultsView.IsVisible = true;
-
-                // Hide recent search grid
                 searchlistGrid2.IsVisible = false;
+                recentsearch.IsVisible = false;
             }
-            else {
-                // Hide filtered results
+            else 
+            {  
                 searchListGrid.IsVisible = false;
                 filteredResultsView.IsVisible = false;
-
-                // Show recent searches only if there is any
-                if (shoppingCartViewModel.RecentSearchedProducts.Any()) {
-                    searchlistGrid2.IsVisible = true;
-                }
-                else {
-                    searchlistGrid2.IsVisible = false;
-                }
+                searchlistGrid2.IsVisible = false;
+                recentsearch.IsVisible = false;
             }
         }
 
         private void OnClearAllTapped(object sender, EventArgs e) 
         {
             shoppingCartViewModel.RecentSearchedProducts.Clear();
-           // recentsearch.IsVisible = true;
-           // searchitem.IsVisible = false;
-            filteredResultsView.IsVisible = false;
+            recentsearch.IsVisible = false;
+            searchlistGrid2.IsVisible = false;
         }
 
         private void filteredResultsView_ItemTapped(object sender, ItemTappedEventArgs e) 
          {
-            if (e.Item is Product tappedProduct) {
-                var productpageMobile = new ProductPageMobile() {
+            if (e.Item is Product tappedProduct) 
+            {
+                var HomePageContent = new HomePageDesktop(shoppingCartViewModel);
+                var productpageDesktop = new ProductPageDesktop(HomePageContent, shoppingCartViewModel) 
+                {
                     BindingContext = tappedProduct
                 };
 
-                Navigation.PushAsync(productpageMobile);
+                selectedContent = productpageDesktop;
+                selectedContent.IsVisible = true;
+                selectedtab.Children.Clear();
+                selectedtab.Children.Add(selectedContent);
 
-
-                if (!shoppingCartViewModel.RecentSearchedProducts.Any(p => p.Name == tappedProduct.Name)) {
+                if (!shoppingCartViewModel.RecentSearchedProducts.Any(p => p.Name == tappedProduct.Name))
+                {
                     shoppingCartViewModel.RecentSearchedProducts.Insert(0, tappedProduct);
                 }
-                filteredResultsView.IsVisible = false;
+
+                entry.Text = string.Empty;
+                entry.Unfocus();
+            }
+        }
+
+        private void entry_Focused(object sender, FocusEventArgs e)
+        {
+            filteredResultsView.IsVisible = false;
+            searchListGrid.IsVisible = false;
+
+            if (shoppingCartViewModel.RecentSearchedProducts.Any())
+            {
                 searchlistGrid2.IsVisible = true;
-                //recentsearch.IsVisible = false;
+                recentsearch.IsVisible = true;
+            }
+        }
+
+        private void recentsearch_ItemTapped(object sender, ItemTappedEventArgs e) 
+        {
+            
+            if (e.Item is Product tappedProduct) 
+            {
+                var HomePageContent = new HomePageDesktop(shoppingCartViewModel);
+                var productpageDesktop = new ProductPageDesktop(HomePageContent, shoppingCartViewModel) {
+                    BindingContext = tappedProduct
+                };
+
+                searchlistGrid2.IsVisible = false;
+                searchlistGrid2.IsVisible = false;
+                selectedContent = productpageDesktop;
+                selectedContent.IsVisible = true;
+                selectedtab.Children.Clear();
+                selectedtab.Children.Add(selectedContent);
                 entry.Text = string.Empty;
                 entry.Unfocus();
             }
         }
     }
+    
 }

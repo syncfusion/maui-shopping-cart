@@ -164,6 +164,7 @@ namespace ShoppingCart
                 product.IsSaved = false;
             }
         }
+
         private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
         {
             if (e.DataItem is Product tappedProduct)
@@ -175,7 +176,9 @@ namespace ShoppingCart
 
 				Navigation.PushAsync(productpageMobile);
             }
-        }        private void tabView_SelectionChanged(object sender, TabSelectionChangedEventArgs e)
+        }    
+
+        private void tabView_SelectionChanged(object sender, TabSelectionChangedEventArgs e)
         {
             _price = 0;
             if(e.NewIndex == 2 && shoppingCartViewModel != null)
