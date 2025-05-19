@@ -238,7 +238,7 @@
                             </LinearGradientBrush>
                         </Grid.Background>
                     </Grid>
-                    <ScrollView x:Name="searchScrollView2" Orientation="Vertical" HeightRequest="80" WidthRequest="464" Margin="0,0,0,5" MaximumHeightRequest="296" VerticalOptions="Fill" VerticalScrollBarVisibility="Always" >
+                    <ScrollView x:Name="searchScrollView2" Orientation="Vertical" HeightRequest="150" WidthRequest="464" Margin="0,0,0,5" MaximumHeightRequest="296" VerticalOptions="Fill" VerticalScrollBarVisibility="Always" >
 
                         <VerticalStackLayout  Margin="2,0" Padding="5"  BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}">
 
