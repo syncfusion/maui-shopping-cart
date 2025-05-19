@@ -6,7 +6,7 @@ public partial class AddressPageMobile : ContentPage
     public AddressPageMobile(ShoppingCartViewModel ViewModel)
 	{
 		InitializeComponent();
-        ViewModel = shoppingCartViewModel;
+        shoppingCartViewModel = ViewModel;
         this.BindingContext = ViewModel;
 	}
     private void AddressBackArrow_Tapped(object sender, TappedEventArgs e)

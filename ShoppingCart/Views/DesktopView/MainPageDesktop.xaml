@@ -60,6 +60,8 @@
                         FontSize="14" 
                         HeightRequest="45" 
                            Focused="entry_Focused"
+                           Unfocused="entry_Unfocused"
+                           Completed="entry_Completed"
                         VerticalTextAlignment="Center"
                         TextChanged="OnSearchTextChanged"
                         HorizontalOptions="FillAndExpand"  />

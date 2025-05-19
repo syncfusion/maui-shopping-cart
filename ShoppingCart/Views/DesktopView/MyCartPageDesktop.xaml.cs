@@ -2,10 +2,10 @@ namespace ShoppingCart;
 
 public partial class MyCartPageDesktop : ContentView
 {
-    decimal _totalPrice;
-    decimal _price;
-    decimal _discount ;
-    ShoppingCartViewModel shoppingCartViewModel;
+    decimal? _totalPrice;
+    decimal? _price;
+    decimal? _discount ;
+    ShoppingCartViewModel? shoppingCartViewModel;
 
     public MyCartPageDesktop(ShoppingCartViewModel shoppingCartView)
 	{
@@ -17,12 +17,15 @@ public partial class MyCartPageDesktop : ContentView
             BindingContext = shoppingCartViewModel;
         }
 
-        foreach(var product in shoppingCartViewModel.MyCartProducts)
+        if (shoppingCartViewModel?.MyCartProducts != null)
         {
-            _price += (decimal)product.Price;
+            foreach (var product in shoppingCartViewModel.MyCartProducts)
+            {
+                _price += product.Price;
+            }
         }
 
-        ProductCountLabel.Text =$"Price ({shoppingCartView.MyCartProducts.Count.ToString()}) Items" ;
+        ProductCountLabel.Text =$"Price ({shoppingCartView.MyCartProducts?.Count.ToString()}) Items" ;
         _discount = _price - (_price / 2);
         _totalPrice =( _price + 80 ) - _discount;
         priceLabel.Text = $"${_price}";
@@ -30,7 +33,7 @@ public partial class MyCartPageDesktop : ContentView
         totalAmountLabel.Text = $"${_totalPrice}";
         SavingLabel.Text = $"You'll save ${_discount} on this order";
         
-        if (shoppingCartViewModel.MyCartProducts.Count == 0)
+        if (shoppingCartViewModel?.MyCartProducts?.Count == 0)
         {
             CartDetailsLayout.IsVisible = false;
             popup.IsVisible = true;
@@ -48,7 +51,7 @@ public partial class MyCartPageDesktop : ContentView
             {
                 quantity++;
                 quantityLabel.Text = quantity.ToString("D2");
-                _price += (decimal)product.Price;
+                _price += product.Price;
                 _discount = _price - (_price / 2);
                 _totalPrice = (_price + 80) - _discount;
                 priceLabel.Text = $"${_price}";
@@ -71,22 +74,25 @@ public partial class MyCartPageDesktop : ContentView
                 if (quantity == 0)
                 {
                     product.IsAddedToCart = false;
-                    shoppingCartViewModel.FindCartProducts();
+                    shoppingCartViewModel?.FindCartProducts();
                     _price = 0;
-                    foreach (var item in shoppingCartViewModel.MyCartProducts)
+                    if(shoppingCartViewModel?.MyCartProducts !=null)
                     {
-                        _price += (decimal)item.Price;
+                        foreach (var item in shoppingCartViewModel.MyCartProducts)
+                        {
+                            _price += item.Price;
+                        }
                     }
                     this.BindingContext = shoppingCartViewModel;
                     quantityLabel.Text = "01";
-                    ProductCountLabel.Text = $"Price ({shoppingCartViewModel.MyCartProducts.Count.ToString()}) Items";
+                    ProductCountLabel.Text = $"Price ({shoppingCartViewModel?.MyCartProducts?.Count.ToString()}) Items";
                     _discount = _price - (_price / 2);
                     _totalPrice = (_price + 80) - _discount;
                     priceLabel.Text = $"${_price}";
                     discountLabel.Text = $"$ -{_discount}";
                     totalAmountLabel.Text = $"${_totalPrice}";
                     SavingLabel.Text = $"You'll save ${_discount} on this order";
-                    if (shoppingCartViewModel.MyCartProducts.Count == 0)
+                    if (shoppingCartViewModel?.MyCartProducts?.Count == 0)
                     {
                         CartDetailsLayout.IsVisible = false;
                         popup.IsVisible = true;
@@ -96,7 +102,7 @@ public partial class MyCartPageDesktop : ContentView
                 else
                 {
                     quantityLabel.Text = quantity.ToString("D2");
-                    _price -= (decimal)product.Price;
+                    _price -= product.Price;
                     _discount = _price - (_price / 2);
                     _totalPrice = (_price + 80) - _discount;
                     priceLabel.Text = $"${_price}";
@@ -116,7 +122,7 @@ public partial class MyCartPageDesktop : ContentView
 
     private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
     {
-        if (e.DataItem is Product tappedProduct)
+        if (e.DataItem is Product tappedProduct && shoppingCartViewModel !=null)
         {
             var MyCartPage = new MyCartPageDesktop(shoppingCartViewModel);
             var productpageDesktop = new ProductPageDesktop(MyCartPage, shoppingCartViewModel)

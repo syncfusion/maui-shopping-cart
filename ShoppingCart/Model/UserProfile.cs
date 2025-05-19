@@ -5,8 +5,8 @@ namespace ShoppingCart
 {
     public class UserProfile : INotifyPropertyChanged
     {
-        private string _email;
-        public string Email
+        private string? _email;
+        public string? Email
         {
             get => _email;
             set
@@ -19,8 +19,8 @@ namespace ShoppingCart
             }
         }
 
-        private string _password;
-        public string Password
+        private string? _password;
+        public string? Password
         {
             get => _password;
             set
@@ -33,8 +33,8 @@ namespace ShoppingCart
             }
         }
 
-        private string _userName;
-        public string UserName
+        private string? _userName;
+        public string? UserName
         {
             get => _userName;
             set
@@ -47,8 +47,8 @@ namespace ShoppingCart
             }
         }
 
-        private string _gender;
-        public string Gender
+        private string? _gender;
+        public string? Gender
         {
             get => _gender;
             set
@@ -61,8 +61,8 @@ namespace ShoppingCart
             }
         }
 
-        private string _mobileNumber;
-        public string MobileNumber
+        private string? _mobileNumber;
+        public string? MobileNumber
         {
             get => _mobileNumber;
             set
@@ -79,8 +79,8 @@ namespace ShoppingCart
 
         public class Address
         {
-            public string Title { get; set; }
-            public string Description { get; set; }
+            public string? Title { get; set; }
+            public string? Description { get; set; }
         }
 
         public UserProfile()
@@ -111,7 +111,7 @@ namespace ShoppingCart
 
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {

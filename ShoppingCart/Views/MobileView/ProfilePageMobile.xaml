@@ -57,10 +57,10 @@
                 <buttons:SfButton HorizontalOptions="Center" Text="Update Profile" WidthRequest="350" Clicked="SfButton_Clicked" />
             </StackLayout>
         </Border>
-        <chip:SfBadgeView HorizontalOptions="Center" VerticalOptions="Start">
+        <chip:SfBadgeView HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,20,20">
             <chip:SfBadgeView.Content>
                 <chip:SfAvatarView ContentType="Initials" HorizontalOptions="Center" VerticalOptions="Center"
-                    InitialsType="SingleCharacter"
+                    InitialsType="SingleCharacter" Margin="20,20,0,0"
                     AvatarName="{Binding CurrentUser.UserName}"
                     FontSize="30"
                     InitialsColor="{AppThemeBinding Light={StaticResource textcolor-Light}, Dark={StaticResource ContentForeground-Dark}}" 

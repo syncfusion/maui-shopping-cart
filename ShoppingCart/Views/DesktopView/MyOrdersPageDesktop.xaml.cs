@@ -7,10 +7,7 @@ public partial class MyOrdersPageDesktop : ContentView
     {
         InitializeComponent();
         shoppingCartViewModel = viewModel;
-        if (shoppingCartViewModel != null)
-        {
-            BindingContext = shoppingCartViewModel;
-        }
+        BindingContext = shoppingCartViewModel;
     }
 
     private void BackArrow_Tapped(object sender, EventArgs e)

@@ -6,8 +6,8 @@ public partial class SignUpPageDesktop : ContentPage
     public SignUpPageDesktop()
 	{
 		InitializeComponent();
-        signinEmail.Text = shoppingCartViewModel.CurrentUser.Email;
-        signinPassword.Text = shoppingCartViewModel.CurrentUser.Password;
+        signinEmail.Text = shoppingCartViewModel.CurrentUser?.Email;
+        signinPassword.Text = shoppingCartViewModel.CurrentUser?.Password;
     }
 
     private void SignIn_Tapped(object sender, TappedEventArgs e)
@@ -24,9 +24,9 @@ public partial class SignUpPageDesktop : ContentPage
 
     private void SignUpButton_Clicked(object sender, EventArgs e)
     {
-        shoppingCartViewModel.CurrentUser.UserName = nameInput.Text;
-        shoppingCartViewModel.CurrentUser.Email = emailInput.Text;
-        shoppingCartViewModel.CurrentUser.Password = passwordInput.Text;
+        shoppingCartViewModel.CurrentUser!.UserName = nameInput.Text ?? string.Empty;
+        shoppingCartViewModel.CurrentUser.Email = emailInput.Text ?? string.Empty;
+        shoppingCartViewModel.CurrentUser.Password = passwordInput.Text ?? string.Empty;
         Navigation.PushAsync(new MainPageDesktop(shoppingCartViewModel));
     }
 

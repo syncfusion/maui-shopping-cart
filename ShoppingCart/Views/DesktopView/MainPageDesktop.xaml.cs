@@ -9,9 +9,9 @@ namespace ShoppingCart
         ShoppingCartViewModel shoppingCartViewModel;
         Border _selectedBorder;
         private bool _isProfilePageVisible = false;
-        private ProfilePageDesktop _profilePage;
-        private View _previousPageContent;
+        private ProfilePageDesktop? _profilePage;
         ContentView selectedContent = new();
+        string? _productName;
         public MainPageDesktop(ShoppingCartViewModel viewModel)
         {            InitializeComponent();
             shoppingCartViewModel = viewModel;
@@ -166,18 +166,24 @@ namespace ShoppingCart
 
             if (!string.IsNullOrWhiteSpace(text) && text.Length > 1) 
             {
+                _productName = text;
                 var results = shoppingCartViewModel.Products
-                    .Where(p => p.Name.Contains(text, StringComparison.OrdinalIgnoreCase))
+                    .Where(p => p?.Name != null && p.Name.Contains(text, StringComparison.OrdinalIgnoreCase))
                     .ToList();
 
-                shoppingCartViewModel.FilteredProducts.Clear();
+                shoppingCartViewModel.FilteredProducts?.Clear();
 
                 foreach (var item in results) 
                 {
-                    shoppingCartViewModel.FilteredProducts.Add(item);
+                    shoppingCartViewModel.FilteredProducts?.Add(item);
                 }
 
                 filteredResultsView.ItemsSource = shoppingCartViewModel.FilteredProducts;
+                var productpageDesktop = new SearchpageDesktop(shoppingCartViewModel,_productName,() => NavigateBackToHome());
+                selectedContent = productpageDesktop;
+                selectedContent.IsVisible = true;
+                selectedtab.Children.Clear();
+                selectedtab.Children.Add(selectedContent);
 
                 // Only show if there are any matching results
                 if (results.Any())
@@ -214,16 +220,10 @@ namespace ShoppingCart
          {
             if (e.Item is Product tappedProduct) 
             {
-                var HomePageContent = new HomePageDesktop(shoppingCartViewModel);
-                var productpageDesktop = new ProductPageDesktop(HomePageContent, shoppingCartViewModel) 
-                {
-                    BindingContext = tappedProduct
-                };
+                _productName = tappedProduct.Name != null ? tappedProduct.Name.ToString() : string.Empty;
+                shoppingCartViewModel.FilteredProducts?.Clear();
 
-                selectedContent = productpageDesktop;
-                selectedContent.IsVisible = true;
-                selectedtab.Children.Clear();
-                selectedtab.Children.Add(selectedContent);
+                shoppingCartViewModel.FilteredProducts?.Add(tappedProduct);
 
                 if (!shoppingCartViewModel.RecentSearchedProducts.Any(p => p.Name == tappedProduct.Name))
                 {
@@ -250,22 +250,33 @@ namespace ShoppingCart
         private void recentsearch_ItemTapped(object sender, ItemTappedEventArgs e) 
         {
             
-            if (e.Item is Product tappedProduct) 
+            if (e.Item is Product tappedProduct && shoppingCartViewModel != null) 
             {
-                var HomePageContent = new HomePageDesktop(shoppingCartViewModel);
-                var productpageDesktop = new ProductPageDesktop(HomePageContent, shoppingCartViewModel) {
-                    BindingContext = tappedProduct
-                };
-
+                _productName = tappedProduct.Name != null ? tappedProduct.Name.ToString() : string.Empty;
+                shoppingCartViewModel.FilteredProducts?.Clear();
+                shoppingCartViewModel.FilteredProducts?.Add(tappedProduct);
+                var searchpageDesktop = new SearchpageDesktop(shoppingCartViewModel, _productName, () => NavigateBackToHome());
                 searchlistGrid2.IsVisible = false;
                 searchlistGrid2.IsVisible = false;
-                selectedContent = productpageDesktop;
+                selectedContent = searchpageDesktop;
                 selectedContent.IsVisible = true;
                 selectedtab.Children.Clear();
                 selectedtab.Children.Add(selectedContent);
                 entry.Text = string.Empty;
                 entry.Unfocus();
             }
+        }
+
+        private void entry_Unfocused(object sender, FocusEventArgs e)
+        {
+            searchListGrid.IsVisible = false;
+            entry.Text = string.Empty;
+        }
+
+        private void entry_Completed(object sender, EventArgs e)
+        {
+            searchListGrid.IsVisible = false;
+            entry.Text = string.Empty;
         }
     }
     

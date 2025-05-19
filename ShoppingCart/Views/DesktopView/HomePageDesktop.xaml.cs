@@ -74,7 +74,7 @@ namespace ShoppingCart
 
         private void catagoriesChip_SelectionChanged(object sender, Syncfusion.Maui.Core.Chips.SelectionChangedEventArgs e)
         {
-            selectedCategory = e.AddedItem?.ToString();
+            selectedCategory = e.AddedItem?.ToString() ?? string.Empty;
             if (selectedCategory != null)
             {
                 if (shoppingCartViewModel != null)
