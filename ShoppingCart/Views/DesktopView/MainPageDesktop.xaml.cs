@@ -166,25 +166,36 @@ namespace ShoppingCart
 
             if (!string.IsNullOrWhiteSpace(text) && text.Length > 1) 
             {
-                
                 var results = shoppingCartViewModel.Products
                     .Where(p => p.Name.Contains(text, StringComparison.OrdinalIgnoreCase))
                     .ToList();
 
                 shoppingCartViewModel.FilteredProducts.Clear();
-                foreach (var item in results) {
+
+                foreach (var item in results) 
+                {
                     shoppingCartViewModel.FilteredProducts.Add(item);
                 }
 
                 filteredResultsView.ItemsSource = shoppingCartViewModel.FilteredProducts;
-                
-                searchListGrid.IsVisible = true;
-                filteredResultsView.IsVisible = true;
+
+                // Only show if there are any matching results
+                if (results.Any())
+                {
+                    searchListGrid.IsVisible = true;
+                    filteredResultsView.IsVisible = true;
+                }
+                else 
+                {
+                    searchListGrid.IsVisible = false;
+                    filteredResultsView.IsVisible = false;
+                }
+
                 searchlistGrid2.IsVisible = false;
                 recentsearch.IsVisible = false;
             }
             else 
-            {  
+            {
                 searchListGrid.IsVisible = false;
                 filteredResultsView.IsVisible = false;
                 searchlistGrid2.IsVisible = false;

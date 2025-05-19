@@ -362,7 +362,7 @@ namespace ShoppingCart
         {
             App.Current.UserAppTheme = (bool)sfSwitch.IsOn ? AppTheme.Dark : AppTheme.Light;
         }
-private void Payment_Tapped(object sender, TappedEventArgs e)
+        private void Payment_Tapped(object sender, TappedEventArgs e)
         {
             SetupPageContent(3, new PaymentPageMobile(false), "Payments");
         }
@@ -473,7 +473,8 @@ private void Payment_Tapped(object sender, TappedEventArgs e)
 
         }
 
-        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e) {
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e) 
+        {
             if (e.Item is Product tappedProduct) {
                 var productpageMobile = new ProductPageMobile (shoppingCartViewModel) {
                     BindingContext = tappedProduct
@@ -483,7 +484,8 @@ private void Payment_Tapped(object sender, TappedEventArgs e)
             }
         }
 
-        private void entry_Focused(object sender, FocusEventArgs e) {
+        private void entry_Focused(object sender, FocusEventArgs e) 
+        {
             tabView.SelectedIndex = 1;
         }
     }
