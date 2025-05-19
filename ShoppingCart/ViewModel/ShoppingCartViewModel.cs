@@ -13,7 +13,8 @@ public class ShoppingCartViewModel : ContentPage
     public ObservableCollection<Product>? FilteredProducts { get; set; }
     public ObservableCollection<Product>? SavedProducts { get; set; } = new ObservableCollection<Product>();
     public ObservableCollection<Product>? MyCartProducts { get; set; } = new ObservableCollection<Product>();
-
+    public ObservableCollection<Product> RecentSearchedProducts { get; set; } = new();
+  
     public ObservableCollection<Product> OrderedProducts { get; set; } = new ObservableCollection<Product> { };
     public ObservableCollection<string> GenderOptions { get; set; }
 
@@ -64,6 +65,7 @@ public class ShoppingCartViewModel : ContentPage
         {
              "Men", "Women" , "Kids", "Accessories", "Shoes","Sports","Beauty","Electronics"
         };
+        
 
         Products = new ObservableCollection<Product>
         {
@@ -146,7 +148,7 @@ public class ShoppingCartViewModel : ContentPage
         foreach (var product in OrderedProducts)
         {
             product.IsProductBought = true;
-        }
+    }
     }
 
     void GetUserProfileDetails()

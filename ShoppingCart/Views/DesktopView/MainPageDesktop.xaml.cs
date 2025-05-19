@@ -1,4 +1,5 @@
 ﻿using ShoppingCart;
+using System.Collections.ObjectModel;
 
 namespace ShoppingCart
 {
@@ -10,10 +11,9 @@ namespace ShoppingCart
         private bool _isProfilePageVisible = false;
         private ProfilePageDesktop _profilePage;
         private View _previousPageContent;
-
+        ContentView selectedContent = new();
         public MainPageDesktop(ShoppingCartViewModel viewModel)
-        {
-            InitializeComponent();
+        {            InitializeComponent();
             shoppingCartViewModel = viewModel;
             BindingContext = shoppingCartViewModel;
             _selectedBorder = HomeBorder;
@@ -31,14 +31,14 @@ namespace ShoppingCart
             _tabBorders.Add(CartBorder);
             _tabBorders.Add(AccountBorder);
         }
-        void AddTapGesture(Border border)
+         void AddTapGesture(Border border)
         {
             var tapGesture = new TapGestureRecognizer();
             tapGesture.Tapped += (s, e) => SetSelected(border);
             border.GestureRecognizers.Add(tapGesture);
         }
 
-        private void OnAvatarViewTapped(object sender, EventArgs e)
+         private void OnAvatarViewTapped(object sender, EventArgs e)
         {
             if (_isProfilePageVisible)
             {
@@ -101,24 +101,19 @@ namespace ShoppingCart
         }
 
         void SetSelected(Border border)
-        {
-            // Reset previous selection
-            if (_selectedBorder != null && _selectedBorder.Content is HorizontalStackLayout prevLayout)
-            {
+        {            // Reset previous selection
+            if (_selectedBorder != null && _selectedBorder.Content is HorizontalStackLayout prevLayout) {
                 _selectedBorder.BackgroundColor = Colors.Transparent;
 
-                if (prevLayout.Children.Count >= 2)
-                {
+                if (prevLayout.Children.Count >= 2) {
                     var prevIconLabel = prevLayout.Children[0] as Label;
                     var prevTextLabel = prevLayout.Children[1] as Label;
 
-                    if (Application.Current!.RequestedTheme == AppTheme.Dark)
-                    {
+                    if (Application.Current!.RequestedTheme == AppTheme.Dark) {
                         prevIconLabel!.TextColor = Color.FromArgb("#C9C6C8");
                         prevTextLabel!.TextColor = Colors.White;
                     }
-                    else
-                    {
+                    else {
                         prevIconLabel!.TextColor = Color.FromArgb("#474648"); // icon color light
                         prevTextLabel!.TextColor = Color.FromArgb("#313032"); // content text color light
                     }
@@ -128,8 +123,7 @@ namespace ShoppingCart
             // Set new selection
             border.BackgroundColor = Color.FromArgb("#7633DA");
 
-            if (border.Content is HorizontalStackLayout layout && layout.Children.Count >= 2)
-            {
+            if (border.Content is HorizontalStackLayout layout && layout.Children.Count >= 2) {
                 var iconLabel = layout.Children[0] as Label;
                 var textLabel = layout.Children[1] as Label;
                 var text = textLabel?.Text;
@@ -138,17 +132,16 @@ namespace ShoppingCart
                 iconLabel!.TextColor = Colors.White;
                 textLabel!.TextColor = Colors.White;
 
-                ContentView selectedContent = new();
+
                 selectedContent.IsVisible = true;
 
-                switch (text)
-                {
+                switch (text) {
                     case "Home":
                         selectedContent = new HomePageDesktop(shoppingCartViewModel);
                         _isProfilePageVisible = false;
                         break;
                     case "Saved Products":
-                        selectedContent=new SavedItemsPageDesktop(shoppingCartViewModel);
+                        selectedContent = new SavedItemsPageDesktop(shoppingCartViewModel);
                         _isProfilePageVisible = false;
                         break;
                     case "My Cart":
@@ -166,5 +159,114 @@ namespace ShoppingCart
                 selectedtab.Children.Add(selectedContent);
             }
         }
+
+        private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+        {
+            var text = e.NewTextValue?.Trim();
+
+            if (!string.IsNullOrWhiteSpace(text) && text.Length > 1) 
+            {
+                var results = shoppingCartViewModel.Products
+                    .Where(p => p.Name.Contains(text, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+
+                shoppingCartViewModel.FilteredProducts.Clear();
+
+                foreach (var item in results) 
+                {
+                    shoppingCartViewModel.FilteredProducts.Add(item);
+                }
+
+                filteredResultsView.ItemsSource = shoppingCartViewModel.FilteredProducts;
+
+                // Only show if there are any matching results
+                if (results.Any())
+                {
+                    searchListGrid.IsVisible = true;
+                    filteredResultsView.IsVisible = true;
+                }
+                else 
+                {
+                    searchListGrid.IsVisible = false;
+                    filteredResultsView.IsVisible = false;
+                }
+
+                searchlistGrid2.IsVisible = false;
+                recentsearch.IsVisible = false;
+            }
+            else 
+            {
+                searchListGrid.IsVisible = false;
+                filteredResultsView.IsVisible = false;
+                searchlistGrid2.IsVisible = false;
+                recentsearch.IsVisible = false;
+            }
+        }
+
+        private void OnClearAllTapped(object sender, EventArgs e) 
+        {
+            shoppingCartViewModel.RecentSearchedProducts.Clear();
+            recentsearch.IsVisible = false;
+            searchlistGrid2.IsVisible = false;
+        }
+
+        private void filteredResultsView_ItemTapped(object sender, ItemTappedEventArgs e) 
+         {
+            if (e.Item is Product tappedProduct) 
+            {
+                var HomePageContent = new HomePageDesktop(shoppingCartViewModel);
+                var productpageDesktop = new ProductPageDesktop(HomePageContent, shoppingCartViewModel) 
+                {
+                    BindingContext = tappedProduct
+                };
+
+                selectedContent = productpageDesktop;
+                selectedContent.IsVisible = true;
+                selectedtab.Children.Clear();
+                selectedtab.Children.Add(selectedContent);
+
+                if (!shoppingCartViewModel.RecentSearchedProducts.Any(p => p.Name == tappedProduct.Name))
+                {
+                    shoppingCartViewModel.RecentSearchedProducts.Insert(0, tappedProduct);
+                }
+
+                entry.Text = string.Empty;
+                entry.Unfocus();
+            }
+        }
+
+        private void entry_Focused(object sender, FocusEventArgs e)
+        {
+            filteredResultsView.IsVisible = false;
+            searchListGrid.IsVisible = false;
+
+            if (shoppingCartViewModel.RecentSearchedProducts.Any())
+            {
+                searchlistGrid2.IsVisible = true;
+                recentsearch.IsVisible = true;
+            }
+        }
+
+        private void recentsearch_ItemTapped(object sender, ItemTappedEventArgs e) 
+        {
+            
+            if (e.Item is Product tappedProduct) 
+            {
+                var HomePageContent = new HomePageDesktop(shoppingCartViewModel);
+                var productpageDesktop = new ProductPageDesktop(HomePageContent, shoppingCartViewModel) {
+                    BindingContext = tappedProduct
+                };
+
+                searchlistGrid2.IsVisible = false;
+                searchlistGrid2.IsVisible = false;
+                selectedContent = productpageDesktop;
+                selectedContent.IsVisible = true;
+                selectedtab.Children.Clear();
+                selectedtab.Children.Add(selectedContent);
+                entry.Text = string.Empty;
+                entry.Unfocus();
+            }
+        }
     }
+    
 }
