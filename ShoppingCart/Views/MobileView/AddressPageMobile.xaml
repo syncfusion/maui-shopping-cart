@@ -8,13 +8,13 @@
              NavigationPage.HasNavigationBar="False">
 
     <ScrollView>
-        <Border StrokeShape="RoundRectangle 24,24,0,0" HeightRequest="790" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" Margin="0,20,0,0">
+        <Border StrokeShape="RoundRectangle 24,24,0,0" HeightRequest="790" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" Margin="0,20,0,0">
             <Grid RowDefinitions="Auto,Auto,Auto,Auto">
                 <input:SfTextInputLayout Margin="10,20,10,0" InputViewPadding="10,0,0,5"  ContainerType="Outlined" OutlineCornerRadius="15" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" >
                     <Editor Placeholder="Search your saved address" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" HeightRequest="45" VerticalTextAlignment="Center"
 HorizontalOptions="FillAndExpand"  />
                 </input:SfTextInputLayout>
-                <Label Text="Saved Address" Grid.Row="1" Padding="25,15"  FontAttributes="Bold" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"
+                <Label Text="Saved Address" Grid.Row="1" Padding="25,15"  FontAttributes="Bold" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}"
    TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />
                 <VerticalStackLayout Grid.Row="2" Margin="15,0" BindableLayout.ItemsSource="{Binding CurrentUser.Addresses}">
                     <BindableLayout.ItemTemplate>

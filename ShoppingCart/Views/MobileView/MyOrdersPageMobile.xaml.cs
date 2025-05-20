@@ -4,18 +4,14 @@ namespace ShoppingCart.Views.MobileView;
 
 public partial class MyOrdersPageMobile : ContentPage
 {
-    private readonly Action _navigateBack;
 
     ShoppingCartViewModel shoppingCartViewModel;
 
     public MyOrdersPageMobile(ShoppingCartViewModel viewModel)
 	{
 		InitializeComponent();
-        if (shoppingCartViewModel != null)
-        {
-            shoppingCartViewModel = viewModel;
-            BindingContext = shoppingCartViewModel;
-        }
+        shoppingCartViewModel = viewModel;
+        BindingContext = shoppingCartViewModel;
     }
 
     private async void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)

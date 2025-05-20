@@ -9,13 +9,13 @@ public partial class SettingsPageDesktop : ContentView
         shoppingCartViewModel = viewModel;
     }
 
-    private async void MyOrders_Tapped(object sender, TappedEventArgs e)
+    private void MyOrders_Tapped(object sender, TappedEventArgs e)
     {
         var notificationsView = new MyOrdersPageDesktop(shoppingCartViewModel);
         this.Content = notificationsView;
     }
 
-    private async void Notifications_Tapped(object sender, TappedEventArgs e)
+    private void Notifications_Tapped(object sender, TappedEventArgs e)
     {
         var notificationsView = new NotificationsPageDesktop(shoppingCartViewModel);
         this.Content = notificationsView;
@@ -23,7 +23,10 @@ public partial class SettingsPageDesktop : ContentView
 
     private void SfSwitch_StateChanged(object sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
     {
-          App.Current.UserAppTheme = (bool)sfSwitch.IsOn ? AppTheme.Dark : AppTheme.Light;
+        if (App.Current != null)
+        {
+            App.Current.UserAppTheme = (sfSwitch.IsOn ?? false) ? AppTheme.Dark : AppTheme.Light;
+        }
     }
 
     private void PaymentMethod_Tapped(object sender, TappedEventArgs e)

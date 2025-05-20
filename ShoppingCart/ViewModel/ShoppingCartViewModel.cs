@@ -4,7 +4,7 @@ namespace ShoppingCart;
 
 public class ShoppingCartViewModel : ContentPage
 {
-    public UserProfile CurrentUser { get; set; }
+    public UserProfile? CurrentUser { get; set; }
 
     public ObservableCollection<SfRotatorItem> RotatorItems { get; set; }
     public ObservableCollection<SfRotatorItem> DesktopRotatorItems { get; set; }
@@ -18,8 +18,8 @@ public class ShoppingCartViewModel : ContentPage
     public ObservableCollection<Product> OrderedProducts { get; set; } = new ObservableCollection<Product> { };
     public ObservableCollection<string> GenderOptions { get; set; }
 
-    private string _tempUserName;
-    public string TempUserName
+    private string? _tempUserName;
+    public string? TempUserName
     {
         get => _tempUserName;
         set
@@ -81,10 +81,10 @@ public class ShoppingCartViewModel : ContentPage
             // Women Category
            new Product { Name = "Women's Yellow Hoodie", ImageUrl = "womenyellowhoodie.png", PreviewOneImageUrl = "womenyellowhoodie1.png", PreviewTwoImageUrl = "womenyellowhoodie2.png",PreviewThreeImageUrl="womenyellowhoodie3.png", Description = "Vibrant yellow hoodie, cozy and warm.", Price = 40.00m, Category = "Women", Rating = 4.6, IsSaved = false, PurchasedCount = 50, Tags = new List<string> { "Hoodie", "Yellow", "Warm" }, IsAddedToCart = false },
            new Product { Name = "Women's Mint Hoodie", ImageUrl = "minthoodie.png", PreviewOneImageUrl = "minthoodie2.png", Description = "Fresh minty green hoodie for comfort.", Price = 39.00m, Category = "Women", Rating = 4.5, IsSaved = false, PurchasedCount = 45, Tags = new List<string> { "Hoodie", "Mint", "Comfort" }, IsAddedToCart = false },
-           new Product { Name = "Women's Red Varsity Jacket", ImageUrl = "redvarsity.png", PreviewOneImageUrl = "redvarsity1.png", PreviewTwoImageUrl = "redvarsity2.png", Description = "Classic red varsity jacket with white sleeves.", Price = 60.00m, Category = "Women", Rating = 4.8, IsSaved = false, PurchasedCount = 70, Tags = new List<string> { "Jacket", "Varsity", "Red" }, IsAddedToCart = false },
+           new Product { Name = "Women's Red Varsity Jacket", ImageUrl = "redvarsity.png", PreviewOneImageUrl = "redvarsity1.png", Description = "Classic red varsity jacket with white sleeves.", Price = 60.00m, Category = "Women", Rating = 4.8, IsSaved = false, PurchasedCount = 70, Tags = new List<string> { "Jacket", "Varsity", "Red" }, IsAddedToCart = false },
            new Product { Name = "Women's Pink Graphic Tee", ImageUrl = "pinkgraphic.png", PreviewOneImageUrl = "pinkgraphic1.png",PreviewTwoImageUrl="pinkgraphic2.png",PreviewThreeImageUrl="pinkgraphic3.png", Description = "Funky pink graphic t-shirt for casual days.", Price = 25.00m, Category = "Women", Rating = 4.4, IsSaved = false, PurchasedCount = 38, Tags = new List<string> { "T-Shirt", "Pink", "Graphic" }, IsAddedToCart = true },
            new Product { Name = "Women's Peach Dress", ImageUrl = "peachdress.png", PreviewOneImageUrl = "peachdress2.png", PreviewTwoImageUrl = "peachdress3.png", Description = "Elegant peach dress with a flared design.", Price = 48.00m, Category = "Women", Rating = 4.7, IsSaved = false, PurchasedCount = 55, Tags = new List<string> { "Dress", "Peach", "Elegant" }, IsAddedToCart = false },
-           new Product { Name = "Women's Green Dress", ImageUrl = "greendress.png", PreviewOneImageUrl = "greendress1.png", PreviewTwoImageUrl = "greendress2.png",PreviewThreeImageUrl="greendress3.png", Description = "Chic green dress perfect for outings.", Price = 50.00m, Category = "Women", Rating = 4.8, IsSaved = true, PurchasedCount = 60, Tags = new List<string> { "Dress", "Green", "Chic" }, IsAddedToCart = false },
+           new Product { Name = "Women's Green Dress", ImageUrl = "greendress.png", PreviewOneImageUrl = "greendress2.png", PreviewTwoImageUrl = "greendress3.png",PreviewThreeImageUrl="greendress4.png", Description = "Chic green dress perfect for outings.", Price = 50.00m, Category = "Women", Rating = 4.8, IsSaved = true, PurchasedCount = 60, Tags = new List<string> { "Dress", "Green", "Chic" }, IsAddedToCart = false },
            new Product { Name = "Women's Blue Patterned Dress", ImageUrl = "bluepattern.png", PreviewOneImageUrl = "bluepattern2.png", PreviewTwoImageUrl = "bluepattern3.png", Description = "Stylish blue patterned dress for all occasions.", Price = 55.00m, Category = "Women", Rating = 4.9, IsSaved = true, PurchasedCount = 65, Tags = new List<string> { "Dress", "Blue", "Patterned" }, IsAddedToCart = false },
            new Product { Name = "Women's Yellow and Black Jacket", ImageUrl = "yellowblackjacket.png", PreviewOneImageUrl = "yellowblackjacket2.png",PreviewTwoImageUrl="yellowblackjacket3.png", Description = "Trendy yellow and black jacket for a bold look.", Price = 58.00m, Category = "Women", Rating = 4.7, IsSaved = true, PurchasedCount = 58, Tags = new List<string> { "Jacket", "Yellow", "Black" }, IsAddedToCart = false },
             // Kids Category
@@ -112,7 +112,7 @@ public class ShoppingCartViewModel : ContentPage
            new Product { Name = "Floral High Heels", ImageUrl = "floralheels.png", PreviewOneImageUrl = "floralheels1.png",PreviewTwoImageUrl="floralheels2.png", PreviewThreeImageUrl="floralheels3.png",PreviewFourImageUrl="floralheels4.png",  Description = "Elegant high heels with a floral pattern.", Price = 80.00m, Category = "Shoes", Rating = 4.8, IsSaved = true, PurchasedCount = 70, Tags = new List<string> { "High Heels", "Floral", "Elegant" }, IsAddedToCart = false },
            new Product { Name = "Comic Print Sneakers", ImageUrl = "comicprint.png", PreviewOneImageUrl = "comicprint1.png", PreviewTwoImageUrl = "comicprint2.png", PreviewThreeImageUrl = "comicprint3.png", Description = "Unique sneakers with a vibrant comic print.", Price = 50.00m, Category = "Shoes", Rating = 4.7, IsSaved = false, PurchasedCount = 55, Tags = new List<string> { "Sneakers", "Comic", "Vibrant" }, IsAddedToCart = false },
            new Product { Name = "Red Canvas Shoes", ImageUrl = "redcanvas.png", PreviewOneImageUrl = "redcanvas1.png", PreviewTwoImageUrl = "redcanvas2.png", PreviewThreeImageUrl = "redcanvas3.png", Description = "Classic red canvas shoes for everyday wear.", Price = 30.00m, Category = "Shoes", Rating = 4.5, IsSaved = false, PurchasedCount = 35, Tags = new List<string> { "Canvas Shoes", "Red", "Classic" }, IsAddedToCart = false },
-           new Product { Name = "Graphic High Tops", ImageUrl = "graphichightops.png", PreviewOneImageUrl = "graphichightops1.png",PreviewTwoImageUrl="graphichightops2.png", PreviewThreeImageUrl="graphichightops3.png", PreviewFourImageUrl="graphichightops4.png", Description = "High-top sneakers with a bold graphic design.", Price = 55.00m, Category = "Shoes", Rating = 4.9, IsSaved = true, PurchasedCount = 60, Tags = new List<string> { "High Tops", "Graphic", "Bold" }, IsAddedToCart = false },
+           new Product { Name = "Graphic High Tops", ImageUrl = "graphichightops.png", PreviewOneImageUrl = "graphichightops1.png",PreviewTwoImageUrl="graphichightops2.png", PreviewThreeImageUrl="graphichightops3.png", Description = "High-top sneakers with a bold graphic design.", Price = 55.00m, Category = "Shoes", Rating = 4.9, IsSaved = true, PurchasedCount = 60, Tags = new List<string> { "High Tops", "Graphic", "Bold" }, IsAddedToCart = false },
 
             // Sports Category
            new Product { Name = "Black Sports Leggings", ImageUrl = "blackleggings.png", PreviewOneImageUrl = "blackleggings1.png", PreviewTwoImageUrl = "blackleggings2.png", PreviewThreeImageUrl = "blackleggings3.png", Description = "Flexible leggings for sports and workouts.", Price = 30.00m, Category = "Sports", Rating = 4.6, IsSaved = false, PurchasedCount = 45, Tags = new List<string> { "Leggings", "Sports", "Black" }, IsAddedToCart = false },

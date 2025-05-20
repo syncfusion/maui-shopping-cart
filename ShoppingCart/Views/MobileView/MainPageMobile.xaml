@@ -122,7 +122,7 @@
             Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}">
 
                                 <Entry Placeholder="Search product" Focused="entry_Focused" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" HeightRequest="45" VerticalTextAlignment="Center"
-                        HorizontalOptions="FillAndExpand"  />
+                        HorizontalOptions="FillAndExpand"/>
 
                                 
 
@@ -221,13 +221,20 @@
 
         <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="16,20,16,0" RowSpacing="20">
 
-                 <!--Header with Back Arrow and Title--> 
+                 <!--Header with Back Arrow and Title-->
                 <Grid ColumnDefinitions="Auto,*" Grid.Row="0" Grid.Column="0" ColumnSpacing="14">
-                    <Label Text="&#xe70e;" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" FontFamily="MauiSampleFontIcon" FontSize="16" Grid.Column="0" Grid.Row="0"></Label>
+                    <Border StrokeShape="RoundRectangle 10" StrokeThickness="0">
+                        <effects:SfEffectsView>
+                            <effects:SfEffectsView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BackArrowButton_Tapped" />
+                            </effects:SfEffectsView.GestureRecognizers>
+                            <Label Text="&#xe70d;" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" FontFamily="ShoppingCartFontIcon" FontSize="20" ></Label>
+                        </effects:SfEffectsView>
+                    </Border>
                     <Label Text="Search Items" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="14" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"></Label>
                 </Grid>
 
-                 <!--Search Input--> 
+                <!--Search Input--> 
                 <input:SfTextInputLayout Grid.Row="1"
                               OutlineCornerRadius="16"
                               InputViewPadding="10,0,0,5"
@@ -292,7 +299,7 @@
                     </Grid>
 
                     <ListView ItemsSource="{Binding RecentSearchedProducts}"
-                    SelectionMode="Single"
+                    SelectionMode="None"
                     ItemTapped="ListView_ItemTapped">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -307,7 +314,8 @@
 
 
         </syncfusion:SfTabItem>
-<syncfusion:SfTabItem Header="&#xe739;" FontFamily="MauiSampleFontIcon" FontSize="32">
+
+        <syncfusion:SfTabItem Header="&#xe739;" FontFamily="MauiSampleFontIcon" FontSize="32">
             <Grid RowDefinitions="Auto,*" Padding="16,20,16,0" RowSpacing="16" Margin="0,15,0,0">
                 <Grid ColumnDefinitions="Auto,*" Grid.Row="0" Grid.Column="0" ColumnSpacing="14">
                     <Border StrokeShape="RoundRectangle 10" StrokeThickness="0">
@@ -445,7 +453,7 @@
         <syncfusion:SfTabItem Header="&#xe73e;" FontFamily="MauiSampleFontIcon" FontSize="32">
             <Grid RowDefinitions="*,Auto" Margin="0,15,0,0">
                 <Grid Grid.Row="0">
-                    <Grid RowDefinitions="Auto,*" Padding="16,20,16,0" RowSpacing="16">
+                    <Grid RowDefinitions="Auto,*" Padding="10,20,10,0" RowSpacing="16">
                         <Grid ColumnDefinitions="Auto,*" Grid.Row="0" Grid.Column="0" ColumnSpacing="14">
                             <effects:SfEffectsView>
                                 <effects:SfEffectsView.GestureRecognizers>

@@ -10,10 +10,10 @@ namespace ShoppingCart
 {
     public partial class MainPageMobile : ContentPage
     {
-        decimal _totalPrice;
-        decimal _price;
+        decimal? _totalPrice;
+        decimal? _price;
         ShoppingCartViewModel shoppingCartViewModel;
-        private View _originalProfileContent;
+        private View? _originalProfileContent;
         bool isMenuSelected = false;
         public MainPageMobile()
         {
@@ -120,7 +120,7 @@ namespace ShoppingCart
                     shoppingCartViewModel.FilteredProducts?.Clear();
 
                     var filteredProducts = shoppingCartViewModel.Products
-                        .Where(product => product.Category == selectedCategory);
+                        .Where(product => product.Category == selectedCategory.ToString());
 
                     foreach (var product in filteredProducts)
                     {
@@ -196,14 +196,17 @@ namespace ShoppingCart
                 }
                 else
                 {
-                    foreach (var product in shoppingCartViewModel.MyCartProducts)
+                    if(shoppingCartViewModel.MyCartProducts !=null)
                     {
-                        _price += (decimal)product.Price;
-                    }
+                        foreach (var product in shoppingCartViewModel.MyCartProducts)
+                        {
+                            _price += product.Price;
+                        }
 
-                    _totalPrice = (_price + 40);
-                    priceLabel.Text = $"${_price}";
-                    totalAmountLabel.Text = $"${_totalPrice}";
+                        _totalPrice = (_price + 40);
+                        priceLabel.Text = $"${_price}";
+                        totalAmountLabel.Text = $"${_totalPrice}";
+                    }
                 }
                
             }
@@ -219,7 +222,7 @@ namespace ShoppingCart
                 {
                     quantity++;
                     quantityLabel.Text = quantity.ToString("D2");
-                    _price += (decimal)product.Price;
+                    _price += product.Price;
                     priceLabel.Text = $"${_price}";
                     _totalPrice = (_price + 40);
                     totalAmountLabel.Text = $"${_totalPrice}";
@@ -252,7 +255,7 @@ namespace ShoppingCart
             }
 
             var filtered = shoppingCartViewModel.Products
-                .Where(p => p.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+                .Where(p => p.Name !=null && p.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase))
                 .ToList();
 
             shoppingCartViewModel.FilteredProducts!.Clear();
@@ -295,16 +298,19 @@ namespace ShoppingCart
                         product.IsAddedToCart = false;
                         shoppingCartViewModel.FindCartProducts();
                         _price = 0;
-                        foreach (var item in shoppingCartViewModel.MyCartProducts)
+                        if(shoppingCartViewModel.MyCartProducts !=null)
                         {
-                            _price += (decimal)item.Price;
+                            foreach (var item in shoppingCartViewModel.MyCartProducts)
+                            {
+                                _price += item.Price;
+                            }
                         }
                         this.BindingContext = shoppingCartViewModel;
                         quantityLabel.Text = "01";
                         priceLabel.Text = $"${_price}";
                         _totalPrice = (_price + 40);
                         totalAmountLabel.Text = $"${_totalPrice}";
-                        if (shoppingCartViewModel.MyCartProducts.Count == 0)
+                        if (shoppingCartViewModel.MyCartProducts?.Count == 0)
                         {
                             CartDetailsLayout.IsVisible = false;
                             popup.IsOpen = true;
@@ -313,7 +319,7 @@ namespace ShoppingCart
                     else
                     {
                         quantityLabel.Text = quantity.ToString("D2");
-                        _price -= (decimal)product.Price;
+                        _price -= product.Price;
                         priceLabel.Text = $"${_price}";
                         _totalPrice = (_price + 40);
                         totalAmountLabel.Text = $"${_totalPrice}";
@@ -360,7 +366,10 @@ namespace ShoppingCart
         }
         private void SfSwitch_StateChanged(object sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
         {
-            App.Current.UserAppTheme = (bool)sfSwitch.IsOn ? AppTheme.Dark : AppTheme.Light;
+            if (App.Current != null)
+            {
+                App.Current.UserAppTheme = (sfSwitch.IsOn ?? false) ? AppTheme.Dark : AppTheme.Light;
+            }
         }
         private void Payment_Tapped(object sender, TappedEventArgs e)
         {
@@ -438,7 +447,7 @@ namespace ShoppingCart
             return new Label
             {
                 Text = title,
-                Margin = new Thickness(15, 35,0,0),
+                Margin = new Thickness(15, 30,0,0),
                 FontSize = 14,
                 VerticalTextAlignment = TextAlignment.Center
             };

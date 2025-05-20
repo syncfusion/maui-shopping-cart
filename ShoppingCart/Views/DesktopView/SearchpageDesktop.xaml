@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingCart.SearchpageDesktop"
+             xmlns:listview="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit">
+    <Grid RowDefinitions="60,*">
+        <Grid x:Name="BackArrow" Margin="0,20,0,0" ColumnDefinitions="Auto,Auto">
+            <Border StrokeShape="RoundRectangle 10" StrokeThickness="0">
+                <effects:SfEffectsView>
+                    <effects:SfEffectsView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackArrow_Tapped" />
+                    </effects:SfEffectsView.GestureRecognizers>
+                    <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                </effects:SfEffectsView>
+            </Border>
+            <Label Grid.Column="1" x:Name="productnamelabel" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+        </Grid>
+        <listview:SfListView Grid.Row="1" x:Name="listview" ItemsSource="{Binding FilteredProducts}" AutoFitMode="Height" SelectionMode="None" ScrollBarVisibility="Never" ItemTapped="SfListView_ItemTapped">
+            <listview:SfListView.ItemsLayout>
+                <listview:GridLayout x:Name="listView" />
+            </listview:SfListView.ItemsLayout>
+
+            <listview:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="5" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light}, Dark={StaticResource ContentBackgroundAlt2-Dark}}" StrokeShape="RoundRectangle 8">
+                        <StackLayout Padding="15,10,15,10">
+                            <Grid ColumnDefinitions="*,Auto" Padding="5">
+                                <Image Source="{Binding ImageUrl}" Aspect="AspectFit" HeightRequest="171" Margin="0,5,0,0" Grid.ColumnSpan="2"/>
+                                <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2">
+                                    <Label Text="&#xe71b;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}"/>
+                                    <Label Text="{Binding Rating}" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                            <Label Text="{Binding Name}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                            <Grid ColumnDefinitions="*,auto">
+                                <Label Text="{Binding Price}" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                                <Label Text="&#xe71a;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" HorizontalOptions="End">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
+                                            <Setter Property="Text" Value="&#xe701;" />
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
+                                            <Setter Property="Text" Value="&#xe71a;" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ToggleSavedStatus" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </StackLayout>
+                    </Border>
+
+                </DataTemplate>
+            </listview:SfListView.ItemTemplate>
+        </listview:SfListView>
+    </Grid>
+</ContentView>
