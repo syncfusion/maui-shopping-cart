@@ -17,8 +17,8 @@
                                             <buttons:SwitchSettings
                                  TrackStroke="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
                                  TrackBackground="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
-                                 ThumbStroke="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textcolor-Dark}}" 
-                                 ThumbBackground="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textcolor-Dark}}" />
+                                 ThumbStroke="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" 
+                                 ThumbBackground="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" />
                                         </Setter.Value>
                                     </Setter>
                                 </VisualState.Setters>
@@ -30,8 +30,8 @@
                                             <buttons:SwitchSettings
                                             TrackStroke="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" 
                                             TrackBackground="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" 
-                                            ThumbStroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource textcolor-Dark}}" 
-                                            ThumbBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource textcolor-Dark}}" />
+                                            ThumbStroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource textColor-Dark}}" 
+                                            ThumbBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource textColor-Dark}}" />
                                         </Setter.Value>
                                     </Setter>
                                 </VisualState.Setters>

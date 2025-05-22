@@ -16,10 +16,10 @@
                                     <Setter Property="SwitchSettings">
                                         <Setter.Value>
                                             <buttons:SwitchSettings
-                                        TrackStroke="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
-                                        TrackBackground="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
-                                        ThumbStroke="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" 
-                                        ThumbBackground="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" />
+                                 TrackStroke="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
+                                 TrackBackground="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
+                                 ThumbStroke="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" 
+                                 ThumbBackground="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" />
                                         </Setter.Value>
                                     </Setter>
                                 </VisualState.Setters>
@@ -29,10 +29,10 @@
                                     <Setter Property="SwitchSettings">
                                         <Setter.Value>
                                             <buttons:SwitchSettings
-                                                   TrackStroke="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" 
-                                                   TrackBackground="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" 
-                                                   ThumbStroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource textColor-Dark}}" 
-                                                   ThumbBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource textColor-Dark}}" />  
+                                            TrackStroke="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" 
+                                            TrackBackground="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" 
+                                            ThumbStroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource textColor-Dark}}" 
+                                            ThumbBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource textColor-Dark}}" />
                                         </Setter.Value>
                                     </Setter>
                                 </VisualState.Setters>
@@ -58,8 +58,8 @@
      TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
             </HorizontalStackLayout>
 
-            <Border StrokeShape="RoundRectangle 20" Padding="10" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt-Light}, Dark={StaticResource ContentBackgroundAlt-Dark}}" WidthRequest="400" HorizontalOptions="Start" Margin="30,20,0,0"
-     BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt-Light}, Dark={StaticResource ContentBackgroundAlt-Dark}}">
+            <Border StrokeShape="RoundRectangle 20" Padding="10" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light}, Dark={StaticResource ContentBackgroundAlt1-Dark}}" WidthRequest="400" HorizontalOptions="Start" Margin="30,20,0,0"
+     BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light}, Dark={StaticResource ContentBackgroundAlt1-Dark}}">
                 <Grid ColumnDefinitions="Auto,*,Auto" VerticalOptions="Center" ColumnSpacing="10">
                     <Label Text="&#xe709;  " FontFamily="ShoppingCartFontIcon" VerticalOptions="Center" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
                     <Label Text="Sales and promotions" VerticalOptions="Center" Grid.Column="1"
