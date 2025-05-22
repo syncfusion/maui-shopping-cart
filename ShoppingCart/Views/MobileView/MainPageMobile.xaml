@@ -100,7 +100,7 @@
                                  TrackStroke="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
                                  TrackBackground="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
                                  ThumbStroke="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" 
-                                 ThumbBackground="{AppThemeBinding Light={StaticResource textcolor-light},Dark={StaticResource textColor-Dark}}" />
+                                 ThumbBackground="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" />
                                         </Setter.Value>
                                     </Setter>
                                 </VisualState.Setters>
@@ -299,11 +299,9 @@
                          x:Name="recentsearch"
                          IsVisible="True"
                          Spacing="10">
-                    <Image Source="clock.png"
-               WidthRequest="40"
-               HeightRequest="40" />
+                    <Label Text="&#xe714;" FontFamily="ShoppingCartFontIcon" FontSize="24" HorizontalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
                     <Label Text="You have no recent searches"
-               TextColor="{AppThemeBinding Light={StaticResource ContentForegroundAlt1-Light},Dark={StaticResource ContentForegroundAlt1-Dark}}"
+               TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"
                HorizontalTextAlignment="Center"
                FontSize="14" />
                 </VerticalStackLayout>

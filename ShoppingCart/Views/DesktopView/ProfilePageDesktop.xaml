@@ -68,7 +68,7 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
             Background="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"/>
                     </chip:SfBadgeView.Content>
                     <chip:SfBadgeView.BadgeSettings>
-                    <chip:BadgeSettings FontFamily="ShoppingCartFontIcon" Background="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" Offset="-10,-10" Position="BottomRight" />
+                    <chip:BadgeSettings Type="None" FontFamily="ShoppingCartFontIcon" Background="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" Offset="-10,-10" Position="BottomRight" />
                     </chip:SfBadgeView.BadgeSettings>
                 </chip:SfBadgeView>
 
@@ -90,7 +90,10 @@ TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark
             <chip:SfTextInputLayout Hint="Gender"  x:Name="genderInput" ContainerType="Outlined" 
                         WidthRequest="400" HeightRequest="80" IsHintAlwaysFloated="True" Style="{StaticResource textInputStyle}">
                 <editors:SfComboBox TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"
-                                    
+                                    DropDownItemTextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}"
+                                    DropDownBackground="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}" 
+                                    DropDownIconColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" 
+                                    ClearButtonIconColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}"
                     x:Name="genderComboBox"
                     SelectedIndex="1">
                     <editors:SfComboBox.ItemsSource>

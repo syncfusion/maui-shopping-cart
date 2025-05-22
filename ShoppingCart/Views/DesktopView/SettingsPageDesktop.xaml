@@ -23,7 +23,7 @@
                                             <buttons:SwitchSettings
                                  TrackStroke="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
                                  TrackBackground="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
-                                 ThumbStroke="{AppThemeBinding Light={StaticResource textcolor-light},Dark={StaticResource textColor-Dark}}" 
+                                 ThumbStroke="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" 
                                  ThumbBackground="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" />
                                         </Setter.Value>
                                     </Setter>

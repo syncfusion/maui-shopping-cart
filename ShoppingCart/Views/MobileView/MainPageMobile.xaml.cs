@@ -381,6 +381,15 @@ namespace ShoppingCart
             {
                 App.Current.UserAppTheme = (sfSwitch.IsOn ?? false) ? AppTheme.Dark : AppTheme.Light;
             }
+            if (Application.Current!.RequestedTheme == AppTheme.Dark)
+            {
+                Application.Current.Resources["SfListViewItemRippleBackground"] = Color.FromArgb("#1C1B1F");
+
+            }
+            else
+            {
+                Application.Current.Resources["SfListViewItemRippleBackground"] = Color.FromArgb("#FFFBFE");
+            }
         }
         private void Payment_Tapped(object sender, TappedEventArgs e)
         {

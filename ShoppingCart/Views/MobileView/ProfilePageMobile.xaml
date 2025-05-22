@@ -70,7 +70,11 @@
                                 ContainerType="Outlined"
                                 IsHintAlwaysFloated="True"
                                 HorizontalOptions="FillAndExpand" Style="{StaticResource textInputStyle}">
-                    <editors:SfComboBox x:Name="genderComboBox" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" SelectedIndex="1">
+                    <editors:SfComboBox x:Name="genderComboBox" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" SelectedIndex="1"
+                                        DropDownItemTextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}"
+                                        DropDownBackground="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}" 
+                                        DropDownIconColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" 
+                                        ClearButtonIconColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}">
                         <editors:SfComboBox.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>Male</x:String>
@@ -98,7 +102,7 @@
                     Background="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}"/>
             </chip:SfBadgeView.Content>
             <chip:SfBadgeView.BadgeSettings>
-                <chip:BadgeSettings FontFamily="ShoppingCartFontIcon" Background="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}" Position="BottomRight" Icon="Prohibit1" />
+                <chip:BadgeSettings Type="None" FontFamily="ShoppingCartFontIcon" Background="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}" Position="BottomRight" />
             </chip:SfBadgeView.BadgeSettings>
         </chip:SfBadgeView>
     </Grid>
