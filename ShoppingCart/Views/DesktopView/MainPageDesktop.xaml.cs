@@ -1,5 +1,8 @@
 ﻿using ShoppingCart;
 using System.Collections.ObjectModel;
+using Syncfusion.Maui.Core.Internals;
+using Syncfusion.Maui.Core;
+using PointerEventArgs = Syncfusion.Maui.Core.Internals.PointerEventArgs;
 
 namespace ShoppingCart
 {
@@ -30,6 +33,12 @@ namespace ShoppingCart
             _tabBorders.Add(SavedProductsBorder);
             _tabBorders.Add(CartBorder);
             _tabBorders.Add(AccountBorder);
+
+            Application.Current!.RequestedThemeChanged += (s, e) =>
+            {
+                SetSelected(_selectedBorder);
+                UpdateColorsForTheme();
+            };
         }
          void AddTapGesture(Border border)
         {
@@ -101,8 +110,9 @@ namespace ShoppingCart
         }
 
         void SetSelected(Border border)
-        {            // Reset previous selection
-            if (_selectedBorder != null && _selectedBorder.Content is HorizontalStackLayout prevLayout) {
+        {
+            // Reset previous selection
+            if (_selectedBorder != null && _selectedBorder.Content is SfEffectsViewAdv effectsView && effectsView.Content is HorizontalStackLayout prevLayout) {
                 _selectedBorder.BackgroundColor = Colors.Transparent;
 
                 if (prevLayout.Children.Count >= 2) {
@@ -110,28 +120,25 @@ namespace ShoppingCart
                     var prevTextLabel = prevLayout.Children[1] as Label;
 
                     if (Application.Current!.RequestedTheme == AppTheme.Dark) {
-                        prevIconLabel!.TextColor = Color.FromArgb("#C9C6C8");
-                        prevTextLabel!.TextColor = Colors.White;
+                        prevIconLabel!.TextColor = Color.FromArgb("#CAC4D0");
+                        prevTextLabel!.TextColor = Color.FromArgb("#E6E1E5");
+                        
                     }
                     else {
-                        prevIconLabel!.TextColor = Color.FromArgb("#474648"); // icon color light
-                        prevTextLabel!.TextColor = Color.FromArgb("#313032"); // content text color light
+                        prevIconLabel!.TextColor = Color.FromArgb("#49454F"); // icon color light
+                        prevTextLabel!.TextColor = Color.FromArgb("#1C1B1F"); // content text color light
+                        
                     }
                 }
             }
 
             // Set new selection
-            border.BackgroundColor = Color.FromArgb("#7633DA");
+            border.BackgroundColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#EADDFF") : Color.FromArgb("#4A4458");
 
-            if (border.Content is HorizontalStackLayout layout && layout.Children.Count >= 2) {
+            if (border.Content is SfEffectsViewAdv effectsViewAdv && effectsViewAdv.Content is HorizontalStackLayout layout && layout.Children.Count >= 2) {
                 var iconLabel = layout.Children[0] as Label;
                 var textLabel = layout.Children[1] as Label;
                 var text = textLabel?.Text;
-
-                // Selected tab color
-                iconLabel!.TextColor = Colors.White;
-                textLabel!.TextColor = Colors.White;
-
 
                 selectedContent.IsVisible = true;
 
@@ -157,6 +164,37 @@ namespace ShoppingCart
                 _selectedBorder = border;
                 selectedtab.Children.Clear();
                 selectedtab.Children.Add(selectedContent);
+            }
+        }
+
+        void UpdateColorsForTheme()
+        {
+            foreach (var border in _tabBorders)
+            {
+                if (border == _selectedBorder)
+                {
+                    border.BackgroundColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#EADDFF") : Color.FromArgb("#4A4458");
+                    if (border.Content is SfEffectsViewAdv effectsViewAdvSelected && effectsViewAdvSelected.Content is HorizontalStackLayout layoutSelected && layoutSelected.Children.Count >= 2)
+                    {
+                        var iconLabel = layoutSelected.Children[0] as Label;
+                        var textLabel = layoutSelected.Children[1] as Label;
+
+                        iconLabel!.TextColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#49454F") : Color.FromArgb("#CAC4D0");
+                        textLabel!.TextColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#1C1B1F") : Color.FromArgb("#E6E1E5");
+                    }
+                    continue;
+                }
+
+                border.BackgroundColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#00000000") : Color.FromArgb("#00000000");
+
+                if (border.Content is SfEffectsViewAdv effectsViewAdv && effectsViewAdv.Content is HorizontalStackLayout layout && layout.Children.Count >= 2)
+                {
+                    var iconLabel = layout.Children[0] as Label;
+                    var textLabel = layout.Children[1] as Label;
+
+                    iconLabel!.TextColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#49454F") : Color.FromArgb("#CAC4D0");
+                    textLabel!.TextColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#1C1B1F") : Color.FromArgb("#E6E1E5");
+                }
             }
         }
 
@@ -279,5 +317,24 @@ namespace ShoppingCart
             entry.Text = string.Empty;
         }
     }
-    
+
+
+    internal class SfEffectsViewAdv : SfEffectsView, ITouchListener, IGestureListener
+    {
+        public new void OnTouch(PointerEventArgs e)
+        {
+            if (e.Action == PointerActions.Entered)
+            {
+                this.ApplyEffects(SfEffects.Highlight, RippleStartPosition.Default, new System.Drawing.Point((int)e.TouchPoint.X, (int)e.TouchPoint.Y), false);
+            }
+            else if (e.Action == PointerActions.Released || e.Action == PointerActions.Cancelled || e.Action == PointerActions.Exited)
+            {
+                this.Reset();
+            }
+            else if (e.Action == PointerActions.Pressed)
+            {
+                this.ApplyEffects(SfEffects.Ripple, RippleStartPosition.Default, new System.Drawing.Point((int)e.TouchPoint.X, (int)e.TouchPoint.Y), false);
+            }
+        }
+    }
 }

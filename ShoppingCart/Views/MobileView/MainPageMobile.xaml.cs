@@ -185,6 +185,17 @@ namespace ShoppingCart
             {
                 shoppingCartViewModel.FindSavedProducts();
             }
+            if (e.NewIndex == 3 && shoppingCartViewModel != null)
+            {
+                if (Application.Current!.RequestedTheme == AppTheme.Dark)
+                {
+                    sfSwitch.IsOn = true;
+                }
+                else
+                {
+                    sfSwitch.IsOn = false;
+                }
+            }
             if (e.NewIndex == 4 && shoppingCartViewModel!=null)
             {
                 shoppingCartViewModel.FindCartProducts();

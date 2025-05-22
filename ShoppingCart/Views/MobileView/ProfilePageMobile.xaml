@@ -11,6 +11,34 @@
              xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              Title="ProfilePageMobile">
 
+    <ContentPage.Resources>
+        <Style x:Key="textInputStyle" TargetType="input:SfTextInputLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup>
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Stroke">
+                                    <Setter.Value>
+                                        <AppThemeBinding Light="{StaticResource placeholdercolor-Light}" Dark="{StaticResource placeholderColor-Dark}" />
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="OutlinedFocused">
+                            <VisualState.Setters>
+                                <Setter Property="Stroke">
+                                    <Setter.Value>
+                                        <AppThemeBinding Light="{StaticResource focused-stroke-light}" Dark="{StaticResource focused-stroke-Dark}" />
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
     <Grid RowDefinitions="*,*" Margin="0,50">
         <Border HeightRequest="790" StrokeShape="RoundRectangle 24,24,0,0" Margin="0,35,0,0" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}"
            BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}">
@@ -20,28 +48,28 @@
                 <chip:SfTextInputLayout Hint="Name" x:Name="nameInput" HeightRequest="90"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
-                                HorizontalOptions="FillAndExpand">
+                                HorizontalOptions="FillAndExpand" Style="{StaticResource textInputStyle}">
                     <Entry Text="{Binding TempUserName}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}"/>
                 </chip:SfTextInputLayout>
 
                 <chip:SfTextInputLayout Hint="Email" x:Name="mailInput" HeightRequest="90"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
-                                HorizontalOptions="FillAndExpand">
+                                HorizontalOptions="FillAndExpand" Style="{StaticResource textInputStyle}">
                     <Entry Text="{Binding CurrentUser.Email}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}"/>
                 </chip:SfTextInputLayout>
 
                 <chip:SfTextInputLayout Hint="Phone Number" x:Name="phoneNumberInput" HeightRequest="90"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
-                                HorizontalOptions="FillAndExpand">
+                                HorizontalOptions="FillAndExpand" Style="{StaticResource textInputStyle}">
                     <Entry x:Name="numberentry" Text="{Binding CurrentUser.MobileNumber}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}"/>
                 </chip:SfTextInputLayout>
 
                 <chip:SfTextInputLayout Hint="Gender" x:Name="genderInput" HeightRequest="90"
                                 ContainerType="Outlined"
                                 IsHintAlwaysFloated="True"
-                                HorizontalOptions="FillAndExpand">
+                                HorizontalOptions="FillAndExpand" Style="{StaticResource textInputStyle}">
                     <editors:SfComboBox x:Name="genderComboBox" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" SelectedIndex="1">
                         <editors:SfComboBox.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
@@ -57,7 +85,7 @@
                 <buttons:SfButton HorizontalOptions="Center" Text="Update Profile" WidthRequest="350" Clicked="SfButton_Clicked" />
             </StackLayout>
         </Border>
-        <chip:SfBadgeView HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,20,20">
+        <chip:SfBadgeView HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,20,20" BadgeText="&#xe70c;">
             <chip:SfBadgeView.Content>
                 <chip:SfAvatarView ContentType="Initials" HorizontalOptions="Center" VerticalOptions="Center"
                     InitialsType="SingleCharacter" Margin="20,20,0,0"
@@ -70,7 +98,7 @@
                     Background="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}"/>
             </chip:SfBadgeView.Content>
             <chip:SfBadgeView.BadgeSettings>
-                <chip:BadgeSettings Background="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}" Position="BottomRight" Icon="Prohibit1" />
+                <chip:BadgeSettings FontFamily="ShoppingCartFontIcon" Background="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}" Position="BottomRight" Icon="Prohibit1" />
             </chip:SfBadgeView.BadgeSettings>
         </chip:SfBadgeView>
     </Grid>

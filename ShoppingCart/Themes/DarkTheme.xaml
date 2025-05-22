@@ -38,5 +38,8 @@
     <Color x:Key="SeriesColor2-Dark">#33B677</Color>
     <Color x:Key="SeriesColor3-Dark">#DA9646</Color>
     <Color x:Key="ContentBackgroundAlt3-Dark">#302D38</Color>
+    <Color x:Key="ContentBackgroundSelected-Dark">#4A4458</Color>
+    <Color x:Key="ContentBackgroundHovered-Dark">#141C1B1F</Color>
+    <Color x:Key="ContentBackgroundPressed-Dark">#14E6E1E5</Color>
 
 </ResourceDictionary>
