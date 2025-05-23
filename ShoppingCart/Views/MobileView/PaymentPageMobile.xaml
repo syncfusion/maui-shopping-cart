@@ -14,55 +14,55 @@
                 <effects:SfEffectsView.GestureRecognizers>
                     <TapGestureRecognizer Tapped="BackArrow_Tapped" />
                 </effects:SfEffectsView.GestureRecognizers>
-                <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
+                <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
             </effects:SfEffectsView>
                 </Border>
-            <Label Grid.Column="1" Text="Payment" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+            <Label Grid.Column="1" Text="Payment" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
         </Grid>
         <!-- UPI Section -->
 
-        <Border Grid.Row="1" StrokeShape="RoundRectangle 24,24,0,0" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" Margin="0,20,0,0">
+        <Border Grid.Row="1" StrokeShape="RoundRectangle 24,24,0,0" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt3Light},Dark={StaticResource ShoppingCartContentBackgroundAlt3Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt3Light},Dark={StaticResource ShoppingCartContentBackgroundAlt3Dark}}" Margin="0,20,0,0">
             <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,*" RowSpacing="10">
                 <Label Text="UPI" Margin="20,15,0,0"
                    FontAttributes="Bold"
-                   TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />
+                   TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" />
                 <Grid Padding="0,10,0,10" Grid.Row="1" ColumnSpacing="10"
-                  BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" ColumnDefinitions="Auto,*">
+                  BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" ColumnDefinitions="Auto,*">
                     <Image Source="onlinepayment.png" Margin="20,0,0,0"
                        WidthRequest="24" HeightRequest="24" 
                        VerticalOptions="Center" />
                     <Label Text="Shopping cart UPI" Grid.Column="1"
                        VerticalOptions="Center"
                        
-                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />
+                       TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" />
                 </Grid>
 
                 <!-- Saved Cards Section -->
                 <Label Text="Saved cards" Margin="20,15,0,0" Grid.Row="2"
                    FontAttributes="Bold"
-                   TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />
+                   TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" />
 
                 <!-- Card Display -->
                 <VerticalStackLayout Padding="20,10,0,10" Grid.Row="3"
-                  BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}"
+                  BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"
                   Spacing="10">
                     <HorizontalStackLayout Spacing="10" >
                     <Image Source="visa.png"
                        WidthRequest="36" HeightRequest="20"
                        VerticalOptions="Center" />
                     <VerticalStackLayout>
-                        <Label Text="Personal" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />
-                        <Label Text="**** 8487" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" FontSize="12" />
+                        <Label Text="Personal" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" />
+                        <Label Text="**** 8487" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" FontSize="12" />
                     </VerticalStackLayout>
                     </HorizontalStackLayout>
 
                     <Grid ColumnSpacing="10" ColumnDefinitions="Auto,*" >
-                        <Label Text="&#xe707;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
+                        <Label Text="&#xe707;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" 
                            WidthRequest="20" HeightRequest="20"
                            VerticalOptions="Center"
                            />
                         <Label Text="Add new card" Grid.Column="1"
-                           TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"
+                           TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}"
                            VerticalOptions="Center" />
                     </Grid>
                 </VerticalStackLayout>
@@ -70,18 +70,18 @@
                 <!-- Wallet Section -->
                 <Label Text="Wallet" Margin="20,15,0,0" Grid.Row="4"
                    FontAttributes="Bold"
-                   TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />
+                   TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" />
 
                 <!-- Wallet Option -->
                 <Grid Padding="20" Grid.Row="5" ColumnDefinitions="Auto,*" MinimumHeightRequest="500"
-                  BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}"
+                  BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"
                   ColumnSpacing="10">
                     <Image Source="phonepeicon.png" 
                        WidthRequest="20" HeightRequest="20"
                        VerticalOptions="Start" />
                     <Label Text="Phonepe" Grid.Column="1"
                        VerticalOptions="Start"
-                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />
+                       TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" />
                 </Grid>
             </Grid>
         </Border>

@@ -16,7 +16,7 @@
                             <VisualState.Setters>
                                 <Setter Property="Background">
                                     <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource content-bg-Light}" Dark="{StaticResource content-bg-Dark}"/>
+                                        <AppThemeBinding Light="{StaticResource ShoppingCartContentBackgroundLightVariant}" Dark="{StaticResource ShoppingCartContentBackgroundDarkVariant}"/>
                                     </Setter.Value>
                                 </Setter>
                             </VisualState.Setters>
@@ -25,7 +25,7 @@
                             <VisualState.Setters>
                                 <Setter Property="BackgroundColor" >
                                     <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource content-bg-Light}" Dark="{StaticResource content-bg-Dark}"/>
+                                        <AppThemeBinding Light="{StaticResource ShoppingCartContentBackgroundLightVariant}" Dark="{StaticResource ShoppingCartContentBackgroundDarkVariant}"/>
                                     </Setter.Value>
                                 </Setter>
                             </VisualState.Setters>
@@ -34,7 +34,7 @@
                             <VisualState.Setters>
                                 <Setter Property="Background">
                                     <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource content-bg-Light}" Dark="{StaticResource content-bg-Dark}"/>
+                                        <AppThemeBinding Light="{StaticResource ShoppingCartContentBackgroundLightVariant}" Dark="{StaticResource ShoppingCartContentBackgroundDarkVariant}"/>
                                     </Setter.Value>
                                 </Setter>
 
@@ -44,7 +44,7 @@
                             <VisualState.Setters>
                                 <Setter Property="Background">
                                     <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource content-bg-Light}" Dark="{StaticResource content-bg-Dark}"/>
+                                        <AppThemeBinding Light="{StaticResource ShoppingCartContentBackgroundLightVariant}" Dark="{StaticResource ShoppingCartContentBackgroundDarkVariant}"/>
                                     </Setter.Value>
                                 </Setter>
                             </VisualState.Setters>
@@ -62,7 +62,7 @@
                             <VisualState.Setters>
                                 <Setter Property="BackgroundColor">
                                     <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource ContentBackgroundAlt2-Light}" Dark="{StaticResource ContentBackgroundAlt2-Dark}" />
+                                        <AppThemeBinding Light="{StaticResource ShoppingCartContentBackgroundAlt2Light}" Dark="{StaticResource ShoppingCartContentBackgroundAlt2Dark}" />
                                     </Setter.Value>
                                 </Setter>
                             </VisualState.Setters>
@@ -71,7 +71,7 @@
                             <VisualState.Setters>
                                 <Setter Property="BackgroundColor">
                                     <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource ContentBackgroundHovered-Light}" Dark="{StaticResource ContentBackgroundHovered-Dark}" />
+                                        <AppThemeBinding Light="{StaticResource ShoppingCartContentBackgroundHoveredLight}" Dark="{StaticResource ShoppingCartContentBackgroundHoveredDark}" />
                                     </Setter.Value>
                                 </Setter>
                             </VisualState.Setters>
@@ -80,7 +80,7 @@
                             <VisualState.Setters>
                                 <Setter Property="BackgroundColor">
                                     <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource ContentBackgroundSelected-Light}" Dark="{StaticResource ContentBackgroundSelected-Dark}" />
+                                        <AppThemeBinding Light="{StaticResource ShoppingCartContentBackgroundSelectedLight}" Dark="{StaticResource ShoppingCartContentBackgroundSelectedDark}" />
                                     </Setter.Value>
                                 </Setter>
                             </VisualState.Setters>
@@ -98,33 +98,33 @@
                     <effects:SfEffectsView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="BackArrow_Tapped" />
                     </effects:SfEffectsView.GestureRecognizers>
-                    <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
+                    <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                 </effects:SfEffectsView>
             </Border>
-            <Label Text="My Orders" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+            <Label Text="My Orders" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" />
                 </HorizontalStackLayout>
         <list:SfListView WidthRequest="800" Grid.Row="1" ItemsSource="{Binding OrderedProducts}"   SelectionMode="None" AutoFitMode="DynamicHeight" ItemSpacing="10" ScrollBarVisibility="Never" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
             <list:SfListView.ItemTemplate>
                 <DataTemplate>
-                    <Border MinimumWidthRequest="450" BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}" StrokeShape="RoundRectangle 8" Style="{StaticResource BorderStyle}">
+                    <Border MinimumWidthRequest="450" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" StrokeShape="RoundRectangle 8" Style="{StaticResource BorderStyle}">
                         <effects:SfEffectsView>
                             <StackLayout>
                                 <Grid ColumnDefinitions="Auto,*" Padding="15">
                                     <Image Source="{Binding ImageUrl}" Grid.Row="0" Grid.Column="0" MinimumWidthRequest="151" Aspect="AspectFit" VerticalOptions="Center" />
                                     <StackLayout Grid.Column="1" Grid.Row="0" >
-                                        <VerticalStackLayout>
-                                            <Label Text="{Binding Description}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"></Label>
-                                            <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontSize="16"/>
+                                        <VerticalStackLayout Spacing="5">
+                                            <Label Text="{Binding Description}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontSize="16"></Label>
+                                            <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontSize="16"/>
                                         </VerticalStackLayout>
-                                        <Label Text="&#xe710;" Margin="0,15,0,0" VerticalOptions="End" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundSelected-Light},Dark={StaticResource PrimaryBackgroundSelected-Dark}}" HorizontalOptions="End"  />
+                                        <Label Text="&#xe710;" VerticalOptions="End" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPrimaryBackgroundSelectedLight},Dark={StaticResource ShoppingCartPrimaryBackgroundSelectedDark}}" HorizontalOptions="End"  />
                                         <HorizontalStackLayout>
-                                            <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource SeriesColor6-Light},Dark={StaticResource SeriesColor6-Dark}}" Margin="0,0,4,0" FontSize="14" VerticalTextAlignment="Center"/>
-                                            <Label Text="{Binding Rating}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" />
-                                            <Image Source="line.png" Margin="5,0,5,0"></Image>
-                                            <Label Text="{Binding PurchasedCount, StringFormat='{}{0} bought in past month'}" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" FontSize="12" ></Label>
+                                            <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSeriesColor6Light},Dark={StaticResource ShoppingCartSeriesColor6Dark}}" Margin="0,0,4,0" FontSize="14" VerticalTextAlignment="Center"/>
+                                            <Label Text="{Binding Rating}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" VerticalTextAlignment="Center"/>
+                                            <Label Text="|" FontSize="14" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartBorderLightVariant},Dark={StaticResource ShoppingCartBorderDarkVariant}}" Margin="5,0,5,3"/>
+                                            <Label Text="{Binding PurchasedCount, StringFormat='{}{0} bought in past month'}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" FontSize="12" VerticalTextAlignment="Center"></Label>
                                         </HorizontalStackLayout>
                                         <Grid ColumnDefinitions="*,Auto">
-                                            <Label Text="{Binding Price, StringFormat='{}{0:C}'}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontAttributes="Bold" FontSize="22"></Label>
+                                            <Label Text="{Binding Price, StringFormat='{}{0:C}'}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontAttributes="Bold" FontSize="22"></Label>
                                         </Grid>
                                     </StackLayout>
                                 </Grid>
