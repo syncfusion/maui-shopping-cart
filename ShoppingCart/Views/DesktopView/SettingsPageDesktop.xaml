@@ -21,10 +21,10 @@
                                     <Setter Property="SwitchSettings">
                                         <Setter.Value>
                                             <buttons:SwitchSettings
-                                 TrackStroke="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
-                                 TrackBackground="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
-                                 ThumbStroke="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" 
-                                 ThumbBackground="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" />
+                                 TrackStroke="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" 
+                                 TrackBackground="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" 
+                                 ThumbStroke="{AppThemeBinding Light={StaticResource ShoppingCartTextColorLight},Dark={StaticResource ShoppingCartTextColorDark}}" 
+                                 ThumbBackground="{AppThemeBinding Light={StaticResource ShoppingCartTextColorLight},Dark={StaticResource ShoppingCartTextColorDark}}" />
                                         </Setter.Value>
                                     </Setter>
                                 </VisualState.Setters>
@@ -34,10 +34,10 @@
                                     <Setter Property="SwitchSettings">
                                         <Setter.Value>
                                             <buttons:SwitchSettings
-                                            TrackStroke="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" 
-                                            TrackBackground="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" 
-                                            ThumbStroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource textColor-Dark}}" 
-                                            ThumbBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource textColor-Dark}}" />
+                                            TrackStroke="{AppThemeBinding Light={StaticResource ShoppingCartBorderAlt1Light},Dark={StaticResource ShoppingCartBorderAlt1Dark}}" 
+                                            TrackBackground="{AppThemeBinding Light={StaticResource ShoppingCartBorderAlt1Light},Dark={StaticResource ShoppingCartBorderAlt1Dark}}" 
+                                            ThumbStroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartTextColorDark}}" 
+                                            ThumbBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartTextColorDark}}" />
                                         </Setter.Value>
                                     </Setter>
                                 </VisualState.Setters>
@@ -55,14 +55,14 @@
         </Grid.RowDefinitions>
 
         <Label Text="Settings" FontSize="20"  Margin="5,5,0,20" FontFamily="ShoppingCartFontIcon"
-           TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+           TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" />
 
         <VerticalStackLayout Spacing="10" Grid.Row="1" Padding="5" >
             <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                    <Label Text="&#xe704;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
+                    <Label Text="&#xe704;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}"/>
                     <Label Text="My Order" FontSize="16"
-                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}">
+                       TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="MyOrders_Tapped" />
                         </Label.GestureRecognizers>
@@ -72,9 +72,9 @@
 
             <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                    <Label Text="&#xe709;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
+                    <Label Text="&#xe709;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
                     <Label Text="Notifications" FontSize="16"
-                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}">
+                       TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Notifications_Tapped" />
                         </Label.GestureRecognizers>
@@ -84,9 +84,9 @@
 
             <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                    <Label Text="&#xe717;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
+                    <Label Text="&#xe717;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
                     <Label Text="Payment Methods" FontSize="16"
-                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" >
+                       TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" >
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="PaymentMethod_Tapped"/>
                         </Label.GestureRecognizers>
@@ -96,9 +96,9 @@
 
             <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                    <Label Text="&#xe708;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
+                    <Label Text="&#xe708;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
                     <Label Text="Address" FontSize="16"
-                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" >
+                       TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" >
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Address_Tapped"/>
                         </Label.GestureRecognizers>
@@ -108,9 +108,9 @@
 
             <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                    <Label Text="&#xe716;  " FontFamily="ShoppingCartFontIcon" VerticalOptions="Center" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" />
+                    <Label Text="&#xe716;  " FontFamily="ShoppingCartFontIcon" VerticalOptions="Center" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
                     <Label Text="Dark mode" FontSize="16" VerticalOptions="Center"
-                       TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
+                       TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" />
                     <buttons:SfSwitch x:Name="sfSwitch" HorizontalOptions="EndAndExpand" VerticalOptions="Center" IsOn="True" Margin="200,0,0,0"
                                   StateChanged="SfSwitch_StateChanged" Style="{StaticResource SwitchStyle}"/>
                 </HorizontalStackLayout>

@@ -4,7 +4,7 @@
              xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              x:Class="ShoppingCart.SignUpPageDesktop"
              NavigationPage.HasNavigationBar="False" 
-             BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}">
+             BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}">
 
     <ContentPage.Resources>
         <Style TargetType="input:SfTextInputLayout">
@@ -15,7 +15,7 @@
                             <VisualState.Setters>
                                 <Setter Property="Stroke">
                                     <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource borderLight}" Dark="{StaticResource borderDark}" />
+                                        <AppThemeBinding Light="{StaticResource ShoppingCartBorderNeutralLight}" Dark="{StaticResource ShoppingCartBorderNeutralDark}" />
                                     </Setter.Value>
                                 </Setter>
                             </VisualState.Setters>
@@ -24,7 +24,7 @@
                             <VisualState.Setters>
                                 <Setter Property="Stroke">
                                     <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource focused-stroke-light}" Dark="{StaticResource focused-stroke-Dark}" />
+                                        <AppThemeBinding Light="{StaticResource ShoppingCartFocusedStrokeLight}" Dark="{StaticResource ShoppingCartFocusedStrokeDark}" />
                                     </Setter.Value>
                                 </Setter>
                             </VisualState.Setters>
@@ -35,29 +35,29 @@
         </Style>
     </ContentPage.Resources>
     <Grid >
-        <StackLayout x:Name="signUPLayout" IsVisible="False" HeightRequest="648" BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}" HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
+        <StackLayout x:Name="signUPLayout" IsVisible="False" HeightRequest="648" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}" HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
             <!-- Title -->
-            <Label Text="Sign up" FontSize="24" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" HorizontalOptions="Center" />
+            <Label Text="Sign up" FontSize="24" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" HorizontalOptions="Center" />
 
             <!-- Name Entry -->
             <input:SfTextInputLayout x:Name="nameInput" Hint="Name" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True" >
-                <Entry Placeholder="Name" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"  PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" HeightRequest="45"/>
+                <Entry Placeholder="Name" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"  PlaceholderColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" HeightRequest="45"/>
             </input:SfTextInputLayout>
             <!-- Email Entry -->
             <input:SfTextInputLayout x:Name="emailInput"  Hint="Email" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True"  >
-                <Entry Placeholder="Email" Keyboard="Email" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"  PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" HeightRequest="45"/>
+                <Entry Placeholder="Email" Keyboard="Email" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"  PlaceholderColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" HeightRequest="45"/>
             </input:SfTextInputLayout>
             <input:SfTextInputLayout x:Name="passwordInput" Hint="Password" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True" >
                 <!-- Password Entry -->
-                <Entry Placeholder="Password" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" IsPassword="True"  HeightRequest="45"/>
+                <Entry Placeholder="Password" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" PlaceholderColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" IsPassword="True"  HeightRequest="45"/>
             </input:SfTextInputLayout>
             <!-- Sign Up Button -->
-            <Button Text="Sign up" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" CornerRadius="20" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" Clicked="SignUpButton_Clicked" WidthRequest="328" HeightRequest="50" />
+            <Button Text="Sign up" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" CornerRadius="20" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartTextColorLight},Dark={StaticResource ShoppingCartTextColorDark}}" Clicked="SignUpButton_Clicked" WidthRequest="328" HeightRequest="50" />
 
             <!-- Sign In Redirect -->
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="5">
-                <Label Text="Already have an account?" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                <Label Text="Sign in" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" >
+                <Label Text="Already have an account?" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
+                <Label Text="Sign in" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="SignIn_Tapped"/>
                     </Label.GestureRecognizers>
@@ -65,51 +65,51 @@
             </StackLayout>
         </StackLayout>
 
-        <StackLayout x:Name="signInLayout" BackgroundColor="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}" HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
+        <StackLayout x:Name="signInLayout" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}" HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
             <!-- Title -->
-            <Label Text="Sign in" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Label Text="Sign in" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontAttributes="Bold" HorizontalOptions="Center" />
 
             <!-- Email Entry -->
             <input:SfTextInputLayout  Hint="Email" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True" >
-                <Entry x:Name="signinEmail" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" Placeholder="Email" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" Keyboard="Email" HeightRequest="45"/>
+                <Entry x:Name="signinEmail" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" Placeholder="Email" PlaceholderColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" Keyboard="Email" HeightRequest="45"/>
             </input:SfTextInputLayout>
             <!-- Password Entry -->
             <StackLayout>
                 <input:SfTextInputLayout  Hint="Password" ContainerType="Outlined" WidthRequest="328" HeightRequest="70" ContainerBackground="Transparent" IsHintAlwaysFloated="True" >
-                    <Entry x:Name="signinPassword" Placeholder="Password" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}" PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" IsPassword="True" HeightRequest="45" />
+                    <Entry x:Name="signinPassword" Placeholder="Password" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" PlaceholderColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" IsPassword="True" HeightRequest="45" />
                 </input:SfTextInputLayout>
-                <Label  Text="Forgot password?" VerticalOptions="Center" HorizontalOptions="End" TextColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}"/>
+                <Label  Text="Forgot password?" VerticalOptions="Center" HorizontalOptions="End" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
             </StackLayout>
 
             <!-- Sign In Button -->
-            <Button Text="Sign in" CornerRadius="20" BackgroundColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" Clicked="SignInButton_Clicked" HeightRequest="40" WidthRequest="328" />
+            <Button Text="Sign in" CornerRadius="20" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" Clicked="SignInButton_Clicked" HeightRequest="40" WidthRequest="328" />
 
             <!-- Alternative Sign In Options -->
             <HorizontalStackLayout>
-                <BoxView WidthRequest="107" HeightRequest="1" Background="{AppThemeBinding Light={StaticResource border-Light},Dark={StaticResource border-Dark}}"/>
-                <Label Text="Or sign in with" HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                <BoxView WidthRequest="107" HeightRequest="1" Background="{AppThemeBinding Light={StaticResource border-Light},Dark={StaticResource border-Dark}}"/>
+                <BoxView WidthRequest="107" HeightRequest="1" Background="{AppThemeBinding Light={StaticResource ShoppingCartBorderLightVariant},Dark={StaticResource ShoppingCartBorderDarkVariant}}"/>
+                <Label Text="Or sign in with" HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
+                <BoxView WidthRequest="107" HeightRequest="1" Background="{AppThemeBinding Light={StaticResource ShoppingCartBorderLightVariant},Dark={StaticResource ShoppingCartBorderDarkVariant}}"/>
             </HorizontalStackLayout>
 
             <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
-                <Border WidthRequest="156" HeightRequest="40" StrokeShape="RoundRectangle 20" BackgroundColor="{AppThemeBinding Light={StaticResource  bg-Light},Dark={StaticResource border-Dark}}" Stroke="{AppThemeBinding Light={StaticResource  bg-Light},Dark={StaticResource border-Dark}}">
+                <Border WidthRequest="156" HeightRequest="40" StrokeShape="RoundRectangle 20" BackgroundColor="{AppThemeBinding Light={StaticResource  ShoppingCartBackgroundLight},Dark={StaticResource ShoppingCartBorderDarkVariant}}" Stroke="{AppThemeBinding Light={StaticResource  ShoppingCartBackgroundLight},Dark={StaticResource ShoppingCartBorderDarkVariant}}">
                     <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
                         <Image Source="google.png" WidthRequest="18" VerticalOptions="Center" HeightRequest="18"/>
-                        <Label  Text="Google" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"/>
+                        <Label  Text="Google" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}"/>
                     </HorizontalStackLayout>
                 </Border>
-                <Border WidthRequest="156" Grid.Column="1" HeightRequest="40" StrokeShape="RoundRectangle 20" BackgroundColor="{AppThemeBinding Light={StaticResource  bg-Light},Dark={StaticResource border-Dark}}" Stroke="{AppThemeBinding Light={StaticResource  bg-Light},Dark={StaticResource border-Dark}}">
+                <Border WidthRequest="156" Grid.Column="1" HeightRequest="40" StrokeShape="RoundRectangle 20" BackgroundColor="{AppThemeBinding Light={StaticResource  ShoppingCartBackgroundLight},Dark={StaticResource ShoppingCartBorderDarkVariant}}" Stroke="{AppThemeBinding Light={StaticResource  ShoppingCartBackgroundLight},Dark={StaticResource ShoppingCartBorderDarkVariant}}">
                     <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
                         <Image Source="facebook.png" VerticalOptions="Center" WidthRequest="18" HeightRequest="18"/>
-                        <Label  Text="Facebook" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}"/>
+                        <Label  Text="Facebook" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}"/>
                     </HorizontalStackLayout>
                 </Border>
             </Grid>
 
             <!-- Sign Up Redirect -->
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="5">
-                <Label Text="Don't have an account?" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light},Dark={StaticResource ContentForeground-Dark}}"/>
-                <Label Text="Sign up" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" >
+                <Label Text="Don't have an account?" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
+                <Label Text="Sign up" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="SignUp_Tapped"/>
                     </Label.GestureRecognizers>

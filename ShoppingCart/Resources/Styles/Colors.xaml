@@ -42,4 +42,56 @@
     <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+
+    <!--Light theme keys-->
+
+    <Color x:Key="ShoppingCartIconColorLight">#474648</Color>
+    <Color x:Key="ShoppingCartContentTextColorLight">#313032</Color>
+    <Color x:Key="ShoppingCartContentTextColorAlt2Light">#5F5E60</Color>
+    <Color x:Key="ShoppingCartContentBackgroundColorAlt1Light">#FCF8FA</Color>
+    <Color x:Key="ShoppingCartContentBackgroundColorLight">#FFFFFF</Color>
+    <Color x:Key="ShoppingCartBorderNeutralLight">#C9C6C8</Color>
+    <Color x:Key="ShoppingCartFocusedStrokeLight">#6750A4</Color>
+    <Color x:Key="ShoppingCartBorderLightVariant">#CAC4D0</Color>
+    <Color x:Key="ShoppingCartContentBackgroundLightVariant">#FFFBFE</Color>
+    <Color x:Key="ShoppingCartTextColorLight">#FFFFFF</Color>
+    <Color x:Key="ShoppingCartPlaceholderColorLight">#49454F</Color>
+    <Color x:Key="ShoppingCartBackgroundLight">#E7E0EC</Color>
+    <Color x:Key="ShoppingCartContentForegroundLight">#1C1B1F</Color>
+    <Color x:Key="ShoppingCartContentBackgroundAlt2Light">#F3EDF7</Color>
+    <Color x:Key="ShoppingCartSeriesColor6Light">#9215F3</Color>
+    <Color x:Key="ShoppingCartPrimaryBackgroundSelectedLight">#735EAB</Color>
+    <Color x:Key="ShoppingCartContentBackgroundAlt1Light">#F7F2FB</Color>
+    <Color x:Key="ShoppingCartSuccessForegroundLight">#205107</Color>
+    <Color x:Key="ShoppingCartBorderAlt1Light">#79747E</Color>
+    <Color x:Key="ShoppingCartContentBackgroundAlt3Light">#EEE8F4</Color>
+    <Color x:Key="ShoppingCartContentBackgroundSelectedLight">#EADDFF</Color>
+    <Color x:Key="ShoppingCartContentBackgroundHoveredLight">#1C1B1F14</Color>
+    <Color x:Key="ShoppingCartContentBackgroundPressedLight">#1C1B1F1F</Color>
+
+    <!--Dark theme keys-->
+
+    <Color x:Key="ShoppingCartIconColorDark">#C9C6C8</Color>
+    <Color x:Key="ShoppingCartContentTextColorDark">#FFFFFF</Color>
+    <Color x:Key="ShoppingCartContentTextColorAlt2Dark">#929092</Color>
+    <Color x:Key="ShoppingCartContentBackgroundColorAlt1Dark">#313032</Color>
+    <Color x:Key="ShoppingCartContentBackgroundColorDark">#1C1B1D</Color>
+    <Color x:Key="ShoppingCartBorderNeutralDark">#5F5E60</Color>
+    <Color x:Key="ShoppingCartFocusedStrokeDark">#D0BCFF</Color>
+    <Color x:Key="ShoppingCartBorderDarkVariant">#49454F</Color>
+    <Color x:Key="ShoppingCartContentBackgroundDarkVariant">#1C1B1F</Color>
+    <Color x:Key="ShoppingCartTextColorDark">#381E72</Color>
+    <Color x:Key="ShoppingCartPlaceholderColorDark">#CAC4D0</Color>
+    <Color x:Key="ShoppingCartContentForegroundDark">#E6E1E5</Color>
+    <Color x:Key="ShoppingCartContentBackgroundAlt2Dark">#2A2831</Color>
+    <Color x:Key="ShoppingCartSeriesColor6Dark">#AA6ADD</Color>
+    <Color x:Key="ShoppingCartPrimaryBackgroundSelectedDark">#C4AFF4</Color>
+    <Color x:Key="ShoppingCartContentBackgroundAlt1Dark">#25232A</Color>
+    <Color x:Key="ShoppingCartSuccessForegroundDark">#9DD67E</Color>
+    <Color x:Key="ShoppingCartBorderAlt1Dark">#938F99</Color>
+    <Color x:Key="ShoppingCartContentBackgroundAlt3Dark">#302D38</Color>
+    <Color x:Key="ShoppingCartContentBackgroundSelectedDark">#4A4458</Color>
+    <Color x:Key="ShoppingCartContentBackgroundHoveredDark">#141C1B1F</Color>
+    <Color x:Key="ShoppingCartContentBackgroundPressedDark">#14E6E1E5</Color>
+
 </ResourceDictionary>

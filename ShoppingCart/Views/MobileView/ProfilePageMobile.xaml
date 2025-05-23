@@ -20,7 +20,7 @@
                             <VisualState.Setters>
                                 <Setter Property="Stroke">
                                     <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource placeholdercolor-Light}" Dark="{StaticResource placeholderColor-Dark}" />
+                                        <AppThemeBinding Light="{StaticResource ShoppingCartPlaceholderColorLight}" Dark="{StaticResource ShoppingCartPlaceholderColorDark}" />
                                     </Setter.Value>
                                 </Setter>
                             </VisualState.Setters>
@@ -29,7 +29,7 @@
                             <VisualState.Setters>
                                 <Setter Property="Stroke">
                                     <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource focused-stroke-light}" Dark="{StaticResource focused-stroke-Dark}" />
+                                        <AppThemeBinding Light="{StaticResource ShoppingCartFocusedStrokeLight}" Dark="{StaticResource ShoppingCartFocusedStrokeDark}" />
                                     </Setter.Value>
                                 </Setter>
                             </VisualState.Setters>
@@ -40,8 +40,8 @@
         </Style>
     </ContentPage.Resources>
     <Grid RowDefinitions="*,*" Margin="0,50">
-        <Border HeightRequest="790" StrokeShape="RoundRectangle 24,24,0,0" Margin="0,35,0,0" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}"
-           BackgroundColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}">
+        <Border HeightRequest="790" StrokeShape="RoundRectangle 24,24,0,0" Margin="0,35,0,0" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"
+           BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}">
 
             <StackLayout  Spacing="10" Padding="15,65">
 
@@ -49,32 +49,32 @@
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
                                 HorizontalOptions="FillAndExpand" Style="{StaticResource textInputStyle}">
-                    <Entry Text="{Binding TempUserName}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}"/>
+                    <Entry Text="{Binding TempUserName}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                 </chip:SfTextInputLayout>
 
                 <chip:SfTextInputLayout Hint="Email" x:Name="mailInput" HeightRequest="90"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
                                 HorizontalOptions="FillAndExpand" Style="{StaticResource textInputStyle}">
-                    <Entry Text="{Binding CurrentUser.Email}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}"/>
+                    <Entry Text="{Binding CurrentUser.Email}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                 </chip:SfTextInputLayout>
 
                 <chip:SfTextInputLayout Hint="Phone Number" x:Name="phoneNumberInput" HeightRequest="90"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
                                 HorizontalOptions="FillAndExpand" Style="{StaticResource textInputStyle}">
-                    <Entry x:Name="numberentry" Text="{Binding CurrentUser.MobileNumber}" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}"/>
+                    <Entry x:Name="numberentry" Text="{Binding CurrentUser.MobileNumber}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                 </chip:SfTextInputLayout>
 
                 <chip:SfTextInputLayout Hint="Gender" x:Name="genderInput" HeightRequest="90"
                                 ContainerType="Outlined"
                                 IsHintAlwaysFloated="True"
                                 HorizontalOptions="FillAndExpand" Style="{StaticResource textInputStyle}">
-                    <editors:SfComboBox x:Name="genderComboBox" TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" SelectedIndex="1"
-                                        DropDownItemTextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}"
-                                        DropDownBackground="{AppThemeBinding Light={StaticResource content-bg-Light},Dark={StaticResource content-bg-Dark}}" 
-                                        DropDownIconColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" 
-                                        ClearButtonIconColor="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource ContentBackgroundAlt1-Dark}}">
+                    <editors:SfComboBox x:Name="genderComboBox" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" SelectedIndex="1"
+                                        DropDownItemTextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}"
+                                        DropDownBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}" 
+                                        DropDownIconColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" 
+                                        ClearButtonIconColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}">
                         <editors:SfComboBox.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>Male</x:String>
@@ -95,14 +95,14 @@
                     InitialsType="SingleCharacter" Margin="20,20,0,0"
                     AvatarName="{Binding CurrentUser.UserName}"
                     FontSize="30"
-                    InitialsColor="{AppThemeBinding Light={StaticResource textcolor-Light}, Dark={StaticResource ContentForeground-Dark}}" 
+                    InitialsColor="{AppThemeBinding Light={StaticResource ShoppingCartTextColorLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" 
                     WidthRequest="80"
                     HeightRequest="80"
                     CornerRadius="40"          
-                    Background="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}"/>
+                    Background="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight}, Dark={StaticResource ShoppingCartFocusedStrokeDark}}"/>
             </chip:SfBadgeView.Content>
             <chip:SfBadgeView.BadgeSettings>
-                <chip:BadgeSettings Type="None" FontFamily="ShoppingCartFontIcon" Background="{AppThemeBinding Light={StaticResource ContentBackgroundAlt3-Light},Dark={StaticResource ContentBackgroundAlt3-Dark}}" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light}, Dark={StaticResource focused-stroke-Dark}}" Position="BottomRight" />
+                <chip:BadgeSettings Type="None" FontFamily="ShoppingCartFontIcon" Background="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt3Light},Dark={StaticResource ShoppingCartContentBackgroundAlt3Dark}}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight}, Dark={StaticResource ShoppingCartFocusedStrokeDark}}" Position="BottomRight" />
             </chip:SfBadgeView.BadgeSettings>
         </chip:SfBadgeView>
     </Grid>
