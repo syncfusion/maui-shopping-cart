@@ -74,7 +74,7 @@
                                                 <Label Text="{Binding Name}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontSize="16"></Label>
                                             </Grid>
                                             <HorizontalStackLayout>
-                                                <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSeriesColor6Light},Dark={StaticResource ShoppingCartSeriesColor6Dark}}" Margin="0,0,4,0" FontSize="14" VerticalTextAlignment="Center"/>
+                                                <Label Text="&#xe71b;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSeriesColor6Light},Dark={StaticResource ShoppingCartSeriesColor6Dark}}" Margin="0,0,4,0" FontSize="14" VerticalTextAlignment="Center"/>
                                                 <Label Text="{Binding Rating}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" />
                                             </HorizontalStackLayout>
                                             <Grid ColumnDefinitions="*,Auto">

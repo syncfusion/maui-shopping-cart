@@ -52,8 +52,8 @@
                     <Label Text="Shopping cart" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" FontSize="16" FontFamily="Roboto" VerticalOptions="Center" />
                 </HorizontalStackLayout>
 
-                <input:SfTextInputLayout Grid.Column="1" Margin="0,20,0,0" OutlineCornerRadius="16" InputViewPadding="20,5,0,10"  ContainerType="Outlined" WidthRequest="464" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" >
-                    <Entry Placeholder="Search product" 
+            <input:SfTextInputLayout Grid.Column="1" Margin="0,20,0,0" OutlineCornerRadius="16" InputViewPadding="20,5,0,12"  ContainerType="Outlined" WidthRequest="464" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" >
+                    <Editor Placeholder="Search product" 
                            x:Name="entry"
                         PlaceholderColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" 
                         TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" 
@@ -62,13 +62,14 @@
                            Focused="entry_Focused"
                            Unfocused="entry_Unfocused"
                            Completed="entry_Completed"
+                           VerticalOptions="Center"
                         VerticalTextAlignment="Center"
                         TextChanged="OnSearchTextChanged"
                         HorizontalOptions="FillAndExpand"  />
 
 
                 </input:SfTextInputLayout>
-                <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" CornerRadius="20" AvatarName="{Binding CurrentUser.UserName}" Margin="15">
+                <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" AvatarShape="Circle" AvatarSize="ExtraSmall" AvatarName="{Binding CurrentUser.UserName}" Margin="15">
                     <chip:SfAvatarView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnAvatarViewTapped" />
                     </chip:SfAvatarView.GestureRecognizers>
@@ -82,7 +83,7 @@
                     <Border >
                         <Grid RowSpacing="40">
 
-                            <VerticalStackLayout Grid.Row="1" Spacing="10">
+                            <VerticalStackLayout Grid.Row="1" >
                                 <!--Home Item-->
                             <Border x:Name="HomeBorder" HeightRequest="48" StrokeThickness="0" >
                                 <local:SfEffectsViewAdv>

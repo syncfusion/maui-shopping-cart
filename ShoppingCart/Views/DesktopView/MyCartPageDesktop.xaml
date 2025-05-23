@@ -75,7 +75,6 @@
                                         <AppThemeBinding Light="{StaticResource ShoppingCartContentBackgroundHoveredLight}" Dark="{StaticResource ShoppingCartContentBackgroundHoveredDark}" />
                                     </Setter.Value>
                                 </Setter>
-                                <Setter Property="Opacity" Value="0.8" />
                             </VisualState.Setters>
                         </VisualState>
                         <VisualState x:Name="Selected">
@@ -104,7 +103,7 @@
                         </list:SfListView.ItemsLayout>
                         <list:SfListView.ItemTemplate>
                             <DataTemplate>
-                                <Border MinimumWidthRequest="450" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" StrokeShape="RoundRectangle 8" Style="{StaticResource BorderStyle}">
+                                <Border MinimumWidthRequest="450" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" StrokeShape="RoundRectangle 8" Style="{StaticResource BorderStyle}" StrokeThickness="0">
                                     <StackLayout>
                                         <Grid ColumnDefinitions="Auto,*" Padding="15">
                                             <Image Source="{Binding ImageUrl}" Grid.Row="0" Grid.Column="0" MinimumWidthRequest="151" WidthRequest="151" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" ></Image>
