@@ -52,8 +52,8 @@
                     <Label Text="Shopping cart" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" FontSize="16" FontFamily="Roboto" VerticalOptions="Center" />
                 </HorizontalStackLayout>
 
-            <input:SfTextInputLayout Grid.Column="1" Margin="0,20,0,0" OutlineCornerRadius="16" InputViewPadding="20,8,0,13"  ContainerType="Outlined" WidthRequest="464" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" >
-                    <Entry Placeholder="Search product" 
+            <input:SfTextInputLayout Grid.Column="1" Margin="0,20,0,0" OutlineCornerRadius="16" InputViewPadding="20,5,0,12"  ContainerType="Outlined" WidthRequest="464" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" >
+                    <Editor Placeholder="Search product" 
                            x:Name="entry"
                         PlaceholderColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" 
                         TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" 
