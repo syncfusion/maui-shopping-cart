@@ -185,6 +185,17 @@ namespace ShoppingCart
             {
                 shoppingCartViewModel.FindSavedProducts();
             }
+            if (e.NewIndex == 3 && shoppingCartViewModel != null)
+            {
+                if (Application.Current!.RequestedTheme == AppTheme.Dark)
+                {
+                    sfSwitch.IsOn = true;
+                }
+                else
+                {
+                    sfSwitch.IsOn = false;
+                }
+            }
             if (e.NewIndex == 4 && shoppingCartViewModel!=null)
             {
                 shoppingCartViewModel.FindCartProducts();
@@ -369,6 +380,15 @@ namespace ShoppingCart
             if (App.Current != null)
             {
                 App.Current.UserAppTheme = (sfSwitch.IsOn ?? false) ? AppTheme.Dark : AppTheme.Light;
+            }
+            if (Application.Current!.RequestedTheme == AppTheme.Dark)
+            {
+                Application.Current.Resources["SfListViewItemRippleBackground"] = Color.FromArgb("#1C1B1F");
+
+            }
+            else
+            {
+                Application.Current.Resources["SfListViewItemRippleBackground"] = Color.FromArgb("#FFFBFE");
             }
         }
         private void Payment_Tapped(object sender, TappedEventArgs e)

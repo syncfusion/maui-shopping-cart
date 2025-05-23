@@ -2,9 +2,9 @@ namespace ShoppingCart;
 
 public partial class MyCartPageDesktop : ContentView
 {
-    decimal? _totalPrice;
-    decimal? _price;
-    decimal? _discount ;
+    decimal? _totalPrice = 0;
+    decimal? _price = 0;
+    decimal? _discount = 0;
     ShoppingCartViewModel? shoppingCartViewModel;
 
     public MyCartPageDesktop(ShoppingCartViewModel shoppingCartView)

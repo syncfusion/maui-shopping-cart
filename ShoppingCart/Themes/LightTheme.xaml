@@ -39,5 +39,8 @@
     <Color x:Key="SeriesColor2-Light">#0CBD1E</Color>
     <Color x:Key="SeriesColor3-Light">#F4890B</Color>
     <Color x:Key="ContentBackgroundAlt3-Light">#EEE8F4</Color>
+    <Color x:Key="ContentBackgroundSelected-Light">#EADDFF</Color>
+    <Color x:Key="ContentBackgroundHovered-Light">#1C1B1F14</Color>
+    <Color x:Key="ContentBackgroundPressed-Light">#1C1B1F1F</Color>
 
 </ResourceDictionary>

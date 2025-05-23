@@ -49,10 +49,10 @@
             <Grid ColumnDefinitions="Auto, *,Auto">
                 <HorizontalStackLayout Spacing="10" Padding="16, 8, 16, 0">
                     <Image Source="shoppingcarticon.png" Aspect="Fill" HeightRequest="24" WidthRequest="24" />
-                    <Label Text="Shopping cart" TextColor="#7633DA" FontAttributes="Bold" FontSize="24" FontFamily="Roboto" VerticalOptions="Center" />
+                    <Label Text="Shopping cart" TextColor="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" FontSize="16" FontFamily="Roboto" VerticalOptions="Center" />
                 </HorizontalStackLayout>
 
-                <input:SfTextInputLayout Grid.Column="1" Margin="0,20,0,0" OutlineCornerRadius="16" InputViewPadding="10,0,0,5"  ContainerType="Outlined" WidthRequest="464" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" >
+                <input:SfTextInputLayout Grid.Column="1" Margin="0,20,0,0" OutlineCornerRadius="16" InputViewPadding="20,5,0,10"  ContainerType="Outlined" WidthRequest="464" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt2-Light},Dark={StaticResource ContentBackgroundAlt2-Dark}}" >
                     <Entry Placeholder="Search product" 
                            x:Name="entry"
                         PlaceholderColor="{AppThemeBinding Light={StaticResource placeholdercolor-Light},Dark={StaticResource placeholderColor-Dark}}" 
@@ -68,7 +68,7 @@
 
 
                 </input:SfTextInputLayout>
-                <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" CornerRadius="20" AvatarName="{Binding CurrentUser.UserName}" Margin="10">
+                <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" CornerRadius="20" AvatarName="{Binding CurrentUser.UserName}" Margin="15">
                     <chip:SfAvatarView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnAvatarViewTapped" />
                     </chip:SfAvatarView.GestureRecognizers>
@@ -79,50 +79,46 @@
             <Grid x:Name="grid" Grid.Row="1" ColumnDefinitions="240,*">
                 <!--Drawer-->
                 <Grid Grid.Column="0">
-                    <Border Padding="16">
+                    <Border >
                         <Grid RowSpacing="40">
 
                             <VerticalStackLayout Grid.Row="1" Spacing="10">
                                 <!--Home Item-->
-                                <Border x:Name="HomeBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
-                                    <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="10" />
-                                    </Border.StrokeShape>
-                                    <HorizontalStackLayout Spacing="10">
-                                        <Label Text="&#xe700;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
-                                        <Label Text="Home" FontSize="16" Margin="0,2" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
+                            <Border x:Name="HomeBorder" HeightRequest="48" StrokeThickness="0" >
+                                <local:SfEffectsViewAdv>
+                                    <HorizontalStackLayout Spacing="10" Padding="16,0">
+                                        <Label Text="&#xe700;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" VerticalTextAlignment="Center"/>
+                                        <Label Text="Home" FontSize="16" Margin="0,2" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}" VerticalTextAlignment="Center"/>
                                     </HorizontalStackLayout>
-                                </Border>
+                                </local:SfEffectsViewAdv>
+                            </Border>
 
-                                <Border x:Name="SavedProductsBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
-                                    <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="10" />
-                                    </Border.StrokeShape>
-                                    <HorizontalStackLayout Spacing="10">
-                                        <Label Text="&#xe701;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
-                                        <Label Text="Saved Products" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
+                            <Border x:Name="SavedProductsBorder" HeightRequest="48" StrokeThickness="0" >
+                                <local:SfEffectsViewAdv >
+                                    <HorizontalStackLayout Spacing="10" Padding="16,0">
+                                        <Label Text="&#xe701;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" VerticalTextAlignment="Center"/>
+                                        <Label Text="Saved Products" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}" VerticalTextAlignment="Center"/>
                                     </HorizontalStackLayout>
-                                </Border>
+                                </local:SfEffectsViewAdv>
+                            </Border>
 
-                                <Border x:Name="CartBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
-                                    <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="10" />
-                                    </Border.StrokeShape>
-                                    <HorizontalStackLayout Spacing="10">
-                                        <Label Text="&#xe704;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
-                                        <Label Text="My Cart" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
+                            <Border x:Name="CartBorder" HeightRequest="48" StrokeThickness="0" >
+                                <local:SfEffectsViewAdv >
+                                    <HorizontalStackLayout Spacing="10" Padding="16,0">
+                                        <Label Text="&#xe704;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" VerticalTextAlignment="Center"/>
+                                        <Label Text="My Cart" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}" VerticalTextAlignment="Center"/>
                                     </HorizontalStackLayout>
-                                </Border>
+                                </local:SfEffectsViewAdv>
+                            </Border>
 
-                                <Border x:Name="AccountBorder" HeightRequest="48" Padding="16, 12" StrokeThickness="0">
-                                    <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="10" />
-                                    </Border.StrokeShape>
-                                    <HorizontalStackLayout Spacing="10">
-                                        <Label Text="&#xe703;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
-                                        <Label Text="My Account" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}"/>
+                            <Border x:Name="AccountBorder" HeightRequest="48" StrokeThickness="0" >
+                                <local:SfEffectsViewAdv >
+                                    <HorizontalStackLayout Spacing="10" Padding="16,0">
+                                        <Label Text="&#xe703;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}" VerticalTextAlignment="Center"/>
+                                        <Label Text="My Account" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource content-text-colorLight}, Dark={StaticResource content-text-colorDark}}" VerticalTextAlignment="Center"/>
                                     </HorizontalStackLayout>
-                                </Border>
+                                </local:SfEffectsViewAdv>
+                            </Border>
                             </VerticalStackLayout>
 
                         </Grid>

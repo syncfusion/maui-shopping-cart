@@ -7,6 +7,14 @@ public partial class SettingsPageDesktop : ContentView
 	{
 		InitializeComponent();
         shoppingCartViewModel = viewModel;
+        if (Application.Current!.RequestedTheme == AppTheme.Dark)
+        {
+            sfSwitch.IsOn = true;
+        }
+        else
+        {
+            sfSwitch.IsOn = false;
+        }
     }
 
     private void MyOrders_Tapped(object sender, TappedEventArgs e)
@@ -26,6 +34,15 @@ public partial class SettingsPageDesktop : ContentView
         if (App.Current != null)
         {
             App.Current.UserAppTheme = (sfSwitch.IsOn ?? false) ? AppTheme.Dark : AppTheme.Light;
+        }
+        if (Application.Current!.RequestedTheme == AppTheme.Dark)
+        {
+            Application.Current.Resources["SfListViewItemRippleBackground"] = Color.FromArgb("#1C1B1F");
+
+        }
+        else
+        {
+            Application.Current.Resources["SfListViewItemRippleBackground"] = Color.FromArgb("#FFFBFE");
         }
     }
 

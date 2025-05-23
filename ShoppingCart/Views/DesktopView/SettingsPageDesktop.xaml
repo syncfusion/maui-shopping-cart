@@ -10,6 +10,44 @@
              xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              x:Class="ShoppingCart.SettingsPageDesktop">
 
+    <ContentView.Resources>
+        <Style x:Key="SwitchStyle" TargetType="buttons:SfSwitch">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <Setter.Value>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="On">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <buttons:SwitchSettings
+                                 TrackStroke="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
+                                 TrackBackground="{AppThemeBinding Light={StaticResource focused-stroke-light},Dark={StaticResource focused-stroke-Dark}}" 
+                                 ThumbStroke="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" 
+                                 ThumbBackground="{AppThemeBinding Light={StaticResource textcolor-Light},Dark={StaticResource textColor-Dark}}" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Off">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <buttons:SwitchSettings
+                                            TrackStroke="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" 
+                                            TrackBackground="{AppThemeBinding Light={StaticResource BorderAlt1-Light},Dark={StaticResource BorderAlt1-Dark}}" 
+                                            ThumbStroke="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource textColor-Dark}}" 
+                                            ThumbBackground="{AppThemeBinding Light={StaticResource ContentBackgroundAlt1-Light},Dark={StaticResource textColor-Dark}}" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ContentView.Resources>
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -19,7 +57,7 @@
         <Label Text="Settings" FontSize="20"  Margin="5,5,0,20" FontFamily="ShoppingCartFontIcon"
            TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
 
-        <VerticalStackLayout Spacing="30" Grid.Row="1" Padding="5" >
+        <VerticalStackLayout Spacing="10" Grid.Row="1" Padding="5" >
             <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
                     <Label Text="&#xe704;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource icon-colorLight}, Dark={StaticResource icon-colorDark}}"/>
@@ -74,7 +112,7 @@
                     <Label Text="Dark mode" FontSize="16" VerticalOptions="Center"
                        TextColor="{AppThemeBinding Light={StaticResource ContentForeground-Light}, Dark={StaticResource ContentForeground-Dark}}" />
                     <buttons:SfSwitch x:Name="sfSwitch" HorizontalOptions="EndAndExpand" VerticalOptions="Center" IsOn="True" Margin="200,0,0,0"
-                                  StateChanged="SfSwitch_StateChanged"/>
+                                  StateChanged="SfSwitch_StateChanged" Style="{StaticResource SwitchStyle}"/>
                 </HorizontalStackLayout>
             </effects:SfEffectsView>
         </VerticalStackLayout>
