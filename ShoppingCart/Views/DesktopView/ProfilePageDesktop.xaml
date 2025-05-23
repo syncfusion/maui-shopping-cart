@@ -48,7 +48,7 @@
                         <effects:SfEffectsView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="BackArrow_Tapped" />
                         </effects:SfEffectsView.GestureRecognizers>
-                        <Label FontSize="20"  Text="&#xe70e; " FontFamily="MauiSampleFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
+                        <Label FontSize="20"  Text="&#xe70d; " FontFamily="ShoppingCartFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                     </effects:SfEffectsView>
                 </Border>
                 <Label Text="My Profile" FontSize="16"  
