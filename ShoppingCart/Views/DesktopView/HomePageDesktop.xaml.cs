@@ -2,7 +2,6 @@ using Microsoft.Maui.Controls;
 using Syncfusion.Maui.ListView;
 using Syncfusion.Maui.Rotator;
 using System.Collections.ObjectModel;
-using static ShoppingCart.ShoppingCartViewModel;
 
 namespace ShoppingCart
 {

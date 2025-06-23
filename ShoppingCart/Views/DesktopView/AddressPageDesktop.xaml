@@ -25,10 +25,10 @@
                         <Label Text="Add new address" Grid.Column="1" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" VerticalOptions="Center" />
                     </Grid>
                 </Grid>
-                
 
 
-                <CollectionView ItemsSource="{Binding Addresses}">
+
+                <CollectionView ItemsSource="{Binding Addresses}" MaximumHeightRequest="{OnPlatform MacCatalyst=300,WinUI=330}">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Horizontal" Span="2" HorizontalItemSpacing="10" VerticalItemSpacing="10"/>
                     </CollectionView.ItemsLayout>

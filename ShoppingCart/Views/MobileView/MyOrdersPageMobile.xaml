@@ -2,14 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShoppingCart.Views.MobileView.MyOrdersPageMobile"
-             xmlns:list="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:listview="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
             xmlns:local="clr-namespace:ShoppingCart"
-            xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
              Title="MyOrdersPageMobile">
 
     <ContentPage.Resources>
         <local:TagSeparateConverter x:Key="TagSeparateConverter"/>
-        <Style TargetType="list:ListViewItem">
+        <Style TargetType="listview:ListViewItem">
             <Setter Property="VisualStateManager.VisualStateGroups">
                 <VisualStateGroupList>
                     <VisualStateGroup>
@@ -59,11 +58,11 @@
         <Grid >
         <ScrollView  VerticalScrollBarVisibility="Never">
             <StackLayout Padding="10,0" Spacing="10">
-                <list:SfListView ItemsSource="{Binding OrderedProducts}"  SelectionMode="None" AutoFitMode="DynamicHeight" ItemSpacing="10" ScrollBarVisibility="Never" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
-                    <list:SfListView.ItemsLayout>
-                        <list:GridLayout SpanCount="1" x:Name="listView"></list:GridLayout>
-                    </list:SfListView.ItemsLayout>
-                    <list:SfListView.ItemTemplate>
+                <listview:SfListView ItemsSource="{Binding OrderedProducts}"  SelectionMode="None" AutoFitMode="DynamicHeight" ItemSpacing="10" ScrollBarVisibility="Never" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
+                    <listview:SfListView.ItemsLayout>
+                        <listview:GridLayout SpanCount="1" x:Name="listView"></listview:GridLayout>
+                    </listview:SfListView.ItemsLayout>
+                    <listview:SfListView.ItemTemplate>
                         <DataTemplate>
                             <Border  BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" StrokeShape="RoundRectangle 8">
                                 <StackLayout>
@@ -78,7 +77,7 @@
                                                 <Label Text="{Binding Rating}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" />
                                             </HorizontalStackLayout>
                                             <Grid ColumnDefinitions="*,Auto">
-                                                <Label Text="{Binding Price, StringFormat='{}{0:C}'}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontAttributes="Bold" FontSize="22"></Label>
+                                                <Label Text="{Binding Price, StringFormat='${0:F2}'}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontAttributes="Bold" FontSize="22"></Label>
                                             </Grid>
                                         </StackLayout>
                                         <Label Text="&#xe710;" Grid.Column="2" Margin="0,15,0,0" VerticalOptions="Center"  FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPrimaryBackgroundSelectedLight},Dark={StaticResource ShoppingCartPrimaryBackgroundSelectedDark}}" HorizontalOptions="End"  />
@@ -86,8 +85,8 @@
                                 </StackLayout>
                             </Border>
                         </DataTemplate>
-                    </list:SfListView.ItemTemplate>
-                </list:SfListView>
+                    </listview:SfListView.ItemTemplate>
+                </listview:SfListView>
             </StackLayout>
         </ScrollView>
     </Grid>

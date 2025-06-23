@@ -1,10 +1,8 @@
-﻿
-using Microsoft.Maui.Controls.Shapes;
+﻿using Microsoft.Maui.Controls.Shapes;
 using ShoppingCart.Views.MobileView;
-using Syncfusion.Maui.Core;using Syncfusion.Maui.Rotator;
+using Syncfusion.Maui.Core;
 using Syncfusion.Maui.Toolkit.TabView;
 using System.Collections.ObjectModel;
-using static Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific.VisualElement;
 
 namespace ShoppingCart
 {
@@ -434,6 +432,7 @@ namespace ShoppingCart
 
             var layout = new StackLayout
             {
+                Margin = new Thickness(5, 30, 0, 0),
                 Children =
                     {
                         headerLayout,
@@ -450,7 +449,6 @@ namespace ShoppingCart
             {
                 Text = "\ue70d",
                 FontFamily = "ShoppingCartFontIcon",
-                Margin = new Thickness(15, 30,0,0),
                 VerticalTextAlignment = TextAlignment.Center,
                 FontSize = 20,
             };
@@ -467,7 +465,6 @@ namespace ShoppingCart
             return new Label
             {
                 Text = title,
-                Margin = new Thickness(15, 30,0,0),
                 FontSize = 14,
                 VerticalTextAlignment = TextAlignment.Center
             };

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
-             xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              x:Class="ShoppingCart.AddressPageMobile"
              Title="AddressPageMobile"
              NavigationPage.HasNavigationBar="False">
@@ -10,10 +9,10 @@
     <ScrollView>
         <Border StrokeShape="RoundRectangle 24,24,0,0" HeightRequest="790" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt3Light},Dark={StaticResource ShoppingCartContentBackgroundAlt3Dark}}" Margin="0,20,0,0">
             <Grid RowDefinitions="Auto,Auto,Auto,Auto">
-                <input:SfTextInputLayout Margin="10,20,10,0" InputViewPadding="10,0,0,5"  ContainerType="Outlined" OutlineCornerRadius="15" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartBorderAlt1Light},Dark={StaticResource ShoppingCartBorderAlt1Dark}}" >
+                <core:SfTextInputLayout Margin="10,20,10,0" InputViewPadding="10,0,0,5"  ContainerType="Outlined" OutlineCornerRadius="15" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartBorderAlt1Light},Dark={StaticResource ShoppingCartBorderAlt1Dark}}" >
                     <Editor Placeholder="Search your saved address" PlaceholderColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontSize="14" HeightRequest="45" VerticalTextAlignment="Center"
-HorizontalOptions="FillAndExpand"  />
-                </input:SfTextInputLayout>
+HorizontalOptions="Fill"  />
+                </core:SfTextInputLayout>
                 <Label Text="Saved Address" Grid.Row="1" Padding="25,15"  FontAttributes="Bold" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt3Light},Dark={StaticResource ShoppingCartContentBackgroundAlt3Dark}}"
    TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" />
                 <VerticalStackLayout Grid.Row="2" Margin="15,0" BindableLayout.ItemsSource="{Binding CurrentUser.Addresses}">

@@ -77,7 +77,7 @@ namespace ShoppingCart
                 selectedtab.Children.Clear();
                 selectedtab.Children.Add(_profilePage);
 
-                _isProfilePageVisible = true;
+                //_isProfilePageVisible = true;
             }
         }
 
@@ -133,7 +133,7 @@ namespace ShoppingCart
             }
 
             // Set new selection
-            border.BackgroundColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#EADDFF") : Color.FromArgb("#4A4458");
+            border.BackgroundColor = (Application.Current!.RequestedTheme == AppTheme.Light) ? Color.FromArgb("#EADDFF") : Color.FromArgb("#4A4458");
 
             if (border.Content is SfEffectsViewAdv effectsViewAdv && effectsViewAdv.Content is HorizontalStackLayout layout && layout.Children.Count >= 2) {
                 var iconLabel = layout.Children[0] as Label;
@@ -173,27 +173,27 @@ namespace ShoppingCart
             {
                 if (border == _selectedBorder)
                 {
-                    border.BackgroundColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#EADDFF") : Color.FromArgb("#4A4458");
+                    border.BackgroundColor = (Application.Current!.RequestedTheme == AppTheme.Light) ? Color.FromArgb("#EADDFF") : Color.FromArgb("#4A4458");
                     if (border.Content is SfEffectsViewAdv effectsViewAdvSelected && effectsViewAdvSelected.Content is HorizontalStackLayout layoutSelected && layoutSelected.Children.Count >= 2)
                     {
                         var iconLabel = layoutSelected.Children[0] as Label;
                         var textLabel = layoutSelected.Children[1] as Label;
 
-                        iconLabel!.TextColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#49454F") : Color.FromArgb("#CAC4D0");
-                        textLabel!.TextColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#1C1B1F") : Color.FromArgb("#E6E1E5");
+                        iconLabel!.TextColor = (Application.Current!.RequestedTheme == AppTheme.Light) ? Color.FromArgb("#49454F") : Color.FromArgb("#CAC4D0");
+                        textLabel!.TextColor = (Application.Current!.RequestedTheme == AppTheme.Light) ? Color.FromArgb("#1C1B1F") : Color.FromArgb("#E6E1E5");
                     }
                     continue;
                 }
 
-                border.BackgroundColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#00000000") : Color.FromArgb("#00000000");
+                border.BackgroundColor = (Application.Current!.RequestedTheme == AppTheme.Light) ? Color.FromArgb("#00000000") : Color.FromArgb("#00000000");
 
                 if (border.Content is SfEffectsViewAdv effectsViewAdv && effectsViewAdv.Content is HorizontalStackLayout layout && layout.Children.Count >= 2)
                 {
                     var iconLabel = layout.Children[0] as Label;
                     var textLabel = layout.Children[1] as Label;
 
-                    iconLabel!.TextColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#49454F") : Color.FromArgb("#CAC4D0");
-                    textLabel!.TextColor = (Application.Current!.UserAppTheme == AppTheme.Light) ? Color.FromArgb("#1C1B1F") : Color.FromArgb("#E6E1E5");
+                    iconLabel!.TextColor = (Application.Current!.RequestedTheme == AppTheme.Light) ? Color.FromArgb("#49454F") : Color.FromArgb("#CAC4D0");
+                    textLabel!.TextColor = (Application.Current!.RequestedTheme == AppTheme.Light) ? Color.FromArgb("#1C1B1F") : Color.FromArgb("#E6E1E5");
                 }
             }
         }

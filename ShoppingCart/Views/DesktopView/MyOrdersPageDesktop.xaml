@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:list="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:listview="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:local="clr-namespace:ShoppingCart"
              xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
              x:Class="ShoppingCart.MyOrdersPageDesktop">
 
     <ContentView.Resources>
         <local:TagSeparateConverter x:Key="TagSeparateConverter"/>
-        <Style TargetType="list:ListViewItem">
+        <Style TargetType="listview:ListViewItem">
             <Setter Property="VisualStateManager.VisualStateGroups">
                 <VisualStateGroupList>
                     <VisualStateGroup>
@@ -107,9 +107,9 @@
                 </effects:SfEffectsView>
             </Border>
             <Label Text="My Orders" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" />
-                </HorizontalStackLayout>
-        <list:SfListView WidthRequest="800" Grid.Row="1" ItemsSource="{Binding OrderedProducts}"   SelectionMode="None" AutoFitMode="DynamicHeight" ItemSpacing="10" ScrollBarVisibility="Never" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
-            <list:SfListView.ItemTemplate>
+        </HorizontalStackLayout>
+        <listview:SfListView WidthRequest="800" Grid.Row="1" ItemsSource="{Binding OrderedProducts}"   SelectionMode="None" AutoFitMode="DynamicHeight" ItemSpacing="10" ScrollBarVisibility="Never" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
+            <listview:SfListView.ItemTemplate>
                 <DataTemplate>
                     <Border MinimumWidthRequest="450" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" StrokeShape="RoundRectangle 8" Style="{StaticResource BorderStyle}" StrokeThickness="0">
                         <effects:SfEffectsView>
@@ -129,7 +129,7 @@
                                             <Label Text="{Binding PurchasedCount, StringFormat='{}{0} bought in past month'}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" FontSize="12" VerticalTextAlignment="Center"></Label>
                                         </HorizontalStackLayout>
                                         <Grid ColumnDefinitions="*,Auto">
-                                            <Label Text="{Binding Price, StringFormat='{}{0:C}'}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontAttributes="Bold" FontSize="22"></Label>
+                                            <Label Text="{Binding Price, StringFormat='${0:F2}'}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontAttributes="Bold" FontSize="22"></Label>
                                         </Grid>
                                     </StackLayout>
                                 </Grid>
@@ -137,7 +137,7 @@
                         </effects:SfEffectsView>
                     </Border>
                 </DataTemplate>
-            </list:SfListView.ItemTemplate>
-        </list:SfListView>
+            </listview:SfListView.ItemTemplate>
+        </listview:SfListView>
     </Grid>
 </ContentView>

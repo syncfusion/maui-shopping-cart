@@ -44,7 +44,7 @@
         </Style>
     </ContentView.Resources>
     <Grid>
-            <StackLayout  Spacing="10">
+        <StackLayout  Spacing="10">
             <HorizontalStackLayout Spacing="10">
                 <Border StrokeShape="RoundRectangle 10" StrokeThickness="0">
                     <effects:SfEffectsView>

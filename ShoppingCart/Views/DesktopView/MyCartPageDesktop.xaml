@@ -2,14 +2,13 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShoppingCart.MyCartPageDesktop"
-             xmlns:list="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
-             xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:listview="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:popup="clr-namespace:Syncfusion.Maui.Toolkit.Popup;assembly=Syncfusion.Maui.Toolkit"
              xmlns:local="clr-namespace:ShoppingCart">
 
     <ContentView.Resources>
         <local:TagSeparateConverter x:Key="TagSeparateConverter"/>
-        <Style TargetType="list:ListViewItem">
+        <Style TargetType="listview:ListViewItem">
             <Setter Property="VisualStateManager.VisualStateGroups">
                 <VisualStateGroupList>
                     <VisualStateGroup>
@@ -97,36 +96,36 @@
         <Grid Grid.Row="1" ColumnDefinitions="4*,2*" RowSpacing="16">
             <Grid Grid.Column="0">
                 <ScrollView VerticalScrollBarVisibility="Never">
-                    <list:SfListView ItemsSource="{Binding MyCartProducts}"  SelectionMode="None" AutoFitMode="DynamicHeight" ItemSpacing="10" ScrollBarVisibility="Never" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
-                        <list:SfListView.ItemsLayout>
-                            <list:GridLayout SpanCount="1" x:Name="listView"></list:GridLayout>
-                        </list:SfListView.ItemsLayout>
-                        <list:SfListView.ItemTemplate>
+                    <listview:SfListView ItemsSource="{Binding MyCartProducts}"  SelectionMode="None" AutoFitMode="DynamicHeight" ItemSpacing="10" ScrollBarVisibility="Never" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
+                        <listview:SfListView.ItemsLayout>
+                            <listview:GridLayout SpanCount="1" x:Name="listView"></listview:GridLayout>
+                        </listview:SfListView.ItemsLayout>
+                        <listview:SfListView.ItemTemplate>
                             <DataTemplate>
                                 <Border MinimumWidthRequest="450" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" StrokeShape="RoundRectangle 8" Style="{StaticResource BorderStyle}" StrokeThickness="0">
                                     <StackLayout>
                                         <Grid ColumnDefinitions="Auto,*" Padding="15">
-                                            <Image Source="{Binding ImageUrl}" Grid.Row="0" Grid.Column="0" MinimumWidthRequest="151" WidthRequest="151" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" ></Image>
+                                            <Image Source="{Binding ImageUrl,Converter={StaticResource imageSourceConverter}}" Grid.Row="0" Grid.Column="0" MinimumWidthRequest="151" WidthRequest="151" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" ></Image>
                                             <StackLayout Grid.Column="1" Grid.Row="0" Spacing="10">
                                                 <Grid ColumnDefinitions="*,Auto">
-                                                        <VerticalStackLayout>
-                                                            <Label Text="{Binding Description}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontSize="16"></Label>
-                                                            <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontSize="16"/>
-                                                        </VerticalStackLayout>
-                                                        <Label Text="&#xe701;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPrimaryBackgroundSelectedLight},Dark={StaticResource ShoppingCartPrimaryBackgroundSelectedDark}}" HorizontalOptions="End" Grid.Row="0" Grid.Column="1" Margin="0,5,7,0">
-                                                            <Label.Triggers>
-                                                                <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
-                                                                    <Setter Property="Text" Value="&#xe71a;" />
-                                                                </DataTrigger>
-                                                                <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
-                                                                    <Setter Property="Text" Value="&#xe701;" />
-                                                                </DataTrigger>
-                                                            </Label.Triggers>
-                                                            <Label.GestureRecognizers>
-                                                                <TapGestureRecognizer Tapped="ToggleSavedStatus" />
-                                                            </Label.GestureRecognizers>
-                                                        </Label>
-                                                    </Grid>
+                                                    <VerticalStackLayout>
+                                                        <Label Text="{Binding Description}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontSize="16"></Label>
+                                                        <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontSize="16"/>
+                                                    </VerticalStackLayout>
+                                                    <Label Text="&#xe701;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPrimaryBackgroundSelectedLight},Dark={StaticResource ShoppingCartPrimaryBackgroundSelectedDark}}" HorizontalOptions="End" Grid.Row="0" Grid.Column="1" Margin="0,5,7,0">
+                                                        <Label.Triggers>
+                                                            <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
+                                                                <Setter Property="Text" Value="&#xe71a;" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
+                                                                <Setter Property="Text" Value="&#xe701;" />
+                                                            </DataTrigger>
+                                                        </Label.Triggers>
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="ToggleSavedStatus" />
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
+                                                </Grid>
                                                 <HorizontalStackLayout>
                                                     <Label Text="&#xe71b;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSeriesColor6Light},Dark={StaticResource ShoppingCartSeriesColor6Dark}}" Margin="0,1,4,0" FontSize="14" VerticalTextAlignment="Center"/>
                                                     <Label Text="{Binding Rating}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" VerticalTextAlignment="Center"/>
@@ -135,7 +134,7 @@
                                                 </HorizontalStackLayout>
                                                 <Label Text="In Stock" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSuccessForegroundLight},Dark={StaticResource ShoppingCartSuccessForegroundDark}}" FontSize="14"></Label>
                                                 <Grid ColumnDefinitions="*,Auto">
-                                                    <Label Text="{Binding Price, StringFormat='{}{0:C}'}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontAttributes="Bold" FontSize="22"></Label>
+                                                    <Label Text="{Binding Price, StringFormat='${0:F2}'}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontAttributes="Bold" FontSize="22"></Label>
                                                     <HorizontalStackLayout Spacing="4"  Grid.Row="0" Grid.Column="1">
                                                         <Label Text="&#xe706;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartBorderAlt1Light},Dark={StaticResource ShoppingCartBorderAlt1Dark}}" VerticalTextAlignment="Center" FontSize="24">
                                                             <Label.GestureRecognizers>
@@ -155,8 +154,8 @@
                                     </StackLayout>
                                 </Border>
                             </DataTemplate>
-                        </list:SfListView.ItemTemplate>
-                    </list:SfListView>
+                        </listview:SfListView.ItemTemplate>
+                    </listview:SfListView>
                 </ScrollView>
             </Grid>
             <Grid Grid.Column="1" >
@@ -200,7 +199,8 @@
 
             <popup:SfPopup x:Name="popup" Grid.ColumnSpan="2" IsOpen="False" ShowFooter="True" IsVisible="False" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}">
                 <popup:SfPopup.PopupStyle>
-                    <popup:PopupStyle HeaderBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" FooterBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" MessageBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"/>
+                    <popup:PopupStyle HeaderBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" FooterBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" MessageBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"
+                                      Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"/>
                 </popup:SfPopup.PopupStyle>
                 <popup:SfPopup.HeaderTemplate>
                     <DataTemplate>
