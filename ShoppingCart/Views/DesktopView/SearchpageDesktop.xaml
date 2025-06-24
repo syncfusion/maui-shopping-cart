@@ -101,14 +101,14 @@
             </Border>
             <Label Grid.Column="1" x:Name="productnamelabel" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
         </Grid>
-        <listview:SfListView Grid.Row="1" x:Name="listview" ItemsSource="{Binding FilteredProducts}" AutoFitMode="Height" SelectionMode="None" ScrollBarVisibility="Never" ItemTapped="SfListView_ItemTapped">
+        <listview:SfListView Grid.Row="1" x:Name="listview" ItemsSource="{Binding FilteredProducts}" AutoFitMode="Height" SelectionMode="None" ScrollBarVisibility="Never" ItemTapped="SfListView_ItemTapped" ItemSpacing="5">
             <listview:SfListView.ItemsLayout>
                 <listview:GridLayout x:Name="listView" />
             </listview:SfListView.ItemsLayout>
 
             <listview:SfListView.ItemTemplate>
                 <DataTemplate>
-                    <Border Margin="5" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" StrokeShape="RoundRectangle 8" Style="{StaticResource BorderStyle}" StrokeThickness="0">
+                    <Border BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" StrokeShape="RoundRectangle 8" Style="{StaticResource BorderStyle}" StrokeThickness="0">
                         <StackLayout Padding="15,10,15,10">
                             <Grid ColumnDefinitions="*,Auto" Padding="5">
                                 <Image Source="{Binding ImageUrl}" Aspect="AspectFit" HeightRequest="171" Margin="0,5,0,0" Grid.ColumnSpan="2"/>
@@ -119,7 +119,7 @@
                             </Grid>
                             <Label Text="{Binding Name}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                             <Grid ColumnDefinitions="*,auto">
-                                <Label Text="{Binding Price}" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
+                                <Label Text="{Binding Price,StringFormat='${0:F2}'}" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                                 <Label Text="&#xe71a;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" HorizontalOptions="End">
                                     <Label.Triggers>
                                         <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">

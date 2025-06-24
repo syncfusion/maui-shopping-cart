@@ -2,7 +2,6 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
-             xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:popup="clr-namespace:Syncfusion.Maui.Toolkit.Popup;assembly=Syncfusion.Maui.Toolkit"
              x:Class="ShoppingCart.ProductPageDesktop"
              xmlns:local="clr-namespace:ShoppingCart"
@@ -87,7 +86,7 @@
                         </Label>
                     </Grid>
 
-                    <Label Text="{Binding Price, StringFormat='${0}'}" FontSize="24" FontAttributes="Bold" />
+                    <Label Text="{Binding Price, StringFormat='${0:F2}'}" FontSize="24" FontAttributes="Bold" />
                     <Label  FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" >
                         <Label.FormattedText>
                             <FormattedString>
@@ -109,7 +108,8 @@
 
                 <popup:SfPopup x:Name="popup" IsVisible="False" Grid.ColumnSpan="2" IsOpen="False" ShowFooter="True" >
                     <popup:SfPopup.PopupStyle>
-                        <popup:PopupStyle HeaderBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" FooterBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" MessageBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"/>
+                        <popup:PopupStyle HeaderBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" FooterBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" MessageBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" 
+                                          Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"/>
                     </popup:SfPopup.PopupStyle>
                     <popup:SfPopup.HeaderTemplate>
                         <DataTemplate>
@@ -145,37 +145,37 @@
                 <Label Grid.Column="1" Text="Payments" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
             </Grid>
 
-    <StackLayout Spacing="20" Grid.Row="1" Padding="30,15">
-        <!-- Saved Cards Section -->
-        <Label Text="Saved cards" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"
+            <StackLayout Spacing="20" Grid.Row="1" Padding="30,15">
+                <!-- Saved Cards Section -->
+                <Label Text="Saved cards" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"
                 FontAttributes="Bold"/>
 
-        <!-- Card Display -->
-        <Border Padding="10" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"
+                <!-- Card Display -->
+                <Border Padding="10" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"
                BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"
                StrokeShape="RoundRectangle 10" WidthRequest="467" HorizontalOptions="Start">
-            <HorizontalStackLayout Spacing="10">
-                <Image Source="visa.png"
+                    <HorizontalStackLayout Spacing="10">
+                        <Image Source="visa.png" 
                     WidthRequest="36" HeightRequest="20"
                     VerticalOptions="Center" />
-                <VerticalStackLayout>
-                    <Label Text="Personal" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" />
-                    <Label Text="**** 8487" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" FontSize="12" />
-                </VerticalStackLayout>
-            </HorizontalStackLayout>
-        </Border>
+                        <VerticalStackLayout>
+                            <Label Text="Personal" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" />
+                            <Label Text="**** 8487" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" FontSize="12" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Border>
 
-        <Grid ColumnSpacing="10" ColumnDefinitions="Auto,*">
+                <Grid ColumnSpacing="10" ColumnDefinitions="Auto,*">
             <Label Text="&#xe707;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" 
                         WidthRequest="20" HeightRequest="20"
                         VerticalOptions="Center"
                         />
-            <Label Text="Add new card" Grid.Column="1"
+                    <Label Text="Add new card" Grid.Column="1"
                         TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}"
                         VerticalOptions="Center" />
+                </Grid>
+            </StackLayout>
         </Grid>
-    </StackLayout>
-    </Grid>
     </VerticalStackLayout>
 
 </ContentView>

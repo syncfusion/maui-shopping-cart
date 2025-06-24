@@ -1,10 +1,9 @@
-﻿
-using Microsoft.Maui.Controls.Shapes;
+﻿using Microsoft.Maui.Controls.Shapes;
 using ShoppingCart.Views.MobileView;
-using Syncfusion.Maui.Core;using Syncfusion.Maui.Rotator;
+using Syncfusion.Maui.Core;
+using Syncfusion.Maui.Themes;
 using Syncfusion.Maui.Toolkit.TabView;
 using System.Collections.ObjectModel;
-using static Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific.VisualElement;
 
 namespace ShoppingCart
 {
@@ -377,9 +376,29 @@ namespace ShoppingCart
         }
         private void SfSwitch_StateChanged(object sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
         {
-            if (App.Current != null)
+            if (Application.Current != null)
             {
-                App.Current.UserAppTheme = (sfSwitch.IsOn ?? false) ? AppTheme.Dark : AppTheme.Light;
+                ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
+                if (mergedDictionaries != null)
+                {
+                    var theme1 = mergedDictionaries.OfType<Syncfusion.Maui.Toolkit.Themes.SyncfusionThemeResourceDictionary>().FirstOrDefault();
+                    var theme2 = mergedDictionaries.OfType<Syncfusion.Maui.Themes.SyncfusionThemeResourceDictionary>().FirstOrDefault();
+                    if (theme1 != null && theme2 != null)
+                    {
+                        if (sfSwitch.IsOn == false)
+                        {
+                            theme1.VisualTheme = Syncfusion.Maui.Toolkit.Themes.SfVisuals.MaterialLight;
+                            theme2.VisualTheme = SfVisuals.MaterialLight;
+                            Application.Current.UserAppTheme = AppTheme.Light;
+                        }
+                        else if (sfSwitch.IsOn == true)
+                        {
+                            theme1.VisualTheme = Syncfusion.Maui.Toolkit.Themes.SfVisuals.MaterialDark;
+                            theme2.VisualTheme = SfVisuals.MaterialDark;
+                            Application.Current.UserAppTheme = AppTheme.Dark;
+                        }
+                    }
+                }
             }
             if (Application.Current!.RequestedTheme == AppTheme.Dark)
             {
@@ -434,6 +453,7 @@ namespace ShoppingCart
 
             var layout = new StackLayout
             {
+                Margin = new Thickness(5, 30, 0, 0),
                 Children =
                     {
                         headerLayout,
@@ -450,7 +470,6 @@ namespace ShoppingCart
             {
                 Text = "\ue70d",
                 FontFamily = "ShoppingCartFontIcon",
-                Margin = new Thickness(15, 30,0,0),
                 VerticalTextAlignment = TextAlignment.Center,
                 FontSize = 20,
             };
@@ -467,7 +486,6 @@ namespace ShoppingCart
             return new Label
             {
                 Text = title,
-                Margin = new Thickness(15, 30,0,0),
                 FontSize = 14,
                 VerticalTextAlignment = TextAlignment.Center
             };

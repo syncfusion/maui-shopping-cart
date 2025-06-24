@@ -2,17 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShoppingCart.Views.MobileView.ProfilePageMobile"
-              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Toolkit.TabView;assembly=Syncfusion.Maui.Toolkit"
-            xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
-            xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
-            xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
-            xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              Title="ProfilePageMobile">
 
     <ContentPage.Resources>
-        <Style x:Key="textInputStyle" TargetType="input:SfTextInputLayout">
+        <Style x:Key="textInputStyle" TargetType="core:SfTextInputLayout">
             <Setter Property="VisualStateManager.VisualStateGroups">
                 <VisualStateGroupList>
                     <VisualStateGroup>
@@ -45,31 +41,31 @@
 
             <StackLayout  Spacing="10" Padding="15,65">
 
-                <chip:SfTextInputLayout Hint="Name" x:Name="nameInput" HeightRequest="90"
+                <core:SfTextInputLayout Hint="Name" x:Name="nameInput" HeightRequest="90"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
-                                HorizontalOptions="FillAndExpand" Style="{StaticResource textInputStyle}">
+                                HorizontalOptions="Fill" Style="{StaticResource textInputStyle}">
                     <Entry Text="{Binding TempUserName}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
-                </chip:SfTextInputLayout>
+                </core:SfTextInputLayout>
 
-                <chip:SfTextInputLayout Hint="Email" x:Name="mailInput" HeightRequest="90"
+                <core:SfTextInputLayout Hint="Email" x:Name="mailInput" HeightRequest="90"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
-                                HorizontalOptions="FillAndExpand" Style="{StaticResource textInputStyle}">
+                                HorizontalOptions="Fill" Style="{StaticResource textInputStyle}">
                     <Entry Text="{Binding CurrentUser.Email}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
-                </chip:SfTextInputLayout>
+                </core:SfTextInputLayout>
 
-                <chip:SfTextInputLayout Hint="Phone Number" x:Name="phoneNumberInput" HeightRequest="90"
+                <core:SfTextInputLayout Hint="Phone Number" x:Name="phoneNumberInput" HeightRequest="90"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
-                                HorizontalOptions="FillAndExpand" Style="{StaticResource textInputStyle}">
+                                HorizontalOptions="Fill" Style="{StaticResource textInputStyle}">
                     <Entry x:Name="numberentry" Text="{Binding CurrentUser.MobileNumber}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
-                </chip:SfTextInputLayout>
+                </core:SfTextInputLayout>
 
-                <chip:SfTextInputLayout Hint="Gender" x:Name="genderInput" HeightRequest="90"
+                <core:SfTextInputLayout Hint="Gender" x:Name="genderInput" HeightRequest="90"
                                 ContainerType="Outlined"
                                 IsHintAlwaysFloated="True"
-                                HorizontalOptions="FillAndExpand" Style="{StaticResource textInputStyle}">
+                                HorizontalOptions="Fill" Style="{StaticResource textInputStyle}">
                     <editors:SfComboBox x:Name="genderComboBox" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" SelectedIndex="1"
                                         DropDownItemTextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}"
                                         DropDownBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}" 
@@ -84,14 +80,14 @@
                             </x:Array>
                         </editors:SfComboBox.ItemsSource>
                     </editors:SfComboBox>
-                </chip:SfTextInputLayout>
+                </core:SfTextInputLayout>
 
                 <buttons:SfButton HorizontalOptions="Center" Text="Update Profile" WidthRequest="350" Clicked="SfButton_Clicked" />
             </StackLayout>
         </Border>
-        <chip:SfBadgeView HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,20,20" BadgeText="&#xe70c;">
-            <chip:SfBadgeView.Content>
-                <chip:SfAvatarView ContentType="Initials" HorizontalOptions="Center" VerticalOptions="Center"
+        <core:SfBadgeView HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,20,20" BadgeText="&#xe70c;">
+            <core:SfBadgeView.Content>
+                <core:SfAvatarView ContentType="Initials" HorizontalOptions="Center" VerticalOptions="Center"
                     InitialsType="SingleCharacter" Margin="20,20,0,0"
                     AvatarName="{Binding CurrentUser.UserName}"
                     FontSize="30"
@@ -100,10 +96,10 @@
                     HeightRequest="80"
                     CornerRadius="40"          
                     Background="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight}, Dark={StaticResource ShoppingCartFocusedStrokeDark}}"/>
-            </chip:SfBadgeView.Content>
-            <chip:SfBadgeView.BadgeSettings>
-                <chip:BadgeSettings Type="None" FontFamily="ShoppingCartFontIcon" Background="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt3Light},Dark={StaticResource ShoppingCartContentBackgroundAlt3Dark}}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight}, Dark={StaticResource ShoppingCartFocusedStrokeDark}}" Position="BottomRight" />
-            </chip:SfBadgeView.BadgeSettings>
-        </chip:SfBadgeView>
+            </core:SfBadgeView.Content>
+            <core:SfBadgeView.BadgeSettings>
+                <core:BadgeSettings Type="None" FontFamily="ShoppingCartFontIcon" Background="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt3Light},Dark={StaticResource ShoppingCartContentBackgroundAlt3Dark}}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight}, Dark={StaticResource ShoppingCartFocusedStrokeDark}}" Position="BottomRight" />
+            </core:SfBadgeView.BadgeSettings>
+        </core:SfBadgeView>
     </Grid>
 </ContentPage>

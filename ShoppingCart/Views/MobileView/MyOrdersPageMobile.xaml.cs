@@ -23,7 +23,7 @@ public partial class MyOrdersPageMobile : ContentPage
                 BindingContext = tappedProduct
             };
 
-            await Application.Current.MainPage.Navigation.PushAsync(productPage);
+            await Application.Current.Windows[0].Page.Navigation.PushAsync(productPage);
         }
     }
 

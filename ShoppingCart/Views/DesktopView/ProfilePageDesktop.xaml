@@ -1,47 +1,45 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Toolkit.TabView;assembly=Syncfusion.Maui.Toolkit"
-            xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
-            xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
-            xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
-            xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+            xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
              x:Class="ShoppingCart.ProfilePageDesktop">
 
-    <ContentView.Resources>
-        <Style x:Key="textInputStyle" TargetType="input:SfTextInputLayout">
-            <Setter Property="VisualStateManager.VisualStateGroups">
-                <VisualStateGroupList>
-                    <VisualStateGroup>
-                        <VisualState x:Name="Normal">
-                            <VisualState.Setters>
-                                <Setter Property="Stroke">
-                                    <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource ShoppingCartPlaceholderColorLight}" Dark="{StaticResource ShoppingCartPlaceholderColorDark}" />
-                                    </Setter.Value>
-                                </Setter>
-                            </VisualState.Setters>
-                        </VisualState>
-                        <VisualState x:Name="OutlinedFocused">
-                            <VisualState.Setters>
-                                <Setter Property="Stroke">
-                                    <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource ShoppingCartFocusedStrokeLight}" Dark="{StaticResource ShoppingCartFocusedStrokeDark}" />
-                                    </Setter.Value>
-                                </Setter>
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateGroupList>
-            </Setter>
-        </Style>
+    <Grid>
 
-    </ContentView.Resources>
-    <Grid Grid.Column="1" >
-            <StackLayout Padding="10" Spacing="10" HorizontalOptions="Start" VerticalOptions="Start">
+        <Grid.Resources>
+            <Style x:Key="textInputStyle" TargetType="core:SfTextInputLayout">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup>
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="Stroke">
+                                        <Setter.Value>
+                                            <AppThemeBinding Light="{StaticResource ShoppingCartPlaceholderColorLight}" Dark="{StaticResource ShoppingCartPlaceholderColorDark}" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="OutlinedFocused">
+                                <VisualState.Setters>
+                                    <Setter Property="Stroke">
+                                        <Setter.Value>
+                                            <AppThemeBinding Light="{StaticResource ShoppingCartFocusedStrokeLight}" Dark="{StaticResource ShoppingCartFocusedStrokeDark}" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+        </Grid.Resources>
+
+        <StackLayout Padding="10" Spacing="10" HorizontalOptions="Start" VerticalOptions="Start">
             <HorizontalStackLayout Margin="-15,0,0,0" Spacing="10">
                 <Border StrokeShape="RoundRectangle 10" StrokeThickness="0">
                     <effects:SfEffectsView>
@@ -55,9 +53,9 @@
 TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" />
             </HorizontalStackLayout>
 
-            <chip:SfBadgeView HorizontalOptions="Center" VerticalOptions="Center" BadgeText="&#xe70c;">
-                    <chip:SfBadgeView.Content>
-                        <chip:SfAvatarView ContentType="Initials" 
+            <core:SfBadgeView HorizontalOptions="Center" VerticalOptions="Center" BadgeText="&#xe70c;">
+                <core:SfBadgeView.Content>
+                    <core:SfAvatarView ContentType="Initials" 
             InitialsType="SingleCharacter"
             AvatarName="{Binding CurrentUser.UserName}"
             FontSize="30"
@@ -66,28 +64,34 @@ TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundL
             HeightRequest="80"
             CornerRadius="40"          
             Background="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}"/>
-                    </chip:SfBadgeView.Content>
-                    <chip:SfBadgeView.BadgeSettings>
-                    <chip:BadgeSettings Type="None" FontFamily="ShoppingCartFontIcon" Background="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt3Light},Dark={StaticResource ShoppingCartContentBackgroundAlt3Dark}}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" Offset="-10,-10" Position="BottomRight" />
-                    </chip:SfBadgeView.BadgeSettings>
-                </chip:SfBadgeView>
+                </core:SfBadgeView.Content>
+                <core:SfBadgeView.BadgeSettings>
+                    <core:BadgeSettings Type="None" FontFamily="ShoppingCartFontIcon"
+                                        Background="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt3Light},Dark={StaticResource ShoppingCartContentBackgroundAlt3Dark}}"
+                                        TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" 
+                                        Offset="-10,-10" Position="BottomRight" />
+                </core:SfBadgeView.BadgeSettings>
+            </core:SfBadgeView>
 
-            <chip:SfTextInputLayout Hint="Name" x:Name="nameInput" InputViewPadding="15,5"
+            <core:SfTextInputLayout Hint="Name" x:Name="nameInput" InputViewPadding="15,5"
                     IsHintAlwaysFloated="true" 
                                      WidthRequest="400"
-                                     HeightRequest="80"
+                                     HeightRequest="80" ContainerBackground="Transparent"
                     ContainerType="Outlined" Style="{StaticResource textInputStyle}">
                 <Entry Text="{Binding TempUserName}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
-            </chip:SfTextInputLayout>
-            <chip:SfTextInputLayout Hint="Email" x:Name="mailInput" InputViewPadding="15,5" IsHintAlwaysFloated="true"  ContainerType="Outlined"
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout Hint="Email" x:Name="mailInput" InputViewPadding="15,5" IsHintAlwaysFloated="true"  ContainerType="Outlined"
                                WidthRequest="400" HeightRequest="80" Style="{StaticResource textInputStyle}">
                 <Entry Text="{Binding CurrentUser.Email}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
-                </chip:SfTextInputLayout>
-                <chip:SfTextInputLayout Hint="Phone Number" x:Name="phoneNumberInput" InputViewPadding="15,5"
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout Hint="Phone Number" x:Name="phoneNumberInput" InputViewPadding="15,5"
                                         IsHintAlwaysFloated="true" WidthRequest="400" HeightRequest="80" ContainerType="Outlined" Style="{StaticResource textInputStyle}">
                 <Entry x:Name="numberentry" Text="9988776655" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
-                </chip:SfTextInputLayout>
-            <chip:SfTextInputLayout Hint="Gender"  x:Name="genderInput" ContainerType="Outlined" 
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout Hint="Gender"  x:Name="genderInput" ContainerType="Outlined" 
                         WidthRequest="400" HeightRequest="80" IsHintAlwaysFloated="True" Style="{StaticResource textInputStyle}">
                 <editors:SfComboBox TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"
                                     DropDownItemTextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}"
@@ -107,11 +111,11 @@ TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundL
 
                 </editors:SfComboBox>
 
-            </chip:SfTextInputLayout>
+            </core:SfTextInputLayout>
 
-            <effects:SfEffectsView>
-            <buttons:SfButton WidthRequest="400" HeightRequest="40" Text="Update Profile" Clicked="SfButton_Clicked"/>
-            </effects:SfEffectsView>
+
+                <buttons:SfButton WidthRequest="400" HeightRequest="40" Text="Update Profile" Clicked="SfButton_Clicked"/>
+
 
         </StackLayout>
     </Grid>

@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShoppingCart.ProductPageMobile"
              xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
-             xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:popup="clr-namespace:Syncfusion.Maui.Toolkit.Popup;assembly=Syncfusion.Maui.Toolkit"
              NavigationPage.HasNavigationBar="False"
              Title="ProductPageMobile">
@@ -48,7 +47,7 @@
                     </HorizontalStackLayout>
                 </Grid>
 
-                        <Label Text="{Binding Price, StringFormat='${0}'}"  FontSize="24" FontAttributes="Bold" />
+                <Label Text="{Binding Price, StringFormat='${0:F2}'}"  FontSize="24" FontAttributes="Bold" />
                 <Label Text="Description" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                 <Label Text="{Binding Description}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" />
 
@@ -66,7 +65,8 @@
 
         <popup:SfPopup x:Name="popup" IsOpen="False" ShowFooter="True" IsVisible="False">
             <popup:SfPopup.PopupStyle>
-                <popup:PopupStyle HeaderBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" FooterBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" MessageBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"/>
+                <popup:PopupStyle HeaderBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" FooterBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" MessageBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"
+                                  Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"/>
             </popup:SfPopup.PopupStyle>
             <popup:SfPopup.HeaderTemplate>
                 <DataTemplate>

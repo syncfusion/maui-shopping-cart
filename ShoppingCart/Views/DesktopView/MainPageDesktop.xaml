@@ -1,49 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Toolkit.TabView;assembly=Syncfusion.Maui.Toolkit"
-             xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
-             xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
-             xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
-             xmlns:editor="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              x:Class="ShoppingCart.MainPageDesktop"
              xmlns:local="clr-namespace:ShoppingCart"
              NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
              BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}">
 
     <ContentPage.BindingContext>
         <local:ShoppingCartViewModel/>
     </ContentPage.BindingContext>
         
-    <ContentPage.Resources>
-        <Style TargetType="syncfusion:SfTabItem">
-            <Setter Property="VisualStateManager.VisualStateGroups">
-                <VisualStateGroupList>
-                    <VisualStateGroup>
-                        <VisualState x:Name="Normal" >
-                            <VisualState.Setters>
-                                <Setter Property="TextColor">
-                                    <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource ShoppingCartPlaceholderColorLight}" Dark="{StaticResource ShoppingCartPlaceholderColorDark}" />
-                                    </Setter.Value>
-                                </Setter>
-                            </VisualState.Setters>
-                        </VisualState>
-                        <VisualState x:Name="Selected">
-                            <VisualState.Setters>
-                                <Setter Property="TextColor">
-                                    <Setter.Value>
-                                        <AppThemeBinding Light="{StaticResource ShoppingCartPrimaryBackgroundSelectedLight}" Dark="{StaticResource ShoppingCartPrimaryBackgroundSelectedDark}" />
-                                    </Setter.Value>
-                                </Setter>
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateGroupList>
-            </Setter>
-        </Style>
-    </ContentPage.Resources>
 
         <Grid RowDefinitions="48,*" >
             <Grid ColumnDefinitions="Auto, *,Auto">
@@ -52,7 +21,7 @@
                     <Label Text="Shopping cart" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" FontSize="16" FontFamily="Roboto" VerticalOptions="Center" />
                 </HorizontalStackLayout>
 
-            <input:SfTextInputLayout Grid.Column="1" Margin="0,20,0,0" OutlineCornerRadius="16" InputViewPadding="20,5,0,12"  ContainerType="Outlined" WidthRequest="464" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" >
+            <core:SfTextInputLayout Grid.Column="1" Margin="0,20,0,0" OutlineCornerRadius="16" InputViewPadding="20,5,0,12"  ContainerType="Outlined" WidthRequest="464" HeightRequest="62" ContainerBackground="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}"  IsHintAlwaysFloated="True" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" >
                     <Editor Placeholder="Search product" 
                            x:Name="entry"
                         PlaceholderColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" 
@@ -65,15 +34,17 @@
                            VerticalOptions="Center"
                         VerticalTextAlignment="Center"
                         TextChanged="OnSearchTextChanged"
-                        HorizontalOptions="FillAndExpand"  />
+                        HorizontalOptions="Fill"  />
 
 
-                </input:SfTextInputLayout>
-                <chip:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" AvatarShape="Circle" AvatarSize="ExtraSmall" AvatarName="{Binding CurrentUser.UserName}" Margin="15">
-                    <chip:SfAvatarView.GestureRecognizers>
+                </core:SfTextInputLayout>
+                <core:SfAvatarView Grid.Column="2" ContentType="Initials" WidthRequest="32" HeightRequest="32" AvatarShape="Circle" AvatarSize="ExtraSmall" AvatarName="{Binding CurrentUser.UserName}" Margin="15"
+                                   InitialsColor="{AppThemeBinding Light={StaticResource ShoppingCartTextColorLight},Dark={StaticResource ShoppingCartTextColorDark}}" 
+                                   Background="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}">
+                    <core:SfAvatarView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnAvatarViewTapped" />
-                    </chip:SfAvatarView.GestureRecognizers>
-                </chip:SfAvatarView>
+                    </core:SfAvatarView.GestureRecognizers>
+                </core:SfAvatarView>
 
             </Grid>
 
@@ -134,7 +105,7 @@
                 </Grid>
             </Grid>
 
-            <Grid x:Name="searchListGrid" Background="Transparent" IsVisible="False"  WidthRequest="600"   Grid.Row="1"  Margin="180,0,0,0" 
+            <Grid x:Name="searchListGrid" Background="Transparent" IsVisible="False"  WidthRequest="464"   Grid.Row="1"  Margin="100,0,0,0" 
 
 >
                 <Grid VerticalOptions="Start"
@@ -200,7 +171,7 @@
             </Grid>
 
 
-            <Grid x:Name="searchlistGrid2" IsVisible="False"  WidthRequest="600"   Grid.Row="1"  Margin="180,0,0,0" 
+            <Grid x:Name="searchlistGrid2" IsVisible="False"  WidthRequest="464"   Grid.Row="1"  Margin="100,0,0,0" 
 >
                 <Grid VerticalOptions="Start"
                       HorizontalOptions="Center"
@@ -243,7 +214,7 @@
 
                             <HorizontalStackLayout  >
                                 <Label Text="Recent searches" Padding="10,10,270,10"
-                                        FontSize="14" TextColor="Black"/>
+                                        FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                                 <Label Text="Clear all" Padding="0,10,10,10" HorizontalTextAlignment="End" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" >
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnClearAllTapped" />
