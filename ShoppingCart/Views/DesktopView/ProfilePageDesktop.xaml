@@ -113,11 +113,8 @@ TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundL
 
             </core:SfTextInputLayout>
 
-            <effects:SfEffectsView>
-                <buttons:SfButton WidthRequest="400" HeightRequest="40" Text="Update Profile" Clicked="SfButton_Clicked"/>
-            </effects:SfEffectsView>
 
-           
+                <buttons:SfButton WidthRequest="400" HeightRequest="40" Text="Update Profile" Clicked="SfButton_Clicked"/>
 
 
         </StackLayout>

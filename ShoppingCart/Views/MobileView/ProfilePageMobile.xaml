@@ -82,7 +82,7 @@
                     </editors:SfComboBox>
                 </core:SfTextInputLayout>
 
-                <Button HorizontalOptions="Center" Text="Update Profile" CornerRadius="20" WidthRequest="350" Clicked="SfButton_Clicked" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" />
+                <buttons:SfButton HorizontalOptions="Center" Text="Update Profile" WidthRequest="350" Clicked="SfButton_Clicked" />
             </StackLayout>
         </Border>
         <core:SfBadgeView HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,20,20" BadgeText="&#xe70c;">
