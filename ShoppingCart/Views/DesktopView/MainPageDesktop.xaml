@@ -6,6 +6,7 @@
              x:Class="ShoppingCart.MainPageDesktop"
              xmlns:local="clr-namespace:ShoppingCart"
              NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
              BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}">
 
     <ContentPage.BindingContext>

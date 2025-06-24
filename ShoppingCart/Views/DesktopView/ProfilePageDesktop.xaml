@@ -76,7 +76,7 @@ TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundL
             <core:SfTextInputLayout Hint="Name" x:Name="nameInput" InputViewPadding="15,5"
                     IsHintAlwaysFloated="true" 
                                      WidthRequest="400"
-                                     HeightRequest="80"
+                                     HeightRequest="80" ContainerBackground="Transparent"
                     ContainerType="Outlined" Style="{StaticResource textInputStyle}">
                 <Entry Text="{Binding TempUserName}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
             </core:SfTextInputLayout>
@@ -114,8 +114,11 @@ TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundL
             </core:SfTextInputLayout>
 
             <effects:SfEffectsView>
-                <Button WidthRequest="400" HeightRequest="40" CornerRadius="20" Text="Update Profile" Clicked="SfButton_Clicked" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" />
+                <buttons:SfButton WidthRequest="400" HeightRequest="40" Text="Update Profile" Clicked="SfButton_Clicked"/>
             </effects:SfEffectsView>
+
+           
+
 
         </StackLayout>
     </Grid>
