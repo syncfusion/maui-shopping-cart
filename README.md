@@ -1,6 +1,10 @@
 # Create maui-shopping-cart application in .NET MAUI platform 
 
-This repository contains the samples that demonstrate the .NET MAUI shopping cart application using various Syncfusion components such as SfTabView, SfBadgeView,SfAvatarView and so on.
+This repository contains the samples that demonstrate the .NET MAUI shopping cart application using various Syncfusion components such as SfTabView, SfBadgeView,SfAvatarView, SfComboBox, SfTextInputLayout, SfEffectsView, SfRotator, SfListView, SfPopup,SfSwitch, SfChip.
+
+## Application Home Page
+
+![Home Page](shoppingcart\resources\images\homepage.png)
 
 ## Supported platforms
 

@@ -76,8 +76,6 @@ namespace ShoppingCart
                 _profilePage = new ProfilePageDesktop(backAction, shoppingCartViewModel);
                 selectedtab.Children.Clear();
                 selectedtab.Children.Add(_profilePage);
-
-                //_isProfilePageVisible = true;
             }
         }
 
