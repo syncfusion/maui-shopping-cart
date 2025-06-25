@@ -1,10 +1,52 @@
 # Create maui-shopping-cart application in .NET MAUI platform 
 
-This repository contains the samples that demonstrate the .NET MAUI shopping cart application using various Syncfusion components such as SfTabView, SfBadgeView,SfAvatarView, SfComboBox, SfTextInputLayout, SfEffectsView, SfRotator, SfListView, SfPopup,SfSwitch, SfChip, SfButton.
+The ShoppingCart is an online shopping application developed using Syncfusion’s .NET MAUI UI controls.
 
-## Application Home Page
+## Features Integrated
 
-![Home Page](shoppingcart\resources\images\homepage.png)
+- Display product in categories
+- Product details
+- Saved Products
+- Cart
+- Order History
+
+## Project Patterns and Features
+
+- XAML UI
+- Converters
+- Custom controls
+- Data binding
+- Behaviors
+- MVVM
+- Styles
+
+## Syncfusion Controls
+
+This project uses the following Syncfusion controls:
+
+- SfTabView
+- SfBadgeView
+- SfAvatarView
+- SfComboBox
+- SfTextInputLayout
+- SfEffectsView
+- SfRotator
+- SfListView
+- SfPopup
+- SfSwitch
+- SfChip
+- SfButton
+
+## Screens
+
+**Windows**
+
+<img src="images\home_pagedesktop.png" Width="600" />
+<img src="images\cart_pagedesktop.png" Width="600" />
+
+**Android**
+
+<img src="images\home_pagemobile.png" Width="190" /><img src="images\filter_pagemobile.png" Width="190" />
 
 ## Supported platforms
 
