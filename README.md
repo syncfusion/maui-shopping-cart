@@ -41,12 +41,12 @@ This project uses the following Syncfusion controls:
 
 **Windows**
 
-<img src="images\home_pagedesktop.png" Width="600" />
-<img src="images\cart_pagedesktop.png" Width="600" />
+<img src="Images\home_pagedesktop.png" Width="600" />
+<img src="Images\cart_pagedesktop.png" Width="600" />
 
 **Android**
 
-<img src="images\home_pagemobile.png" Width="190" /><img src="images\filter_pagemobile.png" Width="190" />
+<img src="Images\home_pagemobile.png" Width="190" /><img src="Images\filter_pagemobile.png" Width="190" />
 
 ## Supported platforms
 
