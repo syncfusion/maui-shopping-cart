@@ -468,8 +468,8 @@ namespace ShoppingCart
         {
             var backButtonLabel = new Label
             {
-                Text = "\ue70d",
-                FontFamily = "ShoppingCartFontIcon",
+                Text = "\ue70e",
+                FontFamily = "MauiSampleFontIcon",
                 VerticalTextAlignment = TextAlignment.Center,
                 FontSize = 20,
             };

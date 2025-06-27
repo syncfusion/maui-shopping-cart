@@ -51,7 +51,7 @@
                         <effects:SfEffectsView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="BackArrow_Tapped" />
                         </effects:SfEffectsView.GestureRecognizers>
-                        <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
+                        <Label FontSize="20" Text="&#xe70e; " FontFamily="MauiSampleFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                     </effects:SfEffectsView>
                 </Border>
                 <Label Text="Notifications" FontSize="16"  
@@ -61,7 +61,7 @@
             <Border StrokeShape="RoundRectangle 20" Padding="10" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" WidthRequest="400" HorizontalOptions="Start" Margin="30,20,0,0"
      BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}">
                 <Grid ColumnDefinitions="Auto,*,Auto" VerticalOptions="Center" ColumnSpacing="10">
-                    <Label Text="&#xe709;  " FontFamily="ShoppingCartFontIcon" VerticalOptions="Center" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
+                    <Label Text="&#xe75e;  " FontFamily="MauiSampleFontIcon" VerticalOptions="Center" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
                     <Label Text="Sales and promotions" VerticalOptions="Center" Grid.Column="1"
              TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" />
                     <buttons:SfSwitch IsOn="False" AllowIndeterminateState="false" Grid.Column="2" HorizontalOptions="End"  Style="{StaticResource SwitchStyle}"/>

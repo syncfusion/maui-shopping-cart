@@ -10,16 +10,16 @@
                     <Grid  ColumnDefinitions="Auto,*" ColumnSpacing="10">
                         <Border StrokeShape="RoundRectangle 10" StrokeThickness="0">
                             <effects:SfEffectsView>
-                            <effects:SfEffectsView.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="AddressBackArrow_Tapped" />
-                            </effects:SfEffectsView.GestureRecognizers>
-                                <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
+                                <effects:SfEffectsView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="AddressBackArrow_Tapped" />
+                                </effects:SfEffectsView.GestureRecognizers>
+                                <Label FontSize="20" Text="&#xe70e; " FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
                             </effects:SfEffectsView>
                         </Border>
                         <Label Grid.Column="1" Text="Addresses" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                     </Grid>
                     <Grid Grid.Column="1" ColumnSpacing="10" ColumnDefinitions="Auto,*" HorizontalOptions="End" >
-                        <Label Text="&#xe707;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" 
+                        <Label Text="&#xe754;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" 
                                 WidthRequest="20" HeightRequest="20" 
                                 VerticalOptions="Center"/>
                         <Label Text="Add new address" Grid.Column="1" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" VerticalOptions="Center" />
@@ -38,7 +38,7 @@
                                     StrokeShape="RoundRectangle 10" HeightRequest="146" WidthRequest="328" Margin="5">
                                 <VerticalStackLayout Padding="10" Spacing="10">
                                     <HorizontalStackLayout Spacing="5">
-                                        <Label Text="&#xe708;" FontFamily="ShoppingCartFontIcon" VerticalTextAlignment="Center" 
+                                        <Label Text="&#xe76e;" FontFamily="MauiSampleFontIcon" VerticalTextAlignment="Center" 
                                                TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
                                         <Label Text="{Binding Title}" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                                     </HorizontalStackLayout>

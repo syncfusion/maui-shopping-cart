@@ -46,14 +46,14 @@
                         <effects:SfEffectsView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="BackArrow_Tapped" />
                         </effects:SfEffectsView.GestureRecognizers>
-                        <Label FontSize="20"  Text="&#xe70d; " FontFamily="ShoppingCartFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
+                        <Label FontSize="20"  Text="&#xe70e; " FontFamily="MauiSampleFontIcon"  TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                     </effects:SfEffectsView>
                 </Border>
                 <Label Text="My Profile" FontSize="16"  
 TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" />
             </HorizontalStackLayout>
 
-            <core:SfBadgeView HorizontalOptions="Center" VerticalOptions="Center" BadgeText="&#xe70c;">
+            <core:SfBadgeView HorizontalOptions="Center" VerticalOptions="Center" BadgeText="&#xe73d;">
                 <core:SfBadgeView.Content>
                     <core:SfAvatarView ContentType="Initials" 
             InitialsType="SingleCharacter"
@@ -66,7 +66,7 @@ TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundL
             Background="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}"/>
                 </core:SfBadgeView.Content>
                 <core:SfBadgeView.BadgeSettings>
-                    <core:BadgeSettings Type="None" FontFamily="ShoppingCartFontIcon"
+                    <core:BadgeSettings Type="None" FontFamily="MauiSampleFontIcon"
                                         Background="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt3Light},Dark={StaticResource ShoppingCartContentBackgroundAlt3Dark}}"
                                         TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" 
                                         Offset="-10,-10" Position="BottomRight" />

@@ -85,7 +85,7 @@
                 <buttons:SfButton HorizontalOptions="Center" Text="Update Profile" WidthRequest="350" Clicked="SfButton_Clicked" />
             </StackLayout>
         </Border>
-        <core:SfBadgeView HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,20,20" BadgeText="&#xe70c;">
+        <core:SfBadgeView HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,20,20" BadgeText="&#xe73d;">
             <core:SfBadgeView.Content>
                 <core:SfAvatarView ContentType="Initials" HorizontalOptions="Center" VerticalOptions="Center"
                     InitialsType="SingleCharacter" Margin="20,20,0,0"
@@ -98,7 +98,7 @@
                     Background="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight}, Dark={StaticResource ShoppingCartFocusedStrokeDark}}"/>
             </core:SfBadgeView.Content>
             <core:SfBadgeView.BadgeSettings>
-                <core:BadgeSettings Type="None" FontFamily="ShoppingCartFontIcon" Background="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt3Light},Dark={StaticResource ShoppingCartContentBackgroundAlt3Dark}}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight}, Dark={StaticResource ShoppingCartFocusedStrokeDark}}" Position="BottomRight" />
+                <core:BadgeSettings Type="None" FontFamily="MauiSampleFontIcon" Background="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt3Light},Dark={StaticResource ShoppingCartContentBackgroundAlt3Dark}}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight}, Dark={StaticResource ShoppingCartFocusedStrokeDark}}" Position="BottomRight" />
             </core:SfBadgeView.BadgeSettings>
         </core:SfBadgeView>
     </Grid>

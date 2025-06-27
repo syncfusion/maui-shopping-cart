@@ -46,7 +46,7 @@ This project uses the following Syncfusion controls:
 
 **Android**
 
-<img src="Images\home_pagemobile.png" Width="190" /><img src="Images\filter_pagemobile.png" Width="190" />
+<img src="Images\home_pagemobile.png" Width="190" />  <img src="Images\filter_pagemobile.png" Width="190" />
 
 ## Supported platforms
 
