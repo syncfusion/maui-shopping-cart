@@ -15,18 +15,18 @@
                 <effects:SfEffectsView.GestureRecognizers>
                     <TapGestureRecognizer Tapped="BackArrow_Tapped" />
                 </effects:SfEffectsView.GestureRecognizers>
-                <Label FontSize="20" Text="&#xe70d; " FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
+                <Label FontSize="20" Text="&#xe70e; " FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
             </effects:SfEffectsView>
                 </Border>
             <Label Grid.Column="1" Text="Product Details" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
-            <Label Grid.Column="2" FontSize="16" Text="&#xe713;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
-            <Label Grid.Column="3" FontSize="16" Text="&#xe701;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" HorizontalOptions="End">
+            <Label Grid.Column="2" FontSize="16" Text="&#xe728;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
+            <Label Grid.Column="3" FontSize="16" Text="&#xe78a;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" HorizontalOptions="End">
                 <Label.Triggers>
                     <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
-                        <Setter Property="Text" Value="&#xe71a;" />
+                        <Setter Property="Text" Value="&#xe7cc;" />
                     </DataTrigger>
                     <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
-                        <Setter Property="Text" Value="&#xe701;" />
+                        <Setter Property="Text" Value="&#xe78a;" />
                     </DataTrigger>
                 </Label.Triggers>
                 <Label.GestureRecognizers>
@@ -42,7 +42,7 @@
                 <Grid  ColumnDefinitions="*,Auto" ColumnSpacing="5">
                         <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                         <HorizontalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
-                        <Label Text="&#xe71b;" FontFamily="ShoppingCartFontIcon" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSeriesColor6Light},Dark={StaticResource ShoppingCartSeriesColor6Dark}}"/>
+                        <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSeriesColor6Light},Dark={StaticResource ShoppingCartSeriesColor6Dark}}"/>
                         <Label Text="{Binding Rating}" VerticalTextAlignment="Center" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                     </HorizontalStackLayout>
                 </Grid>
@@ -76,7 +76,7 @@
             <popup:SfPopup.ContentTemplate>
                 <DataTemplate>
                     <StackLayout Spacing="5">
-                        <Label Text="&#xe71d;" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSuccessForegroundLight},Dark={StaticResource ShoppingCartSuccessForegroundDark}}" FontSize="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="ShoppingCartFontIcon"/>
+                        <Label Text="&#xe726;" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSuccessForegroundLight},Dark={StaticResource ShoppingCartSuccessForegroundDark}}" FontSize="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="MauiSampleFontIcon"/>
                         <Label Text="Added to cart successfully." HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                     </StackLayout>
                 </DataTemplate>

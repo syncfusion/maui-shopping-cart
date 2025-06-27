@@ -59,7 +59,7 @@
                             <Border x:Name="HomeBorder" HeightRequest="48" StrokeThickness="0" >
                                 <local:SfEffectsViewAdv>
                                     <HorizontalStackLayout Spacing="10" Padding="16,0">
-                                        <Label Text="&#xe700;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" VerticalTextAlignment="Center"/>
+                                        <Label Text="&#xe738;  " FontFamily="MauiSampleFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" VerticalTextAlignment="Center"/>
                                         <Label Text="Home" FontSize="16" Margin="0,2" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentTextColorLight}, Dark={StaticResource ShoppingCartContentTextColorDark}}" VerticalTextAlignment="Center"/>
                                     </HorizontalStackLayout>
                                 </local:SfEffectsViewAdv>
@@ -68,7 +68,7 @@
                             <Border x:Name="SavedProductsBorder" HeightRequest="48" StrokeThickness="0" >
                                 <local:SfEffectsViewAdv >
                                     <HorizontalStackLayout Spacing="10" Padding="16,0">
-                                        <Label Text="&#xe701;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" VerticalTextAlignment="Center"/>
+                                        <Label Text="&#xe739;  " FontFamily="MauiSampleFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" VerticalTextAlignment="Center"/>
                                         <Label Text="Saved Products" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentTextColorLight}, Dark={StaticResource ShoppingCartContentTextColorDark}}" VerticalTextAlignment="Center"/>
                                     </HorizontalStackLayout>
                                 </local:SfEffectsViewAdv>
@@ -77,7 +77,7 @@
                             <Border x:Name="CartBorder" HeightRequest="48" StrokeThickness="0" >
                                 <local:SfEffectsViewAdv >
                                     <HorizontalStackLayout Spacing="10" Padding="16,0">
-                                        <Label Text="&#xe704;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" VerticalTextAlignment="Center"/>
+                                        <Label Text="&#xe73e;  " FontFamily="MauiSampleFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" VerticalTextAlignment="Center"/>
                                         <Label Text="My Cart" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentTextColorLight}, Dark={StaticResource ShoppingCartContentTextColorDark}}" VerticalTextAlignment="Center"/>
                                     </HorizontalStackLayout>
                                 </local:SfEffectsViewAdv>
@@ -86,7 +86,7 @@
                             <Border x:Name="AccountBorder" HeightRequest="48" StrokeThickness="0" >
                                 <local:SfEffectsViewAdv >
                                     <HorizontalStackLayout Spacing="10" Padding="16,0">
-                                        <Label Text="&#xe703;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" VerticalTextAlignment="Center"/>
+                                        <Label Text="&#xe760;  " FontFamily="MauiSampleFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" VerticalTextAlignment="Center"/>
                                         <Label Text="My Account" Margin="0,2" FontSize="16" FontFamily="Roboto" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentTextColorLight}, Dark={StaticResource ShoppingCartContentTextColorDark}}" VerticalTextAlignment="Center"/>
                                     </HorizontalStackLayout>
                                 </local:SfEffectsViewAdv>

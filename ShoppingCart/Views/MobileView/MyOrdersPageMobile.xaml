@@ -73,14 +73,14 @@
                                                 <Label Text="{Binding Name}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontSize="16"></Label>
                                             </Grid>
                                             <HorizontalStackLayout>
-                                                <Label Text="&#xe71b;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSeriesColor6Light},Dark={StaticResource ShoppingCartSeriesColor6Dark}}" Margin="0,0,4,0" FontSize="14" VerticalTextAlignment="Center"/>
+                                                <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSeriesColor6Light},Dark={StaticResource ShoppingCartSeriesColor6Dark}}" Margin="0,0,4,0" FontSize="14" VerticalTextAlignment="Center"/>
                                                 <Label Text="{Binding Rating}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" />
                                             </HorizontalStackLayout>
                                             <Grid ColumnDefinitions="*,Auto">
                                                 <Label Text="{Binding Price, StringFormat='${0:F2}'}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontAttributes="Bold" FontSize="22"></Label>
                                             </Grid>
                                         </StackLayout>
-                                        <Label Text="&#xe710;" Grid.Column="2" Margin="0,15,0,0" VerticalOptions="Center"  FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPrimaryBackgroundSelectedLight},Dark={StaticResource ShoppingCartPrimaryBackgroundSelectedDark}}" HorizontalOptions="End"  />
+                                        <Label Text="&#xe701;" Grid.Column="2" Margin="0,15,0,0" VerticalOptions="Center"  FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPrimaryBackgroundSelectedLight},Dark={StaticResource ShoppingCartPrimaryBackgroundSelectedDark}}" HorizontalOptions="End"  />
                                     </Grid>
                                 </StackLayout>
                             </Border>
