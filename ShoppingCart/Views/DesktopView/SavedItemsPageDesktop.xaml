@@ -109,14 +109,14 @@
                                             <Label Text="{Binding Description}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontSize="16"></Label>
                                             <Label Text="{Binding Tags, Converter={StaticResource TagSeparateConverter}}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontSize="16"/>
                                         </VerticalStackLayout>
-                                            <Label Text="&#xe71a;" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPrimaryBackgroundSelectedLight},Dark={StaticResource ShoppingCartPrimaryBackgroundSelectedDark}}" FontFamily="ShoppingCartFontIcon" FontSize="18"  Grid.Row="0" Grid.Column="1" Margin="0,0,7,0" BindingContext="{Binding}">
+                                        <Label Text="&#xe7cc;" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPrimaryBackgroundSelectedLight},Dark={StaticResource ShoppingCartPrimaryBackgroundSelectedDark}}" FontFamily="MauiSampleFontIcon" FontSize="18"  Grid.Row="0" Grid.Column="1" Margin="0,0,7,0" BindingContext="{Binding}">
                                             <Label.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="ToggleSavedStatus" />
                                             </Label.GestureRecognizers>
                                         </Label>
                                     </Grid>
                                     <HorizontalStackLayout>
-                                            <Label Text="&#xe71b;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSeriesColor6Light},Dark={StaticResource ShoppingCartSeriesColor6Dark}}" Margin="0,0,4,0" FontSize="14" VerticalTextAlignment="Center"/>
+                                        <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSeriesColor6Light},Dark={StaticResource ShoppingCartSeriesColor6Dark}}" Margin="0,0,4,0" FontSize="14" VerticalTextAlignment="Center"/>
                                         <Label Text="{Binding Rating}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" VerticalTextAlignment="Center"/>
                                         <Label Text="|" FontSize="14" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartBorderLightVariant},Dark={StaticResource ShoppingCartBorderDarkVariant}}" Margin="5,0,5,3"/>
                                         <Label Text="{Binding PurchasedCount, StringFormat='{}{0} bought in past month'}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}" FontSize="12" VerticalTextAlignment="Center"></Label>
@@ -125,9 +125,9 @@
                                     <Grid ColumnDefinitions="*,Auto">
                                         <Label Text="{Binding Price, StringFormat='${0:F2}'}" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontAttributes="Bold" FontSize="22"></Label>
                                         <HorizontalStackLayout Spacing="4"  Grid.Row="0" Grid.Column="1">
-                                            <Label Text="&#xe706;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartBorderAlt1Light},Dark={StaticResource ShoppingCartBorderAlt1Dark}}" VerticalTextAlignment="Center" FontSize="24"></Label>
+                                            <Label Text="&#xe71c;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartBorderAlt1Light},Dark={StaticResource ShoppingCartBorderAlt1Dark}}" VerticalTextAlignment="Center" FontSize="24"></Label>
                                             <Label Text="0"  TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" VerticalTextAlignment="Center" FontSize="14"></Label>
-                                            <Label Text="&#xe705;" FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartBorderAlt1Light},Dark={StaticResource ShoppingCartBorderAlt1Dark}}" VerticalTextAlignment="Center"></Label>
+                                            <Label Text="&#xe71b;" FontFamily="MauiSampleFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartBorderAlt1Light},Dark={StaticResource ShoppingCartBorderAlt1Dark}}" VerticalTextAlignment="Center"></Label>
                                         </HorizontalStackLayout>
                                     </Grid>
                                 </VerticalStackLayout>

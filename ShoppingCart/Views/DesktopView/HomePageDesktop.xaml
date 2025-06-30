@@ -133,20 +133,20 @@
                                 <Grid ColumnDefinitions="*,Auto" Padding="5">
                                     <Image Source="{Binding ImageUrl,Converter={StaticResource imageSourceConverter}}" Aspect="AspectFit" HeightRequest="171" Margin="0,5,0,0" Grid.ColumnSpan="2"/>
                                     <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2">
-                                        <Label Text="&#xe71b;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSeriesColor6Light},Dark={StaticResource ShoppingCartSeriesColor6Dark}}"/>
+                                        <Label Text="&#xe7cf;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartSeriesColor6Light},Dark={StaticResource ShoppingCartSeriesColor6Dark}}"/>
                                         <Label Text="{Binding Rating}" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                                     </HorizontalStackLayout>
                                 </Grid>
                                 <Label Text="{Binding Name}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                                 <Grid ColumnDefinitions="*,auto">
                                     <Label Text="{Binding Price,StringFormat='${0:F2}'}" FontAttributes="Bold" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
-                                    <Label Text="&#xe71a;" FontFamily="ShoppingCartFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" HorizontalOptions="End">
+                                    <Label Text="&#xe78a;" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" HorizontalOptions="End">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="True">
-                                                <Setter Property="Text" Value="&#xe701;" />
+                                                <Setter Property="Text" Value="&#xe7cc;" />
                                             </DataTrigger>
                                             <DataTrigger TargetType="Label" Binding="{Binding IsSaved}" Value="False">
-                                                <Setter Property="Text" Value="&#xe71a;" />
+                                                <Setter Property="Text" Value="&#xe78a;" />
                                             </DataTrigger>
                                         </Label.Triggers>
                                         <Label.GestureRecognizers>

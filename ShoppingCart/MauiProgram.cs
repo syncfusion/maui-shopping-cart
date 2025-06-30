@@ -16,7 +16,7 @@ namespace ShoppingCart
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                    fonts.AddFont("ShoppingCartFontIcon.ttf", "ShoppingCartFontIcon");
+                    fonts.AddFont("MauiSampleFontIcon.ttf", "MauiSampleFontIcon");
                 });
 
 #if DEBUG

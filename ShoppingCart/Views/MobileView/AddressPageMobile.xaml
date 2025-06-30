@@ -20,7 +20,7 @@ HorizontalOptions="Fill"  />
                         <DataTemplate>
                             <VerticalStackLayout Padding="10" Spacing="15" >
                                 <HorizontalStackLayout Spacing="5">
-                                    <Label Text="&#xe708;" FontFamily="ShoppingCartFontIcon" VerticalTextAlignment="Center" 
+                                    <Label Text="&#xe76e;" FontFamily="MauiSampleFontIcon" VerticalTextAlignment="Center" 
                            TextColor="{AppThemeBinding Light={StaticResource ShoppingCartPlaceholderColorLight},Dark={StaticResource ShoppingCartPlaceholderColorDark}}"/>
                                     <Label Text="{Binding Title}" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"/>
                                 </HorizontalStackLayout>
@@ -37,7 +37,7 @@ HorizontalOptions="Fill"  />
                 </VerticalStackLayout>
                 <Border Grid.Row="3" StrokeShape="RoundRectangle 20" Padding="15" Margin="10,0" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartBorderAlt1Light},Dark={StaticResource ShoppingCartBorderAlt1Dark}}" >
                     <Grid  ColumnSpacing="10" ColumnDefinitions="Auto,*" HorizontalOptions="Center">
-                        <Label Text="&#xe707;" FontFamily="ShoppingCartFontIcon" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" 
+                        <Label Text="&#xe754;" FontFamily="MauiSampleFontIcon" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" 
          WidthRequest="20" HeightRequest="20" 
          VerticalOptions="Center" VerticalTextAlignment="Center"/>
                         <Label Text="Add new address" FontAttributes="Bold" Grid.Column="1" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" VerticalOptions="Center" />

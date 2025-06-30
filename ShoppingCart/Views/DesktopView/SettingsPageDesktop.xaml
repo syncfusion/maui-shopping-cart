@@ -49,13 +49,13 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Label Text="Settings" FontSize="20"  Margin="5,5,0,20" FontFamily="ShoppingCartFontIcon"
+        <Label Text="Settings" FontSize="20"  Margin="5,5,0,20" FontFamily="MauiSampleFontIcon"
            TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" />
 
         <VerticalStackLayout Spacing="10" Grid.Row="1" Padding="5" >
             <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                    <Label Text="&#xe704;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}"/>
+                    <Label Text="&#xe73e;  " FontFamily="MauiSampleFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}"/>
                     <Label Text="My Order" FontSize="16" VerticalTextAlignment="Center"
                        TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}">
                         <Label.GestureRecognizers>
@@ -67,7 +67,7 @@
 
             <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                    <Label Text="&#xe709;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
+                    <Label Text="&#xe75e;  " FontFamily="MauiSampleFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
                     <Label Text="Notifications" FontSize="16" VerticalTextAlignment="Center"
                        TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}">
                         <Label.GestureRecognizers>
@@ -79,7 +79,7 @@
 
             <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                    <Label Text="&#xe717;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
+                    <Label Text="&#xe786;  " FontFamily="MauiSampleFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
                     <Label Text="Payment Methods" FontSize="16" VerticalTextAlignment="Center"
                        TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" >
                         <Label.GestureRecognizers>
@@ -91,7 +91,7 @@
 
             <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                    <Label Text="&#xe708;  " FontFamily="ShoppingCartFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
+                    <Label Text="&#xe76e;  " FontFamily="MauiSampleFontIcon" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
                     <Label Text="Address" FontSize="16" VerticalTextAlignment="Center"
                        TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" >
                         <Label.GestureRecognizers>
@@ -103,7 +103,7 @@
 
             <effects:SfEffectsView HorizontalOptions="Start" WidthRequest="467" HeightRequest="48">
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                    <Label Text="&#xe716;  " FontFamily="ShoppingCartFontIcon" VerticalOptions="Center" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
+                    <Label Text="&#xe78e;  " FontFamily="MauiSampleFontIcon" VerticalOptions="Center" FontSize="24" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartIconColorLight}, Dark={StaticResource ShoppingCartIconColorDark}}" />
                     <Label Text="Dark mode" FontSize="16" VerticalOptions="Center" VerticalTextAlignment="Center"
                        TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight}, Dark={StaticResource ShoppingCartContentForegroundDark}}" />
                     <buttons:SfSwitch x:Name="sfSwitch" HorizontalOptions="EndAndExpand" VerticalOptions="Center" IsOn="True" Margin="200,0,0,0"
