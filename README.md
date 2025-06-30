@@ -39,12 +39,12 @@ This project uses the following Syncfusion controls:
 
 ## Screens
 
-**Windows**
+**Desktop View** 
 
 <img src="Images\home_pagedesktop.png" Width="600" />
 <img src="Images\cart_pagedesktop.png" Width="600" />
 
-**Android**
+**Mobile View**
 
 <img src="Images\home_pagemobile.png" Width="190" />  <img src="Images\filter_pagemobile.png" Width="190" />
 
