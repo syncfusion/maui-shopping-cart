@@ -5,7 +5,9 @@
              xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
-             Title="ProfilePageMobile">
+             Title="ProfilePageMobile"
+             xmlns:local="clr-namespace:ShoppingCart"
+             x:DataType="local:ShoppingCartViewModel">
 
     <ContentPage.Resources>
         <Style x:Key="textInputStyle" TargetType="core:SfTextInputLayout">
@@ -41,7 +43,7 @@
 
             <StackLayout  Spacing="10" Padding="15,65">
 
-                <core:SfTextInputLayout Hint="Name" x:Name="nameInput" HeightRequest="90"
+                <core:SfTextInputLayout Hint="Name" x:Name="nameInput" HeightRequest="90" ContainerBackground="Transparent"
                                 IsHintAlwaysFloated="true"
                                 ContainerType="Outlined"
                                 HorizontalOptions="Fill" Style="{StaticResource textInputStyle}">

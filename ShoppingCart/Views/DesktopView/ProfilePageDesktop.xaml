@@ -5,7 +5,9 @@
              xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
-             x:Class="ShoppingCart.ProfilePageDesktop">
+             x:Class="ShoppingCart.ProfilePageDesktop"
+             xmlns:local="clr-namespace:ShoppingCart"
+             x:DataType="local:ShoppingCartViewModel">
 
     <Grid>
 

@@ -77,12 +77,6 @@ namespace ShoppingCart
 
         public ObservableCollection<Address> Addresses { get; set; }
 
-        public class Address
-        {
-            public string? Title { get; set; }
-            public string? Description { get; set; }
-        }
-
         public UserProfile()
         {
             Addresses = new ObservableCollection<Address>
@@ -117,5 +111,11 @@ namespace ShoppingCart
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+    }
+
+    public class Address
+    {
+        public string? Title { get; set; }
+        public string? Description { get; set; }
     }
 }

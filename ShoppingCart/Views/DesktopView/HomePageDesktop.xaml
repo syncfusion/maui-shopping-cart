@@ -6,7 +6,9 @@
              xmlns:listview="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
-             BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}">
+             BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}"
+             xmlns:local="clr-namespace:ShoppingCart"
+             x:DataType="local:ShoppingCartViewModel">
     <ContentView.Resources>
         <Style TargetType="listview:ListViewItem">
             <Setter Property="VisualStateManager.VisualStateGroups">
@@ -96,7 +98,7 @@
             <rotator:SfRotator x:Name="rotatorView" ItemsSource="{Binding DesktopRotatorItems}" NavigationDirection="Horizontal"  DotPlacement="OutSide" NavigationStripMode="Dots" HeightRequest="178" DotsStroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" SelectedDotColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight}, Dark={StaticResource ShoppingCartFocusedStrokeDark}}"
                                BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}">
                 <rotator:SfRotator.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="local:SfRotatorItem">
                         <Border BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" StrokeShape="RoundRectangle 8" Padding="10" >
                             <HorizontalStackLayout Spacing="45">
                                 <Image Source="{Binding ImageSource}" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center"/>
@@ -126,7 +128,7 @@
                 </listview:SfListView.ItemsLayout>
 
                 <listview:SfListView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="local:Product">
                         <Border BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" StrokeShape="RoundRectangle 8"
                                 Style="{StaticResource BorderStyle}" StrokeThickness="0">
                             <StackLayout Padding="15,10,15,10">

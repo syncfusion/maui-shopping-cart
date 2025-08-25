@@ -5,6 +5,7 @@
              xmlns:popup="clr-namespace:Syncfusion.Maui.Toolkit.Popup;assembly=Syncfusion.Maui.Toolkit"
              x:Class="ShoppingCart.ProductPageDesktop"
              xmlns:local="clr-namespace:ShoppingCart"
+             x:DataType="local:Product"
              BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}">
 
     <ContentView.Resources>

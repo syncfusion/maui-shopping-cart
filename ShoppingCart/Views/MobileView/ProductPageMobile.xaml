@@ -5,7 +5,9 @@
              xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
              xmlns:popup="clr-namespace:Syncfusion.Maui.Toolkit.Popup;assembly=Syncfusion.Maui.Toolkit"
              NavigationPage.HasNavigationBar="False"
-             Title="ProductPageMobile">
+             Title="ProductPageMobile"
+             xmlns:local="clr-namespace:ShoppingCart"
+             x:DataType="local:Product">
 
     <!-- Product Details -->
     <Grid RowDefinitions="Auto,*,72" RowSpacing="15" Padding="20">

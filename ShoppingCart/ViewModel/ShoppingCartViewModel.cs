@@ -29,14 +29,6 @@ public class ShoppingCartViewModel : ContentPage
         }
     }
 
-    public class SfRotatorItem
-    {
-        public string? Title { get; set; }
-        public string? Subtitle { get; set; }
-        public string? Tagline {  get; set; }
-        public string? ImageSource { get; set; }
-    }
-
     public ShoppingCartViewModel()
     {
         GetUserProfileDetails();
@@ -194,4 +186,11 @@ public class ShoppingCartViewModel : ContentPage
             OrderedProducts.Add(product);
         }
     }
+}
+public class SfRotatorItem
+{
+    public string? Title { get; set; }
+    public string? Subtitle { get; set; }
+    public string? Tagline { get; set; }
+    public string? ImageSource { get; set; }
 }

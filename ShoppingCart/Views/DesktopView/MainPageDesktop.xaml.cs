@@ -254,9 +254,9 @@ namespace ShoppingCart
             searchlistGrid2.IsVisible = false;
         }
 
-        private void filteredResultsView_ItemTapped(object sender, ItemTappedEventArgs e) 
-         {
-            if (e.Item is Product tappedProduct) 
+        private void filteredResultsView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
+        {
+            if (e.DataItem is Product tappedProduct) 
             {
                 _productName = tappedProduct.Name != null ? tappedProduct.Name.ToString() : string.Empty;
                 shoppingCartViewModel.FilteredProducts?.Clear();
@@ -285,10 +285,10 @@ namespace ShoppingCart
             }
         }
 
-        private void recentsearch_ItemTapped(object sender, ItemTappedEventArgs e) 
+        private void recentsearch_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e) 
         {
             
-            if (e.Item is Product tappedProduct && shoppingCartViewModel != null) 
+            if (e.DataItem is Product tappedProduct && shoppingCartViewModel != null) 
             {
                 _productName = tappedProduct.Name != null ? tappedProduct.Name.ToString() : string.Empty;
                 shoppingCartViewModel.FilteredProducts?.Clear();
