@@ -3,11 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
+             xmlns:listview="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              x:Class="ShoppingCart.MainPageDesktop"
              xmlns:local="clr-namespace:ShoppingCart"
              NavigationPage.HasNavigationBar="False"
              NavigationPage.HasBackButton="False"
-             BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}">
+             BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}"
+             x:DataType="local:ShoppingCartViewModel">
 
     <ContentPage.BindingContext>
         <local:ShoppingCartViewModel/>
@@ -151,19 +153,19 @@
                                          Padding="-1">
 
                             <!--Filtered Results-->
-                            <ListView x:Name="filteredResultsView" 
+                        <listview:SfListView x:Name="filteredResultsView" 
                           ItemsSource="{Binding FilteredProducts}"
                           SelectionMode="Single"
                           IsVisible="False"
                           ItemTapped="filteredResultsView_ItemTapped">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
+                            <listview:SfListView.ItemTemplate>
+                                <DataTemplate x:DataType="local:Product">
                                         <ViewCell>
                                             <Label Text="{Binding Name }" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"  FontSize="14" Padding="10,5"/>
                                         </ViewCell>
                                     </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
+                                </listview:SfListView.ItemTemplate>
+                            </listview:SfListView>
                         </VerticalStackLayout>
                     </ScrollView>
                 </Grid>
@@ -223,19 +225,19 @@
                             </HorizontalStackLayout>
 
                             <!--Recent Search Items-->
-                            <ListView x:Name="recentsearch"
+                        <listview:SfListView x:Name="recentsearch"
                                       ItemsSource="{Binding RecentSearchedProducts}"
                                       SelectionMode="Single"
                                       IsVisible="False"
                                       ItemTapped="recentsearch_ItemTapped">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
+                            <listview:SfListView.ItemTemplate>
+                                <DataTemplate x:DataType="local:Product">
                                         <ViewCell>
                                             <Label Text="{Binding Name }" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}"  FontSize="16" Padding="10,5"/>
                                         </ViewCell>
                                     </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
+                                </listview:SfListView.ItemTemplate>
+                            </listview:SfListView>
 
                         </VerticalStackLayout>
                     </ScrollView>

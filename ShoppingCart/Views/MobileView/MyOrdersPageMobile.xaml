@@ -4,7 +4,8 @@
              x:Class="ShoppingCart.Views.MobileView.MyOrdersPageMobile"
              xmlns:listview="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
             xmlns:local="clr-namespace:ShoppingCart"
-             Title="MyOrdersPageMobile">
+             Title="MyOrdersPageMobile"
+             x:DataType="local:ShoppingCartViewModel">
 
     <ContentPage.Resources>
         <local:TagSeparateConverter x:Key="TagSeparateConverter"/>
@@ -63,7 +64,7 @@
                         <listview:GridLayout SpanCount="1" x:Name="listView"></listview:GridLayout>
                     </listview:SfListView.ItemsLayout>
                     <listview:SfListView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="local:Product">
                             <Border  BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" StrokeShape="RoundRectangle 8">
                                 <StackLayout>
                                     <Grid ColumnDefinitions="Auto,*,Auto" Padding="15" ColumnSpacing="10">

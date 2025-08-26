@@ -4,7 +4,8 @@
              xmlns:listview="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:local="clr-namespace:ShoppingCart"
              xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
-             x:Class="ShoppingCart.MyOrdersPageDesktop">
+             x:Class="ShoppingCart.MyOrdersPageDesktop"
+             x:DataType="local:ShoppingCartViewModel">
 
     <ContentView.Resources>
         <local:TagSeparateConverter x:Key="TagSeparateConverter"/>
@@ -110,7 +111,7 @@
         </HorizontalStackLayout>
         <listview:SfListView WidthRequest="800" Grid.Row="1" ItemsSource="{Binding OrderedProducts}"   SelectionMode="None" AutoFitMode="DynamicHeight" ItemSpacing="10" ScrollBarVisibility="Never" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
             <listview:SfListView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="local:Product">
                     <Border MinimumWidthRequest="450" BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" StrokeShape="RoundRectangle 8" Style="{StaticResource BorderStyle}" StrokeThickness="0">
                         <effects:SfEffectsView>
                             <StackLayout>

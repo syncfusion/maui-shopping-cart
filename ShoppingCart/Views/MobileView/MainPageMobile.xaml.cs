@@ -496,9 +496,9 @@ namespace ShoppingCart
             SetupPageContent(3, new ProfilePageMobile(shoppingCartViewModel, () => NavigateBackToProfile(3)), "Profile");
         }
 
-        private void filteredResultsView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private void filteredResultsView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
         {
-            if (e.Item is Product tappedProduct) {
+            if (e.DataItem is Product tappedProduct) {
                 var productpageMobile = new ProductPageMobile (shoppingCartViewModel) {
                     BindingContext = tappedProduct
                 };
@@ -520,9 +520,9 @@ namespace ShoppingCart
 
         }
 
-        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e) 
+        private void RecentSearchListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
         {
-            if (e.Item is Product tappedProduct) {
+            if (e.DataItem is Product tappedProduct) {
                 var productpageMobile = new ProductPageMobile (shoppingCartViewModel) {
                     BindingContext = tappedProduct
                 };
@@ -535,6 +535,7 @@ namespace ShoppingCart
         {
             tabView.SelectedIndex = 1;
         }
+
     }
 
 }

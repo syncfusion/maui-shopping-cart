@@ -10,7 +10,9 @@
              xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              x:Class="ShoppingCart.MainPageMobile"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}">
+             BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}"
+             xmlns:local="clr-namespace:ShoppingCart"
+             x:DataType="local:ShoppingCartViewModel">
     <ContentPage.Resources>
         <Style TargetType="tabview:SfTabItem">
             <Setter Property="VisualStateManager.VisualStateGroups">
@@ -39,7 +41,7 @@
             </Setter>
         </Style>
 
-        <Style TargetType="listview:ListViewItem">
+        <Style TargetType="listview:ListViewItem" x:Key="listviewstyle">
             <Setter Property="VisualStateManager.VisualStateGroups">
                 <VisualStateGroupList>
                     <VisualStateGroup>
@@ -171,7 +173,7 @@
                     <rotator:SfRotator x:Name="rotatorView" WidthRequest="{OnPlatform iOS=360}" ItemsSource="{Binding RotatorItems}" NavigationDirection="Horizontal" HeightRequest="120" DotPlacement="OutSide" NavigationStripMode="Dots" DotsStroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" SelectedDotColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight}, Dark={StaticResource ShoppingCartFocusedStrokeDark}}"
                                        BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundLightVariant},Dark={StaticResource ShoppingCartContentBackgroundDarkVariant}}">
                         <rotator:SfRotator.ItemTemplate>
-                            <DataTemplate>
+                            <DataTemplate x:DataType="local:SfRotatorItem">
                                 <Grid>
                                 <Border BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartFocusedStrokeLight},Dark={StaticResource ShoppingCartFocusedStrokeDark}}" StrokeShape="RoundRectangle 8" Padding="10">
                                     <HorizontalStackLayout Spacing="25">
@@ -208,12 +210,12 @@
                     <StackLayout >
                         <Grid x:Name="ProductScrollviewGrid" >
 
-                            <listview:SfListView ItemsSource="{Binding FilteredProducts}" ItemSize="250" SelectionMode="None" ScrollBarVisibility="Never" ItemTapped="SfListView_ItemTapped" ItemSpacing="5" ZIndex="0">
+                            <listview:SfListView ItemsSource="{Binding FilteredProducts}" ItemSize="250" SelectionMode="None" ScrollBarVisibility="Never" ItemTapped="SfListView_ItemTapped" ItemSpacing="5" ZIndex="0" Style="{StaticResource listviewstyle}">
                                 <listview:SfListView.ItemsLayout>
                                     <listview:GridLayout x:Name="listView" SpanCount="2" />
                                 </listview:SfListView.ItemsLayout>
                                 <listview:SfListView.ItemTemplate>
-                                    <DataTemplate>
+                                    <DataTemplate x:DataType="local:Product">
                                         <Border BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light},Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" StrokeShape="RoundRectangle 8" ZIndex="1">
                                             <StackLayout Padding="10" Spacing="10" >
                                                 <Grid ColumnDefinitions="*,auto" Padding="5">
@@ -304,20 +306,20 @@
                 </VerticalStackLayout>
 
                 <!-- Filtered Categories List Only (while typing) -->
-                <ListView x:Name="filteredResultsView"
+                <listview:SfListView x:Name="filteredResultsView" Style="{StaticResource listviewstyle}"
                 Grid.Row="2"
                 ItemsSource="{Binding FilteredProducts}"
                 SelectionMode="Single"
                 IsVisible="False"
                 ItemTapped="filteredResultsView_ItemTapped">
-                    <ListView.ItemTemplate> 
-                    <DataTemplate>
+                    <listview:SfListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Product">
                             <ViewCell>
                             <Label Text="{Binding Name}" FontSize="14" Padding="10,5"/>
                             </ViewCell>
                         </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                    </listview:SfListView.ItemTemplate>
+                </listview:SfListView>
                 
                 <!--Recent Searches View-->
                 <StackLayout Grid.Row="2" Spacing="10" IsVisible="False" x:Name="searchitem">
@@ -330,17 +332,17 @@
                         </Label>
                     </Grid>
 
-                    <ListView ItemsSource="{Binding RecentSearchedProducts}"
+                    <listview:SfListView ItemsSource="{Binding RecentSearchedProducts}"
                     SelectionMode="None"
-                    ItemTapped="ListView_ItemTapped">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
+                    ItemTapped="RecentSearchListView_ItemTapped" Style="{StaticResource listviewstyle}">
+                        <listview:SfListView.ItemTemplate>
+                            <DataTemplate x:DataType="local:Product">
                                 <ViewCell>
                                     <Label Text="{Binding Name}" FontSize="14" Padding="10,5"/>
                                 </ViewCell>
                             </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                        </listview:SfListView.ItemTemplate>
+                    </listview:SfListView>
                 </StackLayout>
             </Grid>
 
@@ -360,12 +362,12 @@
                         </Border>
                     <Label Text="Saved Items" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontSize="14" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"></Label>
                 </Grid>
-                <listview:SfListView ItemsSource="{Binding SavedProducts}"  SelectionMode="None" ScrollBarVisibility="Never" ItemSize="{OnPlatform Android=110,iOS=90}" ItemSpacing="5" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
+                <listview:SfListView ItemsSource="{Binding SavedProducts}"  SelectionMode="None" ScrollBarVisibility="Never" ItemSize="{OnPlatform Android=110,iOS=90}" ItemSpacing="5" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped" Style="{StaticResource listviewstyle}">
                     <listview:SfListView.ItemsLayout>
                         <listview:LinearLayout  x:Name="savedListView"></listview:LinearLayout>
                     </listview:SfListView.ItemsLayout>
                     <listview:SfListView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="local:Product">
                             <Border BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" StrokeShape="RoundRectangle 8"  HeightRequest="100">
                                 <Grid ColumnDefinitions="Auto,*" Padding="16,12,16,12">
                                     <Image Source="{Binding ImageUrl}" Grid.Row="0" Grid.Column="0" Margin="0,0,20,0" WidthRequest="72" HeightRequest="80"></Image>
@@ -495,12 +497,12 @@
                             </effects:SfEffectsView>
                             <Label Text="My Cart" TextColor="{AppThemeBinding Light={StaticResource ShoppingCartContentForegroundLight},Dark={StaticResource ShoppingCartContentForegroundDark}}" FontSize="14" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"></Label>
                         </Grid>
-                        <listview:SfListView ItemsSource="{Binding MyCartProducts}"  SelectionMode="None" ScrollBarVisibility="Never" ItemSpacing="10" AutoFitMode="DynamicHeight" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped">
+                        <listview:SfListView ItemsSource="{Binding MyCartProducts}"  SelectionMode="None" ScrollBarVisibility="Never" ItemSpacing="10" AutoFitMode="DynamicHeight" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" ItemTapped="SfListView_ItemTapped" Style="{StaticResource listviewstyle}">
                             <listview:SfListView.ItemsLayout>
                                 <listview:LinearLayout ></listview:LinearLayout>
                             </listview:SfListView.ItemsLayout>
                             <listview:SfListView.ItemTemplate>
-                                <DataTemplate>
+                                <DataTemplate x:DataType="local:Product">
                                     <Border BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" StrokeShape="RoundRectangle 8" >
                                         <Grid ColumnDefinitions="Auto,*" Padding="16,12,16,12">
                                             <Image Source="{Binding ImageUrl,Converter={StaticResource imageSourceConverter}}" Grid.Row="0" Grid.Column="0" Margin="0,0,20,0" WidthRequest="72" HeightRequest="80"></Image>

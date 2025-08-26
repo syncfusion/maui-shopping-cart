@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:listview="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:local="clr-namespace:ShoppingCart"
-             x:Class="ShoppingCart.SavedItemsPageDesktop">
+             x:Class="ShoppingCart.SavedItemsPageDesktop"
+             x:DataType="local:ShoppingCartViewModel">
 
 
     <ContentView.Resources>
@@ -99,7 +100,7 @@
                     <listview:LinearLayout  x:Name="listView"></listview:LinearLayout>
                 </listview:SfListView.ItemsLayout>
                 <listview:SfListView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="local:Product">
                         <Border BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt2Light}, Dark={StaticResource ShoppingCartContentBackgroundAlt2Dark}}" StrokeShape="RoundRectangle 8" HeightRequest="212" Style="{StaticResource BorderStyle}" StrokeThickness="0">
                             <Grid ColumnDefinitions="Auto,*"  Padding="24,24,16,24">
                                     <Image Source="{Binding ImageUrl}" Grid.Row="0" Grid.Column="0" Margin="0,0,16,0" WidthRequest="151" HeightRequest="140" VerticalOptions="Start"></Image>

@@ -2,7 +2,9 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
-             x:Class="ShoppingCart.AddressPageDesktop">
+             x:Class="ShoppingCart.AddressPageDesktop"
+             xmlns:local="clr-namespace:ShoppingCart"
+             x:DataType="local:UserProfile">
     <Grid Padding="10">
         <ScrollView>
             <VerticalStackLayout Spacing="20" >
@@ -33,7 +35,7 @@
                         <GridItemsLayout Orientation="Horizontal" Span="2" HorizontalItemSpacing="10" VerticalItemSpacing="10"/>
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="local:Address">
                             <Border BackgroundColor="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}" Stroke="{AppThemeBinding Light={StaticResource ShoppingCartContentBackgroundAlt1Light},Dark={StaticResource ShoppingCartContentBackgroundAlt1Dark}}"
                                     StrokeShape="RoundRectangle 10" HeightRequest="146" WidthRequest="328" Margin="5">
                                 <VerticalStackLayout Padding="10" Spacing="10">
