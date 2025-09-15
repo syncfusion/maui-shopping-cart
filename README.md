@@ -1,4 +1,4 @@
-# Create maui-shopping-cart application in .NET MAUI platform 
+# Create Shopping Cart application in .NET MAUI platform 
 
 The ShoppingCart is an online shopping application developed using Syncfusion’s .NET MAUI UI controls.
 
@@ -42,7 +42,6 @@ This project uses the following Syncfusion controls:
 **Desktop View** 
 
 <img src="Images\home_pagedesktop.png" Width="600" />
-<img src="Images\cart_pagedesktop.png" Width="600" />
 
 **Mobile View**
 
